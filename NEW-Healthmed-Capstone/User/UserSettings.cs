@@ -24,7 +24,7 @@ namespace NEW_Healthmed_Capstone.User
 
         private void UserSettings_Load(object sender, EventArgs e)
         {
-            MinimizeBox= false;
+            MaximizeBox = false;
         }
         private void openCon()
         {

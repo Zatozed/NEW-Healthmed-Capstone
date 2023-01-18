@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnFilemaintenance = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbRole = new System.Windows.Forms.Label();
@@ -60,6 +61,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnFilemaintenance);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -67,6 +69,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(252, 730);
             this.panel1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F);
+            this.button1.Location = new System.Drawing.Point(0, 202);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(248, 59);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "USER SETTINGS";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnFilemaintenance
             // 
@@ -370,5 +384,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button button1;
     }
 }

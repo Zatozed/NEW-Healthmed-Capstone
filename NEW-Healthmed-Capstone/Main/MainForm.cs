@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using NEW_Healthmed_Capstone.file_maintenance;
+using NEW_Healthmed_Capstone.User;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -109,6 +110,12 @@ namespace NEW_Healthmed_Capstone.Main
         {
             FileMaintenance fileMain = new FileMaintenance();
             fileMain.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            UserSettings userSet = new UserSettings();
+            userSet.ShowDialog();
         }
     }
 }

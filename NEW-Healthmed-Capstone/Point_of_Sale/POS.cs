@@ -27,5 +27,12 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
             // else if tab name non drugs
         }
 
+        private void dgvDrugs_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvDrugs.Columns[e.ColumnIndex].Name.Equals("colAdd"))
+            {
+                MessageBox.Show("add");
+            }
+        }
     }
 }

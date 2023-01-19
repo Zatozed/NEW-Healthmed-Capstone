@@ -213,6 +213,7 @@
             this.btnRegister.TabStop = false;
             this.btnRegister.Text = "REGISTER";
             this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // btnLogout
             // 

@@ -75,5 +75,11 @@ namespace NEW_Healthmed_Capstone.User
         {
             Application.Restart();
         }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            Registration reg = new Registration();
+            reg.ShowDialog();
+        }
     }
 }

@@ -43,7 +43,7 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("select product_code, product_name, classification, dosage, med_type, unit_cost, available_qty, in_stock_qty\r\nfrom tbl_products",
+                cmd = new MySqlCommand("select product_code , product_name, classification, dosage, med_type, unit_cost, unit_price, available_qty, in_stock_qty from tbl_products",
                 con);
                 dataAdapter = new MySqlDataAdapter(cmd);
                 dataAdapter.Fill(dt);

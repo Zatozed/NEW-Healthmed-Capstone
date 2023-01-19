@@ -77,6 +77,7 @@
             this.colClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnitCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAvailable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colInStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,11 +93,11 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.87148F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0572F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.00669F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.00669F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.05795F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.78923F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.78923F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.59604F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.59604F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.22949F));
             this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 10);
             this.tableLayoutPanel1.Controls.Add(this.label1, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label5, 4, 0);
@@ -151,9 +152,9 @@
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(829, 0);
+            this.label5.Location = new System.Drawing.Point(887, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(352, 41);
+            this.label5.Size = new System.Drawing.Size(294, 41);
             this.label5.TabIndex = 19;
             this.label5.Text = "USER:";
             // 
@@ -162,9 +163,9 @@
             this.lbDate.AutoSize = true;
             this.lbDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.lbDate.Location = new System.Drawing.Point(652, 0);
+            this.lbDate.Location = new System.Drawing.Point(738, 0);
             this.lbDate.Name = "lbDate";
-            this.lbDate.Size = new System.Drawing.Size(171, 41);
+            this.lbDate.Size = new System.Drawing.Size(143, 41);
             this.lbDate.TabIndex = 17;
             this.lbDate.Text = "DD/MM/YYYY";
             // 
@@ -175,7 +176,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.button1.Location = new System.Drawing.Point(3, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(466, 35);
+            this.button1.Size = new System.Drawing.Size(580, 35);
             this.button1.TabIndex = 15;
             this.button1.Text = "NEW TRANSACTION";
             this.button1.UseVisualStyleBackColor = true;
@@ -184,7 +185,7 @@
             // 
             this.lbTime.AutoSize = true;
             this.lbTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.lbTime.Location = new System.Drawing.Point(652, 41);
+            this.lbTime.Location = new System.Drawing.Point(738, 41);
             this.lbTime.Name = "lbTime";
             this.lbTime.Size = new System.Drawing.Size(38, 17);
             this.lbTime.TabIndex = 18;
@@ -220,7 +221,7 @@
             this.tControlProducts.Name = "tControlProducts";
             this.tableLayoutPanel1.SetRowSpan(this.tControlProducts, 6);
             this.tControlProducts.SelectedIndex = 0;
-            this.tControlProducts.Size = new System.Drawing.Size(466, 431);
+            this.tControlProducts.Size = new System.Drawing.Size(580, 431);
             this.tControlProducts.TabIndex = 21;
             // 
             // tabPharmaDrugs
@@ -229,13 +230,15 @@
             this.tabPharmaDrugs.Location = new System.Drawing.Point(4, 25);
             this.tabPharmaDrugs.Name = "tabPharmaDrugs";
             this.tabPharmaDrugs.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPharmaDrugs.Size = new System.Drawing.Size(458, 402);
+            this.tabPharmaDrugs.Size = new System.Drawing.Size(572, 402);
             this.tabPharmaDrugs.TabIndex = 0;
             this.tabPharmaDrugs.Text = "Pharmaceutical Drugs";
             this.tabPharmaDrugs.UseVisualStyleBackColor = true;
             // 
             // dgvDrugs
             // 
+            this.dgvDrugs.AllowUserToAddRows = false;
+            this.dgvDrugs.AllowUserToDeleteRows = false;
             this.dgvDrugs.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvDrugs.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -253,6 +256,7 @@
             this.colClass,
             this.colDosage,
             this.colType,
+            this.colUnitCost,
             this.colUnitPrice,
             this.colAvailable,
             this.colInStock,
@@ -270,17 +274,18 @@
             this.dgvDrugs.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvDrugs.Location = new System.Drawing.Point(3, 3);
             this.dgvDrugs.Name = "dgvDrugs";
+            this.dgvDrugs.ReadOnly = true;
             this.dgvDrugs.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgvDrugs.Size = new System.Drawing.Size(452, 396);
+            this.dgvDrugs.Size = new System.Drawing.Size(566, 396);
             this.dgvDrugs.TabIndex = 23;
             // 
             // tbSearch
             // 
             this.tbSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSearch.Location = new System.Drawing.Point(238, 85);
+            this.tbSearch.Location = new System.Drawing.Point(296, 85);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(231, 26);
+            this.tbSearch.Size = new System.Drawing.Size(287, 26);
             this.tbSearch.TabIndex = 22;
             this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
@@ -288,7 +293,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(652, 82);
+            this.label3.Location = new System.Drawing.Point(738, 82);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(111, 17);
             this.label3.TabIndex = 23;
@@ -327,11 +332,11 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvCart.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvCart.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dgvCart.Location = new System.Drawing.Point(475, 126);
+            this.dgvCart.Location = new System.Drawing.Point(589, 126);
             this.dgvCart.Name = "dgvCart";
             this.dgvCart.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.tableLayoutPanel1.SetRowSpan(this.dgvCart, 4);
-            this.dgvCart.Size = new System.Drawing.Size(706, 335);
+            this.dgvCart.Size = new System.Drawing.Size(592, 335);
             this.dgvCart.TabIndex = 24;
             // 
             // dataGridViewTextBoxColumn3
@@ -365,7 +370,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(238, 41);
+            this.label1.Location = new System.Drawing.Point(296, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(116, 17);
             this.label1.TabIndex = 25;
@@ -375,7 +380,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(475, 512);
+            this.label6.Location = new System.Drawing.Point(589, 512);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(68, 17);
             this.label6.TabIndex = 26;
@@ -387,9 +392,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.button3, 3);
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.button3.Location = new System.Drawing.Point(475, 467);
+            this.button3.Location = new System.Drawing.Point(589, 467);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(706, 35);
+            this.button3.Size = new System.Drawing.Size(592, 35);
             this.button3.TabIndex = 27;
             this.button3.Text = "CLEAR CART";
             this.button3.UseVisualStyleBackColor = true;
@@ -398,7 +403,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(475, 560);
+            this.label7.Location = new System.Drawing.Point(589, 560);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(69, 17);
             this.label7.TabIndex = 28;
@@ -408,7 +413,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(475, 704);
+            this.label8.Location = new System.Drawing.Point(589, 704);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 17);
             this.label8.TabIndex = 29;
@@ -418,7 +423,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(475, 608);
+            this.label9.Location = new System.Drawing.Point(589, 608);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(38, 17);
             this.label9.TabIndex = 30;
@@ -428,7 +433,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label10.Location = new System.Drawing.Point(475, 656);
+            this.label10.Location = new System.Drawing.Point(589, 656);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(94, 17);
             this.label10.TabIndex = 31;
@@ -438,7 +443,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label11.Location = new System.Drawing.Point(652, 512);
+            this.label11.Location = new System.Drawing.Point(738, 512);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(40, 17);
             this.label11.TabIndex = 32;
@@ -448,7 +453,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label12.Location = new System.Drawing.Point(652, 704);
+            this.label12.Location = new System.Drawing.Point(738, 704);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(40, 17);
             this.label12.TabIndex = 33;
@@ -458,7 +463,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label13.Location = new System.Drawing.Point(652, 656);
+            this.label13.Location = new System.Drawing.Point(738, 656);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(40, 17);
             this.label13.TabIndex = 34;
@@ -468,7 +473,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label14.Location = new System.Drawing.Point(652, 608);
+            this.label14.Location = new System.Drawing.Point(738, 608);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(40, 17);
             this.label14.TabIndex = 35;
@@ -478,7 +483,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label15.Location = new System.Drawing.Point(652, 560);
+            this.label15.Location = new System.Drawing.Point(738, 560);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(40, 17);
             this.label15.TabIndex = 36;
@@ -489,9 +494,9 @@
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.button2.Location = new System.Drawing.Point(829, 515);
+            this.button2.Location = new System.Drawing.Point(887, 515);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(352, 35);
+            this.button2.Size = new System.Drawing.Size(294, 35);
             this.button2.TabIndex = 37;
             this.button2.Text = "PAYMENT";
             this.button2.UseVisualStyleBackColor = true;
@@ -501,9 +506,9 @@
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.button4.Location = new System.Drawing.Point(829, 563);
+            this.button4.Location = new System.Drawing.Point(887, 563);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(352, 35);
+            this.button4.Size = new System.Drawing.Size(294, 35);
             this.button4.TabIndex = 38;
             this.button4.Text = "PRINT RECEIPT";
             this.button4.UseVisualStyleBackColor = true;
@@ -513,9 +518,9 @@
             this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.button5.Location = new System.Drawing.Point(829, 611);
+            this.button5.Location = new System.Drawing.Point(887, 611);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(352, 35);
+            this.button5.Size = new System.Drawing.Size(294, 35);
             this.button5.TabIndex = 39;
             this.button5.Text = "HOME";
             this.button5.UseVisualStyleBackColor = true;
@@ -565,7 +570,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.tableLayoutPanel1.SetRowSpan(this.dataGridView1, 3);
-            this.dataGridView1.Size = new System.Drawing.Size(466, 147);
+            this.dataGridView1.Size = new System.Drawing.Size(580, 147);
             this.dataGridView1.TabIndex = 41;
             // 
             // dataGridViewTextBoxColumn1
@@ -586,59 +591,94 @@
             // 
             // colProdCode
             // 
+            this.colProdCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colProdCode.DataPropertyName = "product_code";
             this.colProdCode.HeaderText = "Product Code";
             this.colProdCode.Name = "colProdCode";
+            this.colProdCode.ReadOnly = true;
+            this.colProdCode.Width = 120;
             // 
             // colProdName
             // 
-            this.colProdName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colProdName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colProdName.DataPropertyName = "product_name";
             this.colProdName.HeaderText = "Product Name";
             this.colProdName.Name = "colProdName";
+            this.colProdName.ReadOnly = true;
+            this.colProdName.Width = 124;
             // 
             // colClass
             // 
+            this.colClass.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colClass.DataPropertyName = "classification";
             this.colClass.HeaderText = "Classification";
             this.colClass.Name = "colClass";
+            this.colClass.ReadOnly = true;
+            this.colClass.Width = 129;
             // 
             // colDosage
             // 
+            this.colDosage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colDosage.DataPropertyName = "dosage";
             this.colDosage.HeaderText = "Dosage";
             this.colDosage.Name = "colDosage";
+            this.colDosage.ReadOnly = true;
+            this.colDosage.Width = 88;
             // 
             // colType
             // 
+            this.colType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colType.DataPropertyName = "med_type";
             this.colType.HeaderText = "Type";
             this.colType.Name = "colType";
+            this.colType.ReadOnly = true;
+            this.colType.Width = 69;
+            // 
+            // colUnitCost
+            // 
+            this.colUnitCost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colUnitCost.DataPropertyName = "unit_cost";
+            this.colUnitCost.HeaderText = "Unit Cost";
+            this.colUnitCost.Name = "colUnitCost";
+            this.colUnitCost.ReadOnly = true;
+            this.colUnitCost.Width = 91;
             // 
             // colUnitPrice
             // 
-            this.colUnitPrice.DataPropertyName = "unit_cost";
+            this.colUnitPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colUnitPrice.DataPropertyName = "unit_price";
             this.colUnitPrice.HeaderText = "Unit Price";
             this.colUnitPrice.Name = "colUnitPrice";
+            this.colUnitPrice.ReadOnly = true;
+            this.colUnitPrice.Width = 96;
             // 
             // colAvailable
             // 
+            this.colAvailable.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colAvailable.DataPropertyName = "available_qty";
             this.colAvailable.HeaderText = "Available";
             this.colAvailable.Name = "colAvailable";
+            this.colAvailable.ReadOnly = true;
+            this.colAvailable.Width = 99;
             // 
             // colInStock
             // 
+            this.colInStock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colInStock.DataPropertyName = "in_stock_qty";
             this.colInStock.HeaderText = "In Stock";
             this.colInStock.Name = "colInStock";
+            this.colInStock.ReadOnly = true;
+            this.colInStock.Width = 84;
             // 
             // colAdd
             // 
-            this.colAdd.HeaderText = "add";
+            this.colAdd.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colAdd.HeaderText = "";
             this.colAdd.Name = "colAdd";
+            this.colAdd.ReadOnly = true;
+            this.colAdd.Text = "add";
             this.colAdd.UseColumnTextForButtonValue = true;
-            this.colAdd.Width = 25;
+            this.colAdd.Width = 5;
             // 
             // POS
             // 
@@ -706,6 +746,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colClass;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDosage;
         private System.Windows.Forms.DataGridViewTextBoxColumn colType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colUnitCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUnitPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAvailable;
         private System.Windows.Forms.DataGridViewTextBoxColumn colInStock;

@@ -18,6 +18,7 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
             lbTime.Text = DateTime.Now.ToString("hh:mm tt");
             //dgvDrugs.AutoGenerateColumns = false;
             dgvDrugs.DataSource = dbh.ShowProductList();
+            //dgvDrugs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
         private void tbSearch_TextChanged(object sender, EventArgs e)

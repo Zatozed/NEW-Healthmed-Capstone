@@ -16,7 +16,8 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
         {
             lbDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
             lbTime.Text = DateTime.Now.ToString("hh:mm tt");
-            dgvDrugs.DataSource= dbh.ShowProductList();
+            //dgvDrugs.AutoGenerateColumns = false;
+            dgvDrugs.DataSource = dbh.ShowProductList();
         }
 
         private void tbSearch_TextChanged(object sender, EventArgs e)

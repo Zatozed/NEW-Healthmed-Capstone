@@ -44,11 +44,6 @@
             this.tControlProducts = new System.Windows.Forms.TabControl();
             this.tabPharmaDrugs = new System.Windows.Forms.TabPage();
             this.dgvDrugs = new System.Windows.Forms.DataGridView();
-            this.Product_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product_Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quanty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Add = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvCart = new System.Windows.Forms.DataGridView();
@@ -77,6 +72,15 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProdCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAvailable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colInStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAdd = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tControlProducts.SuspendLayout();
             this.tabPharmaDrugs.SuspendLayout();
@@ -244,11 +248,15 @@
             this.dgvDrugs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDrugs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDrugs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Product_Name,
-            this.Product_Description,
-            this.Unit_Price,
-            this.Quanty,
-            this.Add});
+            this.colProdCode,
+            this.colProdName,
+            this.colClass,
+            this.colDosage,
+            this.colType,
+            this.colUnitPrice,
+            this.colAvailable,
+            this.colInStock,
+            this.colAdd});
             this.dgvDrugs.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
@@ -265,33 +273,6 @@
             this.dgvDrugs.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvDrugs.Size = new System.Drawing.Size(452, 396);
             this.dgvDrugs.TabIndex = 23;
-            // 
-            // Product_Name
-            // 
-            this.Product_Name.HeaderText = "Product Code";
-            this.Product_Name.Name = "Product_Name";
-            // 
-            // Product_Description
-            // 
-            this.Product_Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Product_Description.HeaderText = "Product";
-            this.Product_Description.Name = "Product_Description";
-            // 
-            // Unit_Price
-            // 
-            this.Unit_Price.HeaderText = "Unit Price";
-            this.Unit_Price.Name = "Unit_Price";
-            // 
-            // Quanty
-            // 
-            this.Quanty.HeaderText = "Quantity";
-            this.Quanty.Name = "Quanty";
-            // 
-            // Add
-            // 
-            this.Add.HeaderText = "";
-            this.Add.Name = "Add";
-            this.Add.Width = 25;
             // 
             // tbSearch
             // 
@@ -603,6 +584,62 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "Cost";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
+            // colProdCode
+            // 
+            this.colProdCode.DataPropertyName = "product_code";
+            this.colProdCode.HeaderText = "Product Code";
+            this.colProdCode.Name = "colProdCode";
+            // 
+            // colProdName
+            // 
+            this.colProdName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colProdName.DataPropertyName = "product_name";
+            this.colProdName.HeaderText = "Product Name";
+            this.colProdName.Name = "colProdName";
+            // 
+            // colClass
+            // 
+            this.colClass.DataPropertyName = "classification";
+            this.colClass.HeaderText = "Classification";
+            this.colClass.Name = "colClass";
+            // 
+            // colDosage
+            // 
+            this.colDosage.DataPropertyName = "dosage";
+            this.colDosage.HeaderText = "Dosage";
+            this.colDosage.Name = "colDosage";
+            // 
+            // colType
+            // 
+            this.colType.DataPropertyName = "med_type";
+            this.colType.HeaderText = "Type";
+            this.colType.Name = "colType";
+            // 
+            // colUnitPrice
+            // 
+            this.colUnitPrice.DataPropertyName = "unit_cost";
+            this.colUnitPrice.HeaderText = "Unit Price";
+            this.colUnitPrice.Name = "colUnitPrice";
+            // 
+            // colAvailable
+            // 
+            this.colAvailable.DataPropertyName = "available_qty";
+            this.colAvailable.HeaderText = "Available";
+            this.colAvailable.Name = "colAvailable";
+            // 
+            // colInStock
+            // 
+            this.colInStock.DataPropertyName = "in_stock_qty";
+            this.colInStock.HeaderText = "In Stock";
+            this.colInStock.Name = "colInStock";
+            // 
+            // colAdd
+            // 
+            this.colAdd.HeaderText = "add";
+            this.colAdd.Name = "colAdd";
+            this.colAdd.UseColumnTextForButtonValue = true;
+            this.colAdd.Width = 25;
+            // 
             // POS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -637,11 +674,6 @@
         private System.Windows.Forms.TabPage tabPharmaDrugs;
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.DataGridView dgvDrugs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Product_Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Product_Description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Unit_Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quanty;
-        private System.Windows.Forms.DataGridViewButtonColumn Add;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvCart;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -669,5 +701,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProdCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProdName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colClass;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDosage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colUnitPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAvailable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colInStock;
+        private System.Windows.Forms.DataGridViewButtonColumn colAdd;
     }
 }

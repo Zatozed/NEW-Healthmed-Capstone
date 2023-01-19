@@ -263,7 +263,6 @@
             this.dgvDrugs.Location = new System.Drawing.Point(3, 3);
             this.dgvDrugs.Name = "dgvDrugs";
             this.dgvDrugs.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgvDrugs.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvDrugs.Size = new System.Drawing.Size(452, 396);
             this.dgvDrugs.TabIndex = 23;
             // 
@@ -351,7 +350,6 @@
             this.dgvCart.Name = "dgvCart";
             this.dgvCart.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.tableLayoutPanel1.SetRowSpan(this.dgvCart, 4);
-            this.dgvCart.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvCart.Size = new System.Drawing.Size(706, 335);
             this.dgvCart.TabIndex = 24;
             // 
@@ -586,7 +584,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.tableLayoutPanel1.SetRowSpan(this.dataGridView1, 3);
-            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView1.Size = new System.Drawing.Size(466, 147);
             this.dataGridView1.TabIndex = 41;
             // 

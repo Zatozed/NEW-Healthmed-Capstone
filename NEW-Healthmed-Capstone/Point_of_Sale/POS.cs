@@ -1,10 +1,12 @@
-﻿using System;
+﻿using NEW_Healthmed_Capstone.DBhelperFolder;
+using System;
 using System.Windows.Forms;
 
 namespace NEW_Healthmed_Capstone.Point_of_Sale
 {
     public partial class POS : Form
     {
+        DBhelperClass dbh = new DBhelperClass();
         public POS()
         {
             InitializeComponent();
@@ -14,6 +16,7 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
         {
             lbDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
             lbTime.Text = DateTime.Now.ToString("hh:mm tt");
+            dgvDrugs.DataSource= dbh.ShowProductList();
         }
 
         private void tbSearch_TextChanged(object sender, EventArgs e)

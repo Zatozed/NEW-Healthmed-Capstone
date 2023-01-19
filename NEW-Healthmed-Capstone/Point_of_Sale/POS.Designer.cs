@@ -59,6 +59,15 @@
             this.colAdd = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.dgvCart = new System.Windows.Forms.DataGridView();
+            this.colProdCodeCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colItemCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQtyCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnitCostCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnitPriceCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDiscountCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMinus1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colPlus1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colCBDiscountCart = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.label16 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -70,21 +79,13 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnClearCart = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lbDate = new System.Windows.Forms.Label();
             this.lbTime = new System.Windows.Forms.Label();
-            this.colProdCodeCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colItemCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQtyCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnitCostCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnitPriceCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMinus1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.colPlus1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.colDiscountCart = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tControlProducts.SuspendLayout();
@@ -121,7 +122,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label14, 3, 10);
             this.tableLayoutPanel1.Controls.Add(this.label15, 3, 9);
             this.tableLayoutPanel1.Controls.Add(this.label11, 3, 8);
-            this.tableLayoutPanel1.Controls.Add(this.button3, 2, 7);
+            this.tableLayoutPanel1.Controls.Add(this.btnClearCart, 2, 7);
             this.tableLayoutPanel1.Controls.Add(this.button5, 4, 10);
             this.tableLayoutPanel1.Controls.Add(this.button4, 4, 9);
             this.tableLayoutPanel1.Controls.Add(this.button2, 4, 8);
@@ -454,9 +455,10 @@
             this.colQtyCart,
             this.colUnitCostCart,
             this.colUnitPriceCart,
+            this.colDiscountCart,
             this.colMinus1,
             this.colPlus1,
-            this.colDiscountCart});
+            this.colCBDiscountCart});
             this.tableLayoutPanel1.SetColumnSpan(this.dgvCart, 3);
             this.dgvCart.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -474,8 +476,85 @@
             this.tableLayoutPanel1.SetRowSpan(this.dgvCart, 4);
             this.dgvCart.Size = new System.Drawing.Size(592, 335);
             this.dgvCart.TabIndex = 24;
+            this.dgvCart.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCart_CellClick);
             this.dgvCart.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCart_CellContentClick);
             this.dgvCart.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCart_CellValueChanged);
+            this.dgvCart.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvCart_EditingControlShowing);
+            // 
+            // colProdCodeCart
+            // 
+            this.colProdCodeCart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colProdCodeCart.HeaderText = "Product Code";
+            this.colProdCodeCart.Name = "colProdCodeCart";
+            this.colProdCodeCart.ReadOnly = true;
+            this.colProdCodeCart.Width = 120;
+            // 
+            // colItemCart
+            // 
+            this.colItemCart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colItemCart.HeaderText = "Item";
+            this.colItemCart.Name = "colItemCart";
+            this.colItemCart.ReadOnly = true;
+            this.colItemCart.Width = 63;
+            // 
+            // colQtyCart
+            // 
+            this.colQtyCart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colQtyCart.HeaderText = "Quantity";
+            this.colQtyCart.Name = "colQtyCart";
+            this.colQtyCart.Width = 94;
+            // 
+            // colUnitCostCart
+            // 
+            this.colUnitCostCart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colUnitCostCart.HeaderText = "Unit Cost";
+            this.colUnitCostCart.Name = "colUnitCostCart";
+            this.colUnitCostCart.ReadOnly = true;
+            this.colUnitCostCart.Visible = false;
+            // 
+            // colUnitPriceCart
+            // 
+            this.colUnitPriceCart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colUnitPriceCart.HeaderText = "Unit Price";
+            this.colUnitPriceCart.Name = "colUnitPriceCart";
+            this.colUnitPriceCart.ReadOnly = true;
+            this.colUnitPriceCart.Width = 96;
+            // 
+            // colDiscountCart
+            // 
+            this.colDiscountCart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colDiscountCart.HeaderText = "Discount";
+            this.colDiscountCart.Name = "colDiscountCart";
+            this.colDiscountCart.Width = 96;
+            // 
+            // colMinus1
+            // 
+            this.colMinus1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colMinus1.HeaderText = "";
+            this.colMinus1.Name = "colMinus1";
+            this.colMinus1.Text = "-";
+            this.colMinus1.UseColumnTextForButtonValue = true;
+            this.colMinus1.Width = 5;
+            // 
+            // colPlus1
+            // 
+            this.colPlus1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colPlus1.HeaderText = "";
+            this.colPlus1.Name = "colPlus1";
+            this.colPlus1.Text = "+";
+            this.colPlus1.UseColumnTextForButtonValue = true;
+            this.colPlus1.Width = 5;
+            // 
+            // colCBDiscountCart
+            // 
+            this.colCBDiscountCart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colCBDiscountCart.HeaderText = "Discount";
+            this.colCBDiscountCart.Items.AddRange(new object[] {
+            "discount 1",
+            "2",
+            "3"});
+            this.colCBDiscountCart.Name = "colCBDiscountCart";
+            this.colCBDiscountCart.Width = 77;
             // 
             // label16
             // 
@@ -597,18 +676,19 @@
             this.label11.Text = "0.00";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // button3
+            // btnClearCart
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnClearCart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.SetColumnSpan(this.button3, 3);
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.button3.Location = new System.Drawing.Point(589, 467);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(592, 35);
-            this.button3.TabIndex = 27;
-            this.button3.Text = "CLEAR CART";
-            this.button3.UseVisualStyleBackColor = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.btnClearCart, 3);
+            this.btnClearCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.btnClearCart.Location = new System.Drawing.Point(589, 467);
+            this.btnClearCart.Name = "btnClearCart";
+            this.btnClearCart.Size = new System.Drawing.Size(592, 35);
+            this.btnClearCart.TabIndex = 27;
+            this.btnClearCart.Text = "CLEAR CART";
+            this.btnClearCart.UseVisualStyleBackColor = true;
+            this.btnClearCart.Click += new System.EventHandler(this.btnClearCart_Click);
             // 
             // button5
             // 
@@ -682,72 +762,6 @@
             this.lbTime.Text = "time";
             this.lbTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // colProdCodeCart
-            // 
-            this.colProdCodeCart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colProdCodeCart.HeaderText = "Product Code";
-            this.colProdCodeCart.Name = "colProdCodeCart";
-            this.colProdCodeCart.ReadOnly = true;
-            this.colProdCodeCart.Width = 120;
-            // 
-            // colItemCart
-            // 
-            this.colItemCart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colItemCart.HeaderText = "Item";
-            this.colItemCart.Name = "colItemCart";
-            this.colItemCart.ReadOnly = true;
-            this.colItemCart.Width = 63;
-            // 
-            // colQtyCart
-            // 
-            this.colQtyCart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colQtyCart.HeaderText = "Quantity";
-            this.colQtyCart.Name = "colQtyCart";
-            this.colQtyCart.Width = 94;
-            // 
-            // colUnitCostCart
-            // 
-            this.colUnitCostCart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colUnitCostCart.HeaderText = "Unit Cost";
-            this.colUnitCostCart.Name = "colUnitCostCart";
-            this.colUnitCostCart.ReadOnly = true;
-            this.colUnitCostCart.Width = 91;
-            // 
-            // colUnitPriceCart
-            // 
-            this.colUnitPriceCart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colUnitPriceCart.HeaderText = "Unit Price";
-            this.colUnitPriceCart.Name = "colUnitPriceCart";
-            this.colUnitPriceCart.ReadOnly = true;
-            this.colUnitPriceCart.Width = 96;
-            // 
-            // colMinus1
-            // 
-            this.colMinus1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colMinus1.HeaderText = "";
-            this.colMinus1.Name = "colMinus1";
-            this.colMinus1.Text = "-";
-            this.colMinus1.UseColumnTextForButtonValue = true;
-            this.colMinus1.Width = 5;
-            // 
-            // colPlus1
-            // 
-            this.colPlus1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colPlus1.HeaderText = "";
-            this.colPlus1.Name = "colPlus1";
-            this.colPlus1.Text = "+";
-            this.colPlus1.UseColumnTextForButtonValue = true;
-            this.colPlus1.Width = 5;
-            // 
-            // colDiscountCart
-            // 
-            this.colDiscountCart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colDiscountCart.HeaderText = "Discount";
-            this.colDiscountCart.Items.AddRange(new object[] {
-            "discount 1"});
-            this.colDiscountCart.Name = "colDiscountCart";
-            this.colDiscountCart.Width = 77;
-            // 
             // POS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -788,7 +802,7 @@
         private System.Windows.Forms.DataGridView dgvCart;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnClearCart;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
@@ -821,8 +835,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colQtyCart;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUnitCostCart;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUnitPriceCart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDiscountCart;
         private System.Windows.Forms.DataGridViewButtonColumn colMinus1;
         private System.Windows.Forms.DataGridViewButtonColumn colPlus1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn colDiscountCart;
+        private System.Windows.Forms.DataGridViewComboBoxColumn colCBDiscountCart;
     }
 }

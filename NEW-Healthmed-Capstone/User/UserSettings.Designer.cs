@@ -55,9 +55,8 @@
             this.lbEmail.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F);
             this.lbEmail.Location = new System.Drawing.Point(245, 310);
             this.lbEmail.Name = "lbEmail";
-            this.lbEmail.Size = new System.Drawing.Size(87, 24);
+            this.lbEmail.Size = new System.Drawing.Size(0, 24);
             this.lbEmail.TabIndex = 11;
-            this.lbEmail.Text = "LabelEmail";
             // 
             // label6
             // 
@@ -88,9 +87,8 @@
             this.lbContactNum.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F);
             this.lbContactNum.Location = new System.Drawing.Point(245, 276);
             this.lbContactNum.Name = "lbContactNum";
-            this.lbContactNum.Size = new System.Drawing.Size(158, 24);
+            this.lbContactNum.Size = new System.Drawing.Size(0, 24);
             this.lbContactNum.TabIndex = 10;
-            this.lbContactNum.Text = "LabelContactNumber";
             // 
             // label4
             // 
@@ -121,9 +119,8 @@
             this.lbLastname.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F);
             this.lbLastname.Location = new System.Drawing.Point(245, 241);
             this.lbLastname.Name = "lbLastname";
-            this.lbLastname.Size = new System.Drawing.Size(118, 24);
+            this.lbLastname.Size = new System.Drawing.Size(0, 24);
             this.lbLastname.TabIndex = 9;
-            this.lbLastname.Text = "LabelLastName";
             // 
             // lable
             // 
@@ -154,9 +151,8 @@
             this.lbFirstname.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F);
             this.lbFirstname.Location = new System.Drawing.Point(245, 207);
             this.lbFirstname.Name = "lbFirstname";
-            this.lbFirstname.Size = new System.Drawing.Size(118, 24);
+            this.lbFirstname.Size = new System.Drawing.Size(0, 24);
             this.lbFirstname.TabIndex = 8;
-            this.lbFirstname.Text = "LabelFirstName";
             // 
             // lbUsername
             // 
@@ -165,9 +161,8 @@
             this.lbUsername.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F);
             this.lbUsername.Location = new System.Drawing.Point(245, 173);
             this.lbUsername.Name = "lbUsername";
-            this.lbUsername.Size = new System.Drawing.Size(119, 24);
+            this.lbUsername.Size = new System.Drawing.Size(0, 24);
             this.lbUsername.TabIndex = 7;
-            this.lbUsername.Text = "LabelUserName";
             // 
             // panel1
             // 

@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using NEW_Healthmed_Capstone.file_maintenance;
 using NEW_Healthmed_Capstone.Inv;
+using NEW_Healthmed_Capstone.Point_of_Sale;
 using NEW_Healthmed_Capstone.User;
 using System;
 using System.Collections.Generic;
@@ -122,7 +123,14 @@ namespace NEW_Healthmed_Capstone.Main
         private void btnInventory_Click(object sender, EventArgs e)
         {
            inventory inv = new inventory();
-            inv.ShowDialog();
+           inv.Show();
+           this.Close();
+        }
+
+        private void btnPOS_Click(object sender, EventArgs e)
+        {
+            POS1 pos = new POS1();
+            pos.ShowDialog();
         }
     }
 }

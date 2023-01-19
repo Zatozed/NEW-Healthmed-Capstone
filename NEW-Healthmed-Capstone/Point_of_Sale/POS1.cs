@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace NEW_Healthmed_Capstone.Inv
+namespace NEW_Healthmed_Capstone.Point_of_Sale
 {
-    public partial class Purchase_Order : Form
+    public partial class POS1 : Form
     {
-        public Purchase_Order()
+        public POS1()
         {
             InitializeComponent();
-        }
-
-        private void Purchase_Order_Load(object sender, EventArgs e)
-        {
-            this.FormBorderStyle = FormBorderStyle.None;
         }
     }
 }

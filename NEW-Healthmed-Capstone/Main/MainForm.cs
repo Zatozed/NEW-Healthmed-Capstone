@@ -129,8 +129,8 @@ namespace NEW_Healthmed_Capstone.Main
 
         private void btnPOS_Click(object sender, EventArgs e)
         {
-            POS1 pos1 = new POS1();
-            pos1.ShowDialog();
+            //POS1 pos1 = new POS1();
+            //pos1.ShowDialog();
 
             POS pos = new POS();
             pos.ShowDialog();

@@ -81,5 +81,11 @@ namespace NEW_Healthmed_Capstone.User
             Registration reg = new Registration();
             reg.ShowDialog();
         }
+
+        private void btnUserList_Click(object sender, EventArgs e)
+        {
+            userList userL = new userList();
+            userL.ShowDialog();
+        }
     }
 }

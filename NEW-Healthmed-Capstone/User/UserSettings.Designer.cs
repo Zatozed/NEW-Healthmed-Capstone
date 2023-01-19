@@ -44,6 +44,7 @@
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnUserList = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -188,7 +189,7 @@
             // 
             this.btnInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnInfo.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F);
-            this.btnInfo.Location = new System.Drawing.Point(147, 114);
+            this.btnInfo.Location = new System.Drawing.Point(147, 107);
             this.btnInfo.Name = "btnInfo";
             this.btnInfo.Size = new System.Drawing.Size(135, 42);
             this.btnInfo.TabIndex = 15;
@@ -201,7 +202,7 @@
             // 
             this.btnRegister.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnRegister.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F);
-            this.btnRegister.Location = new System.Drawing.Point(147, 198);
+            this.btnRegister.Location = new System.Drawing.Point(147, 223);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(135, 42);
             this.btnRegister.TabIndex = 13;
@@ -214,7 +215,7 @@
             // 
             this.btnLogout.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnLogout.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F);
-            this.btnLogout.Location = new System.Drawing.Point(147, 284);
+            this.btnLogout.Location = new System.Drawing.Point(147, 276);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(135, 39);
             this.btnLogout.TabIndex = 14;
@@ -225,6 +226,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btnUserList);
             this.panel3.Controls.Add(this.btnInfo);
             this.panel3.Controls.Add(this.btnRegister);
             this.panel3.Controls.Add(this.btnLogout);
@@ -235,6 +237,19 @@
             this.panel3.Size = new System.Drawing.Size(425, 450);
             this.panel3.TabIndex = 16;
             // 
+            // btnUserList
+            // 
+            this.btnUserList.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnUserList.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F);
+            this.btnUserList.Location = new System.Drawing.Point(147, 164);
+            this.btnUserList.Name = "btnUserList";
+            this.btnUserList.Size = new System.Drawing.Size(135, 42);
+            this.btnUserList.TabIndex = 16;
+            this.btnUserList.TabStop = false;
+            this.btnUserList.Text = "USER LIST";
+            this.btnUserList.UseVisualStyleBackColor = true;
+            this.btnUserList.Click += new System.EventHandler(this.btnUserList_Click);
+            // 
             // UserSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,6 +257,7 @@
             this.ClientSize = new System.Drawing.Size(895, 450);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "UserSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UserSettings";
@@ -271,5 +287,6 @@
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button btnUserList;
     }
 }

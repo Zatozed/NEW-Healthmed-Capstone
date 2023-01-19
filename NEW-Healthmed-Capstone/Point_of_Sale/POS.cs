@@ -32,7 +32,8 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
             if (dgvDrugs.Columns[e.ColumnIndex].Name.Equals("colAdd"))
             {
 
-                dgvCart.Rows.Add(dgvDrugs.Rows[e.RowIndex].Cells["colProdCode"].Value.ToString()
+                dgvCart.Rows.Add(dgvDrugs.Rows[e.RowIndex].Cells["colProdCode"].Value.ToString(),
+                    dgvDrugs.Rows[e.RowIndex].Cells["colProdName"].Value.ToString()+" "+ dgvDrugs.Rows[e.RowIndex].Cells["colDosage"].Value.ToString()
                     );
 
                 MessageBox.Show("add");

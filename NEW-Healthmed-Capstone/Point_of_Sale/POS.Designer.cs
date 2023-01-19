@@ -306,6 +306,7 @@
             // 
             // dgvCart
             // 
+            this.dgvCart.AllowUserToAddRows = false;
             this.dgvCart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -342,6 +343,7 @@
             this.dgvCart.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvCart.Location = new System.Drawing.Point(589, 126);
             this.dgvCart.Name = "dgvCart";
+            this.dgvCart.ReadOnly = true;
             this.dgvCart.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.tableLayoutPanel1.SetRowSpan(this.dgvCart, 4);
             this.dgvCart.Size = new System.Drawing.Size(592, 335);
@@ -667,6 +669,7 @@
             this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dataGridViewTextBoxColumn3.HeaderText = "Product Code";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             this.dataGridViewTextBoxColumn3.Width = 120;
             // 
             // dataGridViewTextBoxColumn5
@@ -674,6 +677,7 @@
             this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn5.HeaderText = "Item";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             this.dataGridViewTextBoxColumn5.Width = 63;
             // 
             // dataGridViewTextBoxColumn7
@@ -681,6 +685,7 @@
             this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.dataGridViewTextBoxColumn7.HeaderText = "Quantity";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
             this.dataGridViewTextBoxColumn7.Width = 94;
             // 
             // colUnitPriceCart
@@ -688,6 +693,7 @@
             this.colUnitPriceCart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.colUnitPriceCart.HeaderText = "Unit Cost";
             this.colUnitPriceCart.Name = "colUnitPriceCart";
+            this.colUnitPriceCart.ReadOnly = true;
             this.colUnitPriceCart.Width = 91;
             // 
             // dataGridViewTextBoxColumn6
@@ -695,6 +701,7 @@
             this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn6.HeaderText = "Unit Price";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             this.dataGridViewTextBoxColumn6.Width = 96;
             // 
             // colMinus1
@@ -702,18 +709,20 @@
             this.colMinus1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.colMinus1.HeaderText = "";
             this.colMinus1.Name = "colMinus1";
+            this.colMinus1.ReadOnly = true;
             this.colMinus1.Text = "-";
             this.colMinus1.UseColumnTextForButtonValue = true;
-            this.colMinus1.Width = 25;
+            this.colMinus1.Width = 5;
             // 
             // colPlus1
             // 
             this.colPlus1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.colPlus1.HeaderText = "";
             this.colPlus1.Name = "colPlus1";
+            this.colPlus1.ReadOnly = true;
             this.colPlus1.Text = "+";
             this.colPlus1.UseColumnTextForButtonValue = true;
-            this.colPlus1.Width = 25;
+            this.colPlus1.Width = 5;
             // 
             // colDiscountCart
             // 
@@ -722,6 +731,7 @@
             this.colDiscountCart.Items.AddRange(new object[] {
             "discount 1"});
             this.colDiscountCart.Name = "colDiscountCart";
+            this.colDiscountCart.ReadOnly = true;
             this.colDiscountCart.Width = 77;
             // 
             // POS
@@ -734,7 +744,7 @@
             this.Name = "POS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "POS";
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.POS_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

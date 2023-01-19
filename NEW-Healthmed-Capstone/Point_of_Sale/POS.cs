@@ -81,5 +81,10 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                 dgvCart.Rows[e.RowIndex].Cells["colQtyCart"].Value = Convert.ToInt32(dgvCart.Rows[e.RowIndex].Cells["colQtyCart"].Value.ToString()) + 1;
             }
         }
+
+        private void dgvCart_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

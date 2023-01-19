@@ -69,11 +69,12 @@
             this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel6.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -85,6 +86,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel6
@@ -353,9 +355,8 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.panel7);
-            this.panel2.Controls.Add(this.panel9);
-            this.panel2.Controls.Add(this.panel8);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(500, 80);
             this.panel2.Name = "panel2";
@@ -460,13 +461,12 @@
             // 
             // panel9
             // 
-            this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel9.Controls.Add(this.label7);
-            this.panel9.Location = new System.Drawing.Point(467, 450);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel9.Location = new System.Drawing.Point(464, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(399, 215);
+            this.panel9.Size = new System.Drawing.Size(398, 216);
             this.panel9.TabIndex = 27;
             // 
             // label7
@@ -481,42 +481,17 @@
             this.label7.TabIndex = 3;
             this.label7.Text = "GRAND TOTAL";
             // 
-            // button4
-            // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F);
-            this.button4.Location = new System.Drawing.Point(120, 98);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(248, 35);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "PRINT RECEIPT";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F);
-            this.button2.Location = new System.Drawing.Point(120, 56);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(248, 35);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "PAYMENT";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // panel8
             // 
-            this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel8.Controls.Add(this.button5);
             this.panel8.Controls.Add(this.button4);
             this.panel8.Controls.Add(this.button3);
             this.panel8.Controls.Add(this.button2);
-            this.panel8.Location = new System.Drawing.Point(0, 450);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(467, 215);
+            this.panel8.Size = new System.Drawing.Size(467, 216);
             this.panel8.TabIndex = 26;
             // 
             // button5
@@ -531,6 +506,18 @@
             this.button5.Text = "HOME";
             this.button5.UseVisualStyleBackColor = true;
             // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F);
+            this.button4.Location = new System.Drawing.Point(120, 98);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(248, 35);
+            this.button4.TabIndex = 9;
+            this.button4.Text = "PRINT RECEIPT";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -542,6 +529,29 @@
             this.button3.TabIndex = 7;
             this.button3.Text = "CLEAR CART";
             this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F);
+            this.button2.Location = new System.Drawing.Point(120, 56);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(248, 35);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "PAYMENT";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // panel5
+            // 
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel5.Controls.Add(this.panel8);
+            this.panel5.Controls.Add(this.panel9);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(0, 445);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(866, 220);
+            this.panel5.TabIndex = 28;
             // 
             // POS1
             // 
@@ -570,6 +580,7 @@
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel8.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -616,5 +627,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
+        private System.Windows.Forms.Panel panel5;
     }
 }

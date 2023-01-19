@@ -31,6 +31,10 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
         {
             if (dgvDrugs.Columns[e.ColumnIndex].Name.Equals("colAdd"))
             {
+
+                dgvCart.Rows.Add(dgvDrugs.Rows[e.RowIndex].Cells["colProdCode"].Value.ToString()
+                    );
+
                 MessageBox.Show("add");
             }
         }

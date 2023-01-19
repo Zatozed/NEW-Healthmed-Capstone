@@ -34,10 +34,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnConfirmProduct = new System.Windows.Forms.Button();
             this.DGVFileMaintenance = new System.Windows.Forms.DataGridView();
+            this.Product_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Classification = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,30 +51,27 @@
             this.fillType = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.FileMainteSearch = new System.Windows.Forms.TextBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.BtnSupplierConfirm = new System.Windows.Forms.Button();
             this.DGVSupplier = new System.Windows.Forms.DataGridView();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.SupplierSearch = new System.Windows.Forms.TextBox();
             this.Supplier_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Contact_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lead_Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BtnSupplierConfirm = new System.Windows.Forms.Button();
-            this.Product_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Classification = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BtnConfirmProduct = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.SupplierSearch = new System.Windows.Forms.TextBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVFileMaintenance)).BeginInit();
             this.panel2.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVSupplier)).BeginInit();
@@ -81,6 +82,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(0, 1);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -98,18 +100,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Products";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.panel4);
-            this.tabPage2.Controls.Add(this.panel6);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(985, 368);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Suppliers";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
@@ -129,6 +119,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(979, 262);
             this.panel1.TabIndex = 0;
+            // 
+            // BtnConfirmProduct
+            // 
+            this.BtnConfirmProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnConfirmProduct.Location = new System.Drawing.Point(872, 227);
+            this.BtnConfirmProduct.Name = "BtnConfirmProduct";
+            this.BtnConfirmProduct.Size = new System.Drawing.Size(103, 32);
+            this.BtnConfirmProduct.TabIndex = 2;
+            this.BtnConfirmProduct.Text = "Confirm";
+            this.BtnConfirmProduct.UseVisualStyleBackColor = true;
             // 
             // DGVFileMaintenance
             // 
@@ -167,6 +167,30 @@
             this.DGVFileMaintenance.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DGVFileMaintenance.Size = new System.Drawing.Size(972, 216);
             this.DGVFileMaintenance.TabIndex = 0;
+            // 
+            // Product_Name
+            // 
+            this.Product_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Product_Name.HeaderText = "Product Name";
+            this.Product_Name.Name = "Product_Name";
+            // 
+            // Classification
+            // 
+            this.Classification.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Classification.HeaderText = "Classification";
+            this.Classification.Name = "Classification";
+            // 
+            // Dosage
+            // 
+            this.Dosage.HeaderText = "Dosage";
+            this.Dosage.Name = "Dosage";
+            this.Dosage.Width = 150;
+            // 
+            // Type
+            // 
+            this.Type.HeaderText = "Type";
+            this.Type.Name = "Type";
+            this.Type.Width = 150;
             // 
             // panel2
             // 
@@ -263,6 +287,18 @@
             this.FileMainteSearch.Size = new System.Drawing.Size(183, 20);
             this.FileMainteSearch.TabIndex = 9;
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.panel4);
+            this.tabPage2.Controls.Add(this.panel6);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(985, 368);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Suppliers";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.panel5);
@@ -281,6 +317,16 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(979, 262);
             this.panel5.TabIndex = 0;
+            // 
+            // BtnSupplierConfirm
+            // 
+            this.BtnSupplierConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSupplierConfirm.Location = new System.Drawing.Point(872, 227);
+            this.BtnSupplierConfirm.Name = "BtnSupplierConfirm";
+            this.BtnSupplierConfirm.Size = new System.Drawing.Size(103, 32);
+            this.BtnSupplierConfirm.TabIndex = 1;
+            this.BtnSupplierConfirm.Text = "Confirm";
+            this.BtnSupplierConfirm.UseVisualStyleBackColor = true;
             // 
             // DGVSupplier
             // 
@@ -321,35 +367,6 @@
             this.DGVSupplier.Size = new System.Drawing.Size(972, 217);
             this.DGVSupplier.TabIndex = 0;
             // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.label8);
-            this.panel6.Controls.Add(this.SupplierSearch);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(3, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(979, 100);
-            this.panel6.TabIndex = 3;
-            // 
-            // label8
-            // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(787, 30);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(47, 13);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "Search";
-            // 
-            // SupplierSearch
-            // 
-            this.SupplierSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.SupplierSearch.Location = new System.Drawing.Point(784, 48);
-            this.SupplierSearch.Name = "SupplierSearch";
-            this.SupplierSearch.Size = new System.Drawing.Size(183, 20);
-            this.SupplierSearch.TabIndex = 9;
-            // 
             // Supplier_Name
             // 
             this.Supplier_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -380,49 +397,44 @@
             this.Lead_Time.HeaderText = "Lead Time";
             this.Lead_Time.Name = "Lead_Time";
             // 
-            // BtnSupplierConfirm
+            // panel6
             // 
-            this.BtnSupplierConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSupplierConfirm.Location = new System.Drawing.Point(872, 227);
-            this.BtnSupplierConfirm.Name = "BtnSupplierConfirm";
-            this.BtnSupplierConfirm.Size = new System.Drawing.Size(103, 32);
-            this.BtnSupplierConfirm.TabIndex = 1;
-            this.BtnSupplierConfirm.Text = "Confirm";
-            this.BtnSupplierConfirm.UseVisualStyleBackColor = true;
+            this.panel6.Controls.Add(this.label8);
+            this.panel6.Controls.Add(this.SupplierSearch);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(3, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(979, 100);
+            this.panel6.TabIndex = 3;
             // 
-            // Product_Name
+            // label8
             // 
-            this.Product_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Product_Name.HeaderText = "Product Name";
-            this.Product_Name.Name = "Product_Name";
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(787, 30);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(47, 13);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Search";
             // 
-            // Classification
+            // SupplierSearch
             // 
-            this.Classification.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Classification.HeaderText = "Classification";
-            this.Classification.Name = "Classification";
+            this.SupplierSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SupplierSearch.Location = new System.Drawing.Point(784, 48);
+            this.SupplierSearch.Name = "SupplierSearch";
+            this.SupplierSearch.Size = new System.Drawing.Size(183, 20);
+            this.SupplierSearch.TabIndex = 9;
             // 
-            // Dosage
+            // tabPage3
             // 
-            this.Dosage.HeaderText = "Dosage";
-            this.Dosage.Name = "Dosage";
-            this.Dosage.Width = 150;
-            // 
-            // Type
-            // 
-            this.Type.HeaderText = "Type";
-            this.Type.Name = "Type";
-            this.Type.Width = 150;
-            // 
-            // BtnConfirmProduct
-            // 
-            this.BtnConfirmProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnConfirmProduct.Location = new System.Drawing.Point(872, 227);
-            this.BtnConfirmProduct.Name = "BtnConfirmProduct";
-            this.BtnConfirmProduct.Size = new System.Drawing.Size(103, 32);
-            this.BtnConfirmProduct.TabIndex = 2;
-            this.BtnConfirmProduct.Text = "Confirm";
-            this.BtnConfirmProduct.UseVisualStyleBackColor = true;
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(985, 368);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // FileMaintenance
             // 
@@ -436,12 +448,12 @@
             this.Load += new System.EventHandler(this.FileMaintenance_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGVFileMaintenance)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGVSupplier)).EndInit();
@@ -485,5 +497,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewTextBoxColumn Contact_Number;
         private System.Windows.Forms.DataGridViewTextBoxColumn Lead_Time;
+        private System.Windows.Forms.TabPage tabPage3;
     }
 }

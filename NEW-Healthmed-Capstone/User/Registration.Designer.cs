@@ -44,6 +44,7 @@
             this.btnRegister = new System.Windows.Forms.Button();
             this.textBoxFirstName = new System.Windows.Forms.TextBox();
             this.textBoxUserName = new System.Windows.Forms.TextBox();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label6
@@ -207,6 +208,7 @@
             this.btnRegister.TabIndex = 33;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = false;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // textBoxFirstName
             // 
@@ -228,11 +230,26 @@
             this.textBoxUserName.Size = new System.Drawing.Size(229, 27);
             this.textBoxUserName.TabIndex = 31;
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnCancel.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15F);
+            this.btnCancel.Location = new System.Drawing.Point(649, 395);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(139, 43);
+            this.btnCancel.TabIndex = 47;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // Registration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.Role);
             this.Controls.Add(this.cbRole);
@@ -250,6 +267,7 @@
             this.Controls.Add(this.textBoxFirstName);
             this.Controls.Add(this.textBoxUserName);
             this.Name = "Registration";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registration";
             this.Load += new System.EventHandler(this.Registration_Load);
             this.ResumeLayout(false);
@@ -275,5 +293,6 @@
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.TextBox textBoxFirstName;
         private System.Windows.Forms.TextBox textBoxUserName;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

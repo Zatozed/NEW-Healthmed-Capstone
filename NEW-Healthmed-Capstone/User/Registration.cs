@@ -25,6 +25,7 @@ namespace NEW_Healthmed_Capstone.User
 
         private void Registration_Load(object sender, EventArgs e)
         {
+            ControlBox= false;
             try
             {
                 openCon();
@@ -57,6 +58,55 @@ namespace NEW_Healthmed_Capstone.User
                 cbRole.Items.Add(dr[0]);
             }
             closeCon();
+        }
+        public void register()
+        {
+            if (textBoxUserName.Text != "" && textBoxFirstName.Text != "" && textBoxLastName.Text != "" && textBoxEmail.Text != "" && textBoxContactNum.Text != "" && textBoxPassword.Text != "" && cbRole.Text != "")
+            {
+                openCon();
+                cmd = new MySqlCommand("Select * from tbl_UserRole Where roleName = @Role", mysqlCon);
+                cmd.Parameters.AddWithValue("@Role", cbRole.Text);
+                dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    string role = dr.GetString("userRoleID");
+
+                    openCon();
+                    cmd = new MySqlCommand("insert into tbl_users(userName, firstName, lastName, passcode, contactNum, email, userRoleID) Values(@UserName, @Firstname, @Lastname, @Password, @ContactNum, @Email, @Role)", mysqlCon);
+                    cmd.Parameters.AddWithValue("@Username", textBoxUserName.Text);
+                    cmd.Parameters.AddWithValue("@Firstname", textBoxFirstName.Text);
+                    cmd.Parameters.AddWithValue("@Lastname", textBoxLastName.Text);
+                    cmd.Parameters.AddWithValue("@Password", textBoxPassword.Text);
+                    cmd.Parameters.AddWithValue("@ContactNum", textBoxContactNum.Text);
+                    cmd.Parameters.AddWithValue("@Email", textBoxEmail.Text);
+                    cmd.Parameters.AddWithValue("@Role", role);
+                    if (cmd.ExecuteNonQuery() == 1)
+                    {
+                        MessageBox.Show("Registered");
+                    }
+                    else
+                    {
+                        MessageBox.Show("ERROR");
+                    }
+                    closeCon();
+                }
+                closeCon();
+            }
+            else
+            {
+                MessageBox.Show("Incomplete registration");
+            }
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            register();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

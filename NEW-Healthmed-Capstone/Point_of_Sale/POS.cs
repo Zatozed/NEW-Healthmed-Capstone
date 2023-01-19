@@ -31,12 +31,54 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
         {
             if (dgvDrugs.Columns[e.ColumnIndex].Name.Equals("colAdd"))
             {
+                // if dgv has values
+                if (dgvCart.RowCount != 0)
+                {
+                    // same product
+                    int matchCount = 0;
+                    foreach (DataGridViewRow r in dgvCart.Rows)
+                    {
+                        if (dgvDrugs.Rows[e.RowIndex].Cells["colProdCode"].Value.ToString().Equals(r.Cells["colProdCodeCart"].Value.ToString())) // if match ++ count
+                            matchCount++;
+                    }
+                    if (matchCount == 0)
+                    {
+                        dgvCart.Rows.Add(dgvDrugs.Rows[e.RowIndex].Cells["colProdCode"].Value.ToString(),
+                            dgvDrugs.Rows[e.RowIndex].Cells["colProdName"].Value.ToString() + " " + dgvDrugs.Rows[e.RowIndex].Cells["colDosage"].Value.ToString(),
+                            "1",
+                            dgvDrugs.Rows[e.RowIndex].Cells["colUnitCost"].Value.ToString(),
+                            dgvDrugs.Rows[e.RowIndex].Cells["colUnitPrice"].Value.ToString()
+                            );
+                    }
+                    else
+                        MessageBox.Show("Item Alreadty in Cart");
+                    
+                }
+                else // if no value
+                {
+                    dgvCart.Rows.Add(dgvDrugs.Rows[e.RowIndex].Cells["colProdCode"].Value.ToString(),
+                        dgvDrugs.Rows[e.RowIndex].Cells["colProdName"].Value.ToString() + " " + dgvDrugs.Rows[e.RowIndex].Cells["colDosage"].Value.ToString(),
+                        "1",
+                        dgvDrugs.Rows[e.RowIndex].Cells["colUnitCost"].Value.ToString(),
+                        dgvDrugs.Rows[e.RowIndex].Cells["colUnitPrice"].Value.ToString()
+                        );
+                }
+            }
+        }
 
-                dgvCart.Rows.Add(dgvDrugs.Rows[e.RowIndex].Cells["colProdCode"].Value.ToString(),
-                    dgvDrugs.Rows[e.RowIndex].Cells["colProdName"].Value.ToString()+" "+ dgvDrugs.Rows[e.RowIndex].Cells["colDosage"].Value.ToString()
-                    );
-
-                MessageBox.Show("add");
+        private void dgvCart_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvCart.Columns[e.ColumnIndex].Name.Equals("colMinus1") )
+            {
+                dgvCart.Rows[e.RowIndex].Cells["colQtyCart"].Value = Convert.ToInt32(dgvCart.Rows[e.RowIndex].Cells["colQtyCart"].Value.ToString()) - 1;
+                if (Convert.ToInt32(dgvCart.Rows[e.RowIndex].Cells["colQtyCart"].Value.ToString()) <= 0)
+                {
+                    dgvCart.Rows.RemoveAt(e.RowIndex);
+                }
+            }
+            else if (dgvCart.Columns[e.ColumnIndex].Name.Equals("colPlus1")) 
+            {
+                dgvCart.Rows[e.RowIndex].Cells["colQtyCart"].Value = Convert.ToInt32(dgvCart.Rows[e.RowIndex].Cells["colQtyCart"].Value.ToString()) + 1;
             }
         }
     }

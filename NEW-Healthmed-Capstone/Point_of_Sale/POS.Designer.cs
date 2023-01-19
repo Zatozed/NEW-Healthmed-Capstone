@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,14 +59,6 @@
             this.colAdd = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.dgvCart = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnitPriceCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMinus1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.colPlus1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.colDiscountCart = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.label16 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -85,6 +77,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lbDate = new System.Windows.Forms.Label();
             this.lbTime = new System.Windows.Forms.Label();
+            this.colProdCodeCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colItemCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQtyCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnitCostCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnitPriceCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMinus1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colPlus1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colDiscountCart = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tControlProducts.SuspendLayout();
@@ -157,14 +157,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -172,14 +172,14 @@
             this.dataGridViewTextBoxColumn4});
             this.tableLayoutPanel1.SetColumnSpan(this.dataGridView1, 2);
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGridView1.Location = new System.Drawing.Point(3, 611);
             this.dataGridView1.Name = "dataGridView1";
@@ -291,14 +291,14 @@
             this.dgvDrugs.AllowUserToDeleteRows = false;
             this.dgvDrugs.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvDrugs.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDrugs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDrugs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dgvDrugs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDrugs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colProdCode,
@@ -312,14 +312,14 @@
             this.colInStock,
             this.colAdd});
             this.dgvDrugs.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDrugs.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDrugs.DefaultCellStyle = dataGridViewCellStyle18;
             this.dgvDrugs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDrugs.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvDrugs.Location = new System.Drawing.Point(3, 3);
@@ -439,112 +439,42 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCart.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvCart.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCart.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCart.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn7,
+            this.colProdCodeCart,
+            this.colItemCart,
+            this.colQtyCart,
+            this.colUnitCostCart,
             this.colUnitPriceCart,
-            this.dataGridViewTextBoxColumn6,
             this.colMinus1,
             this.colPlus1,
             this.colDiscountCart});
             this.tableLayoutPanel1.SetColumnSpan(this.dgvCart, 3);
             this.dgvCart.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCart.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCart.DefaultCellStyle = dataGridViewCellStyle16;
             this.dgvCart.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvCart.Location = new System.Drawing.Point(589, 126);
             this.dgvCart.Name = "dgvCart";
-            this.dgvCart.ReadOnly = true;
             this.dgvCart.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.tableLayoutPanel1.SetRowSpan(this.dgvCart, 4);
             this.dgvCart.Size = new System.Drawing.Size(592, 335);
             this.dgvCart.TabIndex = 24;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Product Code";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 120;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn5.HeaderText = "Item";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 63;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn7.HeaderText = "Quantity";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 94;
-            // 
-            // colUnitPriceCart
-            // 
-            this.colUnitPriceCart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colUnitPriceCart.HeaderText = "Unit Cost";
-            this.colUnitPriceCart.Name = "colUnitPriceCart";
-            this.colUnitPriceCart.ReadOnly = true;
-            this.colUnitPriceCart.Width = 91;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.dataGridViewTextBoxColumn6.HeaderText = "Unit Price";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 96;
-            // 
-            // colMinus1
-            // 
-            this.colMinus1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colMinus1.HeaderText = "";
-            this.colMinus1.Name = "colMinus1";
-            this.colMinus1.ReadOnly = true;
-            this.colMinus1.Text = "-";
-            this.colMinus1.UseColumnTextForButtonValue = true;
-            this.colMinus1.Width = 5;
-            // 
-            // colPlus1
-            // 
-            this.colPlus1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colPlus1.HeaderText = "";
-            this.colPlus1.Name = "colPlus1";
-            this.colPlus1.ReadOnly = true;
-            this.colPlus1.Text = "+";
-            this.colPlus1.UseColumnTextForButtonValue = true;
-            this.colPlus1.Width = 5;
-            // 
-            // colDiscountCart
-            // 
-            this.colDiscountCart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colDiscountCart.HeaderText = "Discount";
-            this.colDiscountCart.Items.AddRange(new object[] {
-            "discount 1"});
-            this.colDiscountCart.Name = "colDiscountCart";
-            this.colDiscountCart.ReadOnly = true;
-            this.colDiscountCart.Width = 77;
+            this.dgvCart.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCart_CellContentClick);
             // 
             // label16
             // 
@@ -718,10 +648,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.label3.Location = new System.Drawing.Point(589, 82);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(111, 17);
+            this.label3.Size = new System.Drawing.Size(143, 41);
             this.label3.TabIndex = 23;
             this.label3.Text = "Customer Cart";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -749,6 +680,72 @@
             this.lbTime.TabIndex = 18;
             this.lbTime.Text = "time";
             this.lbTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // colProdCodeCart
+            // 
+            this.colProdCodeCart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colProdCodeCart.HeaderText = "Product Code";
+            this.colProdCodeCart.Name = "colProdCodeCart";
+            this.colProdCodeCart.ReadOnly = true;
+            this.colProdCodeCart.Width = 120;
+            // 
+            // colItemCart
+            // 
+            this.colItemCart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colItemCart.HeaderText = "Item";
+            this.colItemCart.Name = "colItemCart";
+            this.colItemCart.ReadOnly = true;
+            this.colItemCart.Width = 63;
+            // 
+            // colQtyCart
+            // 
+            this.colQtyCart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colQtyCart.HeaderText = "Quantity";
+            this.colQtyCart.Name = "colQtyCart";
+            this.colQtyCart.Width = 94;
+            // 
+            // colUnitCostCart
+            // 
+            this.colUnitCostCart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colUnitCostCart.HeaderText = "Unit Cost";
+            this.colUnitCostCart.Name = "colUnitCostCart";
+            this.colUnitCostCart.ReadOnly = true;
+            this.colUnitCostCart.Width = 91;
+            // 
+            // colUnitPriceCart
+            // 
+            this.colUnitPriceCart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colUnitPriceCart.HeaderText = "Unit Price";
+            this.colUnitPriceCart.Name = "colUnitPriceCart";
+            this.colUnitPriceCart.ReadOnly = true;
+            this.colUnitPriceCart.Width = 96;
+            // 
+            // colMinus1
+            // 
+            this.colMinus1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colMinus1.HeaderText = "";
+            this.colMinus1.Name = "colMinus1";
+            this.colMinus1.Text = "-";
+            this.colMinus1.UseColumnTextForButtonValue = true;
+            this.colMinus1.Width = 5;
+            // 
+            // colPlus1
+            // 
+            this.colPlus1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colPlus1.HeaderText = "";
+            this.colPlus1.Name = "colPlus1";
+            this.colPlus1.Text = "+";
+            this.colPlus1.UseColumnTextForButtonValue = true;
+            this.colPlus1.Width = 5;
+            // 
+            // colDiscountCart
+            // 
+            this.colDiscountCart.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colDiscountCart.HeaderText = "Discount";
+            this.colDiscountCart.Items.AddRange(new object[] {
+            "discount 1"});
+            this.colDiscountCart.Name = "colDiscountCart";
+            this.colDiscountCart.Width = 77;
             // 
             // POS
             // 
@@ -818,11 +815,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colAvailable;
         private System.Windows.Forms.DataGridViewTextBoxColumn colInStock;
         private System.Windows.Forms.DataGridViewButtonColumn colAdd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProdCodeCart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colItemCart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colQtyCart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colUnitCostCart;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUnitPriceCart;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewButtonColumn colMinus1;
         private System.Windows.Forms.DataGridViewButtonColumn colPlus1;
         private System.Windows.Forms.DataGridViewComboBoxColumn colDiscountCart;

@@ -74,11 +74,11 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lbTotal = new System.Windows.Forms.Label();
+            this.lbVatExmpt = new System.Windows.Forms.Label();
+            this.lbVat = new System.Windows.Forms.Label();
+            this.lbVatable = new System.Windows.Forms.Label();
+            this.lbSubtotal = new System.Windows.Forms.Label();
             this.btnClearCart = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -86,6 +86,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lbDate = new System.Windows.Forms.Label();
             this.lbTime = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.lbDiscount = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tControlProducts.SuspendLayout();
@@ -113,22 +115,24 @@
             this.tableLayoutPanel1.Controls.Add(this.dgvCart, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.label16, 0, 9);
             this.tableLayoutPanel1.Controls.Add(this.label8, 2, 12);
-            this.tableLayoutPanel1.Controls.Add(this.label10, 2, 11);
-            this.tableLayoutPanel1.Controls.Add(this.label9, 2, 10);
-            this.tableLayoutPanel1.Controls.Add(this.label7, 2, 9);
-            this.tableLayoutPanel1.Controls.Add(this.label6, 2, 8);
-            this.tableLayoutPanel1.Controls.Add(this.label12, 3, 12);
-            this.tableLayoutPanel1.Controls.Add(this.label13, 3, 11);
-            this.tableLayoutPanel1.Controls.Add(this.label14, 3, 10);
-            this.tableLayoutPanel1.Controls.Add(this.label15, 3, 9);
-            this.tableLayoutPanel1.Controls.Add(this.label11, 3, 8);
-            this.tableLayoutPanel1.Controls.Add(this.btnClearCart, 2, 7);
+            this.tableLayoutPanel1.Controls.Add(this.lbTotal, 3, 12);
+            this.tableLayoutPanel1.Controls.Add(this.btnClearCart, 4, 7);
             this.tableLayoutPanel1.Controls.Add(this.button5, 4, 10);
             this.tableLayoutPanel1.Controls.Add(this.button4, 4, 9);
             this.tableLayoutPanel1.Controls.Add(this.button2, 4, 8);
             this.tableLayoutPanel1.Controls.Add(this.label3, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.lbDate, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.lbTime, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 2, 7);
+            this.tableLayoutPanel1.Controls.Add(this.lbSubtotal, 3, 7);
+            this.tableLayoutPanel1.Controls.Add(this.label7, 2, 8);
+            this.tableLayoutPanel1.Controls.Add(this.lbVatable, 3, 8);
+            this.tableLayoutPanel1.Controls.Add(this.label9, 2, 9);
+            this.tableLayoutPanel1.Controls.Add(this.lbVat, 3, 9);
+            this.tableLayoutPanel1.Controls.Add(this.label10, 2, 10);
+            this.tableLayoutPanel1.Controls.Add(this.lbVatExmpt, 3, 10);
+            this.tableLayoutPanel1.Controls.Add(this.label17, 2, 11);
+            this.tableLayoutPanel1.Controls.Add(this.lbDiscount, 3, 11);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -581,7 +585,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label10.Location = new System.Drawing.Point(589, 656);
+            this.label10.Location = new System.Drawing.Point(589, 608);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(94, 17);
             this.label10.TabIndex = 31;
@@ -592,7 +596,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(589, 608);
+            this.label9.Location = new System.Drawing.Point(589, 560);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(38, 17);
             this.label9.TabIndex = 30;
@@ -603,7 +607,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(589, 560);
+            this.label7.Location = new System.Drawing.Point(589, 512);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(69, 17);
             this.label7.TabIndex = 28;
@@ -614,77 +618,76 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(589, 512);
+            this.label6.Location = new System.Drawing.Point(589, 464);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(68, 17);
             this.label6.TabIndex = 26;
             this.label6.Text = "Subtotal";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label12
+            // lbTotal
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label12.Location = new System.Drawing.Point(738, 704);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(40, 17);
-            this.label12.TabIndex = 33;
-            this.label12.Text = "0.00";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbTotal.AutoSize = true;
+            this.lbTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lbTotal.Location = new System.Drawing.Point(738, 704);
+            this.lbTotal.Name = "lbTotal";
+            this.lbTotal.Size = new System.Drawing.Size(78, 17);
+            this.lbTotal.TabIndex = 33;
+            this.lbTotal.Text = "Php: 0.00";
+            this.lbTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label13
+            // lbVatExmpt
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label13.Location = new System.Drawing.Point(738, 656);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(40, 17);
-            this.label13.TabIndex = 34;
-            this.label13.Text = "0.00";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbVatExmpt.AutoSize = true;
+            this.lbVatExmpt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lbVatExmpt.Location = new System.Drawing.Point(738, 608);
+            this.lbVatExmpt.Name = "lbVatExmpt";
+            this.lbVatExmpt.Size = new System.Drawing.Size(78, 17);
+            this.lbVatExmpt.TabIndex = 34;
+            this.lbVatExmpt.Text = "Php: 0.00";
+            this.lbVatExmpt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label14
+            // lbVat
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label14.Location = new System.Drawing.Point(738, 608);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(40, 17);
-            this.label14.TabIndex = 35;
-            this.label14.Text = "0.00";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbVat.AutoSize = true;
+            this.lbVat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lbVat.Location = new System.Drawing.Point(738, 560);
+            this.lbVat.Name = "lbVat";
+            this.lbVat.Size = new System.Drawing.Size(78, 17);
+            this.lbVat.TabIndex = 35;
+            this.lbVat.Text = "Php: 0.00";
+            this.lbVat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label15
+            // lbVatable
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label15.Location = new System.Drawing.Point(738, 560);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(40, 17);
-            this.label15.TabIndex = 36;
-            this.label15.Text = "0.00";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbVatable.AutoSize = true;
+            this.lbVatable.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lbVatable.Location = new System.Drawing.Point(738, 512);
+            this.lbVatable.Name = "lbVatable";
+            this.lbVatable.Size = new System.Drawing.Size(78, 17);
+            this.lbVatable.TabIndex = 36;
+            this.lbVatable.Text = "Php: 0.00";
+            this.lbVatable.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label11
+            // lbSubtotal
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label11.Location = new System.Drawing.Point(738, 512);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(40, 17);
-            this.label11.TabIndex = 32;
-            this.label11.Text = "0.00";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbSubtotal.AutoSize = true;
+            this.lbSubtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lbSubtotal.Location = new System.Drawing.Point(738, 464);
+            this.lbSubtotal.Name = "lbSubtotal";
+            this.lbSubtotal.Size = new System.Drawing.Size(78, 17);
+            this.lbSubtotal.TabIndex = 32;
+            this.lbSubtotal.Text = "Php: 0.00";
+            this.lbSubtotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnClearCart
             // 
             this.btnClearCart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.SetColumnSpan(this.btnClearCart, 3);
             this.btnClearCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.btnClearCart.Location = new System.Drawing.Point(589, 467);
+            this.btnClearCart.Location = new System.Drawing.Point(887, 467);
             this.btnClearCart.Name = "btnClearCart";
-            this.btnClearCart.Size = new System.Drawing.Size(592, 35);
+            this.btnClearCart.Size = new System.Drawing.Size(294, 35);
             this.btnClearCart.TabIndex = 27;
             this.btnClearCart.Text = "CLEAR CART";
             this.btnClearCart.UseVisualStyleBackColor = true;
@@ -762,6 +765,28 @@
             this.lbTime.Text = "time";
             this.lbTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.label17.Location = new System.Drawing.Point(589, 656);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(71, 17);
+            this.label17.TabIndex = 42;
+            this.label17.Text = "Discount";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lbDiscount
+            // 
+            this.lbDiscount.AutoSize = true;
+            this.lbDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lbDiscount.Location = new System.Drawing.Point(738, 656);
+            this.lbDiscount.Name = "lbDiscount";
+            this.lbDiscount.Size = new System.Drawing.Size(78, 17);
+            this.lbDiscount.TabIndex = 43;
+            this.lbDiscount.Text = "Php: 0.00";
+            this.lbDiscount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // POS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -807,11 +832,11 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lbSubtotal;
+        private System.Windows.Forms.Label lbVatable;
+        private System.Windows.Forms.Label lbVat;
+        private System.Windows.Forms.Label lbVatExmpt;
+        private System.Windows.Forms.Label lbTotal;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
@@ -839,5 +864,7 @@
         private System.Windows.Forms.DataGridViewButtonColumn colMinus1;
         private System.Windows.Forms.DataGridViewButtonColumn colPlus1;
         private System.Windows.Forms.DataGridViewComboBoxColumn colCBDiscountCart;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lbDiscount;
     }
 }

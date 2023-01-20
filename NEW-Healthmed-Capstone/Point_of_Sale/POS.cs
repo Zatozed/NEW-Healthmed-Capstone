@@ -38,13 +38,23 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
             return Math.Round((subtotal - vatable),2);
         }
 
+        private void FIllCbDiscount()
+        {
+            foreach (String s in dbh.GetDiscountNames())
+            {
+                (dgvCart.Columns["colCBDiscountCart"] as DataGridViewComboBoxColumn).Items.Add(s);
+            }
+            
+        }
+
         private void POS_Load(object sender, EventArgs e)
         {
             lbDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
             lbTime.Text = DateTime.Now.ToString("hh:mm tt");
-            //dgvDrugs.AutoGenerateColumns = false;
+
             dgvDrugs.DataSource = dbh.ShowProductList();
-            //dgvDrugs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            
+            FIllCbDiscount();
         }
 
         private void tbSearch_TextChanged(object sender, EventArgs e)
@@ -150,10 +160,12 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                     new EventHandler(ComboBox_SelectedIndexChanged);
             }
         }
-        private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBox_SelectedIndexChanged(object sender, EventArgs e) //           COMBO BOX EVENT
         {
-            if (((ComboBox)sender).SelectedItem.Equals("2"))
-                dgvCart.Rows[rowIdx].Cells["colDiscountCart"].Value = 0.5;
+            dgvCart.Rows[rowIdx].Cells["colDiscountCart"].Value = dbh.GetDiscountValue(((ComboBox)sender).Text); ;
+            
+            //if (((ComboBox)sender).SelectedItem.Equals("2"))
+            
             
         }
 

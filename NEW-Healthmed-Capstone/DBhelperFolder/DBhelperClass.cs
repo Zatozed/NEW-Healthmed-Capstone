@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
@@ -54,6 +55,47 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             return dt;
         }
 
+        public List<String> GetDiscountNames()
+        {
+            List<String> list = new List<String>();
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("select discount_name from tbl_discount",
+                con);
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    list.Add(dr.GetString(0));
+                }
+
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+            return list;
+        }
+        public double GetDiscountValue(string discount_name)
+        {
+            double dis = 0;
+
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("select discount_percent from tbl_discount where discount_name = @dname",
+                con);
+                cmd.Parameters.AddWithValue("@dname", discount_name);
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    dis = dr.GetDouble(0);
+                }
+
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+
+            return dis / 100;
+        }
     }
 
 

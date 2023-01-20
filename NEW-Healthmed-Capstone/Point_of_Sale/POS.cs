@@ -38,8 +38,27 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
             return Math.Round((subtotal - vatable),2);
         }
 
+        private double ComputeVatXmpt()
+        {
+            double vatxmpt = 0;
+            double vatable = 0;
+
+            foreach (DataGridViewRow r in dgvCart.Rows)
+            {
+                if (r.Cells["colCBDiscountCart"].Value == null || r.Cells["colCBDiscountCart"].Value.ToString().Equals("")) { } // if no laman skip
+                else if (dbh.isVatExmpt(r.Cells["colCBDiscountCart"].Value.ToString()).Equals("yes") ) // vat exemp = yes
+                {
+                    vatxmpt = (Convert.ToDouble(r.Cells["colQtyCart"].Value.ToString()) * Convert.ToDouble(r.Cells["colUnitPriceCart"].Value.ToString())) / 1.12;
+                }
+            }
+
+            return Math.Round(vatxmpt, 2);
+        }
+
         private void FIllCbDiscount()
         {
+            (dgvCart.Columns["colCBDiscountCart"] as DataGridViewComboBoxColumn).Items.Clear();
+            (dgvCart.Columns["colCBDiscountCart"] as DataGridViewComboBoxColumn).Items.Add("none");
             foreach (String s in dbh.GetDiscountNames())
             {
                 (dgvCart.Columns["colCBDiscountCart"] as DataGridViewComboBoxColumn).Items.Add(s);
@@ -123,6 +142,8 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
 
             vat = ComputeVat();
             lbVat.Text = "Php " + vat.ToString();
+
+            lbVatExmpt.Text = "Php " + ComputeVatXmpt();
         }
 
         private void dgvCart_CellClick(object sender, DataGridViewCellEventArgs e)

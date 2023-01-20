@@ -85,6 +85,11 @@
             this.colUnitCostCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUnitPriceCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDiscountCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTotalCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colVatableCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colVATCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colVatXCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLessDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMinus1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.colPlus1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.colCBDiscountCart = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -460,6 +465,11 @@
             this.colUnitCostCart,
             this.colUnitPriceCart,
             this.colDiscountCart,
+            this.colTotalCart,
+            this.colVatableCart,
+            this.colVATCart,
+            this.colVatXCart,
+            this.colLessDiscount,
             this.colMinus1,
             this.colPlus1,
             this.colCBDiscountCart});
@@ -741,7 +751,6 @@
             this.colUnitCostCart.HeaderText = "Unit Cost";
             this.colUnitCostCart.Name = "colUnitCostCart";
             this.colUnitCostCart.ReadOnly = true;
-            this.colUnitCostCart.Visible = false;
             this.colUnitCostCart.Width = 91;
             // 
             // colUnitPriceCart
@@ -758,6 +767,31 @@
             this.colDiscountCart.HeaderText = "Discount";
             this.colDiscountCart.Name = "colDiscountCart";
             this.colDiscountCart.Width = 96;
+            // 
+            // colTotalCart
+            // 
+            this.colTotalCart.HeaderText = "Total";
+            this.colTotalCart.Name = "colTotalCart";
+            // 
+            // colVatableCart
+            // 
+            this.colVatableCart.HeaderText = "VATable";
+            this.colVatableCart.Name = "colVatableCart";
+            // 
+            // colVATCart
+            // 
+            this.colVATCart.HeaderText = "VAT";
+            this.colVATCart.Name = "colVATCart";
+            // 
+            // colVatXCart
+            // 
+            this.colVatXCart.HeaderText = "Vat Exempt Sales";
+            this.colVatXCart.Name = "colVatXCart";
+            // 
+            // colLessDiscount
+            // 
+            this.colLessDiscount.HeaderText = "Less Discount";
+            this.colLessDiscount.Name = "colLessDiscount";
             // 
             // colMinus1
             // 
@@ -860,6 +894,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colUnitCostCart;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUnitPriceCart;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDiscountCart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTotalCart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colVatableCart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colVATCart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colVatXCart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLessDiscount;
         private System.Windows.Forms.DataGridViewButtonColumn colMinus1;
         private System.Windows.Forms.DataGridViewButtonColumn colPlus1;
         private System.Windows.Forms.DataGridViewComboBoxColumn colCBDiscountCart;

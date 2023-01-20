@@ -55,9 +55,9 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             return dt;
         }
 
-        public List<String> GetDiscountNames()
+        public List<string> GetDiscountNames()
         {
-            List<String> list = new List<String>();
+            List<string> list = new List<string>();
             try
             {
                 con.Open();
@@ -73,6 +73,27 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
             finally { con.Close(); }
             return list;
+        }
+        public string isVatExmpt(string discount_name)
+        {
+            string s = "";
+
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("select vat_exempt from tbl_discount where discount_name = @dname",
+                con);
+                cmd.Parameters.AddWithValue("@dname", discount_name);
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    s = dr.GetString(0);
+                }
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+
+            return s;
         }
         public double GetDiscountValue(string discount_name)
         {

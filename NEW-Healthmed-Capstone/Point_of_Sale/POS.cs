@@ -63,31 +63,51 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
 
         private double ComputeVatable()
         {
-            // subtotal / 1.12 //12% vat
-            return Math.Round((subtotal / 1.12), 2);
+            double d = 0;
+            foreach (DataGridViewRow r in dgvCart.Rows) // get total of vatable rows
+            {
+                d += Convert.ToDouble(r.Cells["colVatableCart"].Value);
+            }
+            return Math.Round(d, 2);
         }
         private double ComputeVat() 
         {
-            return Math.Round((subtotal - vatable),2);
+            double d = 0;
+            foreach (DataGridViewRow r in dgvCart.Rows) // get total of vatable rows
+            {
+                d += Convert.ToDouble(r.Cells["colVATCart"].Value);
+            }
+            return Math.Round(d, 2);
         }
 
         private double ComputeVatXmpt()
         {
-            double vatxmpt = 0;
-            double vatable = 0;
-
-            foreach (DataGridViewRow r in dgvCart.Rows)
+            double d = 0;
+            foreach (DataGridViewRow r in dgvCart.Rows) // get total of vatable rows
             {
-                if (r.Cells["colCBDiscountCart"].Value == null || r.Cells["colCBDiscountCart"].Value.ToString().Equals("")) { } // if no laman skip
-                else if (dbh.isVatExmpt(r.Cells["colCBDiscountCart"].Value.ToString()).Equals("yes") ) // vat exemp = yes
-                {
-                    vatxmpt = (Convert.ToDouble(r.Cells["colQtyCart"].Value.ToString()) * Convert.ToDouble(r.Cells["colUnitPriceCart"].Value.ToString())) / 1.12;
-                }
+                d += Convert.ToDouble(r.Cells["colVatXCart"].Value);
             }
-
-            return Math.Round(vatxmpt, 2);
+            return Math.Round(d, 2);
+        }
+        private double ComputeLessDiscount()
+        {
+            double d = 0;
+            foreach (DataGridViewRow r in dgvCart.Rows) // get total of vatable rows
+            {
+                d += Convert.ToDouble(r.Cells["colLessDiscount"].Value);
+            }
+            return Math.Round(d, 2);
         }
 
+        private double ComputeTotalAmoutDue() 
+        {
+            double d = 0;
+            foreach (DataGridViewRow r in dgvCart.Rows) // get total of vatable rows
+            {
+                d += Convert.ToDouble(r.Cells["colTotalCart"].Value);
+            }
+            return Math.Round(d, 2);
+        }
         private void FIllCbDiscount()
         {
             (dgvCart.Columns["colCBDiscountCart"] as DataGridViewComboBoxColumn).Items.Clear();
@@ -160,9 +180,36 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
             
         }
 
+        private void dgvCart_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            Compute();
+
+            subtotal = ComputeSubTotal();
+            lbSubtotal.Text = "Php " + subtotal.ToString();
+
+            vatable = ComputeVatable();
+            lbVatable.Text = "Php " + vatable.ToString();
+
+            vat = ComputeVat();
+            lbVat.Text = "Php " + vat.ToString();
+
+            lbVatExmpt.Text = "Php " + ComputeVatXmpt();
+
+            lbDiscount.Text = "Php " + ComputeLessDiscount();
+
+            total = ComputeTotalAmoutDue();
+            lbTotal.Text = "Php " + total.ToString();
+        }
+
         private void btnClearCart_Click(object sender, EventArgs e)
         {
             dgvCart.Rows.Clear();
+            lbDiscount.Text = "Php 0.00";
+            lbSubtotal.Text = "Php 0.00";
+            lbTotal.Text = "Php 0.00";
+            lbVat.Text = "Php 0.00";
+            lbVatable.Text = "Php 0.00";
+            lbVatExmpt.Text = "Php 0.00";
         }
 
         private void dgvCart_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -179,6 +226,11 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
             lbVat.Text = "Php " + vat.ToString();
 
             lbVatExmpt.Text = "Php " + ComputeVatXmpt();
+
+            lbDiscount.Text = "Php " + ComputeLessDiscount();
+
+            total = ComputeTotalAmoutDue();
+            lbTotal.Text = "Php " + total.ToString();
         }
 
         private void dgvCart_CellClick(object sender, DataGridViewCellEventArgs e)

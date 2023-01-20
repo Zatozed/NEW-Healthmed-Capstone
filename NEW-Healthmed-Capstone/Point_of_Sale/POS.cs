@@ -15,6 +15,39 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
         {
             InitializeComponent();
         }
+        private void Compute()
+        {
+            foreach (DataGridViewRow r in dgvCart.Rows)
+            {
+                double qty = Convert.ToDouble(r.Cells["colQtyCart"].Value);
+                double price = Convert.ToDouble(r.Cells["colUnitPriceCart"].Value);
+                double discount = Convert.ToDouble(r.Cells["colDiscountCart"].Value);
+
+                if (r.Cells["colCBDiscountCart"].Value == null || r.Cells["colCBDiscountCart"].Value.ToString().Equals("")) // if no laman do non
+                {
+                    r.Cells["colVatableCart"].Value = (qty * price) / 1.12;
+                    r.Cells["colVATCart"].Value = Convert.ToDouble(r.Cells["colVatableCart"].Value) * 0.12;
+                    r.Cells["colLessDiscount"].Value = (qty * price) * discount;
+                    r.Cells["colTotalCart"].Value = (qty * price) - Convert.ToDouble(r.Cells["colLessDiscount"].Value);
+                }
+                else if (dbh.isVatExmpt(r.Cells["colCBDiscountCart"].Value.ToString()).Equals("yes")) // vat exemp = yes
+                {
+                    r.Cells["colVatableCart"].Value = (qty * price) / 1.12;
+                    r.Cells["colVatXCart"].Value = r.Cells["colVatableCart"].Value;
+                    r.Cells["colVATCart"].Value = Convert.ToDouble(r.Cells["colVatableCart"].Value) * 0.12;
+                    r.Cells["colLessDiscount"].Value = Convert.ToDouble(r.Cells["colVatXCart"].Value) * discount;
+                    r.Cells["colTotalCart"].Value = Convert.ToDouble(r.Cells["colVatXCart"].Value) - Convert.ToDouble(r.Cells["colLessDiscount"].Value);
+
+                }
+                else // if not vat exempt
+                {
+                    r.Cells["colVatableCart"].Value = (qty * price) / 1.12;
+                    r.Cells["colVATCart"].Value = Convert.ToDouble(r.Cells["colVatableCart"].Value) * 0.12;
+                    r.Cells["colLessDiscount"].Value = (qty * price) * discount;
+                    r.Cells["colTotalCart"].Value = (qty * price) - Convert.ToDouble(r.Cells["colLessDiscount"].Value);
+                }
+            }
+        }
         private double ComputeSubTotal()
         {
             double sumResult = 0;
@@ -84,7 +117,7 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
 
         private void dgvDrugs_CellContentClick(object sender, DataGridViewCellEventArgs e) // products
         {
-            if (dgvDrugs.Columns[e.ColumnIndex].Name.Equals("colAdd")) // add to cart button
+            if (dgvDrugs.Columns[e.ColumnIndex].Name.Equals("colAdd"))                                              // add to cart button
             {
                 // if dgv has values
                 if (dgvCart.RowCount != 0)
@@ -103,7 +136,7 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                             "1",
                             dgvDrugs.Rows[e.RowIndex].Cells["colUnitCost"].Value.ToString(),
                             dgvDrugs.Rows[e.RowIndex].Cells["colUnitPrice"].Value.ToString(),
-                            "0"
+                            "0", "0", "0", "0", "0", "0"
                             );
                     }
                     else
@@ -117,7 +150,7 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                         "1",
                         dgvDrugs.Rows[e.RowIndex].Cells["colUnitCost"].Value.ToString(),
                         dgvDrugs.Rows[e.RowIndex].Cells["colUnitPrice"].Value.ToString(),
-                        "0"
+                        "0", "0", "0", "0", "0", "0"
                         );
                 }
             }
@@ -134,6 +167,8 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
 
         private void dgvCart_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+            Compute();
+
             subtotal = ComputeSubTotal();
             lbSubtotal.Text = "Php " + subtotal.ToString();
 

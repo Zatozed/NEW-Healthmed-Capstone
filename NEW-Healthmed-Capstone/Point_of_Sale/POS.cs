@@ -1,4 +1,5 @@
-﻿using NEW_Healthmed_Capstone.DBhelperFolder;
+﻿using MySqlX.XDevAPI.Common;
+using NEW_Healthmed_Capstone.DBhelperFolder;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -14,9 +15,27 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
         {
             InitializeComponent();
         }
-        private void ComputeSubTotal()
+        private double ComputeSubTotal()
         {
+            double sumResult = 0;
+            if (dgvCart.RowCount != 0)
+            {
+                foreach (DataGridViewRow r in dgvCart.Rows)
+                {
+                    sumResult += Convert.ToDouble(r.Cells["colQtyCart"].Value) * Convert.ToDouble(r.Cells["colUnitPriceCart"].Value);
+                }
+            }
+            return Math.Round(sumResult, 2);
+        }
 
+        private double ComputeVatable()
+        {
+            // subtotal / 1.12 //12% vat
+            return Math.Round((subtotal / 1.12), 2);
+        }
+        private double ComputeVat() 
+        {
+            return Math.Round((subtotal - vatable),2);
         }
 
         private void POS_Load(object sender, EventArgs e)
@@ -77,7 +96,6 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
         private void dgvCart_CellContentClick(object sender, DataGridViewCellEventArgs e) // cart add minus qty
         {
             
-            
         }
 
         private void btnClearCart_Click(object sender, EventArgs e)
@@ -87,7 +105,14 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
 
         private void dgvCart_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            
+            subtotal = ComputeSubTotal();
+            lbSubtotal.Text = "Php " + subtotal.ToString();
+
+            vatable = ComputeVatable();
+            lbVatable.Text = "Php " + vatable.ToString();
+
+            vat = ComputeVat();
+            lbVat.Text = "Php " + vat.ToString();
         }
 
         private void dgvCart_CellClick(object sender, DataGridViewCellEventArgs e)

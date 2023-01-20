@@ -117,6 +117,23 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
 
             return dis / 100;
         }
+
+        public DataTable SearchProduct(string s)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("select product_code , product_name, classification, dosage, med_type, unit_cost, unit_price, available_qty, in_stock_qty from tbl_products where product_code like '%"+s+"%' or product_name like '%"+s+"%'",
+                con);
+                dataAdapter = new MySqlDataAdapter(cmd);
+                dataAdapter.Fill(dt);
+
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+            return dt;
+        }
     }
 
 

@@ -132,6 +132,11 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
             // if tab name tabPharmaDrugs
+            if(tbSearch.Text == null || tbSearch.Text.ToString().Equals(""))
+                dgvDrugs.DataSource=dbh.ShowProductList();
+            else
+                dgvDrugs.DataSource = dbh.SearchProduct(tbSearch.Text);
+
             // else if tab name non drugs
         }
 

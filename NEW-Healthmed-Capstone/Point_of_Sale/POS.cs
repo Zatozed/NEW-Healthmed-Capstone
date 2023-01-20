@@ -9,9 +9,14 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
     {
         private DBhelperClass dbh = new DBhelperClass();
         private int rowIdx;
+        private double subtotal, vatable, vat, vatxmpt, discount, total;
         public POS()
         {
             InitializeComponent();
+        }
+        private void ComputeSubTotal()
+        {
+
         }
 
         private void POS_Load(object sender, EventArgs e)

@@ -18,7 +18,10 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             stringBuilder = new MySqlConnectionStringBuilder(Properties.Settings.Default.S_ConBuild);
             con = new MySqlConnection(stringBuilder.ConnectionString);
         }
-
+        public MySqlConnection conn()
+        {
+            return con;
+        }
         public void TestCon()
         {
             try 
@@ -36,10 +39,13 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             catch(MySqlException sql) { MessageBox.Show("Not connected to server"); }
             finally { con.Close(); }
         }
+        public void OpenCon() { con.Open(); }
+        public void CloseCon() { con.Close(); }
 
         public DataTable ShowProductList() 
         {
             DataTable dt = new DataTable();
+
             try
             {
                 con.Open();
@@ -47,7 +53,39 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
                 con);
                 dataAdapter = new MySqlDataAdapter(cmd);
                 dataAdapter.Fill(dt);
-                
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+
+            return dt;
+        }
+        public DataTable ShowDiscountList()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("select id, discount_name, discount_percent from tbl_discount",
+                con);
+                dataAdapter = new MySqlDataAdapter(cmd);
+                dataAdapter.Fill(dt);
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+
+            return dt;
+        }
+        public DataTable showSupplierList()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("select supplier_id,supplier_name,description,email,contactNum,Address,leadTime from tbl_suppliers;", 
+                con);
+                dataAdapter = new MySqlDataAdapter(cmd);
+                dataAdapter.Fill(dt);
             }
             catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
             finally { con.Close(); }

@@ -32,7 +32,7 @@ namespace NEW_Healthmed_Capstone.file_maintenance
             dgvSupplier.DataSource = dbh.showSupplierList();
         }
         private void InsertToDiscount()
-        {
+        { 
             for (int i = 0; i < dgvDiscount.Rows.Count - 1; i++)
             {
                 DataGridViewRow row = dgvDiscount.Rows[i];
@@ -45,9 +45,9 @@ namespace NEW_Healthmed_Capstone.file_maintenance
 
                     if (dr.HasRows)//checks if it is exist
                     {
-                        MessageBox.Show(row.Cells["colDiscountName"].Value.ToString());
+
                     }
-                    else //if not exist insert
+                    else  //if not exist insert
                     {
                         dbh.CloseCon();
 
@@ -65,7 +65,7 @@ namespace NEW_Healthmed_Capstone.file_maintenance
                     catch (MySqlException sqlE) { MessageBox.Show(sqlE.Message.ToString()); }
                     finally { dbh.CloseCon(); }
                 }
-            //dgvDiscount.DataSource = dbh.ShowDiscountList();
+            dgvDiscount.DataSource = dbh.ShowDiscountList();
         }
         private void btnDiscountConfirm_Click(object sender, EventArgs e)
         {
@@ -150,7 +150,6 @@ namespace NEW_Healthmed_Capstone.file_maintenance
         private void btnSupConfirm_Click(object sender, EventArgs e)
         {
             insertSupplier();
-            dgvSupplier.DataSource = dbh.showSupplierList();
         }
         private void insertSupplier()
         {
@@ -166,7 +165,7 @@ namespace NEW_Healthmed_Capstone.file_maintenance
 
                     if (dr.HasRows)//checks if it is exist
                     {
-                        MessageBox.Show("Can't be Inserted");
+
                     }
                     else //if not exist insert
                     {
@@ -182,13 +181,91 @@ namespace NEW_Healthmed_Capstone.file_maintenance
                         cmd.Parameters.AddWithValue("@leadTime", row.Cells["Lead_Time"].Value.ToString());
                         cmd.ExecuteNonQuery();
                         dbh.CloseCon();
-                        dgvSupplier.DataSource = dbh.showSupplierList();
-                        dbh.CloseCon();
                         MessageBox.Show("Supplier Inserted");
                     }
 
                 }
                 catch (MySqlException sqlE) { MessageBox.Show(sqlE.Message.ToString()); }
+                finally { dbh.CloseCon(); }
+            }
+            dgvSupplier.DataSource = dbh.showSupplierList();
+        }
+
+        private void dgvSupplier_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //UPDATE SUPPLIER
+            if (dgvSupplier.Columns[e.ColumnIndex].Name == "colUpdateSupplier")
+            {
+                string supplierID = Convert.ToString(dgvSupplier.Rows[e.RowIndex].Cells["S_ID"].Value);
+                string supplierName = Convert.ToString(dgvSupplier.Rows[e.RowIndex].Cells["Supplier_Name"].Value);
+
+                try
+                {
+                    dbh.OpenCon();
+                    cmd = new MySqlCommand("SELECT * FROM tbl_suppliers where supplier_name = @supplierName", dbh.conn());
+                    cmd.Parameters.AddWithValue("@supplierName", supplierName);
+                    dr = cmd.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        MessageBox.Show("Discount Name already Exist or haven't change");
+                    }
+                    else
+                    {
+                        dbh.CloseCon();
+                        dbh.OpenCon();
+                        cmd = new MySqlCommand("UPDATE tbl_suppliers SET supplier_name = @supplierName, description = @desc, email = @email, contactNum = @contact, Address = @address, leadTime = @leadTime WHERE supplier_id = @supplierID", dbh.conn());
+                        cmd.Parameters.AddWithValue("@supplierName", Convert.ToString(dgvSupplier.Rows[e.RowIndex].Cells["Supplier_Name"].Value));
+                        cmd.Parameters.AddWithValue("@desc", Convert.ToString(dgvSupplier.Rows[e.RowIndex].Cells["Description"].Value));
+                        cmd.Parameters.AddWithValue("@email", Convert.ToString(dgvSupplier.Rows[e.RowIndex].Cells["Email"].Value));
+                        cmd.Parameters.AddWithValue("@contact", Convert.ToString(dgvSupplier.Rows[e.RowIndex].Cells["Contact_Number"].Value));
+                        cmd.Parameters.AddWithValue("@address", Convert.ToString(dgvSupplier.Rows[e.RowIndex].Cells["Address"].Value));
+                        cmd.Parameters.AddWithValue("@leadTime", Convert.ToString(dgvSupplier.Rows[e.RowIndex].Cells["Lead_Time"].Value));
+                        cmd.Parameters.AddWithValue("@supplierID", supplierID);
+                        cmd.ExecuteNonQuery();
+                        if (cmd.ExecuteNonQuery() == 1)
+                        {
+                            MessageBox.Show("SUPPLIER UPDATED");
+                            dbh.CloseCon();
+                            dgvSupplier.DataSource = dbh.showSupplierList();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Not Updated");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally { dbh.CloseCon(); }
+            }
+            //DELETE SUPPLIER
+            if (dgvSupplier.Columns[e.ColumnIndex].Name == "colDeleteSupplier")
+            {
+                string supplierID = Convert.ToString(dgvSupplier.Rows[e.RowIndex].Cells["S_ID"].Value);
+
+                try
+                {
+                    dbh.OpenCon();
+                    cmd = new MySqlCommand("DELETE FROM tbl_suppliers WHERE supplier_id = @ID", dbh.conn());
+                    cmd.Parameters.AddWithValue("@ID", supplierID);
+                    cmd.ExecuteNonQuery();
+                    if (cmd.ExecuteNonQuery() == 1)
+                    {
+                        MessageBox.Show("FAILED DELETED");
+                    }
+                    else
+                    {
+                        MessageBox.Show("DELETED");
+                        dbh.CloseCon();
+                        dgvSupplier.DataSource = dbh.showSupplierList();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
                 finally { dbh.CloseCon(); }
             }
         }

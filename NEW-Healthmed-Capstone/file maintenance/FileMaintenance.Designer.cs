@@ -427,6 +427,7 @@
             this.dgvSupplier.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvSupplier.Size = new System.Drawing.Size(972, 313);
             this.dgvSupplier.TabIndex = 0;
+            this.dgvSupplier.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSupplier_CellContentClick);
             // 
             // tabPage3
             // 

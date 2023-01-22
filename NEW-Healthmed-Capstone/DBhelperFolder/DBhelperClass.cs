@@ -23,23 +23,6 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
         {
             return con;
         }
-        public void TestCon()
-        {
-            try 
-            {
-                con.Open();
-                cmd = new MySqlCommand("select 1", con);
-                dr = cmd.ExecuteReader();
-                if (dr.Read())
-                {
-                    MessageBox.Show("connected");
-                }
-                dr.Dispose();
-                dr.Close();
-            }
-            catch(MySqlException sql) { MessageBox.Show("Not connected to server"); }
-            finally { con.Close(); }
-        }
         public void OpenCon() { con.Open(); }
         public void CloseCon() { con.Close(); }
 
@@ -50,7 +33,7 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("select product_code , product_name, classification, dosage, med_type, unit_cost, unit_price, available_qty, in_stock_qty from tbl_products",
+                cmd = new MySqlCommand("select product_code , product_name, classification, dosage, med_type, unit_cost, unit_price, in_stock_qty from tbl_products",
                 con);
                 dataAdapter = new MySqlDataAdapter(cmd);
                 dataAdapter.Fill(dt);
@@ -162,7 +145,7 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("select product_code , product_name, classification, dosage, med_type, unit_cost, unit_price, available_qty, in_stock_qty from tbl_products where product_code like '%"+s+"%' or product_name like '%"+s+"%'",
+                cmd = new MySqlCommand("select product_code , product_name, classification, dosage, med_type, unit_cost, unit_price, in_stock_qty from tbl_products where product_code like '%"+s+"%' or product_name like '%"+s+"%' or classification like '%"+s+"%'",
                 con);
                 dataAdapter = new MySqlDataAdapter(cmd);
                 dataAdapter.Fill(dt);

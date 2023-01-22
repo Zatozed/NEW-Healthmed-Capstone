@@ -10,7 +10,7 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
     {
         private DBhelperClass dbh = new DBhelperClass();
         private int rowIdx;
-        private double subtotal, vatable, vat, vatxmpt, discount, total;
+        private double subtotal, vatable, vat, total;
         public POS()
         {
             InitializeComponent();
@@ -154,7 +154,7 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                         if (dgvDrugs.Rows[e.RowIndex].Cells["colProdCode"].Value.ToString().Equals(r.Cells["colProdCodeCart"].Value.ToString())) // if match ++ count
                             matchCount++;
                     }
-                    if (matchCount == 0)
+                    if (matchCount == 0) //if no match found
                     {
                         dgvCart.Rows.Add(dgvDrugs.Rows[e.RowIndex].Cells["colProdCode"].Value.ToString(),
                             dgvDrugs.Rows[e.RowIndex].Cells["colProdName"].Value.ToString() + " " + dgvDrugs.Rows[e.RowIndex].Cells["colDosage"].Value.ToString(),

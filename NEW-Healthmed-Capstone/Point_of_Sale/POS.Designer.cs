@@ -80,9 +80,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.lbTotal = new System.Windows.Forms.Label();
             this.btnClearCart = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnHome = new System.Windows.Forms.Button();
+            this.btnPrintRe = new System.Windows.Forms.Button();
+            this.btnPayment = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lbDate = new System.Windows.Forms.Label();
             this.lbTime = new System.Windows.Forms.Label();
@@ -125,9 +125,9 @@
             this.tableLayoutPanel1.Controls.Add(this.label8, 2, 12);
             this.tableLayoutPanel1.Controls.Add(this.lbTotal, 3, 12);
             this.tableLayoutPanel1.Controls.Add(this.btnClearCart, 4, 7);
-            this.tableLayoutPanel1.Controls.Add(this.button5, 4, 10);
-            this.tableLayoutPanel1.Controls.Add(this.button4, 4, 9);
-            this.tableLayoutPanel1.Controls.Add(this.button2, 4, 8);
+            this.tableLayoutPanel1.Controls.Add(this.btnHome, 4, 10);
+            this.tableLayoutPanel1.Controls.Add(this.btnPrintRe, 4, 9);
+            this.tableLayoutPanel1.Controls.Add(this.btnPayment, 4, 8);
             this.tableLayoutPanel1.Controls.Add(this.label3, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.lbDate, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.lbTime, 3, 0);
@@ -643,41 +643,42 @@
             this.btnClearCart.UseVisualStyleBackColor = true;
             this.btnClearCart.Click += new System.EventHandler(this.btnClearCart_Click);
             // 
-            // button5
+            // btnHome
             // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnHome.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.button5.Location = new System.Drawing.Point(887, 605);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(294, 35);
-            this.button5.TabIndex = 39;
-            this.button5.Text = "HOME";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.btnHome.Location = new System.Drawing.Point(887, 605);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(294, 35);
+            this.btnHome.TabIndex = 39;
+            this.btnHome.Text = "HOME";
+            this.btnHome.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnPrintRe
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnPrintRe.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.button4.Location = new System.Drawing.Point(887, 557);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(294, 35);
-            this.button4.TabIndex = 38;
-            this.button4.Text = "PRINT RECEIPT";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnPrintRe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.btnPrintRe.Location = new System.Drawing.Point(887, 557);
+            this.btnPrintRe.Name = "btnPrintRe";
+            this.btnPrintRe.Size = new System.Drawing.Size(294, 35);
+            this.btnPrintRe.TabIndex = 38;
+            this.btnPrintRe.Text = "PRINT RECEIPT";
+            this.btnPrintRe.UseVisualStyleBackColor = true;
+            this.btnPrintRe.Click += new System.EventHandler(this.btnPrintRe_Click);
             // 
-            // button2
+            // btnPayment
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnPayment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.button2.Location = new System.Drawing.Point(887, 509);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(294, 35);
-            this.button2.TabIndex = 37;
-            this.button2.Text = "PAYMENT";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.btnPayment.Location = new System.Drawing.Point(887, 509);
+            this.btnPayment.Name = "btnPayment";
+            this.btnPayment.Size = new System.Drawing.Size(294, 35);
+            this.btnPayment.TabIndex = 37;
+            this.btnPayment.Text = "PAYMENT";
+            this.btnPayment.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -875,9 +876,9 @@
         private System.Windows.Forms.Label lbVat;
         private System.Windows.Forms.Label lbVatExmpt;
         private System.Windows.Forms.Label lbTotal;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnPayment;
+        private System.Windows.Forms.Button btnPrintRe;
+        private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;

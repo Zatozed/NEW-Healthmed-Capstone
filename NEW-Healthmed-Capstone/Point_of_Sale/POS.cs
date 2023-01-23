@@ -1,6 +1,10 @@
 ﻿using MySqlX.XDevAPI.Common;
+using NEW_Healthmed_Capstone.CrystalReportsFolder;
+using NEW_Healthmed_Capstone.CtrHelperFolder;
 using NEW_Healthmed_Capstone.DBhelperFolder;
+using NEW_Healthmed_Capstone.Reports;
 using System;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -9,11 +13,39 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
     public partial class POS : Form
     {
         private DBhelperClass dbh = new DBhelperClass();
+        private CtrHelper ctr = new CtrHelper();
         private int rowIdx;
         private double subtotal, vatable, vat, total;
         public POS()
         {
             InitializeComponent();
+        }
+        private void DgvToDt()
+        {
+            DataTable dt = new DataTable();
+            DataSet ds = new DataSet();
+
+            dt.Columns.Add("Qty", typeof(string));
+            dt.Columns.Add("Item", typeof(string));
+            dt.Columns.Add("Price", typeof(string));
+            dt.Columns.Add("Total", typeof(string));
+
+            foreach (DataGridViewRow r in dgvCart.Rows)
+            {
+                dt.Rows.Add(r.Cells["colQtyCart"].Value.ToString(),
+                    r.Cells["colItemCart"].Value.ToString(),
+                    r.Cells["colUnitPriceCart"].Value.ToString(),
+                    r.Cells["colTotalCart"].Value.ToString());
+            }
+            ds.Tables.Add(dt);
+            ds.WriteXmlSchema("Recbo.xml");
+
+            Resibo rs = new Resibo();
+            resibo ctrResibo = new resibo();
+            ctrResibo.SetDataSource(ds);
+            rs.crvResibo.ReportSource = ctrResibo;
+            rs.crvResibo.Refresh();
+            rs.Show();
         }
         private void Compute()
         {
@@ -236,6 +268,11 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
 
             total = ComputeTotalAmoutDue();
             lbTotal.Text = "Php " + total.ToString();
+        }
+
+        private void btnPrintRe_Click(object sender, EventArgs e)
+        {
+            DgvToDt();
         }
 
         private void dgvCart_CellClick(object sender, DataGridViewCellEventArgs e)

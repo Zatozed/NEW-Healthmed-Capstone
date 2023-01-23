@@ -19,36 +19,57 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             stringBuilder = new MySqlConnectionStringBuilder(Properties.Settings.Default.S_ConBuild);
             con = new MySqlConnection(stringBuilder.ConnectionString);
         }
-
-        public void TestCon()
+        public MySqlConnection conn()
         {
-            try 
-            {
-                con.Open();
-                cmd = new MySqlCommand("select 1", con);
-                dr = cmd.ExecuteReader();
-                if (dr.Read())
-                {
-                    MessageBox.Show("connected");
-                }
-                dr.Dispose();
-                dr.Close();
-            }
-            catch(MySqlException sql) { MessageBox.Show("Not connected to server"); }
-            finally { con.Close(); }
+            return con;
         }
+        public void OpenCon() { con.Open(); }
+        public void CloseCon() { con.Close(); }
 
         public DataTable ShowProductList() 
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("select product_code , product_name, classification, dosage, med_type, unit_cost, unit_price, in_stock_qty from tbl_products",
+                con);
+                dataAdapter = new MySqlDataAdapter(cmd);
+                dataAdapter.Fill(dt);
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+
+            return dt;
+        }
+        public DataTable ShowDiscountList()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("select id, discount_name, discount_percent from tbl_discount",
+                con);
+                dataAdapter = new MySqlDataAdapter(cmd);
+                dataAdapter.Fill(dt);
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+
+            return dt;
+        }
+        public DataTable showSupplierList()
         {
             DataTable dt = new DataTable();
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("select product_code , product_name, classification, dosage, med_type, unit_cost, unit_price, available_qty, in_stock_qty from tbl_products",
+                cmd = new MySqlCommand("select supplier_id,supplier_name,description,email,contactNum,Address,leadTime from tbl_suppliers;", 
                 con);
                 dataAdapter = new MySqlDataAdapter(cmd);
                 dataAdapter.Fill(dt);
-                
             }
             catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
             finally { con.Close(); }
@@ -124,7 +145,7 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("select product_code , product_name, classification, dosage, med_type, unit_cost, unit_price, available_qty, in_stock_qty from tbl_products where product_code like '%"+s+"%' or product_name like '%"+s+"%'",
+                cmd = new MySqlCommand("select product_code , product_name, classification, dosage, med_type, unit_cost, unit_price, in_stock_qty from tbl_products where product_code like '%"+s+"%' or product_name like '%"+s+"%' or classification like '%"+s+"%'",
                 con);
                 dataAdapter = new MySqlDataAdapter(cmd);
                 dataAdapter.Fill(dt);

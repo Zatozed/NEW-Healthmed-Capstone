@@ -31,6 +31,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.BtnOrderList = new System.Windows.Forms.Button();
+            this.BtnPOSubmit = new System.Windows.Forms.Button();
             this.DGVPO = new System.Windows.Forms.DataGridView();
             this.Product_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Classification = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,12 +44,9 @@
             this.Add = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.BtnOrderList = new System.Windows.Forms.Button();
-            this.BtnPOSubmit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVPO)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVPO)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -58,6 +58,39 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(889, 404);
             this.panel1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.BtnOrderList);
+            this.panel2.Controls.Add(this.BtnPOSubmit);
+            this.panel2.Controls.Add(this.DGVPO);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(885, 400);
+            this.panel2.TabIndex = 13;
+            // 
+            // BtnOrderList
+            // 
+            this.BtnOrderList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnOrderList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnOrderList.Location = new System.Drawing.Point(655, 358);
+            this.BtnOrderList.Name = "BtnOrderList";
+            this.BtnOrderList.Size = new System.Drawing.Size(103, 32);
+            this.BtnOrderList.TabIndex = 17;
+            this.BtnOrderList.Text = "Order List";
+            this.BtnOrderList.UseVisualStyleBackColor = true;
+            // 
+            // BtnPOSubmit
+            // 
+            this.BtnPOSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnPOSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnPOSubmit.Location = new System.Drawing.Point(772, 358);
+            this.BtnPOSubmit.Name = "BtnPOSubmit";
+            this.BtnPOSubmit.Size = new System.Drawing.Size(103, 32);
+            this.BtnPOSubmit.TabIndex = 16;
+            this.BtnPOSubmit.Text = "Submit Order";
+            this.BtnPOSubmit.UseVisualStyleBackColor = true;
             // 
             // DGVPO
             // 
@@ -91,7 +124,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DGVPO.DefaultCellStyle = dataGridViewCellStyle2;
             this.DGVPO.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -153,39 +186,6 @@
             this.Delete.Name = "Delete";
             this.Delete.Width = 25;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.BtnOrderList);
-            this.panel2.Controls.Add(this.BtnPOSubmit);
-            this.panel2.Controls.Add(this.DGVPO);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(885, 400);
-            this.panel2.TabIndex = 13;
-            // 
-            // BtnOrderList
-            // 
-            this.BtnOrderList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnOrderList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnOrderList.Location = new System.Drawing.Point(655, 358);
-            this.BtnOrderList.Name = "BtnOrderList";
-            this.BtnOrderList.Size = new System.Drawing.Size(103, 32);
-            this.BtnOrderList.TabIndex = 17;
-            this.BtnOrderList.Text = "Order List";
-            this.BtnOrderList.UseVisualStyleBackColor = true;
-            // 
-            // BtnPOSubmit
-            // 
-            this.BtnPOSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnPOSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnPOSubmit.Location = new System.Drawing.Point(772, 358);
-            this.BtnPOSubmit.Name = "BtnPOSubmit";
-            this.BtnPOSubmit.Size = new System.Drawing.Size(103, 32);
-            this.BtnPOSubmit.TabIndex = 16;
-            this.BtnPOSubmit.Text = "Submit Order";
-            this.BtnPOSubmit.UseVisualStyleBackColor = true;
-            // 
             // Purchase_Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -197,8 +197,8 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Purchase_Order_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DGVPO)).EndInit();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DGVPO)).EndInit();
             this.ResumeLayout(false);
 
         }

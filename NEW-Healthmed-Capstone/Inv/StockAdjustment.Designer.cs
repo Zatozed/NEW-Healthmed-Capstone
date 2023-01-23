@@ -28,15 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.DGVStockUdjustment = new System.Windows.Forms.DataGridView();
-            this.BtnAdjustConfirm = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.RefStockUdjust = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.BtnUdjustUpdate = new System.Windows.Forms.Button();
+            this.BtnAdjustConfirm = new System.Windows.Forms.Button();
+            this.DGVStockUdjustment = new System.Windows.Forms.DataGridView();
             this.Product_Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Product_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Classification = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,8 +47,6 @@
             this.Unit_Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unit_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RefStockUdjust = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVStockUdjustment)).BeginInit();
@@ -63,6 +63,42 @@
             this.panel1.Size = new System.Drawing.Size(997, 93);
             this.panel1.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14F);
+            this.label1.Location = new System.Drawing.Point(46, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 24);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Reference #:";
+            // 
+            // RefStockUdjust
+            // 
+            this.RefStockUdjust.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RefStockUdjust.Location = new System.Drawing.Point(43, 54);
+            this.RefStockUdjust.Name = "RefStockUdjust";
+            this.RefStockUdjust.Size = new System.Drawing.Size(226, 29);
+            this.RefStockUdjust.TabIndex = 10;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(676, 54);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(309, 29);
+            this.dateTimePicker1.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14F);
+            this.label4.Location = new System.Drawing.Point(679, 27);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(130, 24);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Adjustment Date:";
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.BtnUdjustUpdate);
@@ -73,47 +109,16 @@
             this.panel2.Size = new System.Drawing.Size(997, 361);
             this.panel2.TabIndex = 1;
             // 
-            // DGVStockUdjustment
+            // BtnUdjustUpdate
             // 
-            this.DGVStockUdjustment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.DGVStockUdjustment.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DGVStockUdjustment.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DGVStockUdjustment.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.DGVStockUdjustment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVStockUdjustment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Product_Code,
-            this.Product_Name,
-            this.Classification,
-            this.Dosage,
-            this.Type,
-            this.Unit_Cost,
-            this.Unit_Price,
-            this.Supplier});
-            this.DGVStockUdjustment.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVStockUdjustment.DefaultCellStyle = dataGridViewCellStyle4;
-            this.DGVStockUdjustment.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.DGVStockUdjustment.Location = new System.Drawing.Point(3, 3);
-            this.DGVStockUdjustment.Name = "DGVStockUdjustment";
-            this.DGVStockUdjustment.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.DGVStockUdjustment.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.DGVStockUdjustment.Size = new System.Drawing.Size(991, 319);
-            this.DGVStockUdjustment.TabIndex = 13;
+            this.BtnUdjustUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnUdjustUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnUdjustUpdate.Location = new System.Drawing.Point(774, 325);
+            this.BtnUdjustUpdate.Name = "BtnUdjustUpdate";
+            this.BtnUdjustUpdate.Size = new System.Drawing.Size(103, 32);
+            this.BtnUdjustUpdate.TabIndex = 18;
+            this.BtnUdjustUpdate.Text = "Update";
+            this.BtnUdjustUpdate.UseVisualStyleBackColor = true;
             // 
             // BtnAdjustConfirm
             // 
@@ -126,34 +131,47 @@
             this.BtnAdjustConfirm.Text = "Confirm";
             this.BtnAdjustConfirm.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // DGVStockUdjustment
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14F);
-            this.label4.Location = new System.Drawing.Point(679, 27);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(130, 24);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Adjustment Date:";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(676, 54);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(309, 29);
-            this.dateTimePicker1.TabIndex = 9;
-            // 
-            // BtnUdjustUpdate
-            // 
-            this.BtnUdjustUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnUdjustUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnUdjustUpdate.Location = new System.Drawing.Point(774, 325);
-            this.BtnUdjustUpdate.Name = "BtnUdjustUpdate";
-            this.BtnUdjustUpdate.Size = new System.Drawing.Size(103, 32);
-            this.BtnUdjustUpdate.TabIndex = 18;
-            this.BtnUdjustUpdate.Text = "Update";
-            this.BtnUdjustUpdate.UseVisualStyleBackColor = true;
+            this.DGVStockUdjustment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DGVStockUdjustment.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DGVStockUdjustment.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGVStockUdjustment.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.DGVStockUdjustment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVStockUdjustment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Product_Code,
+            this.Product_Name,
+            this.Classification,
+            this.Dosage,
+            this.Type,
+            this.Unit_Cost,
+            this.Unit_Price,
+            this.Supplier});
+            this.DGVStockUdjustment.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVStockUdjustment.DefaultCellStyle = dataGridViewCellStyle2;
+            this.DGVStockUdjustment.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.DGVStockUdjustment.Location = new System.Drawing.Point(3, 3);
+            this.DGVStockUdjustment.Name = "DGVStockUdjustment";
+            this.DGVStockUdjustment.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.DGVStockUdjustment.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.DGVStockUdjustment.Size = new System.Drawing.Size(991, 319);
+            this.DGVStockUdjustment.TabIndex = 13;
             // 
             // Product_Code
             // 
@@ -197,24 +215,6 @@
             this.Supplier.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Supplier.HeaderText = "Supplier";
             this.Supplier.Name = "Supplier";
-            // 
-            // RefStockUdjust
-            // 
-            this.RefStockUdjust.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RefStockUdjust.Location = new System.Drawing.Point(43, 54);
-            this.RefStockUdjust.Name = "RefStockUdjust";
-            this.RefStockUdjust.Size = new System.Drawing.Size(226, 29);
-            this.RefStockUdjust.TabIndex = 10;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14F);
-            this.label1.Location = new System.Drawing.Point(46, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 24);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Reference #:";
             // 
             // StockAdjustment
             // 

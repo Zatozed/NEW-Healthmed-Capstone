@@ -26,7 +26,7 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
         public void OpenCon() { con.Open(); }
         public void CloseCon() { con.Close(); }
 
-        public DataTable ShowProductList() 
+        public DataTable ShowProductList()
         {
             DataTable dt = new DataTable();
 
@@ -66,7 +66,7 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("select supplier_id,supplier_name,description,email,contactNum,Address,leadTime from tbl_suppliers;", 
+                cmd = new MySqlCommand("select supplier_id,supplier_name,description,email,contactNum,Address,leadTime from tbl_suppliers;",
                 con);
                 dataAdapter = new MySqlDataAdapter(cmd);
                 dataAdapter.Fill(dt);
@@ -145,7 +145,7 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("select product_code , product_name, classification, dosage, med_type, unit_cost, unit_price, in_stock_qty from tbl_products where product_code like '%"+s+"%' or product_name like '%"+s+"%' or classification like '%"+s+"%'",
+                cmd = new MySqlCommand("select product_code , product_name, classification, dosage, med_type, unit_cost, unit_price, in_stock_qty from tbl_products where product_code like '%" + s + "%' or product_name like '%" + s + "%' or classification like '%" + s + "%'",
                 con);
                 dataAdapter = new MySqlDataAdapter(cmd);
                 dataAdapter.Fill(dt);
@@ -162,7 +162,7 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             {
                 con.Open();
                 cmd = new MySqlCommand("insert into tbl_sales(transaction_num, product_code, item_description, qty, unit_cost, unit_price, vat_exempt, discount, total_cost, total_sales, transac_date, cashier)"
-                    + "values('20230124', 'PD0001', 'Biogesic Paracetamol 500mg', 10, 4.00, 6.00, 0, 0, 40, 60, now(), 'Cashier1')", con);
+                    + "values(@t_num, @p_code, @itm_des, @qty, @cost, @price, @v_exmpt, @discount, @t_cost, @t_sales, @t_date, @chashier)", con);
 
                 cmd.Parameters.AddWithValue("@t_num", transac_num);
                 cmd.Parameters.AddWithValue("@p_code", prod_code);
@@ -183,6 +183,56 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             }
             catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
             finally { con.Close(); }
+        }
+        public string GenereateTransacNum()
+        {
+            string date = DateTime.Now.ToString("yyyyMMdd");
+            string transNo;
+            int count;
+            string transacNum = "";
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("Select transaction_num from tbl_sales where transaction_num  like '" + date + "%' order by transaction_num DESC LIMIT 1", con);
+                dr = cmd.ExecuteReader();
+                dr.Read();
+                if (dr.HasRows)
+                {
+                    transNo = dr.GetString("transaction_num");
+                    count = int.Parse(transNo.Substring(8, 4));
+                    transacNum = date + "000" + (count + 1);
+                }
+                else
+                {
+                    transNo = date + "0001";
+                    transacNum = transNo;
+                }
+                dr.Close();
+            }
+            catch (Exception ex) { }
+            finally { con.Close(); }
+            return transacNum;
+        }
+
+        public bool isEnough(string P_code, int qty)
+        {
+            bool isEnough = true;
+
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("select in_stock_qty from tbl_products where product_code = '"+ P_code +"'", con);
+                dr = cmd.ExecuteReader();
+                dr.Read();
+                int in_st = dr.GetInt32("in_stock_qty");
+                if (qty > in_st)
+                    isEnough = false;
+                else
+                    isEnough = true;
+            }
+            catch (Exception ex) { }
+            finally { con.Close(); }
+            return isEnough;
         }
     }
 

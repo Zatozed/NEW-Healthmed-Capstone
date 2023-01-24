@@ -159,6 +159,8 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
             dgvDrugs.DataSource = dbh.ShowProductList();
             
             FIllCbDiscount();
+
+            lbTransacNum.Text = dbh.GenereateTransacNum();
         }
 
         private void tbSearch_TextChanged(object sender, EventArgs e)
@@ -247,38 +249,93 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
             lbVat.Text = "Php 0.00";
             lbVatable.Text = "Php 0.00";
             lbVatExmpt.Text = "Php 0.00";
+            lbTransacNum.Text = dbh.GenereateTransacNum();
         }
 
         private void dgvCart_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            Compute();
+            if (dgvCart.RowCount != 0)
+            {
+                string prodCode = dgvCart.Rows[e.RowIndex].Cells["colProdCodeCart"].Value.ToString();
+                int _qty = Convert.ToInt32(dgvCart.Rows[e.RowIndex].Cells["colQtyCart"].Value);
 
-            subtotal = ComputeSubTotal();
-            lbSubtotal.Text = "Php " + subtotal.ToString();
+                if (dbh.isEnough(prodCode, _qty) == false)
+                {
+                    MessageBox.Show("Insufficient Stock");
+                    dgvCart.Rows[e.RowIndex].Cells["colQtyCart"].Value = 1;
+                }
+                else
+                {
+                    Compute();
 
-            vatable = ComputeVatable();
-            lbVatable.Text = "Php " + vatable.ToString();
+                    subtotal = ComputeSubTotal();
+                    lbSubtotal.Text = "Php " + subtotal.ToString();
 
-            vat = ComputeVat();
-            lbVat.Text = "Php " + vat.ToString();
+                    vatable = ComputeVatable();
+                    lbVatable.Text = "Php " + vatable.ToString();
 
-            lbVatExmpt.Text = "Php " + ComputeVatXmpt();
+                    vat = ComputeVat();
+                    lbVat.Text = "Php " + vat.ToString();
 
-            lbDiscount.Text = "Php " + ComputeLessDiscount();
+                    lbVatExmpt.Text = "Php " + ComputeVatXmpt();
 
-            total = ComputeTotalAmoutDue();
-            lbTotal.Text = "Php " + total.ToString();
+                    lbDiscount.Text = "Php " + ComputeLessDiscount();
+
+                    total = ComputeTotalAmoutDue();
+                    lbTotal.Text = "Php " + total.ToString();
+                }
+            }
         }
 
         private void btnPrintRe_Click(object sender, EventArgs e)
         {
             DgvToDt();
+            lbTransacNum.Text = dbh.GenereateTransacNum();
         }
 
         private void btnPayment_Click(object sender, EventArgs e)
         {
-            CashTender ct = new CashTender(total);
-            ct.ShowDialog();
+            if (dgvCart.Rows.Count != 0)// row has laman
+            {
+                CashTender ct = new CashTender(total);
+                ct.ShowDialog();
+
+                foreach (DataGridViewRow r in dgvCart.Rows)
+                {
+                    dbh.InsertToSales(
+                        lbTransacNum.Text.ToString(),
+                        r.Cells["colProdCodeCart"].Value.ToString(),
+                        r.Cells["colItemCart"].Value.ToString(),
+                        r.Cells["colQtyCart"].Value.ToString(),
+                        r.Cells["colUnitCostCart"].Value.ToString(),
+                        r.Cells["colUnitPriceCart"].Value.ToString(),
+                        r.Cells["colVatXCart"].Value.ToString(),
+                        r.Cells["colDiscountCart"].Value.ToString(),
+                        Math.Round(Convert.ToDouble(r.Cells["colQtyCart"].Value) * Convert.ToDouble(r.Cells["colUnitCostCart"].Value), 2).ToString(), //total cost
+                        r.Cells["colTotalCart"].Value.ToString(),
+                        DateTime.Now.ToString("yyyy-MM-dd HH:mm"),
+                        lbUser.Text.ToString()
+                        );
+                }
+                MessageBox.Show("Transaction Saved");
+            }
+            else { MessageBox.Show("No Items Added"); }
+
+            lbTransacNum.Text = dbh.GenereateTransacNum();
+        }
+
+        private void btnNewTransacNum_Click(object sender, EventArgs e)
+        {
+            lbTransacNum.Text = dbh.GenereateTransacNum();
+
+            dgvCart.Rows.Clear();
+            lbDiscount.Text = "Php 0.00";
+            lbSubtotal.Text = "Php 0.00";
+            lbTotal.Text = "Php 0.00";
+            lbVat.Text = "Php 0.00";
+            lbVatable.Text = "Php 0.00";
+            lbVatExmpt.Text = "Php 0.00";
+            
         }
 
         private void dgvCart_CellClick(object sender, DataGridViewCellEventArgs e) // add minus qty

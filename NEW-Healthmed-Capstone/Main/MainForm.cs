@@ -2,6 +2,7 @@
 using NEW_Healthmed_Capstone.file_maintenance;
 using NEW_Healthmed_Capstone.Inv;
 using NEW_Healthmed_Capstone.Point_of_Sale;
+using NEW_Healthmed_Capstone.Reports;
 using NEW_Healthmed_Capstone.User;
 using System;
 using System.Collections.Generic;
@@ -134,6 +135,12 @@ namespace NEW_Healthmed_Capstone.Main
 
             POS pos = new POS();
             pos.ShowDialog();
+        }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            ReportsMenu menu = new ReportsMenu();
+            menu.ShowDialog();
         }
     }
 }

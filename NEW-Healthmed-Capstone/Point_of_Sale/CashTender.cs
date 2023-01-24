@@ -6,6 +6,12 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
     public partial class CashTender : Form
     {
         private double total, change, cash;
+
+        private void btnDone_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         public CashTender(double _total)
         {
             InitializeComponent();

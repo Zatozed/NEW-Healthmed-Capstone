@@ -76,6 +76,21 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             return dt;
         }
 
+        public DataTable ShowSales() 
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("select transaction_num, product_code, item_description, qty, unit_cost, unit_price, vat_exempt, discount, total_cost, total_sales, transac_date, cashier from tbl_sales", con);
+                dataAdapter = new MySqlDataAdapter(cmd);
+                dataAdapter.Fill(dt);
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+            return dt;
+        }
+
         public List<string> GetDiscountNames()
         {
             List<string> list = new List<string>();

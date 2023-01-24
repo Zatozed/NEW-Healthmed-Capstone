@@ -54,6 +54,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnReports = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -63,6 +64,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.btnReports);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnFilemaintenance);
             this.panel1.Controls.Add(this.btnInventory);
@@ -369,6 +371,18 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // btnReports
+            // 
+            this.btnReports.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReports.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F);
+            this.btnReports.Location = new System.Drawing.Point(0, 320);
+            this.btnReports.Name = "btnReports";
+            this.btnReports.Size = new System.Drawing.Size(248, 59);
+            this.btnReports.TabIndex = 5;
+            this.btnReports.Text = "REPORTS";
+            this.btnReports.UseVisualStyleBackColor = true;
+            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -416,5 +430,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnInventory;
         private System.Windows.Forms.Button btnPOS;
+        private System.Windows.Forms.Button btnReports;
     }
 }

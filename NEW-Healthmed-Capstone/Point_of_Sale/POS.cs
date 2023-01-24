@@ -275,6 +275,12 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
             DgvToDt();
         }
 
+        private void btnPayment_Click(object sender, EventArgs e)
+        {
+            CashTender ct = new CashTender(total);
+            ct.ShowDialog();
+        }
+
         private void dgvCart_CellClick(object sender, DataGridViewCellEventArgs e) // add minus qty
         {
             if (dgvCart.Columns[e.ColumnIndex].Name.Equals("colCBDiscountCart"))

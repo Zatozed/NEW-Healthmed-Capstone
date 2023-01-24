@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace NEW_Healthmed_Capstone.Reports
 {
-    public partial class ReportsMenu : Form
+    public partial class SalesReportViewer : Form
     {
-        public ReportsMenu()
+        public SalesReportViewer()
         {
             InitializeComponent();
-        }
-
-        private void btnSales_Click(object sender, EventArgs e)
-        {
-            SalesReportGenerator sr = new SalesReportGenerator();
-            sr.ShowDialog();
         }
     }
 }

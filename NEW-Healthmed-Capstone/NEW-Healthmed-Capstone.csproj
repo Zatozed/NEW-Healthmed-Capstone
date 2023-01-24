@@ -96,6 +96,12 @@
       <DependentUpon>resibo.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CrystalReportsFolder\SalesReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SalesReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CtrHelperFolder\CtrHelper.cs" />
     <Compile Include="DBhelperFolder\DBhelperClass.cs" />
     <Compile Include="file maintenance\FileMaintenance.cs">
@@ -166,11 +172,17 @@
     <Compile Include="Reports\Resibo.Designer.cs">
       <DependentUpon>Resibo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\SalesReport.cs">
+    <Compile Include="Reports\SalesReportGenerator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reports\SalesReport.Designer.cs">
-      <DependentUpon>SalesReport.cs</DependentUpon>
+    <Compile Include="Reports\SalesReportGenerator.Designer.cs">
+      <DependentUpon>SalesReportGenerator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SalesReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SalesReportViewer.Designer.cs">
+      <DependentUpon>SalesReportViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="User\editUser.cs">
       <SubType>Form</SubType>
@@ -199,6 +211,10 @@
     <EmbeddedResource Include="CrystalReportsFolder\resibo.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>resibo.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReportsFolder\SalesReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SalesReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="file maintenance\FileMaintenance.resx">
       <DependentUpon>FileMaintenance.cs</DependentUpon>
@@ -242,8 +258,11 @@
     <EmbeddedResource Include="Reports\Resibo.resx">
       <DependentUpon>Resibo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\SalesReport.resx">
-      <DependentUpon>SalesReport.cs</DependentUpon>
+    <EmbeddedResource Include="Reports\SalesReportGenerator.resx">
+      <DependentUpon>SalesReportGenerator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SalesReportViewer.resx">
+      <DependentUpon>SalesReportViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\editUser.resx">
       <DependentUpon>editUser.cs</DependentUpon>

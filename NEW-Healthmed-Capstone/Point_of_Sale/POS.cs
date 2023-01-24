@@ -1,4 +1,5 @@
-﻿using MySqlX.XDevAPI.Common;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using MySqlX.XDevAPI.Common;
 using NEW_Healthmed_Capstone.CrystalReportsFolder;
 using NEW_Healthmed_Capstone.CtrHelperFolder;
 using NEW_Healthmed_Capstone.DBhelperFolder;
@@ -44,6 +45,16 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
             resibo ctrResibo = new resibo();
             ctrResibo.SetDataSource(ds);
             rs.crvResibo.ReportSource = ctrResibo;
+
+            TextObject toVatable = (TextObject)ctrResibo.ReportDefinition.Sections["Section4"].ReportObjects["toVatable"];
+            toVatable.Text = lbVatExmpt.Text;
+
+            TextObject toVat = (TextObject)ctrResibo.ReportDefinition.Sections["Section4"].ReportObjects["toVat"];
+            toVat.Text = lbVat.Text;
+
+            TextObject toVatEX = (TextObject)ctrResibo.ReportDefinition.Sections["Section4"].ReportObjects["toVatEx"];
+            toVatEX.Text = lbVatExmpt.Text;
+
             rs.crvResibo.Refresh();
             rs.Show();
         }

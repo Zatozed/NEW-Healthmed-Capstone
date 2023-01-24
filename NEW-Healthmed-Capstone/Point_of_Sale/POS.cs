@@ -47,13 +47,25 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
             rs.crvResibo.ReportSource = ctrResibo;
 
             TextObject toVatable = (TextObject)ctrResibo.ReportDefinition.Sections["Section4"].ReportObjects["toVatable"];
-            toVatable.Text = lbVatExmpt.Text;
+            toVatable.Text = lbVatable.Text;
 
             TextObject toVat = (TextObject)ctrResibo.ReportDefinition.Sections["Section4"].ReportObjects["toVat"];
             toVat.Text = lbVat.Text;
 
             TextObject toVatEX = (TextObject)ctrResibo.ReportDefinition.Sections["Section4"].ReportObjects["toVatEx"];
             toVatEX.Text = lbVatExmpt.Text;
+
+            TextObject toAmountDue = (TextObject)ctrResibo.ReportDefinition.Sections["Section4"].ReportObjects["toAmountDue"];
+            toAmountDue.Text = lbTotal.Text;
+
+            TextObject toCash = (TextObject)ctrResibo.ReportDefinition.Sections["Section4"].ReportObjects["toCash"];
+            toCash.Text = lbCash.Text;
+
+            TextObject toChange = (TextObject)ctrResibo.ReportDefinition.Sections["Section4"].ReportObjects["toChange"];
+            toChange.Text = lbChange.Text;
+
+            TextObject toDiscount = (TextObject)ctrResibo.ReportDefinition.Sections["Section4"].ReportObjects["toDiscount"];
+            toDiscount.Text = lbDiscount.Text;
 
             rs.crvResibo.Refresh();
             rs.Show();
@@ -333,6 +345,11 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
             else { MessageBox.Show("No Items Added"); }
 
             lbTransacNum.Text = dbh.GenereateTransacNum();
+
+            lbCash.Text = "Php: " + Properties.Settings.Default.Cash;
+            lbChange.Text = "Php: " + Properties.Settings.Default.Change;
+
+            btnPayment.Enabled = false;
         }
 
         private void btnNewTransacNum_Click(object sender, EventArgs e)
@@ -346,7 +363,7 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
             lbVat.Text = "Php 0.00";
             lbVatable.Text = "Php 0.00";
             lbVatExmpt.Text = "Php 0.00";
-            
+            btnPayment.Enabled = true;
         }
 
         private void dgvCart_CellClick(object sender, DataGridViewCellEventArgs e) // add minus qty

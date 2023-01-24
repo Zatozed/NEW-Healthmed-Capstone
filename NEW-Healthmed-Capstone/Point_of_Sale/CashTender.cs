@@ -9,6 +9,8 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
 
         private void btnDone_Click(object sender, EventArgs e)
         {
+            Properties.Settings.Default.Cash = tbCash.Text;
+            Properties.Settings.Default.Change = tbChange.Text;
             this.Close();
         }
 

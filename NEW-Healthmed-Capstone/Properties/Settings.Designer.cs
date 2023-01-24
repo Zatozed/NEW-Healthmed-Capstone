@@ -106,5 +106,29 @@ namespace NEW_Healthmed_Capstone.Properties {
                 this["S_dbName"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Cash {
+            get {
+                return ((string)(this["Cash"]));
+            }
+            set {
+                this["Cash"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Change {
+            get {
+                return ((string)(this["Change"]));
+            }
+            set {
+                this["Change"] = value;
+            }
+        }
     }
 }

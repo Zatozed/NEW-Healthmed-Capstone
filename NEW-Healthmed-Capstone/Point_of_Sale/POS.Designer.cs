@@ -96,6 +96,10 @@
             this.btnPayment = new System.Windows.Forms.Button();
             this.btnPrintRe = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lbCash = new System.Windows.Forms.Label();
+            this.lbChange = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tControlProducts.SuspendLayout();
@@ -138,10 +142,14 @@
             this.tableLayoutPanel1.Controls.Add(this.lbVatExmpt, 3, 10);
             this.tableLayoutPanel1.Controls.Add(this.label17, 2, 11);
             this.tableLayoutPanel1.Controls.Add(this.lbDiscount, 3, 11);
-            this.tableLayoutPanel1.Controls.Add(this.btnHome, 5, 12);
-            this.tableLayoutPanel1.Controls.Add(this.btnPrintRe, 4, 12);
-            this.tableLayoutPanel1.Controls.Add(this.btnPayment, 5, 11);
             this.tableLayoutPanel1.Controls.Add(this.btnClearCart, 4, 7);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 4, 10);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 4, 9);
+            this.tableLayoutPanel1.Controls.Add(this.btnPayment, 4, 8);
+            this.tableLayoutPanel1.Controls.Add(this.btnPrintRe, 4, 11);
+            this.tableLayoutPanel1.Controls.Add(this.btnHome, 4, 12);
+            this.tableLayoutPanel1.Controls.Add(this.lbCash, 5, 9);
+            this.tableLayoutPanel1.Controls.Add(this.lbChange, 5, 10);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -804,10 +812,11 @@
             // 
             this.btnPayment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.SetColumnSpan(this.btnPayment, 2);
             this.btnPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.btnPayment.Location = new System.Drawing.Point(1036, 653);
+            this.btnPayment.Location = new System.Drawing.Point(887, 509);
             this.btnPayment.Name = "btnPayment";
-            this.btnPayment.Size = new System.Drawing.Size(145, 35);
+            this.btnPayment.Size = new System.Drawing.Size(294, 35);
             this.btnPayment.TabIndex = 37;
             this.btnPayment.Text = "PAYMENT";
             this.btnPayment.UseVisualStyleBackColor = true;
@@ -817,10 +826,11 @@
             // 
             this.btnPrintRe.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.SetColumnSpan(this.btnPrintRe, 2);
             this.btnPrintRe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.btnPrintRe.Location = new System.Drawing.Point(887, 701);
+            this.btnPrintRe.Location = new System.Drawing.Point(887, 653);
             this.btnPrintRe.Name = "btnPrintRe";
-            this.btnPrintRe.Size = new System.Drawing.Size(143, 35);
+            this.btnPrintRe.Size = new System.Drawing.Size(294, 35);
             this.btnPrintRe.TabIndex = 38;
             this.btnPrintRe.Text = "PRINT RECEIPT";
             this.btnPrintRe.UseVisualStyleBackColor = true;
@@ -830,13 +840,50 @@
             // 
             this.btnHome.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.SetColumnSpan(this.btnHome, 2);
             this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.btnHome.Location = new System.Drawing.Point(1036, 701);
+            this.btnHome.Location = new System.Drawing.Point(887, 701);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(145, 35);
+            this.btnHome.Size = new System.Drawing.Size(294, 35);
             this.btnHome.TabIndex = 39;
             this.btnHome.Text = "HOME";
             this.btnHome.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(887, 554);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 17);
+            this.label1.TabIndex = 44;
+            this.label1.Text = "Cash";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(887, 602);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(63, 17);
+            this.label5.TabIndex = 45;
+            this.label5.Text = "Change";
+            // 
+            // lbCash
+            // 
+            this.lbCash.AutoSize = true;
+            this.lbCash.Location = new System.Drawing.Point(1036, 554);
+            this.lbCash.Name = "lbCash";
+            this.lbCash.Size = new System.Drawing.Size(78, 17);
+            this.lbCash.TabIndex = 46;
+            this.lbCash.Text = "Php: 0.00";
+            // 
+            // lbChange
+            // 
+            this.lbChange.AutoSize = true;
+            this.lbChange.Location = new System.Drawing.Point(1036, 602);
+            this.lbChange.Name = "lbChange";
+            this.lbChange.Size = new System.Drawing.Size(78, 17);
+            this.lbChange.TabIndex = 47;
+            this.lbChange.Text = "Php: 0.00";
             // 
             // POS
             // 
@@ -921,5 +968,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colUnitPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn colInStock;
         private System.Windows.Forms.DataGridViewButtonColumn colAdd;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbCash;
+        private System.Windows.Forms.Label lbChange;
     }
 }

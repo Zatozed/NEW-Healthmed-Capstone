@@ -123,9 +123,8 @@ namespace NEW_Healthmed_Capstone.Main
 
         private void btnInventory_Click(object sender, EventArgs e)
         {
-           inventory inv = new inventory();
-           inv.Show();
-           this.Close();
+           InventoryMenu im = new InventoryMenu();
+            im.ShowDialog();
         }
 
         private void btnPOS_Click(object sender, EventArgs e)

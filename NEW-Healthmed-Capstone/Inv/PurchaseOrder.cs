@@ -16,5 +16,14 @@ namespace NEW_Healthmed_Capstone.Inv
         {
             InitializeComponent();
         }
+
+        private void PurchaseOrder_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddProduct_Click(object sender, EventArgs e)
+        {
+        }
     }
 }

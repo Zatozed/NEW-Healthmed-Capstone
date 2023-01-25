@@ -140,12 +140,6 @@
     <Compile Include="Inv\StockAdjustment.Designer.cs">
       <DependentUpon>StockAdjustment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inv\testingToDgv.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inv\testingToDgv.Designer.cs">
-      <DependentUpon>testingToDgv.cs</DependentUpon>
-    </Compile>
     <Compile Include="login\Configure.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,9 +239,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inv\StockAdjustment.resx">
       <DependentUpon>StockAdjustment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Inv\testingToDgv.resx">
-      <DependentUpon>testingToDgv.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login\Configure.resx">
       <DependentUpon>Configure.cs</DependentUpon>

@@ -33,7 +33,7 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("select product_code , product_name, classification, dosage, med_type, unit_cost, unit_price, in_stock_qty from tbl_products",
+                cmd = new MySqlCommand("select p_id , product_code, product_name, classification, dosage, med_type,unit_cost,unit_price, in_stock_qty,reorder_point, safety_stock_per_week, avg_weekly_movement,max_weekly_movement, avg_lead_time, max_lead_time, remarks from tbl_products",
                 con);
                 dataAdapter = new MySqlDataAdapter(cmd);
                 dataAdapter.Fill(dt);
@@ -66,7 +66,7 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("select supplier_id,supplier_name,description,email,contactNum,Address,leadTime from tbl_suppliers;",
+                cmd = new MySqlCommand("select sup_id,supplier_name,sup_description,email_ad,contact_num,address,lead_time from tbl_suppliers;",
                 con);
                 dataAdapter = new MySqlDataAdapter(cmd);
                 dataAdapter.Fill(dt);

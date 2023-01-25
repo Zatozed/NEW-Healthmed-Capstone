@@ -110,17 +110,29 @@
     <Compile Include="file maintenance\FileMaintenance.Designer.cs">
       <DependentUpon>FileMaintenance.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inv\inventory.cs">
+    <Compile Include="Inv\InventoryMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inv\inventory.Designer.cs">
-      <DependentUpon>inventory.cs</DependentUpon>
+    <Compile Include="Inv\InventoryMenu.Designer.cs">
+      <DependentUpon>InventoryMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inv\Purchase Order.cs">
+    <Compile Include="Inv\ProductMasterList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inv\Purchase Order.Designer.cs">
-      <DependentUpon>Purchase Order.cs</DependentUpon>
+    <Compile Include="Inv\ProductMasterList.Designer.cs">
+      <DependentUpon>ProductMasterList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inv\PurchaseOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inv\PurchaseOrder.Designer.cs">
+      <DependentUpon>PurchaseOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inv\ReceivePO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inv\ReceivePO.Designer.cs">
+      <DependentUpon>ReceivePO.cs</DependentUpon>
     </Compile>
     <Compile Include="Inv\StockAdjustment.cs">
       <SubType>Form</SubType>
@@ -219,11 +231,8 @@
     <EmbeddedResource Include="file maintenance\FileMaintenance.resx">
       <DependentUpon>FileMaintenance.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inv\inventory.resx">
-      <DependentUpon>inventory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Inv\Purchase Order.resx">
-      <DependentUpon>Purchase Order.cs</DependentUpon>
+    <EmbeddedResource Include="Inv\InventoryMenu.resx">
+      <DependentUpon>InventoryMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inv\StockAdjustment.resx">
       <DependentUpon>StockAdjustment.cs</DependentUpon>

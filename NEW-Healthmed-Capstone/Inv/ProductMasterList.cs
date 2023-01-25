@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace NEW_Healthmed_Capstone.Inv
 {
-    public partial class Purchase_Order : Form
+    public partial class ProductMasterList : Form
     {
-        public Purchase_Order()
+        public ProductMasterList()
         {
             InitializeComponent();
-        }
-
-        private void Purchase_Order_Load(object sender, EventArgs e)
-        {
-            this.FormBorderStyle = FormBorderStyle.None;
         }
     }
 }

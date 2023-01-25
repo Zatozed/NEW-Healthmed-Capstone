@@ -192,7 +192,7 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
             if(tbSearch.Text == null || tbSearch.Text.ToString().Equals(""))
                 dgvDrugs.DataSource=dbh.ShowProductList();
             else
-                dgvDrugs.DataSource = dbh.SearchProduct(tbSearch.Text);
+                dgvDrugs.DataSource = dbh.ShowProductList(tbSearch.Text);
 
             // else if tab name non drugs
         }

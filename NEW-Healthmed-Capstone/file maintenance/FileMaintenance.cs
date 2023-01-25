@@ -441,6 +441,208 @@ namespace NEW_Healthmed_Capstone.file_maintenance
                 errorProvider8.Clear();
             }
         }
+        //================================================= Product =========================================================================
+        private void InsertToProduct()
+        {
+            try
+            {
+                dbh.OpenCon();
+                cmd = new MySqlCommand("SELECT * FROM tbl_products Where product_code = @productCode", dbh.conn());
+                cmd.Parameters.AddWithValue("@productCode", tbProductCode.Text.Trim());
+                dr = cmd.ExecuteReader();
+                if (string.IsNullOrEmpty(tbProductCode.Text) == false && string.IsNullOrEmpty(tbProductName.Text) == false && string.IsNullOrEmpty(tbClassification.Text) == false && string.IsNullOrEmpty(tbDosage.Text) == false && string.IsNullOrEmpty(tbType.Text) == false && string.IsNullOrEmpty(tbUnitCost.Text) == false && string.IsNullOrEmpty(tbUnitPrice.Text) == false)
+                {
+                    dbh.CloseCon();
+
+                    dbh.OpenCon();
+                    cmd = new MySqlCommand("insert into tbl_products(product_code, product_name,classification,dosage,med_type,unit_cost,unit_price) values(@pCode, @pName, @classification, @dosage, @type,@cost,@price)", dbh.conn());
+                    cmd.Parameters.AddWithValue("@pCode", tbProductCode.Text.Trim());
+                    cmd.Parameters.AddWithValue("@pName", tbProductName.Text);
+                    cmd.Parameters.AddWithValue("@classification", tbClassification.Text);
+                    cmd.Parameters.AddWithValue("@dosage", tbDosage.Text);
+                    cmd.Parameters.AddWithValue("@type", tbType.Text);
+                    cmd.Parameters.AddWithValue("@cost", tbUnitCost.Text);
+                    cmd.Parameters.AddWithValue("@price", tbUnitPrice.Text);
+                    cmd.ExecuteNonQuery();
+                    dbh.CloseCon();
+                    MessageBox.Show("Product Inserted!");
+                    dgvProducts.DataSource = dbh.ShowProductList();
+
+                    tbProductCode.Clear();
+                    tbProductName.Clear();
+                    tbClassification.Clear();
+                    tbDosage.Clear();
+                    tbType.Clear();
+                    tbUnitCost.Clear();
+                    tbUnitPrice.Clear();
+                }
+                if (string.IsNullOrEmpty(tbProductCode.Text) == true)
+                {
+                    errorProvider9.SetError(this.tbProductCode, "Please Fill Product Code");
+                }
+                else
+                {
+                    errorProvider9.Clear();
+                }
+                if (string.IsNullOrEmpty(tbProductName.Text) == true)
+                {
+                    errorProvider10.SetError(this.tbProductName, "Please Fill Product Name");
+                }
+                else
+                {
+                    errorProvider10.Clear();
+                }
+                if (string.IsNullOrEmpty(tbClassification.Text) == true)
+                {
+                    errorProvider11.SetError(this.tbClassification, "Please Fill Classification");
+                }
+                else
+                {
+                    errorProvider11.Clear();
+                }
+                if (string.IsNullOrEmpty(tbDosage.Text) == true)
+                {
+                    errorProvider12.SetError(this.tbDosage, "Please Fill Dosage #");
+                }
+                else
+                {
+                    errorProvider12.Clear();
+                }
+                if (string.IsNullOrEmpty(tbType.Text) == true)
+                {
+                    errorProvider13.SetError(this.tbType, "Please Fill Type");
+                }
+                else
+                {
+                    errorProvider13.Clear();
+                }
+                if (string.IsNullOrEmpty(tbUnitCost.Text) == true)
+                {
+                    errorProvider14.SetError(this.tbUnitCost, "Please Fill Unit Cost");
+                }
+                else
+                {
+                    errorProvider14.Clear();
+                }
+                if (string.IsNullOrEmpty(tbUnitPrice.Text) == true)
+                {
+                    errorProvider15.SetError(this.tbUnitPrice, "Please Fill Unit Price");
+                }
+                else
+                {
+                    errorProvider15.Clear();
+                }
+
+            }
+            catch (MySqlException sqlE) { MessageBox.Show("Product Already Exist"); }
+            finally { dbh.CloseCon(); }
+        }
+        private void btnProdConfirm_Click(object sender, EventArgs e)
+        {
+            InsertToProduct();
+        }
+
+        private void dgvProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //UPDATE PRODUCT
+            if (dgvProducts.Columns[e.ColumnIndex].Name == "colUpdateProduct")
+            {
+                try
+                {
+                    if (string.IsNullOrEmpty(Convert.ToString(dgvProducts.Rows[e.RowIndex].Cells["ProductCode"].Value)) == false && string.IsNullOrEmpty(Convert.ToString(dgvProducts.Rows[e.RowIndex].Cells["Product_Name"].Value)) == false && string.IsNullOrEmpty(Convert.ToString(dgvProducts.Rows[e.RowIndex].Cells["Classification"].Value)) == false && string.IsNullOrEmpty(Convert.ToString(dgvProducts.Rows[e.RowIndex].Cells["Dosage"].Value)) == false && string.IsNullOrEmpty(Convert.ToString(dgvProducts.Rows[e.RowIndex].Cells["Type"].Value)) == false && string.IsNullOrEmpty(Convert.ToString(dgvProducts.Rows[e.RowIndex].Cells["UnitCost"].Value)) == false && string.IsNullOrEmpty(Convert.ToString(dgvProducts.Rows[e.RowIndex].Cells["unitPrice"].Value)) == false)
+                    {
+                        dbh.CloseCon();
+                        dbh.OpenCon();
+                        cmd = new MySqlCommand("UPDATE tbl_products SET product_code = @pcode, product_name = @pName, classification = @classification, dosage = @dosage, med_type = @type, unit_cost = @unitCOst, unit_price =@unitPrice WHERE p_id = @ID", dbh.conn());
+                        cmd.Parameters.AddWithValue("@pcode", Convert.ToString(dgvProducts.Rows[e.RowIndex].Cells["ProductCode"].Value));
+                        cmd.Parameters.AddWithValue("@pName", Convert.ToString(dgvProducts.Rows[e.RowIndex].Cells["Product_Name"].Value).Trim());
+                        cmd.Parameters.AddWithValue("@classification", Convert.ToString(dgvProducts.Rows[e.RowIndex].Cells["Classification"].Value));
+                        cmd.Parameters.AddWithValue("@dosage", Convert.ToString(dgvProducts.Rows[e.RowIndex].Cells["Dosage"].Value));
+                        cmd.Parameters.AddWithValue("@type", Convert.ToString(dgvProducts.Rows[e.RowIndex].Cells["Type"].Value));
+                        cmd.Parameters.AddWithValue("@unitCOst", Convert.ToString(dgvProducts.Rows[e.RowIndex].Cells["UnitCost"].Value));
+                        cmd.Parameters.AddWithValue("@unitPrice", Convert.ToString(dgvProducts.Rows[e.RowIndex].Cells["unitPrice"].Value));
+                        cmd.Parameters.AddWithValue("@ID", Convert.ToString(dgvProducts.Rows[e.RowIndex].Cells["p_ID"].Value));
+                        cmd.ExecuteNonQuery();
+                        if (cmd.ExecuteNonQuery() == 1)
+                        {
+                            MessageBox.Show("PRODUCT UPDATED");
+                            dbh.CloseCon();
+                            dgvProducts.DataSource = dbh.ShowProductList();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Not Updated");
+                        }
+                    }
+                    if (string.IsNullOrEmpty(Convert.ToString(dgvProducts.Rows[e.RowIndex].Cells["ProductCode"].Value)) == true)
+                    {
+                        MessageBox.Show("PLease Fill Product Code");
+                    }
+                    if (string.IsNullOrEmpty(Convert.ToString(dgvProducts.Rows[e.RowIndex].Cells["Product_Name"].Value)) == true)
+                    {
+                        MessageBox.Show("Please Fill Product Name");
+                    }
+                    if (string.IsNullOrEmpty(Convert.ToString(dgvProducts.Rows[e.RowIndex].Cells["Classification"].Value)) == true)
+                    {
+                        MessageBox.Show("PLease Fill Classification");
+                    }
+                    if (string.IsNullOrEmpty(Convert.ToString(dgvProducts.Rows[e.RowIndex].Cells["Dosage"].Value)) == true)
+                    {
+                        MessageBox.Show("Please Fill Dosage");
+                    }
+                    if (string.IsNullOrEmpty(Convert.ToString(dgvProducts.Rows[e.RowIndex].Cells["Type"].Value)) == true)
+                    {
+                        MessageBox.Show("PLease Fill Type");
+                    }
+                    if (string.IsNullOrEmpty(Convert.ToString(dgvProducts.Rows[e.RowIndex].Cells["UnitCost"].Value)) == true)
+                    {
+                        MessageBox.Show("Please Fill Unit Cost");
+                    }
+                    if (string.IsNullOrEmpty(Convert.ToString(dgvProducts.Rows[e.RowIndex].Cells["unitPrice"].Value)) == true)
+                    {
+                        MessageBox.Show("Please Fill Unit Price");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+                finally { dbh.CloseCon(); }
+            }
+            //DELETE Product
+            if (dgvProducts.Columns[e.ColumnIndex].Name == "colDeleteProduct")
+            {
+                string productID = Convert.ToString(dgvProducts.Rows[e.RowIndex].Cells["p_ID"].Value);
+
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show("Do you want to delete this Supplier?", "Delete", buttons);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        dbh.OpenCon();
+                        cmd = new MySqlCommand("DELETE FROM tbl_products WHERE p_id = @ID", dbh.conn());
+                        cmd.Parameters.AddWithValue("@ID", productID);
+                        cmd.ExecuteNonQuery();
+                        if (cmd.ExecuteNonQuery() == 1)
+                        {
+                            MessageBox.Show("FAILED DELETED");
+                        }
+                        else
+                        {
+                            MessageBox.Show("DELETED");
+                            dbh.CloseCon();
+                            dgvProducts.DataSource = dbh.ShowProductList();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally { dbh.CloseCon(); }
+                }
+            }
+        }
     }
 
 }

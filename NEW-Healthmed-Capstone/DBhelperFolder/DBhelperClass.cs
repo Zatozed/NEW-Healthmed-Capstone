@@ -43,6 +43,40 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             return l;
         }
 
+        public string GetSupAd(string supAdd) 
+        {
+            string sa;
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct address from tbl_suppliers where supplier_name = '"+supAdd+"'", con);
+            sa = cmd.ExecuteScalar().ToString();
+            con.Close();
+
+            return sa;
+        }
+        public string GetSupContactNum(string SupConNum) 
+        {
+            string scn;
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct contact_num from tbl_suppliers where supplier_name = '"+SupConNum+"'", con);
+            scn = cmd.ExecuteScalar().ToString();
+            con.Close();
+
+            return scn;
+        }
+        public string GetSupEmailAd(string EmailAd) 
+        {
+            string ea;
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct email_ad from tbl_suppliers where supplier_name = '"+EmailAd+"'", con);
+            ea= cmd.ExecuteScalar().ToString();
+            con.Close();
+
+            return ea;
+        }
+
         public ArrayList AutoComplete()
         {
             ArrayList lt = new ArrayList();

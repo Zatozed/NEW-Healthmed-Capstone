@@ -167,6 +167,10 @@ namespace NEW_Healthmed_Capstone.Inv
         private void cbSup_SelectedIndexChanged(object sender, EventArgs e)
         {
             dgvReOrderList.DataSource = dbh.ShowProductToOrder(cbSup.Text.ToString());
+            
+            tbSupAddress.Text = dbh.GetSupAd(cbSup.Text.ToString());
+            tbSupContactNum.Text = dbh.GetSupContactNum(cbSup.Text.ToString());
+            tbSupEmail.Text = dbh.GetSupEmailAd(cbSup.Text.ToString());
         }
 
         private void dgvOtherProds_CellContentClick(object sender, DataGridViewCellEventArgs e)

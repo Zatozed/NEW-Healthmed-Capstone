@@ -334,68 +334,78 @@
             this.btnOk.TabIndex = 25;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = false;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // tbHmdAdress
             // 
             this.tbHmdAdress.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.tbHmdAdress.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.tableLayoutPanel1.SetColumnSpan(this.tbHmdAdress, 2);
             this.tbHmdAdress.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbHmdAdress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbHmdAdress.Location = new System.Drawing.Point(135, 24);
             this.tbHmdAdress.Name = "tbHmdAdress";
-            this.tbHmdAdress.Size = new System.Drawing.Size(126, 22);
+            this.tbHmdAdress.Size = new System.Drawing.Size(258, 22);
             this.tbHmdAdress.TabIndex = 26;
             // 
             // tbHmdContactNum
             // 
             this.tbHmdContactNum.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.tbHmdContactNum.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.tableLayoutPanel1.SetColumnSpan(this.tbHmdContactNum, 2);
             this.tbHmdContactNum.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbHmdContactNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbHmdContactNum.Location = new System.Drawing.Point(135, 45);
             this.tbHmdContactNum.Name = "tbHmdContactNum";
-            this.tbHmdContactNum.Size = new System.Drawing.Size(126, 22);
+            this.tbHmdContactNum.Size = new System.Drawing.Size(258, 22);
             this.tbHmdContactNum.TabIndex = 27;
             // 
             // tbHmdEmail
             // 
             this.tbHmdEmail.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.tbHmdEmail.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.tableLayoutPanel1.SetColumnSpan(this.tbHmdEmail, 2);
             this.tbHmdEmail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbHmdEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbHmdEmail.Location = new System.Drawing.Point(135, 66);
             this.tbHmdEmail.Name = "tbHmdEmail";
-            this.tbHmdEmail.Size = new System.Drawing.Size(126, 22);
+            this.tbHmdEmail.Size = new System.Drawing.Size(258, 22);
             this.tbHmdEmail.TabIndex = 28;
             // 
             // tbSupAddress
             // 
             this.tbSupAddress.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.tbSupAddress.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.tableLayoutPanel1.SetColumnSpan(this.tbSupAddress, 2);
+            this.tbSupAddress.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbSupAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSupAddress.Location = new System.Drawing.Point(135, 129);
             this.tbSupAddress.Name = "tbSupAddress";
-            this.tbSupAddress.Size = new System.Drawing.Size(100, 22);
+            this.tbSupAddress.Size = new System.Drawing.Size(258, 22);
             this.tbSupAddress.TabIndex = 29;
             // 
             // tbSupContactNum
             // 
             this.tbSupContactNum.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.tbSupContactNum.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.tableLayoutPanel1.SetColumnSpan(this.tbSupContactNum, 2);
+            this.tbSupContactNum.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbSupContactNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSupContactNum.Location = new System.Drawing.Point(135, 150);
             this.tbSupContactNum.Name = "tbSupContactNum";
-            this.tbSupContactNum.Size = new System.Drawing.Size(100, 22);
+            this.tbSupContactNum.Size = new System.Drawing.Size(258, 22);
             this.tbSupContactNum.TabIndex = 30;
             // 
             // tbSupEmail
             // 
             this.tbSupEmail.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.tbSupEmail.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.tableLayoutPanel1.SetColumnSpan(this.tbSupEmail, 2);
+            this.tbSupEmail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbSupEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSupEmail.Location = new System.Drawing.Point(135, 171);
             this.tbSupEmail.Name = "tbSupEmail";
-            this.tbSupEmail.Size = new System.Drawing.Size(100, 22);
+            this.tbSupEmail.Size = new System.Drawing.Size(258, 22);
             this.tbSupEmail.TabIndex = 31;
             // 
             // label14
@@ -957,50 +967,60 @@
             // 
             // tbPOnum
             // 
+            this.tableLayoutPanel1.SetColumnSpan(this.tbPOnum, 2);
+            this.tbPOnum.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbPOnum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPOnum.Location = new System.Drawing.Point(795, 45);
             this.tbPOnum.Name = "tbPOnum";
-            this.tbPOnum.Size = new System.Drawing.Size(100, 22);
+            this.tbPOnum.Size = new System.Drawing.Size(264, 22);
             this.tbPOnum.TabIndex = 33;
             // 
             // tbReName
             // 
             this.tbReName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.tbReName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.tableLayoutPanel1.SetColumnSpan(this.tbReName, 2);
+            this.tbReName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbReName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbReName.Location = new System.Drawing.Point(795, 108);
             this.tbReName.Name = "tbReName";
-            this.tbReName.Size = new System.Drawing.Size(126, 22);
+            this.tbReName.Size = new System.Drawing.Size(264, 22);
             this.tbReName.TabIndex = 35;
             // 
             // tbReAddress
             // 
             this.tbReAddress.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.tbReAddress.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.tableLayoutPanel1.SetColumnSpan(this.tbReAddress, 2);
+            this.tbReAddress.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbReAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbReAddress.Location = new System.Drawing.Point(795, 129);
             this.tbReAddress.Name = "tbReAddress";
-            this.tbReAddress.Size = new System.Drawing.Size(126, 22);
+            this.tbReAddress.Size = new System.Drawing.Size(264, 22);
             this.tbReAddress.TabIndex = 36;
             // 
             // tbReEmail
             // 
             this.tbReEmail.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.tbReEmail.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.tableLayoutPanel1.SetColumnSpan(this.tbReEmail, 2);
+            this.tbReEmail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbReEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbReEmail.Location = new System.Drawing.Point(795, 171);
             this.tbReEmail.Name = "tbReEmail";
-            this.tbReEmail.Size = new System.Drawing.Size(126, 22);
+            this.tbReEmail.Size = new System.Drawing.Size(264, 22);
             this.tbReEmail.TabIndex = 37;
             // 
             // tbReContactNum
             // 
             this.tbReContactNum.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.tbReContactNum.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.tableLayoutPanel1.SetColumnSpan(this.tbReContactNum, 2);
+            this.tbReContactNum.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbReContactNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbReContactNum.Location = new System.Drawing.Point(795, 150);
             this.tbReContactNum.Name = "tbReContactNum";
-            this.tbReContactNum.Size = new System.Drawing.Size(126, 22);
+            this.tbReContactNum.Size = new System.Drawing.Size(264, 22);
             this.tbReContactNum.TabIndex = 38;
             // 
             // label9
@@ -1077,11 +1097,13 @@
             // 
             this.cbSup.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbSup.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.tableLayoutPanel1.SetColumnSpan(this.cbSup, 2);
+            this.cbSup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbSup.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSup.FormattingEnabled = true;
             this.cbSup.Location = new System.Drawing.Point(135, 108);
             this.cbSup.Name = "cbSup";
-            this.cbSup.Size = new System.Drawing.Size(118, 24);
+            this.cbSup.Size = new System.Drawing.Size(258, 24);
             this.cbSup.TabIndex = 6;
             this.cbSup.SelectedIndexChanged += new System.EventHandler(this.cbSup_SelectedIndexChanged);
             // 
@@ -1131,6 +1153,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1062, 541);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1015, 565);
             this.Name = "PurchaseOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -92,6 +92,10 @@ namespace NEW_Healthmed_Capstone.Inv
             if(cbSup.Text.ToString().Equals("") || cbSup.Text == null)
 
             dgvReOrderList.DataSource = dbh.ShowProductToOrder();
+
+            tbHmdAdress.Text = Properties.Settings.Default.HMDaddress;
+            tbHmdContactNum.Text = Properties.Settings.Default.HMDcontactNum;
+            tbHmdEmail.Text = Properties.Settings.Default.HMDemail;
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
@@ -150,6 +154,14 @@ namespace NEW_Healthmed_Capstone.Inv
 
             ComputeTotal();
             tbTotal.Text = total.ToString("0.00");
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.HMDaddress = tbHmdAdress.Text.ToString();
+            Properties.Settings.Default.HMDcontactNum = tbHmdContactNum.Text.ToString();
+            Properties.Settings.Default.HMDemail = tbHmdEmail.Text.ToString();
+            Properties.Settings.Default.Save();
         }
 
         private void cbSup_SelectedIndexChanged(object sender, EventArgs e)

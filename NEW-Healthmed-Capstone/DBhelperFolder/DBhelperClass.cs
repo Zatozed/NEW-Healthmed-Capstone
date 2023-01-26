@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
@@ -25,6 +26,76 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
         }
         public void OpenCon() { con.Open(); }
         public void CloseCon() { con.Close(); }
+
+        public ArrayList AutoComplete()
+        {
+            ArrayList lt = new ArrayList();
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct discount_name from tbl_discount;", con);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                lt.Add(dr.GetString(0));
+            }
+            con.Close();
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct discount_percent from tbl_discount;", con);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                lt.Add(dr.GetString(0));
+            }
+            con.Close();
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct product_code from tbl_products;", con);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                lt.Add(dr.GetString(0));
+            }
+            con.Close();
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct product_name from tbl_products;", con);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                lt.Add(dr.GetString(0));
+            }
+            con.Close();
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct classification from tbl_products;", con);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                lt.Add(dr.GetString(0));
+            }
+            con.Close();
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct dosage from tbl_products;", con);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                lt.Add(dr.GetString(0));
+            }
+            con.Close();
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct med_type from tbl_products;", con);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                lt.Add(dr.GetString(0));
+            }
+            con.Close();
+
+            return lt;
+        }
 
         public DataTable ShowProductList()
         {

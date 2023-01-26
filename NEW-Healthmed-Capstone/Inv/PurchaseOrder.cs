@@ -1,12 +1,7 @@
 ﻿using NEW_Healthmed_Capstone.DBhelperFolder;
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NEW_Healthmed_Capstone.Inv
@@ -14,13 +9,45 @@ namespace NEW_Healthmed_Capstone.Inv
     public partial class PurchaseOrder : Form
     {
         DBhelperClass dbh = new DBhelperClass();
+        //private List<string> l = new List<string>();
+        private ArrayList l = new ArrayList();
+        private AutoCompleteStringCollection src;
         public PurchaseOrder()
         {
             InitializeComponent();
         }
 
+        private void GenereateAutoCompleteSrc()
+        {
+            src = new AutoCompleteStringCollection();
+            foreach (string s in l) 
+            {
+                src.Add(s);
+            }
+
+            cbSup.AutoCompleteCustomSource = src;
+
+            tbReAddress.AutoCompleteCustomSource = src;
+            tbReContactNum.AutoCompleteCustomSource = src;
+            tbReEmail.AutoCompleteCustomSource = src;
+            tbReName.AutoCompleteCustomSource = src;
+            tbRemarks.AutoCompleteCustomSource = src;
+
+            tbSupAddress.AutoCompleteCustomSource = src;
+            tbSupContactNum.AutoCompleteCustomSource = src;
+            tbSupEmail.AutoCompleteCustomSource = src;
+
+            tbHmdAdress.AutoCompleteCustomSource = src;
+            tbHmdContactNum.AutoCompleteCustomSource = src;
+            tbHmdEmail.AutoCompleteCustomSource = src;
+        }
+
         private void PurchaseOrder_Load(object sender, EventArgs e)
         {
+            l = dbh.AutoComplete();
+            GenereateAutoCompleteSrc();
+            
+
             dgvDrugs.DataSource = dbh.ShowProductSupplier();
         }
 

@@ -178,5 +178,53 @@ namespace NEW_Healthmed_Capstone.Properties {
                 this["isPayed"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ReName {
+            get {
+                return ((string)(this["ReName"]));
+            }
+            set {
+                this["ReName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ReAddress {
+            get {
+                return ((string)(this["ReAddress"]));
+            }
+            set {
+                this["ReAddress"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ReContactNum {
+            get {
+                return ((string)(this["ReContactNum"]));
+            }
+            set {
+                this["ReContactNum"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ReEmail {
+            get {
+                return ((string)(this["ReEmail"]));
+            }
+            set {
+                this["ReEmail"] = value;
+            }
+        }
     }
 }

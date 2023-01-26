@@ -96,6 +96,11 @@ namespace NEW_Healthmed_Capstone.Inv
             tbHmdAdress.Text = Properties.Settings.Default.HMDaddress;
             tbHmdContactNum.Text = Properties.Settings.Default.HMDcontactNum;
             tbHmdEmail.Text = Properties.Settings.Default.HMDemail;
+
+            tbReName.Text = Properties.Settings.Default.ReName;
+            tbReAddress.Text = Properties.Settings.Default.ReAddress;
+            tbReContactNum.Text = Properties.Settings.Default.ReContactNum;
+            tbReEmail.Text = Properties.Settings.Default.ReEmail;
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
@@ -161,6 +166,12 @@ namespace NEW_Healthmed_Capstone.Inv
             Properties.Settings.Default.HMDaddress = tbHmdAdress.Text.ToString();
             Properties.Settings.Default.HMDcontactNum = tbHmdContactNum.Text.ToString();
             Properties.Settings.Default.HMDemail = tbHmdEmail.Text.ToString();
+
+            Properties.Settings.Default.ReName = tbReName.Text.ToString();
+            Properties.Settings.Default.ReAddress = tbReAddress.Text.ToString();
+            Properties.Settings.Default.ReContactNum = tbReContactNum.Text.ToString();
+            Properties.Settings.Default.ReEmail = tbReEmail.Text.ToString();
+
             Properties.Settings.Default.Save();
         }
 

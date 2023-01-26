@@ -130,5 +130,53 @@ namespace NEW_Healthmed_Capstone.Properties {
                 this["Change"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string HMDaddress {
+            get {
+                return ((string)(this["HMDaddress"]));
+            }
+            set {
+                this["HMDaddress"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string HMDemail {
+            get {
+                return ((string)(this["HMDemail"]));
+            }
+            set {
+                this["HMDemail"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string HMDcontactNum {
+            get {
+                return ((string)(this["HMDcontactNum"]));
+            }
+            set {
+                this["HMDcontactNum"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool isPayed {
+            get {
+                return ((bool)(this["isPayed"]));
+            }
+            set {
+                this["isPayed"] = value;
+            }
+        }
     }
 }

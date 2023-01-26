@@ -31,14 +31,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -63,40 +63,6 @@
             this.tab1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dgvOrders = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dgvReOrderList = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbPOnum = new System.Windows.Forms.TextBox();
-            this.tbReName = new System.Windows.Forms.TextBox();
-            this.tbReAddress = new System.Windows.Forms.TextBox();
-            this.tbReEmail = new System.Windows.Forms.TextBox();
-            this.tbReContactNum = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.cbSup = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tbDiscount = new System.Windows.Forms.TextBox();
-            this.tbTotal = new System.Windows.Forms.TextBox();
-            this.tbSubtotal = new System.Windows.Forms.TextBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dgvOtherProds = new System.Windows.Forms.DataGridView();
-            this.colProdCodeO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProdNameO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colClassO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDosageO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTypeO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnitCostO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnitPriceO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colInStockO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSupplierO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAddO = new System.Windows.Forms.DataGridViewButtonColumn();
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPOnum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProductCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -117,6 +83,8 @@
             this.colSupContactNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSupEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dgvReOrderList = new System.Windows.Forms.DataGridView();
             this.colProdCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -127,6 +95,38 @@
             this.colInStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSupplierProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAdd = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dgvOtherProds = new System.Windows.Forms.DataGridView();
+            this.colProdCodeO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProdNameO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colClassO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDosageO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTypeO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnitCostO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnitPriceO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colInStockO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSupplierO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAddO = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbPOnum = new System.Windows.Forms.TextBox();
+            this.tbReName = new System.Windows.Forms.TextBox();
+            this.tbReAddress = new System.Windows.Forms.TextBox();
+            this.tbReEmail = new System.Windows.Forms.TextBox();
+            this.tbReContactNum = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.cbSup = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbDiscount = new System.Windows.Forms.TextBox();
+            this.tbTotal = new System.Windows.Forms.TextBox();
+            this.tbSubtotal = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPOlist)).BeginInit();
             this.tab1.SuspendLayout();
@@ -489,6 +489,125 @@
             this.dgvOrders.TabIndex = 21;
             this.dgvOrders.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrders_CellValueChanged);
             // 
+            // colID
+            // 
+            this.colID.HeaderText = "ID";
+            this.colID.Name = "colID";
+            this.colID.ReadOnly = true;
+            // 
+            // colPOnum
+            // 
+            this.colPOnum.HeaderText = "PO #";
+            this.colPOnum.Name = "colPOnum";
+            this.colPOnum.ReadOnly = true;
+            // 
+            // colProductCode
+            // 
+            this.colProductCode.HeaderText = "Product Code";
+            this.colProductCode.Name = "colProductCode";
+            this.colProductCode.ReadOnly = true;
+            // 
+            // colProductDes
+            // 
+            this.colProductDes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colProductDes.HeaderText = "Product Description";
+            this.colProductDes.Name = "colProductDes";
+            this.colProductDes.ReadOnly = true;
+            this.colProductDes.Width = 153;
+            // 
+            // colQty
+            // 
+            this.colQty.HeaderText = "Qty";
+            this.colQty.Name = "colQty";
+            // 
+            // colDiscount
+            // 
+            this.colDiscount.HeaderText = "Discount Decimal";
+            this.colDiscount.Name = "colDiscount";
+            // 
+            // colUnitCost
+            // 
+            this.colUnitCost.HeaderText = "Unit Cost";
+            this.colUnitCost.Name = "colUnitCost";
+            // 
+            // colOrderedQty
+            // 
+            this.colOrderedQty.HeaderText = "Ordered Qty";
+            this.colOrderedQty.Name = "colOrderedQty";
+            this.colOrderedQty.ReadOnly = true;
+            // 
+            // colReceivedQty
+            // 
+            this.colReceivedQty.HeaderText = "Received Qty";
+            this.colReceivedQty.Name = "colReceivedQty";
+            this.colReceivedQty.ReadOnly = true;
+            // 
+            // colPODate
+            // 
+            this.colPODate.HeaderText = "Date";
+            this.colPODate.Name = "colPODate";
+            this.colPODate.ReadOnly = true;
+            // 
+            // colPOGeneBy
+            // 
+            this.colPOGeneBy.HeaderText = "Generated By";
+            this.colPOGeneBy.Name = "colPOGeneBy";
+            this.colPOGeneBy.ReadOnly = true;
+            // 
+            // colReName
+            // 
+            this.colReName.HeaderText = "Receiver Name";
+            this.colReName.Name = "colReName";
+            this.colReName.ReadOnly = true;
+            // 
+            // colReAdd
+            // 
+            this.colReAdd.HeaderText = "Receiver Address";
+            this.colReAdd.Name = "colReAdd";
+            this.colReAdd.ReadOnly = true;
+            // 
+            // colReContactNum
+            // 
+            this.colReContactNum.HeaderText = "Receiver Contact #";
+            this.colReContactNum.Name = "colReContactNum";
+            this.colReContactNum.ReadOnly = true;
+            // 
+            // colReEmail
+            // 
+            this.colReEmail.HeaderText = "Receiver Email";
+            this.colReEmail.Name = "colReEmail";
+            this.colReEmail.ReadOnly = true;
+            // 
+            // colSupplier
+            // 
+            this.colSupplier.HeaderText = "Supplier";
+            this.colSupplier.Name = "colSupplier";
+            this.colSupplier.ReadOnly = true;
+            // 
+            // colSupAdd
+            // 
+            this.colSupAdd.HeaderText = "Supplier Address";
+            this.colSupAdd.Name = "colSupAdd";
+            this.colSupAdd.ReadOnly = true;
+            // 
+            // colSupContactNum
+            // 
+            this.colSupContactNum.HeaderText = "Supplier Contact #";
+            this.colSupContactNum.Name = "colSupContactNum";
+            this.colSupContactNum.ReadOnly = true;
+            // 
+            // colSupEmail
+            // 
+            this.colSupEmail.HeaderText = "Supplier Email";
+            this.colSupEmail.Name = "colSupEmail";
+            this.colSupEmail.ReadOnly = true;
+            // 
+            // colRemarks
+            // 
+            this.colRemarks.HeaderText = "Remarks";
+            this.colRemarks.Name = "colRemarks";
+            this.colRemarks.ReadOnly = true;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.dgvReOrderList);
@@ -548,6 +667,264 @@
             this.dgvReOrderList.Size = new System.Drawing.Size(772, 240);
             this.dgvReOrderList.TabIndex = 24;
             this.dgvReOrderList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDrugs_CellContentClick);
+            // 
+            // colProdCode
+            // 
+            this.colProdCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colProdCode.DataPropertyName = "product_code";
+            this.colProdCode.HeaderText = "Product Code";
+            this.colProdCode.Name = "colProdCode";
+            this.colProdCode.ReadOnly = true;
+            this.colProdCode.Width = 115;
+            // 
+            // colProdName
+            // 
+            this.colProdName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colProdName.DataPropertyName = "product_name";
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.colProdName.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colProdName.HeaderText = "Product Name";
+            this.colProdName.Name = "colProdName";
+            this.colProdName.ReadOnly = true;
+            this.colProdName.Width = 119;
+            // 
+            // colClass
+            // 
+            this.colClass.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colClass.DataPropertyName = "classification";
+            this.colClass.HeaderText = "Classification";
+            this.colClass.Name = "colClass";
+            this.colClass.ReadOnly = true;
+            this.colClass.Width = 125;
+            // 
+            // colDosage
+            // 
+            this.colDosage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colDosage.DataPropertyName = "dosage";
+            this.colDosage.HeaderText = "Dosage";
+            this.colDosage.Name = "colDosage";
+            this.colDosage.ReadOnly = true;
+            this.colDosage.Width = 87;
+            // 
+            // colType
+            // 
+            this.colType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colType.DataPropertyName = "med_type";
+            this.colType.HeaderText = "Type";
+            this.colType.Name = "colType";
+            this.colType.ReadOnly = true;
+            this.colType.Width = 68;
+            // 
+            // colUnitCostRL
+            // 
+            this.colUnitCostRL.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colUnitCostRL.DataPropertyName = "unit_cost";
+            this.colUnitCostRL.HeaderText = "Unit Cost";
+            this.colUnitCostRL.Name = "colUnitCostRL";
+            this.colUnitCostRL.ReadOnly = true;
+            this.colUnitCostRL.Width = 87;
+            // 
+            // colUnitPrice
+            // 
+            this.colUnitPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colUnitPrice.DataPropertyName = "unit_price";
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.colUnitPrice.DefaultCellStyle = dataGridViewCellStyle4;
+            this.colUnitPrice.HeaderText = "Unit Price";
+            this.colUnitPrice.Name = "colUnitPrice";
+            this.colUnitPrice.ReadOnly = true;
+            this.colUnitPrice.Visible = false;
+            // 
+            // colInStock
+            // 
+            this.colInStock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colInStock.DataPropertyName = "in_stock_qty";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.colInStock.DefaultCellStyle = dataGridViewCellStyle5;
+            this.colInStock.HeaderText = "In Stock";
+            this.colInStock.Name = "colInStock";
+            this.colInStock.ReadOnly = true;
+            this.colInStock.Width = 80;
+            // 
+            // colSupplierProd
+            // 
+            this.colSupplierProd.DataPropertyName = "supplier_name";
+            this.colSupplierProd.HeaderText = "Supplier";
+            this.colSupplierProd.Name = "colSupplierProd";
+            this.colSupplierProd.ReadOnly = true;
+            // 
+            // colAdd
+            // 
+            this.colAdd.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colAdd.HeaderText = "";
+            this.colAdd.Name = "colAdd";
+            this.colAdd.ReadOnly = true;
+            this.colAdd.Text = "add";
+            this.colAdd.UseColumnTextForButtonValue = true;
+            this.colAdd.Width = 5;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.dgvOtherProds);
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(778, 246);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Other Products";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // dgvOtherProds
+            // 
+            this.dgvOtherProds.AllowUserToAddRows = false;
+            this.dgvOtherProds.AllowUserToDeleteRows = false;
+            this.dgvOtherProds.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvOtherProds.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOtherProds.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvOtherProds.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOtherProds.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colProdCodeO,
+            this.colProdNameO,
+            this.colClassO,
+            this.colDosageO,
+            this.colTypeO,
+            this.colUnitCostO,
+            this.colUnitPriceO,
+            this.colInStockO,
+            this.colSupplierO,
+            this.colAddO});
+            this.dgvOtherProds.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvOtherProds.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dgvOtherProds.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvOtherProds.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dgvOtherProds.Location = new System.Drawing.Point(0, 0);
+            this.dgvOtherProds.Name = "dgvOtherProds";
+            this.dgvOtherProds.ReadOnly = true;
+            this.dgvOtherProds.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvOtherProds.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvOtherProds.Size = new System.Drawing.Size(778, 246);
+            this.dgvOtherProds.TabIndex = 25;
+            this.dgvOtherProds.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOtherProds_CellContentClick);
+            // 
+            // colProdCodeO
+            // 
+            this.colProdCodeO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colProdCodeO.DataPropertyName = "product_code";
+            this.colProdCodeO.HeaderText = "Product Code";
+            this.colProdCodeO.Name = "colProdCodeO";
+            this.colProdCodeO.ReadOnly = true;
+            this.colProdCodeO.Width = 115;
+            // 
+            // colProdNameO
+            // 
+            this.colProdNameO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colProdNameO.DataPropertyName = "product_name";
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.colProdNameO.DefaultCellStyle = dataGridViewCellStyle8;
+            this.colProdNameO.HeaderText = "Product Name";
+            this.colProdNameO.Name = "colProdNameO";
+            this.colProdNameO.ReadOnly = true;
+            this.colProdNameO.Width = 119;
+            // 
+            // colClassO
+            // 
+            this.colClassO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colClassO.DataPropertyName = "classification";
+            this.colClassO.HeaderText = "Classification";
+            this.colClassO.Name = "colClassO";
+            this.colClassO.ReadOnly = true;
+            this.colClassO.Width = 125;
+            // 
+            // colDosageO
+            // 
+            this.colDosageO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colDosageO.DataPropertyName = "dosage";
+            this.colDosageO.HeaderText = "Dosage";
+            this.colDosageO.Name = "colDosageO";
+            this.colDosageO.ReadOnly = true;
+            this.colDosageO.Width = 87;
+            // 
+            // colTypeO
+            // 
+            this.colTypeO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colTypeO.DataPropertyName = "med_type";
+            this.colTypeO.HeaderText = "Type";
+            this.colTypeO.Name = "colTypeO";
+            this.colTypeO.ReadOnly = true;
+            this.colTypeO.Width = 68;
+            // 
+            // colUnitCostO
+            // 
+            this.colUnitCostO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colUnitCostO.DataPropertyName = "unit_cost";
+            this.colUnitCostO.HeaderText = "Unit Cost";
+            this.colUnitCostO.Name = "colUnitCostO";
+            this.colUnitCostO.ReadOnly = true;
+            this.colUnitCostO.Width = 87;
+            // 
+            // colUnitPriceO
+            // 
+            this.colUnitPriceO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colUnitPriceO.DataPropertyName = "unit_price";
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.colUnitPriceO.DefaultCellStyle = dataGridViewCellStyle9;
+            this.colUnitPriceO.HeaderText = "Unit Price";
+            this.colUnitPriceO.Name = "colUnitPriceO";
+            this.colUnitPriceO.ReadOnly = true;
+            this.colUnitPriceO.Visible = false;
+            // 
+            // colInStockO
+            // 
+            this.colInStockO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colInStockO.DataPropertyName = "in_stock_qty";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.colInStockO.DefaultCellStyle = dataGridViewCellStyle10;
+            this.colInStockO.HeaderText = "In Stock";
+            this.colInStockO.Name = "colInStockO";
+            this.colInStockO.ReadOnly = true;
+            this.colInStockO.Width = 80;
+            // 
+            // colSupplierO
+            // 
+            this.colSupplierO.DataPropertyName = "supplier_name";
+            this.colSupplierO.HeaderText = "Supplier";
+            this.colSupplierO.Name = "colSupplierO";
+            this.colSupplierO.ReadOnly = true;
+            // 
+            // colAddO
+            // 
+            this.colAddO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colAddO.HeaderText = "";
+            this.colAddO.Name = "colAddO";
+            this.colAddO.ReadOnly = true;
+            this.colAddO.Text = "add";
+            this.colAddO.UseColumnTextForButtonValue = true;
+            this.colAddO.Width = 5;
             // 
             // dateTimePicker1
             // 
@@ -747,385 +1124,6 @@
             this.tbSubtotal.ReadOnly = true;
             this.tbSubtotal.Size = new System.Drawing.Size(118, 22);
             this.tbSubtotal.TabIndex = 40;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.dgvOtherProds);
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(778, 246);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Other Products";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // dgvOtherProds
-            // 
-            this.dgvOtherProds.AllowUserToAddRows = false;
-            this.dgvOtherProds.AllowUserToDeleteRows = false;
-            this.dgvOtherProds.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvOtherProds.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOtherProds.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvOtherProds.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOtherProds.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colProdCodeO,
-            this.colProdNameO,
-            this.colClassO,
-            this.colDosageO,
-            this.colTypeO,
-            this.colUnitCostO,
-            this.colUnitPriceO,
-            this.colInStockO,
-            this.colSupplierO,
-            this.colAddO});
-            this.dgvOtherProds.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvOtherProds.DefaultCellStyle = dataGridViewCellStyle11;
-            this.dgvOtherProds.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvOtherProds.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dgvOtherProds.Location = new System.Drawing.Point(0, 0);
-            this.dgvOtherProds.Name = "dgvOtherProds";
-            this.dgvOtherProds.ReadOnly = true;
-            this.dgvOtherProds.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgvOtherProds.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOtherProds.Size = new System.Drawing.Size(778, 246);
-            this.dgvOtherProds.TabIndex = 25;
-            this.dgvOtherProds.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOtherProds_CellContentClick);
-            // 
-            // colProdCodeO
-            // 
-            this.colProdCodeO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colProdCodeO.DataPropertyName = "product_code";
-            this.colProdCodeO.HeaderText = "Product Code";
-            this.colProdCodeO.Name = "colProdCodeO";
-            this.colProdCodeO.ReadOnly = true;
-            this.colProdCodeO.Width = 115;
-            // 
-            // colProdNameO
-            // 
-            this.colProdNameO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colProdNameO.DataPropertyName = "product_name";
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.colProdNameO.DefaultCellStyle = dataGridViewCellStyle8;
-            this.colProdNameO.HeaderText = "Product Name";
-            this.colProdNameO.Name = "colProdNameO";
-            this.colProdNameO.ReadOnly = true;
-            this.colProdNameO.Width = 119;
-            // 
-            // colClassO
-            // 
-            this.colClassO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colClassO.DataPropertyName = "classification";
-            this.colClassO.HeaderText = "Classification";
-            this.colClassO.Name = "colClassO";
-            this.colClassO.ReadOnly = true;
-            this.colClassO.Width = 125;
-            // 
-            // colDosageO
-            // 
-            this.colDosageO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colDosageO.DataPropertyName = "dosage";
-            this.colDosageO.HeaderText = "Dosage";
-            this.colDosageO.Name = "colDosageO";
-            this.colDosageO.ReadOnly = true;
-            this.colDosageO.Width = 87;
-            // 
-            // colTypeO
-            // 
-            this.colTypeO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colTypeO.DataPropertyName = "med_type";
-            this.colTypeO.HeaderText = "Type";
-            this.colTypeO.Name = "colTypeO";
-            this.colTypeO.ReadOnly = true;
-            this.colTypeO.Width = 68;
-            // 
-            // colUnitCostO
-            // 
-            this.colUnitCostO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colUnitCostO.DataPropertyName = "unit_cost";
-            this.colUnitCostO.HeaderText = "Unit Cost";
-            this.colUnitCostO.Name = "colUnitCostO";
-            this.colUnitCostO.ReadOnly = true;
-            this.colUnitCostO.Width = 87;
-            // 
-            // colUnitPriceO
-            // 
-            this.colUnitPriceO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colUnitPriceO.DataPropertyName = "unit_price";
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.colUnitPriceO.DefaultCellStyle = dataGridViewCellStyle9;
-            this.colUnitPriceO.HeaderText = "Unit Price";
-            this.colUnitPriceO.Name = "colUnitPriceO";
-            this.colUnitPriceO.ReadOnly = true;
-            this.colUnitPriceO.Visible = false;
-            this.colUnitPriceO.Width = 91;
-            // 
-            // colInStockO
-            // 
-            this.colInStockO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colInStockO.DataPropertyName = "in_stock_qty";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.colInStockO.DefaultCellStyle = dataGridViewCellStyle10;
-            this.colInStockO.HeaderText = "In Stock";
-            this.colInStockO.Name = "colInStockO";
-            this.colInStockO.ReadOnly = true;
-            this.colInStockO.Width = 80;
-            // 
-            // colSupplierO
-            // 
-            this.colSupplierO.DataPropertyName = "supplier_name";
-            this.colSupplierO.HeaderText = "Supplier";
-            this.colSupplierO.Name = "colSupplierO";
-            this.colSupplierO.ReadOnly = true;
-            // 
-            // colAddO
-            // 
-            this.colAddO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colAddO.HeaderText = "";
-            this.colAddO.Name = "colAddO";
-            this.colAddO.ReadOnly = true;
-            this.colAddO.Text = "add";
-            this.colAddO.UseColumnTextForButtonValue = true;
-            this.colAddO.Width = 5;
-            // 
-            // colID
-            // 
-            this.colID.HeaderText = "ID";
-            this.colID.Name = "colID";
-            this.colID.ReadOnly = true;
-            // 
-            // colPOnum
-            // 
-            this.colPOnum.HeaderText = "PO #";
-            this.colPOnum.Name = "colPOnum";
-            this.colPOnum.ReadOnly = true;
-            // 
-            // colProductCode
-            // 
-            this.colProductCode.HeaderText = "Product Code";
-            this.colProductCode.Name = "colProductCode";
-            this.colProductCode.ReadOnly = true;
-            // 
-            // colProductDes
-            // 
-            this.colProductDes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colProductDes.HeaderText = "Product Description";
-            this.colProductDes.Name = "colProductDes";
-            this.colProductDes.ReadOnly = true;
-            this.colProductDes.Width = 153;
-            // 
-            // colQty
-            // 
-            this.colQty.HeaderText = "Qty";
-            this.colQty.Name = "colQty";
-            // 
-            // colDiscount
-            // 
-            this.colDiscount.HeaderText = "Discount Decimal";
-            this.colDiscount.Name = "colDiscount";
-            // 
-            // colUnitCost
-            // 
-            this.colUnitCost.HeaderText = "Unit Cost";
-            this.colUnitCost.Name = "colUnitCost";
-            // 
-            // colOrderedQty
-            // 
-            this.colOrderedQty.HeaderText = "Ordered Qty";
-            this.colOrderedQty.Name = "colOrderedQty";
-            this.colOrderedQty.ReadOnly = true;
-            // 
-            // colReceivedQty
-            // 
-            this.colReceivedQty.HeaderText = "Received Qty";
-            this.colReceivedQty.Name = "colReceivedQty";
-            this.colReceivedQty.ReadOnly = true;
-            // 
-            // colPODate
-            // 
-            this.colPODate.HeaderText = "Date";
-            this.colPODate.Name = "colPODate";
-            this.colPODate.ReadOnly = true;
-            // 
-            // colPOGeneBy
-            // 
-            this.colPOGeneBy.HeaderText = "Generated By";
-            this.colPOGeneBy.Name = "colPOGeneBy";
-            this.colPOGeneBy.ReadOnly = true;
-            // 
-            // colReName
-            // 
-            this.colReName.HeaderText = "Receiver Name";
-            this.colReName.Name = "colReName";
-            this.colReName.ReadOnly = true;
-            // 
-            // colReAdd
-            // 
-            this.colReAdd.HeaderText = "Receiver Address";
-            this.colReAdd.Name = "colReAdd";
-            this.colReAdd.ReadOnly = true;
-            // 
-            // colReContactNum
-            // 
-            this.colReContactNum.HeaderText = "Receiver Contact #";
-            this.colReContactNum.Name = "colReContactNum";
-            this.colReContactNum.ReadOnly = true;
-            // 
-            // colReEmail
-            // 
-            this.colReEmail.HeaderText = "Receiver Email";
-            this.colReEmail.Name = "colReEmail";
-            this.colReEmail.ReadOnly = true;
-            // 
-            // colSupplier
-            // 
-            this.colSupplier.HeaderText = "Supplier";
-            this.colSupplier.Name = "colSupplier";
-            this.colSupplier.ReadOnly = true;
-            // 
-            // colSupAdd
-            // 
-            this.colSupAdd.HeaderText = "Supplier Address";
-            this.colSupAdd.Name = "colSupAdd";
-            this.colSupAdd.ReadOnly = true;
-            // 
-            // colSupContactNum
-            // 
-            this.colSupContactNum.HeaderText = "Supplier Contact #";
-            this.colSupContactNum.Name = "colSupContactNum";
-            this.colSupContactNum.ReadOnly = true;
-            // 
-            // colSupEmail
-            // 
-            this.colSupEmail.HeaderText = "Supplier Email";
-            this.colSupEmail.Name = "colSupEmail";
-            this.colSupEmail.ReadOnly = true;
-            // 
-            // colRemarks
-            // 
-            this.colRemarks.HeaderText = "Remarks";
-            this.colRemarks.Name = "colRemarks";
-            this.colRemarks.ReadOnly = true;
-            // 
-            // colProdCode
-            // 
-            this.colProdCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colProdCode.DataPropertyName = "product_code";
-            this.colProdCode.HeaderText = "Product Code";
-            this.colProdCode.Name = "colProdCode";
-            this.colProdCode.ReadOnly = true;
-            this.colProdCode.Width = 115;
-            // 
-            // colProdName
-            // 
-            this.colProdName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colProdName.DataPropertyName = "product_name";
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.colProdName.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colProdName.HeaderText = "Product Name";
-            this.colProdName.Name = "colProdName";
-            this.colProdName.ReadOnly = true;
-            this.colProdName.Width = 119;
-            // 
-            // colClass
-            // 
-            this.colClass.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colClass.DataPropertyName = "classification";
-            this.colClass.HeaderText = "Classification";
-            this.colClass.Name = "colClass";
-            this.colClass.ReadOnly = true;
-            this.colClass.Width = 125;
-            // 
-            // colDosage
-            // 
-            this.colDosage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colDosage.DataPropertyName = "dosage";
-            this.colDosage.HeaderText = "Dosage";
-            this.colDosage.Name = "colDosage";
-            this.colDosage.ReadOnly = true;
-            this.colDosage.Width = 87;
-            // 
-            // colType
-            // 
-            this.colType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colType.DataPropertyName = "med_type";
-            this.colType.HeaderText = "Type";
-            this.colType.Name = "colType";
-            this.colType.ReadOnly = true;
-            this.colType.Width = 68;
-            // 
-            // colUnitCostRL
-            // 
-            this.colUnitCostRL.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colUnitCostRL.DataPropertyName = "unit_cost";
-            this.colUnitCostRL.HeaderText = "Unit Cost";
-            this.colUnitCostRL.Name = "colUnitCostRL";
-            this.colUnitCostRL.ReadOnly = true;
-            this.colUnitCostRL.Width = 87;
-            // 
-            // colUnitPrice
-            // 
-            this.colUnitPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colUnitPrice.DataPropertyName = "unit_price";
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.colUnitPrice.DefaultCellStyle = dataGridViewCellStyle4;
-            this.colUnitPrice.HeaderText = "Unit Price";
-            this.colUnitPrice.Name = "colUnitPrice";
-            this.colUnitPrice.ReadOnly = true;
-            this.colUnitPrice.Visible = false;
-            this.colUnitPrice.Width = 91;
-            // 
-            // colInStock
-            // 
-            this.colInStock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colInStock.DataPropertyName = "in_stock_qty";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.colInStock.DefaultCellStyle = dataGridViewCellStyle5;
-            this.colInStock.HeaderText = "In Stock";
-            this.colInStock.Name = "colInStock";
-            this.colInStock.ReadOnly = true;
-            this.colInStock.Width = 80;
-            // 
-            // colSupplierProd
-            // 
-            this.colSupplierProd.DataPropertyName = "supplier_name";
-            this.colSupplierProd.HeaderText = "Supplier";
-            this.colSupplierProd.Name = "colSupplierProd";
-            this.colSupplierProd.ReadOnly = true;
-            // 
-            // colAdd
-            // 
-            this.colAdd.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colAdd.HeaderText = "";
-            this.colAdd.Name = "colAdd";
-            this.colAdd.ReadOnly = true;
-            this.colAdd.Text = "add";
-            this.colAdd.UseColumnTextForButtonValue = true;
-            this.colAdd.Width = 5;
             // 
             // PurchaseOrder
             // 

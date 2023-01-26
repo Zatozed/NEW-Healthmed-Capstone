@@ -31,7 +31,7 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
             {
                 src.Add(s);
             }
-            tbSearch.AutoCompleteCustomSource= src;
+            tbSearch.AutoCompleteCustomSource = src;
         }
         private void DgvToDt()
         {

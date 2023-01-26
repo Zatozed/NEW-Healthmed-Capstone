@@ -383,6 +383,7 @@
             this.tbSubtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSubtotal.Location = new System.Drawing.Point(531, 473);
             this.tbSubtotal.Name = "tbSubtotal";
+            this.tbSubtotal.ReadOnly = true;
             this.tbSubtotal.Size = new System.Drawing.Size(118, 22);
             this.tbSubtotal.TabIndex = 40;
             // 
@@ -391,6 +392,7 @@
             this.tbSubtotalLD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSubtotalLD.Location = new System.Drawing.Point(531, 494);
             this.tbSubtotalLD.Name = "tbSubtotalLD";
+            this.tbSubtotalLD.ReadOnly = true;
             this.tbSubtotalLD.Size = new System.Drawing.Size(118, 22);
             this.tbSubtotalLD.TabIndex = 41;
             // 
@@ -399,6 +401,7 @@
             this.tbTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbTotal.Location = new System.Drawing.Point(531, 515);
             this.tbTotal.Name = "tbTotal";
+            this.tbTotal.ReadOnly = true;
             this.tbTotal.Size = new System.Drawing.Size(118, 22);
             this.tbTotal.TabIndex = 42;
             // 

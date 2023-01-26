@@ -190,6 +190,7 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
         {
             lbDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
             lbTime.Text = DateTime.Now.ToString("hh:mm tt");
+            lbUser.Text = Properties.Settings.Default.Fname_Lname;
 
             dgvDrugs.DataSource = dbh.ShowProductList();
             

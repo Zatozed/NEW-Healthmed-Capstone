@@ -202,7 +202,7 @@ namespace NEW_Healthmed_Capstone.Inv
                         dbh.InsertToPo(tbPOnum.Text.ToString(), r.Cells["colProductCode"].Value.ToString(), r.Cells["colProductDes"].Value.ToString(),
                             r.Cells["colQty"].Value.ToString(), r.Cells["colDiscount"].Value.ToString(), r.Cells["colUnitCost"].Value.ToString(),
                             r.Cells["colDiscount"].Value.ToString(), total.ToString("0.00"), Discount.ToString("0.00"),
-                            tbDateNow.Text.ToString(), "user", tbReName.Text.ToString(),
+                            tbDateNow.Text.ToString(), Properties.Settings.Default.Fname_Lname, tbReName.Text.ToString(),
                             tbReAddress.Text.ToString(), tbReContactNum.Text.ToString(), tbReEmail.Text.ToString(),
                             cbSup.Text.ToString(), tbSupAddress.Text.ToString(), tbSupContactNum.Text.ToString(),
                             tbSupEmail.Text.ToString(), tbRemarks.Text.ToString()

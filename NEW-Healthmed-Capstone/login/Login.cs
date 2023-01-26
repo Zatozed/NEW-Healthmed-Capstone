@@ -79,6 +79,8 @@ namespace NEW_Healthmed_Capstone
 
                         if (status == "1")
                         {
+                            Properties.Settings.Default.Fname_Lname = dr["firstName"].ToString() + " " + dr["lastName"].ToString();
+
                             MainForm main = new MainForm();
                             main.Show();
                             this.Hide();

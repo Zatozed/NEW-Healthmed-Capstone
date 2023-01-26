@@ -226,5 +226,17 @@ namespace NEW_Healthmed_Capstone.Properties {
                 this["ReEmail"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Fname_Lname {
+            get {
+                return ((string)(this["Fname_Lname"]));
+            }
+            set {
+                this["Fname_Lname"] = value;
+            }
+        }
     }
 }

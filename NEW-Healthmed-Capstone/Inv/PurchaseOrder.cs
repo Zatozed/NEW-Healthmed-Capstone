@@ -183,8 +183,6 @@ namespace NEW_Healthmed_Capstone.Inv
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            
-
             PropertiesSave();
 
             if (cbSup.Text.ToString().Equals("Select") || cbSup.Text.ToString().Equals(""))

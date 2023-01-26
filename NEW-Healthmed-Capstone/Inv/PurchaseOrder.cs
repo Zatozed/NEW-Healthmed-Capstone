@@ -97,6 +97,8 @@ namespace NEW_Healthmed_Capstone.Inv
 
             dgvReOrderList.DataSource = dbh.ShowProductToOrder();
 
+            dgvPOlist.DataSource = dbh.ShowPoList();
+
             tbHmdAdress.Text = Properties.Settings.Default.HMDaddress;
             tbHmdContactNum.Text = Properties.Settings.Default.HMDcontactNum;
             tbHmdEmail.Text = Properties.Settings.Default.HMDemail;

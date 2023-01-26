@@ -514,6 +514,23 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
 
             return PoNum;
         }
+        public DataTable ShowPoList() 
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("select po_id, po_num from tbl_po where ordered_qty != received_qty",
+                con);
+                dataAdapter = new MySqlDataAdapter(cmd);
+                dataAdapter.Fill(dt);
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+
+            return dt;
+        }
         public string GenereateTransacNum()
         {
             string date = DateTime.Now.ToString("yyyyMMdd");

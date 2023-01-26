@@ -210,6 +210,8 @@ namespace NEW_Healthmed_Capstone.Inv
                 
             }
             dgvPOlist.DataSource = dbh.ShowPoList();
+            dgvOrders.Rows.Clear();
+            tbPOnum.Text = dbh.GeneratePoNum();
         }
 
         private void dgvPOlist_CellContentClick(object sender, DataGridViewCellEventArgs e)

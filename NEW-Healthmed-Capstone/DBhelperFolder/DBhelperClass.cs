@@ -94,6 +94,54 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             }
             con.Close();
 
+            con.Close();
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct supplier_name from tbl_suppliers;", con);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                lt.Add(dr.GetString(0));
+            }
+            con.Close();
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct sup_description from tbl_suppliers;", con);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                lt.Add(dr.GetString(0));
+            }
+            con.Close();
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct address from tbl_suppliers;", con);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                lt.Add(dr.GetString(0));
+            }
+            con.Close();
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct contact_num from tbl_suppliers;", con);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                lt.Add(dr.GetString(0));
+            }
+            con.Close();
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct email_ad from tbl_suppliers;", con);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                lt.Add(dr.GetString(0));
+            }
+            con.Close();
+
+
             return lt;
         }
 

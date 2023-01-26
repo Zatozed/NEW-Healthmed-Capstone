@@ -468,7 +468,18 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
             finally { con.Close(); }
         }
+        public void UpdateInStockQty(string i)
+        {
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("delete from tbl_po where po_id = " + i, con);
 
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+        }
         public void InsertToSales(string transac_num, string prod_code, string itm_des, string qty, string unit_cost, string unit_price,
             string vat_exempt, string distount, string total_cost, string total_sales, string transac_date, string cashier)
         {

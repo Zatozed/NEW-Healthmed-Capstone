@@ -468,13 +468,12 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
             finally { con.Close(); }
         }
-        public void UpdateInStockQty(string i)
+        public void UpdateInStockQty(string i, string pCode)
         {
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("delete from tbl_po where po_id = " + i, con);
-
+                cmd = new MySqlCommand("update tbl_products set in_stock_qty = (in_stock_qty - "+i+") where product_code = '"+pCode+"'", con);
                 cmd.ExecuteNonQuery();
             }
             catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
@@ -519,18 +518,18 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("Select po_num from tbl_po where po_num  like '" + date + "%' order by po_num DESC LIMIT 1", con);
+                cmd = new MySqlCommand("Select po_num from tbl_po where po_num  like '%" + date + "%' order by cast(po_num as unsigned) DESC LIMIT 1", con);
                 dr = cmd.ExecuteReader();
                 dr.Read();
                 if (dr.HasRows)
                 {
                     PoNum = dr.GetString("po_num");
-                    count = int.Parse(PoNum.Substring(8, 4));
-                    PoNum = date + "000" + (count + 1);
+                    count = int.Parse(PoNum.Substring(8, PoNum.Length - 8));
+                    PoNum = date + "" + (count + 1);
                 }
                 else
                 {
-                    supPoNum = date + "0001";
+                    supPoNum = date + "1";
                     PoNum = supPoNum;
                 }
                 dr.Close();
@@ -566,18 +565,18 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("Select transaction_num from tbl_sales where transaction_num  like '" + date + "%' order by transaction_num DESC LIMIT 1", con);
+                cmd = new MySqlCommand("Select transaction_num from tbl_sales where transaction_num like '%"+date+"%' order by cast(transaction_num as unsigned) DESC limit 1;", con);
                 dr = cmd.ExecuteReader();
                 dr.Read();
                 if (dr.HasRows)
                 {
                     transNo = dr.GetString("transaction_num");
-                    count = int.Parse(transNo.Substring(8, 4));
-                    transacNum = date + "000" + (count + 1);
+                    count = int.Parse(transNo.Substring(8, transNo.Length -8 ));
+                    transacNum = date + "" + (count + 1);
                 }
                 else
                 {
-                    transNo = date + "0001";
+                    transNo = date + "1";
                     transacNum = transNo;
                 }
                 dr.Close();

@@ -354,6 +354,8 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                             DateTime.Now.ToString("yyyy-MM-dd HH:mm"),
                             lbUser.Text.ToString()
                             );
+
+                        dbh.UpdateInStockQty(r.Cells["colQtyCart"].Value.ToString(), r.Cells["colProdCodeCart"].Value.ToString());
                     }
                     MessageBox.Show("Transaction Saved");
 

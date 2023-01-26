@@ -209,7 +209,6 @@ namespace NEW_Healthmed_Capstone.Inv
                 }
                 
             }
-            dgvPOlist.Rows.Clear();
             dgvPOlist.DataSource = dbh.ShowPoList();
         }
 

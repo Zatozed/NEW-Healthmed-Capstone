@@ -1,7 +1,9 @@
-﻿using NEW_Healthmed_Capstone.DBhelperFolder;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using NEW_Healthmed_Capstone.DBhelperFolder;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing.Printing;
 using System.Windows.Forms;
 
@@ -180,7 +182,37 @@ namespace NEW_Healthmed_Capstone.Inv
 
             Properties.Settings.Default.Save();
         }
+        private void DgvToDt()
+        {
+            DataTable dt = new DataTable();
+            DataSet ds = new DataSet();
 
+            dt.Columns.Add("Qty", typeof(string));
+            dt.Columns.Add("Item", typeof(string));
+            dt.Columns.Add("Price", typeof(string));
+            dt.Columns.Add("Total", typeof(string));
+
+            foreach (DataGridViewRow r in dgvCart.Rows)
+            {
+                dt.Rows.Add(r.Cells["colQtyCart"].Value.ToString(),
+                    r.Cells["colItemCart"].Value.ToString(),
+                    r.Cells["colUnitPriceCart"].Value.ToString(),
+                    r.Cells["colTotalCart"].Value.ToString());
+            }
+            ds.Tables.Add(dt);
+            ds.WriteXmlSchema("Recbo.xml");
+
+            Resibo rs = new Resibo();
+            resibo ctrResibo = new resibo();
+            ctrResibo.SetDataSource(ds);
+            rs.crvResibo.ReportSource = ctrResibo;
+
+            //TextObject toVatable = (TextObject)ctrResibo.ReportDefinition.Sections["Section4"].ReportObjects["toVatable"];
+            //toVatable.Text = lbVatable.Text;
+
+            rs.crvResibo.Refresh();
+            rs.Show();
+        }
         private void btnOk_Click(object sender, EventArgs e)
         {
             PropertiesSave();

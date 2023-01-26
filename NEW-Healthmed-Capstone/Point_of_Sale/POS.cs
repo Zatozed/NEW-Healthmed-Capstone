@@ -354,6 +354,9 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                         );
                 }
                 MessageBox.Show("Transaction Saved");
+
+                DgvToDt();
+                lbTransacNum.Text = dbh.GenereateTransacNum();
             }
             else { MessageBox.Show("No Items Added"); }
 

@@ -191,8 +191,9 @@ namespace NEW_Healthmed_Capstone.Inv
             {
                 foreach (DataGridViewRow r in dgvOrders.Rows)
                 {
-                    dbh.InsertToPo(tbPOnum.Text.ToString(), r.Cells[""].Value.ToString(), r.Cells[""].Value.ToString(),
-                        r.Cells[""].Value.ToString(), r.Cells[""].Value.ToString(), r.Cells[""].Value.ToString(),
+                    dbh.InsertToPo(tbPOnum.Text.ToString(), r.Cells["colProductCode"].Value.ToString(), r.Cells["colProductDes"].Value.ToString(),
+                        r.Cells["colQty"].Value.ToString(), r.Cells["colDiscount"].Value.ToString(), r.Cells["colUnitCost"].Value.ToString(),
+                        r.Cells["colDiscount"].Value.ToString(), total.ToString("0.00"), Discount.ToString("0.00"),
                         tbDateNow.Text.ToString(), "user", tbReName.Text.ToString(),
                         tbReAddress.Text.ToString(), tbReContactNum.Text.ToString(), tbReEmail.Text.ToString(),
                         cbSup.Text.ToString(), tbSupAddress.Text.ToString(), tbSupContactNum.Text.ToString(),

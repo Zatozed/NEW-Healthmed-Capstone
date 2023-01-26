@@ -394,27 +394,36 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             return dis / 100;
         }
 
-        public void InsertToPo(string poNum, string prodCode, string prodName, string orQty, string reQty,
-            string unitCost, string poDate, string poGeneBy, string reName, string reAdd, string reConNum,
-            string reEmail, string sup, string supAdd, string supConNum, string supEmail, string remarks)
+        public void InsertToPo(
+            string poNum, string prodCode, string prodName, string orQty, string reQty,
+            string unitCost, string discount, string total, string totalDiscount, string poDate,
+            string poGeneBy, string reName, string reAdd, string reConNum, string reEmail, 
+            string sup, string supAdd, string supConNum, string supEmail, string remarks)
         {
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("", con);
+                cmd = new MySqlCommand("insert into tbl_po(po_num, product_code, product_description, ordered_qty, received_qty, unit_cost, discount, total, total_discount, po_date, po_generated_by, receiver_name, re_address, re_contact_num, re_email, supplier, sup_address, sup_contact_num, sup_email, remarks)"+
+                    "values(@poNum, @prodCode, @prodName, @orQty, @reQty, @unitCost, @discount, @total, @totalDiscount, @poDate, @poGeneBy, @reName, @reAdd, @reConNum, @reEmail, @sup, @supAdd, @supConNum, @supEmail, @remarks)", con);
 
                 cmd.Parameters.AddWithValue("@poNum", poNum);
                 cmd.Parameters.AddWithValue("@prodCode", prodCode);
                 cmd.Parameters.AddWithValue("@prodName", prodName);
                 cmd.Parameters.AddWithValue("@orQty", orQty);
                 cmd.Parameters.AddWithValue("@reQty", reQty);
+
                 cmd.Parameters.AddWithValue("@unitCost", unitCost);
+                cmd.Parameters.AddWithValue("@discount", discount);
+                cmd.Parameters.AddWithValue("@total", total);
+                cmd.Parameters.AddWithValue("@totalDiscount", totalDiscount);
                 cmd.Parameters.AddWithValue("@poDate", poDate);
+
                 cmd.Parameters.AddWithValue("@poGeneBy", poGeneBy);
                 cmd.Parameters.AddWithValue("@reName", reName);
                 cmd.Parameters.AddWithValue("@reAdd", reAdd);
                 cmd.Parameters.AddWithValue("@reConNum", reConNum);
                 cmd.Parameters.AddWithValue("@reEmail", reEmail);
+
                 cmd.Parameters.AddWithValue("@sup", sup);
                 cmd.Parameters.AddWithValue("@supAdd", supAdd);
                 cmd.Parameters.AddWithValue("@supConNum", supConNum);

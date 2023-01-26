@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
@@ -25,6 +26,176 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
         }
         public void OpenCon() { con.Open(); }
         public void CloseCon() { con.Close(); }
+
+        public ArrayList SupplierList()
+        {
+            ArrayList l = new ArrayList();
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct supplier_name from tbl_suppliers;", con);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                l.Add(dr.GetString(0));
+            }
+            con.Close();
+
+            return l;
+        }
+
+        public ArrayList AutoComplete()
+        {
+            ArrayList lt = new ArrayList();
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct discount_name from tbl_discount;", con);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                lt.Add(dr.GetString(0));
+            }
+            con.Close();
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct discount_percent from tbl_discount;", con);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                lt.Add(dr.GetString(0));
+            }
+            con.Close();
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct product_code from tbl_products;", con);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                lt.Add(dr.GetString(0));
+            }
+            con.Close();
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct product_name from tbl_products;", con);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                lt.Add(dr.GetString(0));
+            }
+            con.Close();
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct classification from tbl_products;", con);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                lt.Add(dr.GetString(0));
+            }
+            con.Close();
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct dosage from tbl_products;", con);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                lt.Add(dr.GetString(0));
+            }
+            con.Close();
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct med_type from tbl_products;", con);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                lt.Add(dr.GetString(0));
+            }
+            con.Close();
+
+            con.Close();
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct supplier_name from tbl_suppliers;", con);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                lt.Add(dr.GetString(0));
+            }
+            con.Close();
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct sup_description from tbl_suppliers;", con);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                lt.Add(dr.GetString(0));
+            }
+            con.Close();
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct address from tbl_suppliers;", con);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                lt.Add(dr.GetString(0));
+            }
+            con.Close();
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct contact_num from tbl_suppliers;", con);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                lt.Add(dr.GetString(0));
+            }
+            con.Close();
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct email_ad from tbl_suppliers;", con);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                lt.Add(dr.GetString(0));
+            }
+            con.Close();
+
+
+            return lt;
+        }
+
+        public DataTable ShowProductToOrder()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("select\r\np.product_code ,\r\np.product_name,\r\np.classification,\r\np.dosage,\r\np.med_type,\r\np.unit_cost,\r\np.unit_price,\r\np.in_stock_qty,\r\ns.supplier_name\r\nfrom tbl_products as p\r\ninner join tbl_product_supplier on p.p_id = tbl_product_supplier.product_id\r\ninner join tbl_suppliers as s on s.sup_id = tbl_product_supplier.supplier_id\r\nwhere p.in_stock_qty <= p.reorder_point;",
+                con);
+                dataAdapter = new MySqlDataAdapter(cmd);
+                dataAdapter.Fill(dt);
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+
+            return dt;
+        }
+
+        public DataTable ShowProductToOrder(string supName)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("select\r\np.product_code ,\r\np.product_name,\r\np.classification,\r\np.dosage,\r\np.med_type,\r\np.unit_cost,\r\np.unit_price,\r\np.in_stock_qty,\r\ns.supplier_name\r\nfrom tbl_products as p\r\ninner join tbl_product_supplier on p.p_id = tbl_product_supplier.product_id\r\ninner join tbl_suppliers as s on s.sup_id = tbl_product_supplier.supplier_id\r\nwhere s.supplier_name = '"+supName+"' and p.in_stock_qty <= p.reorder_point;",
+                con);
+                dataAdapter = new MySqlDataAdapter(cmd);
+                dataAdapter.Fill(dt);
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+
+            return dt;
+        }
 
         public DataTable ShowProductList()
         {

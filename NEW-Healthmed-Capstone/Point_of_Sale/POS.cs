@@ -5,8 +5,10 @@ using NEW_Healthmed_Capstone.CtrHelperFolder;
 using NEW_Healthmed_Capstone.DBhelperFolder;
 using NEW_Healthmed_Capstone.Reports;
 using System;
+using System.Collections;
 using System.Data;
 using System.Drawing;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
 namespace NEW_Healthmed_Capstone.Point_of_Sale
@@ -14,12 +16,22 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
     public partial class POS : Form
     {
         private DBhelperClass dbh = new DBhelperClass();
-        private CtrHelper ctr = new CtrHelper();
+        private ArrayList l = new ArrayList();
+        private AutoCompleteStringCollection src;
         private int rowIdx;
         private double subtotal, vatable, vat, total;
         public POS()
         {
             InitializeComponent();
+        }
+        private void GenereateAutoCompleteSrc()
+        {
+            src = new AutoCompleteStringCollection();
+            foreach (string s in l)
+            {
+                src.Add(s);
+            }
+            tbSearch.AutoCompleteCustomSource = src;
         }
         private void DgvToDt()
         {

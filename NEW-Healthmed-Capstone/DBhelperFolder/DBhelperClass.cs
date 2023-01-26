@@ -182,6 +182,18 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
         public DataTable ShowProductToOrder(string supName)
         {
             DataTable dt = new DataTable();
+
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("select\r\np.product_code ,\r\np.product_name,\r\np.classification,\r\np.dosage,\r\np.med_type,\r\np.unit_cost,\r\np.unit_price,\r\np.in_stock_qty,\r\ns.supplier_name\r\nfrom tbl_products as p\r\ninner join tbl_product_supplier on p.p_id = tbl_product_supplier.product_id\r\ninner join tbl_suppliers as s on s.sup_id = tbl_product_supplier.supplier_id\r\nwhere s.supplier_name = '"+supName+"' and p.in_stock_qty <= p.reorder_point;",
+                con);
+                dataAdapter = new MySqlDataAdapter(cmd);
+                dataAdapter.Fill(dt);
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+
             return dt;
         }
 

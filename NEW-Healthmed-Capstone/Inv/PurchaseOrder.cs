@@ -45,6 +45,7 @@ namespace NEW_Healthmed_Capstone.Inv
         private void FillCbSup()
         {
             cbSup.Items.Clear();
+            cbSup.Items.Add("Select");
             cbSup.Items.AddRange(dbh.SupplierList().ToArray());
         }
 
@@ -56,9 +57,11 @@ namespace NEW_Healthmed_Capstone.Inv
 
             FillCbSup();
 
-            dgvDrugs.DataSource = dbh.ShowProductSupplier();
+            dgvOtherProds.DataSource = dbh.ShowProductSupplier();
 
-            dgvDrugs.DataSource = dbh.ShowProductToOrder();
+            if(cbSup.Text.ToString().Equals("") || cbSup.Text == null)
+
+            dgvReOrderList.DataSource = dbh.ShowProductToOrder();
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
@@ -67,7 +70,7 @@ namespace NEW_Healthmed_Capstone.Inv
 
         private void dgvDrugs_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvDrugs.Columns[e.ColumnIndex].Name.Equals("colAdd")) 
+            if (dgvReOrderList.Columns[e.ColumnIndex].Name.Equals("colAdd")) 
             {
                 if (dgvOrders.RowCount != 0)
                 {
@@ -75,15 +78,15 @@ namespace NEW_Healthmed_Capstone.Inv
                     int matchCount = 0;
                     foreach (DataGridViewRow r in dgvOrders.Rows)
                     {
-                        if (dgvDrugs.Rows[e.RowIndex].Cells["colProdCode"].Value.ToString().Equals(r.Cells["colProductCode"].Value.ToString())) // if match ++ count
+                        if (dgvReOrderList.Rows[e.RowIndex].Cells["colProdCode"].Value.ToString().Equals(r.Cells["colProductCode"].Value.ToString())) // if match ++ count
                             matchCount++;
                     }
                     if (matchCount == 0) //if no match found
                     {
                         dgvOrders.Rows.Add("",
                             "",
-                            dgvDrugs.Rows[e.RowIndex].Cells["colProdCode"].Value,
-                            dgvDrugs.Rows[e.RowIndex].Cells["colProdName"].Value + " " + dgvDrugs.Rows[e.RowIndex].Cells["colClass"].Value + " " + dgvDrugs.Rows[e.RowIndex].Cells["colDosage"].Value + " " + dgvDrugs.Rows[e.RowIndex].Cells["colType"].Value
+                            dgvReOrderList.Rows[e.RowIndex].Cells["colProdCode"].Value,
+                            dgvReOrderList.Rows[e.RowIndex].Cells["colProdName"].Value + " " + dgvReOrderList.Rows[e.RowIndex].Cells["colClass"].Value + " " + dgvReOrderList.Rows[e.RowIndex].Cells["colDosage"].Value + " " + dgvReOrderList.Rows[e.RowIndex].Cells["colType"].Value
                             );
                     }
                     else
@@ -94,12 +97,16 @@ namespace NEW_Healthmed_Capstone.Inv
                 {
                     dgvOrders.Rows.Add("",
                             "",
-                            dgvDrugs.Rows[e.RowIndex].Cells["colProdCode"].Value,
-                            dgvDrugs.Rows[e.RowIndex].Cells["colProdName"].Value + " " + dgvDrugs.Rows[e.RowIndex].Cells["colClass"].Value + " " + dgvDrugs.Rows[e.RowIndex].Cells["colDosage"].Value + " " + dgvDrugs.Rows[e.RowIndex].Cells["colType"].Value
+                            dgvReOrderList.Rows[e.RowIndex].Cells["colProdCode"].Value,
+                            dgvReOrderList.Rows[e.RowIndex].Cells["colProdName"].Value + " " + dgvReOrderList.Rows[e.RowIndex].Cells["colClass"].Value + " " + dgvReOrderList.Rows[e.RowIndex].Cells["colDosage"].Value + " " + dgvReOrderList.Rows[e.RowIndex].Cells["colType"].Value
                             );
                 }
             }
         }
 
+        private void cbSup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dgvReOrderList.DataSource= dbh.ShowProductToOrder(cbSup.Text.ToString());
+        }
     }
 }

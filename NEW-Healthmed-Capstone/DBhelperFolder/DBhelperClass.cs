@@ -456,7 +456,7 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
             finally { con.Close(); }
         }
-        public void DelAtPoList(int i)
+        public void DelAtPoList(string i)
         {
             try
             {

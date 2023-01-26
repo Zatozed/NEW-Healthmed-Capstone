@@ -183,6 +183,8 @@ namespace NEW_Healthmed_Capstone.Inv
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            
+
             PropertiesSave();
 
             if (cbSup.Text.ToString().Equals("Select") || cbSup.Text.ToString().Equals(""))
@@ -191,16 +193,21 @@ namespace NEW_Healthmed_Capstone.Inv
             }
             else
             {
-                foreach (DataGridViewRow r in dgvOrders.Rows)
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show("Do you want to save this Purchase Order?", "Save", buttons);
+                if (result == DialogResult.Yes)
                 {
-                    dbh.InsertToPo(tbPOnum.Text.ToString(), r.Cells["colProductCode"].Value.ToString(), r.Cells["colProductDes"].Value.ToString(),
-                        r.Cells["colQty"].Value.ToString(), r.Cells["colDiscount"].Value.ToString(), r.Cells["colUnitCost"].Value.ToString(),
-                        r.Cells["colDiscount"].Value.ToString(), total.ToString("0.00"), Discount.ToString("0.00"),
-                        tbDateNow.Text.ToString(), "user", tbReName.Text.ToString(),
-                        tbReAddress.Text.ToString(), tbReContactNum.Text.ToString(), tbReEmail.Text.ToString(),
-                        cbSup.Text.ToString(), tbSupAddress.Text.ToString(), tbSupContactNum.Text.ToString(),
-                        tbSupEmail.Text.ToString(), tbRemarks.Text.ToString()
-                    );
+                    foreach (DataGridViewRow r in dgvOrders.Rows)
+                    {
+                        dbh.InsertToPo(tbPOnum.Text.ToString(), r.Cells["colProductCode"].Value.ToString(), r.Cells["colProductDes"].Value.ToString(),
+                            r.Cells["colQty"].Value.ToString(), r.Cells["colDiscount"].Value.ToString(), r.Cells["colUnitCost"].Value.ToString(),
+                            r.Cells["colDiscount"].Value.ToString(), total.ToString("0.00"), Discount.ToString("0.00"),
+                            tbDateNow.Text.ToString(), "user", tbReName.Text.ToString(),
+                            tbReAddress.Text.ToString(), tbReContactNum.Text.ToString(), tbReEmail.Text.ToString(),
+                            cbSup.Text.ToString(), tbSupAddress.Text.ToString(), tbSupContactNum.Text.ToString(),
+                            tbSupEmail.Text.ToString(), tbRemarks.Text.ToString()
+                        );
+                    }
                 }
                 
             }
@@ -219,7 +226,12 @@ namespace NEW_Healthmed_Capstone.Inv
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                 DialogResult result = MessageBox.Show("Do you want to delete this?", "Delete", buttons);
                 if (result == DialogResult.Yes)
-                    dbh.DelAtPoList(e.RowIndex);
+                {
+                    dgvPOlist.Rows.Clear ();
+                    dgvPOlist.DataSource = dbh.ShowPoList();
+                    dbh.DelAtPoList(dgvPOlist.Rows[e.RowIndex].Cells["colPoID"].Value.ToString());
+                }
+                    
             }
         }
 

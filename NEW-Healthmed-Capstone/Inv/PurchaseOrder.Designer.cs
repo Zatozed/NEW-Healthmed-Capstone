@@ -304,6 +304,7 @@
             this.tableLayoutPanel1.SetRowSpan(this.dgvPOlist, 8);
             this.dgvPOlist.Size = new System.Drawing.Size(264, 259);
             this.dgvPOlist.TabIndex = 7;
+            this.dgvPOlist.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPOlist_CellContentClick);
             // 
             // label18
             // 

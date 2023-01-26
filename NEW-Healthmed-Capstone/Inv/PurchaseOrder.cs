@@ -207,6 +207,14 @@ namespace NEW_Healthmed_Capstone.Inv
 
         }
 
+        private void dgvPOlist_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvPOlist.Columns[e.ColumnIndex].Name.Equals("colView")) 
+            { }
+            else if (dgvPOlist.Columns[e.ColumnIndex].Name.Equals("colDel"))
+            { }
+        }
+
         private void cbSup_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbSup.Text.ToString().Equals("Select") || cbSup.Text.ToString().Equals(""))

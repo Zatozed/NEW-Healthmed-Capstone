@@ -61,8 +61,8 @@ namespace NEW_Healthmed_Capstone.Inv
 
             cbSup.AutoCompleteCustomSource = src;
 
-            tbReAddress.AutoCompleteCustomSource = src;
-            tbReContactNum.AutoCompleteCustomSource = src;
+            tbReAd.AutoCompleteCustomSource = src;
+            tbReNum.AutoCompleteCustomSource = src;
             tbReEmail.AutoCompleteCustomSource = src;
             tbReName.AutoCompleteCustomSource = src;
             tbRemarks.AutoCompleteCustomSource = src;
@@ -108,8 +108,8 @@ namespace NEW_Healthmed_Capstone.Inv
             tbHmdEmail.Text = Properties.Settings.Default.HMDemail;
 
             tbReName.Text = Properties.Settings.Default.ReName;
-            tbReAddress.Text = Properties.Settings.Default.ReAddress;
-            tbReContactNum.Text = Properties.Settings.Default.ReContactNum;
+            tbReAd.Text = Properties.Settings.Default.ReAddress;
+            tbReNum.Text = Properties.Settings.Default.ReContactNum;
             tbReEmail.Text = Properties.Settings.Default.ReEmail;
         }
 
@@ -178,8 +178,8 @@ namespace NEW_Healthmed_Capstone.Inv
             Properties.Settings.Default.HMDemail = tbHmdEmail.Text.ToString();
 
             Properties.Settings.Default.ReName = tbReName.Text.ToString();
-            Properties.Settings.Default.ReAddress = tbReAddress.Text.ToString();
-            Properties.Settings.Default.ReContactNum = tbReContactNum.Text.ToString();
+            Properties.Settings.Default.ReAddress = tbReAd.Text.ToString();
+            Properties.Settings.Default.ReContactNum = tbReNum.Text.ToString();
             Properties.Settings.Default.ReEmail = tbReEmail.Text.ToString();
 
             Properties.Settings.Default.Save();
@@ -234,6 +234,26 @@ namespace NEW_Healthmed_Capstone.Inv
 
             TextObject tSupEmail = (TextObject)ctrpr.ReportDefinition.Sections["Section1"].ReportObjects["toSupEmail"];
             tSupEmail.Text = tbSupEmail.Text;
+            //
+
+            TextObject tPoDate = (TextObject)ctrpr.ReportDefinition.Sections["Section1"].ReportObjects["toPoDate"];
+            tPoDate.Text = tbDateNow.Text;
+
+            TextObject tPoNum = (TextObject)ctrpr.ReportDefinition.Sections["Section1"].ReportObjects["toPoNum"];
+            tPoNum.Text = tbPOnum.Text;
+            //
+
+            TextObject tReName = (TextObject)ctrpr.ReportDefinition.Sections["Section1"].ReportObjects["toReName"];
+            tReName.Text = tbReName.Text;
+
+            TextObject tReAd = (TextObject)ctrpr.ReportDefinition.Sections["Section1"].ReportObjects["toReAd"];
+            tReAd.Text = tbReAd.Text;
+
+            TextObject tReNum = (TextObject)ctrpr.ReportDefinition.Sections["Section1"].ReportObjects["toReNum"];
+            tReNum.Text = tbReNum.Text;
+
+            TextObject tReEmail = (TextObject)ctrpr.ReportDefinition.Sections["Section1"].ReportObjects["toReEmail"];
+            tReEmail.Text = tbReEmail.Text;
 
             //
             TextObject tSubtotal = (TextObject)ctrpr.ReportDefinition.Sections["Section4"].ReportObjects["toSubtotal"];
@@ -268,7 +288,7 @@ namespace NEW_Healthmed_Capstone.Inv
                             r.Cells["colQty"].Value.ToString(), r.Cells["colDiscount"].Value.ToString(), r.Cells["colUnitCost"].Value.ToString(),
                             r.Cells["colDiscount"].Value.ToString(), total.ToString("0.00"), Discount.ToString("0.00"),
                             tbDateNow.Text.ToString(), Properties.Settings.Default.Fname_Lname, tbReName.Text.ToString(),
-                            tbReAddress.Text.ToString(), tbReContactNum.Text.ToString(), tbReEmail.Text.ToString(),
+                            tbReAd.Text.ToString(), tbReNum.Text.ToString(), tbReEmail.Text.ToString(),
                             cbSup.Text.ToString(), tbSupAddress.Text.ToString(), tbSupContactNum.Text.ToString(),
                             tbSupEmail.Text.ToString(), tbRemarks.Text.ToString()
                         );

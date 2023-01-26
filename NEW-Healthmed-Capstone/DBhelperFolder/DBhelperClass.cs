@@ -4,7 +4,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Reflection;
 using System.Windows.Forms;
+using Google.Protobuf.WellKnownTypes;
+using System.Xml.Linq;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Ocsp;
 
 namespace NEW_Healthmed_Capstone.DBhelperFolder
 {
@@ -42,6 +45,40 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             con.Close();
 
             return l;
+        }
+
+        public string GetSupAd(string supAdd) 
+        {
+            string sa;
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct address from tbl_suppliers where supplier_name = '"+supAdd+"'", con);
+            sa = cmd.ExecuteScalar().ToString();
+            con.Close();
+
+            return sa;
+        }
+        public string GetSupContactNum(string SupConNum) 
+        {
+            string scn;
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct contact_num from tbl_suppliers where supplier_name = '"+SupConNum+"'", con);
+            scn = cmd.ExecuteScalar().ToString();
+            con.Close();
+
+            return scn;
+        }
+        public string GetSupEmailAd(string EmailAd) 
+        {
+            string ea;
+
+            con.Open();
+            cmd = new MySqlCommand("select distinct email_ad from tbl_suppliers where supplier_name = '"+EmailAd+"'", con);
+            ea= cmd.ExecuteScalar().ToString();
+            con.Close();
+
+            return ea;
         }
 
         public ArrayList AutoComplete()
@@ -300,6 +337,24 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             return dt;
         }
 
+        public DataTable ShowProductSupplier(string supName)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("select\r\np.product_code ,\r\np.product_name,\r\np.classification,\r\np.dosage,\r\np.med_type,\r\np.unit_cost,\r\np.unit_price,\r\np.in_stock_qty,\r\ns.supplier_name\r\nfrom tbl_products as p\r\ninner join tbl_product_supplier on p.p_id = tbl_product_supplier.product_id\r\ninner join tbl_suppliers as s on s.sup_id = tbl_product_supplier.supplier_id where s.supplier_name = '"+ supName +"'",
+                con);
+                dataAdapter = new MySqlDataAdapter(cmd);
+                dataAdapter.Fill(dt);
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+
+            return dt;
+        }
+
         public DataTable ShowDiscountList()
         {
             DataTable dt = new DataTable();
@@ -425,9 +480,72 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             return dis / 100;
         }
 
-        
+        public void InsertToPo(
+            string poNum, string prodCode, string prodName, string orQty, string reQty,
+            string unitCost, string discount, string total, string totalDiscount, string poDate,
+            string poGeneBy, string reName, string reAdd, string reConNum, string reEmail, 
+            string sup, string supAdd, string supConNum, string supEmail, string remarks)
+        {
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("insert into tbl_po(po_num, product_code, product_description, ordered_qty, received_qty, unit_cost, discount, total, total_discount, po_date, po_generated_by, receiver_name, re_address, re_contact_num, re_email, supplier, sup_address, sup_contact_num, sup_email, remarks)"+
+                    "values(@poNum, @prodCode, @prodName, @orQty, @reQty, @unitCost, @discount, @total, @totalDiscount, @poDate, @poGeneBy, @reName, @reAdd, @reConNum, @reEmail, @sup, @supAdd, @supConNum, @supEmail, @remarks)", con);
 
-        public void InsertToSales(string transac_num, string prod_code, string itm_des, string qty, string unit_cost, string unit_price, string vat_exempt, string distount, string total_cost, string total_sales, string transac_date, string cashier)
+                cmd.Parameters.AddWithValue("@poNum", poNum);
+                cmd.Parameters.AddWithValue("@prodCode", prodCode);
+                cmd.Parameters.AddWithValue("@prodName", prodName);
+                cmd.Parameters.AddWithValue("@orQty", orQty);
+                cmd.Parameters.AddWithValue("@reQty", reQty);
+
+                cmd.Parameters.AddWithValue("@unitCost", unitCost);
+                cmd.Parameters.AddWithValue("@discount", discount);
+                cmd.Parameters.AddWithValue("@total", total);
+                cmd.Parameters.AddWithValue("@totalDiscount", totalDiscount);
+                cmd.Parameters.AddWithValue("@poDate", poDate);
+
+                cmd.Parameters.AddWithValue("@poGeneBy", poGeneBy);
+                cmd.Parameters.AddWithValue("@reName", reName);
+                cmd.Parameters.AddWithValue("@reAdd", reAdd);
+                cmd.Parameters.AddWithValue("@reConNum", reConNum);
+                cmd.Parameters.AddWithValue("@reEmail", reEmail);
+
+                cmd.Parameters.AddWithValue("@sup", sup);
+                cmd.Parameters.AddWithValue("@supAdd", supAdd);
+                cmd.Parameters.AddWithValue("@supConNum", supConNum);
+                cmd.Parameters.AddWithValue("@supEmail", supEmail);
+                cmd.Parameters.AddWithValue("@remarks", remarks);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+        }
+        public void DelAtPoList(string i)
+        {
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("delete from tbl_po where po_id = "+i, con);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+        }
+        public void UpdateInStockQty(string i, string pCode)
+        {
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("update tbl_products set in_stock_qty = (in_stock_qty - "+i+") where product_code = '"+pCode+"'", con);
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+        }
+        public void InsertToSales(string transac_num, string prod_code, string itm_des, string qty, string unit_cost, string unit_price,
+            string vat_exempt, string distount, string total_cost, string total_sales, string transac_date, string cashier)
         {
             try
             {
@@ -455,6 +573,54 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
             finally { con.Close(); }
         }
+        public string GeneratePoNum()
+        {
+            string date = DateTime.Now.ToString("yyyyMMdd");
+            string PoNum = "";
+            string supPoNum;
+            int count;
+
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("Select po_num from tbl_po where po_num  like '%" + date + "%' order by cast(po_num as unsigned) DESC LIMIT 1", con);
+                dr = cmd.ExecuteReader();
+                dr.Read();
+                if (dr.HasRows)
+                {
+                    PoNum = dr.GetString("po_num");
+                    count = int.Parse(PoNum.Substring(8, PoNum.Length - 8));
+                    PoNum = date + "" + (count + 1);
+                }
+                else
+                {
+                    supPoNum = date + "1";
+                    PoNum = supPoNum;
+                }
+                dr.Close();
+            }
+            catch (Exception ex) { }
+            finally { con.Close(); }
+
+            return PoNum;
+        }
+        public DataTable ShowPoList() 
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("select po_id, po_num from tbl_po where ordered_qty != received_qty",
+                con);
+                dataAdapter = new MySqlDataAdapter(cmd);
+                dataAdapter.Fill(dt);
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+
+            return dt;
+        }
         public string GenereateTransacNum()
         {
             string date = DateTime.Now.ToString("yyyyMMdd");
@@ -464,18 +630,18 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("Select transaction_num from tbl_sales where transaction_num  like '" + date + "%' order by transaction_num DESC LIMIT 1", con);
+                cmd = new MySqlCommand("Select transaction_num from tbl_sales where transaction_num like '%"+date+"%' order by cast(transaction_num as unsigned) DESC limit 1;", con);
                 dr = cmd.ExecuteReader();
                 dr.Read();
                 if (dr.HasRows)
                 {
                     transNo = dr.GetString("transaction_num");
-                    count = int.Parse(transNo.Substring(8, 4));
-                    transacNum = date + "000" + (count + 1);
+                    count = int.Parse(transNo.Substring(8, transNo.Length -8 ));
+                    transacNum = date + "" + (count + 1);
                 }
                 else
                 {
-                    transNo = date + "0001";
+                    transNo = date + "1";
                     transacNum = transNo;
                 }
                 dr.Close();

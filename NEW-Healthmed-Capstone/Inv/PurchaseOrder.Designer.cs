@@ -30,21 +30,28 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dgvPOlist = new System.Windows.Forms.DataGridView();
+            this.colPoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPoNumList = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDel = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -65,26 +72,16 @@
             this.dgvOrders = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgvReOrderList = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbPOnum = new System.Windows.Forms.TextBox();
-            this.tbReName = new System.Windows.Forms.TextBox();
-            this.tbReAddress = new System.Windows.Forms.TextBox();
-            this.tbReEmail = new System.Windows.Forms.TextBox();
-            this.tbReContactNum = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.cbSup = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tbDiscount = new System.Windows.Forms.TextBox();
-            this.tbTotal = new System.Windows.Forms.TextBox();
-            this.tbSubtotal = new System.Windows.Forms.TextBox();
+            this.colProdCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnitCostRL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colInStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSupplierProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAdd = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgvOtherProds = new System.Windows.Forms.DataGridView();
             this.colProdCodeO = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,6 +94,26 @@
             this.colInStockO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSupplierO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAddO = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbPOnum = new System.Windows.Forms.TextBox();
+            this.tbReName = new System.Windows.Forms.TextBox();
+            this.tbReAd = new System.Windows.Forms.TextBox();
+            this.tbReEmail = new System.Windows.Forms.TextBox();
+            this.tbReNum = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.cbSup = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbDiscount = new System.Windows.Forms.TextBox();
+            this.tbTotal = new System.Windows.Forms.TextBox();
+            this.tbSubtotal = new System.Windows.Forms.TextBox();
+            this.tbDateNow = new System.Windows.Forms.TextBox();
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPOnum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProductCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -117,16 +134,6 @@
             this.colSupContactNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSupEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProdCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnitCostRL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colInStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSupplierProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAdd = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPOlist)).BeginInit();
             this.tab1.SuspendLayout();
@@ -170,14 +177,13 @@
             this.tableLayoutPanel1.Controls.Add(this.label15, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.label16, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.tab1, 0, 9);
-            this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 6, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 5, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 5, 1);
             this.tableLayoutPanel1.Controls.Add(this.tbPOnum, 6, 2);
             this.tableLayoutPanel1.Controls.Add(this.tbReName, 6, 5);
-            this.tableLayoutPanel1.Controls.Add(this.tbReAddress, 6, 6);
+            this.tableLayoutPanel1.Controls.Add(this.tbReAd, 6, 6);
             this.tableLayoutPanel1.Controls.Add(this.tbReEmail, 6, 8);
-            this.tableLayoutPanel1.Controls.Add(this.tbReContactNum, 6, 7);
+            this.tableLayoutPanel1.Controls.Add(this.tbReNum, 6, 7);
             this.tableLayoutPanel1.Controls.Add(this.label9, 5, 4);
             this.tableLayoutPanel1.Controls.Add(this.label12, 5, 5);
             this.tableLayoutPanel1.Controls.Add(this.label11, 5, 6);
@@ -190,6 +196,7 @@
             this.tableLayoutPanel1.Controls.Add(this.tbDiscount, 4, 18);
             this.tableLayoutPanel1.Controls.Add(this.tbTotal, 4, 19);
             this.tableLayoutPanel1.Controls.Add(this.tbSubtotal, 4, 17);
+            this.tableLayoutPanel1.Controls.Add(this.tbDateNow, 6, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -260,15 +267,70 @@
             // 
             // dgvPOlist
             // 
+            this.dgvPOlist.AllowUserToAddRows = false;
+            this.dgvPOlist.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvPOlist.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPOlist.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPOlist.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPOlist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPOlist.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colPoID,
+            this.colPoNumList,
+            this.colDel});
             this.tableLayoutPanel1.SetColumnSpan(this.dgvPOlist, 2);
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPOlist.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvPOlist.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvPOlist.GridColor = System.Drawing.Color.White;
             this.dgvPOlist.Location = new System.Drawing.Point(795, 229);
             this.dgvPOlist.Name = "dgvPOlist";
+            this.dgvPOlist.ReadOnly = true;
             this.tableLayoutPanel1.SetRowSpan(this.dgvPOlist, 8);
             this.dgvPOlist.Size = new System.Drawing.Size(264, 259);
             this.dgvPOlist.TabIndex = 7;
+            this.dgvPOlist.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPOlist_CellContentClick);
+            // 
+            // colPoID
+            // 
+            this.colPoID.DataPropertyName = "po_id";
+            this.colPoID.HeaderText = "ID";
+            this.colPoID.Name = "colPoID";
+            this.colPoID.ReadOnly = true;
+            this.colPoID.Visible = false;
+            // 
+            // colPoNumList
+            // 
+            this.colPoNumList.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colPoNumList.DataPropertyName = "po_num";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colPoNumList.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colPoNumList.HeaderText = "PO #";
+            this.colPoNumList.Name = "colPoNumList";
+            this.colPoNumList.ReadOnly = true;
+            // 
+            // colDel
+            // 
+            this.colDel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colDel.HeaderText = "";
+            this.colDel.Name = "colDel";
+            this.colDel.ReadOnly = true;
+            this.colDel.Text = "Del";
+            this.colDel.UseColumnTextForButtonValue = true;
+            this.colDel.Width = 5;
             // 
             // label18
             // 
@@ -287,9 +349,9 @@
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.Location = new System.Drawing.Point(267, 491);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(71, 16);
+            this.label19.Size = new System.Drawing.Size(67, 16);
             this.label19.TabIndex = 23;
-            this.label19.Text = " Discount";
+            this.label19.Text = "Discount";
             // 
             // label20
             // 
@@ -334,68 +396,78 @@
             this.btnOk.TabIndex = 25;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = false;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // tbHmdAdress
             // 
             this.tbHmdAdress.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.tbHmdAdress.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.tableLayoutPanel1.SetColumnSpan(this.tbHmdAdress, 2);
             this.tbHmdAdress.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbHmdAdress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbHmdAdress.Location = new System.Drawing.Point(135, 24);
             this.tbHmdAdress.Name = "tbHmdAdress";
-            this.tbHmdAdress.Size = new System.Drawing.Size(126, 22);
+            this.tbHmdAdress.Size = new System.Drawing.Size(258, 22);
             this.tbHmdAdress.TabIndex = 26;
             // 
             // tbHmdContactNum
             // 
             this.tbHmdContactNum.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.tbHmdContactNum.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.tableLayoutPanel1.SetColumnSpan(this.tbHmdContactNum, 2);
             this.tbHmdContactNum.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbHmdContactNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbHmdContactNum.Location = new System.Drawing.Point(135, 45);
             this.tbHmdContactNum.Name = "tbHmdContactNum";
-            this.tbHmdContactNum.Size = new System.Drawing.Size(126, 22);
+            this.tbHmdContactNum.Size = new System.Drawing.Size(258, 22);
             this.tbHmdContactNum.TabIndex = 27;
             // 
             // tbHmdEmail
             // 
             this.tbHmdEmail.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.tbHmdEmail.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.tableLayoutPanel1.SetColumnSpan(this.tbHmdEmail, 2);
             this.tbHmdEmail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbHmdEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbHmdEmail.Location = new System.Drawing.Point(135, 66);
             this.tbHmdEmail.Name = "tbHmdEmail";
-            this.tbHmdEmail.Size = new System.Drawing.Size(126, 22);
+            this.tbHmdEmail.Size = new System.Drawing.Size(258, 22);
             this.tbHmdEmail.TabIndex = 28;
             // 
             // tbSupAddress
             // 
             this.tbSupAddress.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.tbSupAddress.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.tableLayoutPanel1.SetColumnSpan(this.tbSupAddress, 2);
+            this.tbSupAddress.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbSupAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSupAddress.Location = new System.Drawing.Point(135, 129);
             this.tbSupAddress.Name = "tbSupAddress";
-            this.tbSupAddress.Size = new System.Drawing.Size(100, 22);
+            this.tbSupAddress.Size = new System.Drawing.Size(258, 22);
             this.tbSupAddress.TabIndex = 29;
             // 
             // tbSupContactNum
             // 
             this.tbSupContactNum.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.tbSupContactNum.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.tableLayoutPanel1.SetColumnSpan(this.tbSupContactNum, 2);
+            this.tbSupContactNum.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbSupContactNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSupContactNum.Location = new System.Drawing.Point(135, 150);
             this.tbSupContactNum.Name = "tbSupContactNum";
-            this.tbSupContactNum.Size = new System.Drawing.Size(100, 22);
+            this.tbSupContactNum.Size = new System.Drawing.Size(258, 22);
             this.tbSupContactNum.TabIndex = 30;
             // 
             // tbSupEmail
             // 
             this.tbSupEmail.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.tbSupEmail.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.tableLayoutPanel1.SetColumnSpan(this.tbSupEmail, 2);
+            this.tbSupEmail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbSupEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSupEmail.Location = new System.Drawing.Point(135, 171);
             this.tbSupEmail.Name = "tbSupEmail";
-            this.tbSupEmail.Size = new System.Drawing.Size(100, 22);
+            this.tbSupEmail.Size = new System.Drawing.Size(258, 22);
             this.tbSupEmail.TabIndex = 31;
             // 
             // label14
@@ -504,19 +576,19 @@
             // 
             this.dgvReOrderList.AllowUserToAddRows = false;
             this.dgvReOrderList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvReOrderList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvReOrderList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvReOrderList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvReOrderList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvReOrderList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvReOrderList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvReOrderList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReOrderList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colProdCode,
@@ -530,14 +602,14 @@
             this.colSupplierProd,
             this.colAdd});
             this.dgvReOrderList.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvReOrderList.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvReOrderList.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvReOrderList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvReOrderList.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvReOrderList.Location = new System.Drawing.Point(3, 3);
@@ -549,13 +621,263 @@
             this.dgvReOrderList.TabIndex = 24;
             this.dgvReOrderList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDrugs_CellContentClick);
             // 
-            // dateTimePicker1
+            // colProdCode
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(795, 24);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(126, 22);
-            this.dateTimePicker1.TabIndex = 44;
+            this.colProdCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colProdCode.DataPropertyName = "product_code";
+            this.colProdCode.HeaderText = "Product Code";
+            this.colProdCode.Name = "colProdCode";
+            this.colProdCode.ReadOnly = true;
+            this.colProdCode.Width = 115;
+            // 
+            // colProdName
+            // 
+            this.colProdName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colProdName.DataPropertyName = "product_name";
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.colProdName.DefaultCellStyle = dataGridViewCellStyle7;
+            this.colProdName.HeaderText = "Product Name";
+            this.colProdName.Name = "colProdName";
+            this.colProdName.ReadOnly = true;
+            this.colProdName.Width = 119;
+            // 
+            // colClass
+            // 
+            this.colClass.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colClass.DataPropertyName = "classification";
+            this.colClass.HeaderText = "Classification";
+            this.colClass.Name = "colClass";
+            this.colClass.ReadOnly = true;
+            this.colClass.Width = 125;
+            // 
+            // colDosage
+            // 
+            this.colDosage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colDosage.DataPropertyName = "dosage";
+            this.colDosage.HeaderText = "Dosage";
+            this.colDosage.Name = "colDosage";
+            this.colDosage.ReadOnly = true;
+            this.colDosage.Width = 87;
+            // 
+            // colType
+            // 
+            this.colType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colType.DataPropertyName = "med_type";
+            this.colType.HeaderText = "Type";
+            this.colType.Name = "colType";
+            this.colType.ReadOnly = true;
+            this.colType.Width = 68;
+            // 
+            // colUnitCostRL
+            // 
+            this.colUnitCostRL.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colUnitCostRL.DataPropertyName = "unit_cost";
+            this.colUnitCostRL.HeaderText = "Unit Cost";
+            this.colUnitCostRL.Name = "colUnitCostRL";
+            this.colUnitCostRL.ReadOnly = true;
+            this.colUnitCostRL.Width = 87;
+            // 
+            // colUnitPrice
+            // 
+            this.colUnitPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colUnitPrice.DataPropertyName = "unit_price";
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.colUnitPrice.DefaultCellStyle = dataGridViewCellStyle8;
+            this.colUnitPrice.HeaderText = "Unit Price";
+            this.colUnitPrice.Name = "colUnitPrice";
+            this.colUnitPrice.ReadOnly = true;
+            this.colUnitPrice.Visible = false;
+            // 
+            // colInStock
+            // 
+            this.colInStock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colInStock.DataPropertyName = "in_stock_qty";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.colInStock.DefaultCellStyle = dataGridViewCellStyle9;
+            this.colInStock.HeaderText = "In Stock";
+            this.colInStock.Name = "colInStock";
+            this.colInStock.ReadOnly = true;
+            this.colInStock.Width = 80;
+            // 
+            // colSupplierProd
+            // 
+            this.colSupplierProd.DataPropertyName = "supplier_name";
+            this.colSupplierProd.HeaderText = "Supplier";
+            this.colSupplierProd.Name = "colSupplierProd";
+            this.colSupplierProd.ReadOnly = true;
+            // 
+            // colAdd
+            // 
+            this.colAdd.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colAdd.HeaderText = "";
+            this.colAdd.Name = "colAdd";
+            this.colAdd.ReadOnly = true;
+            this.colAdd.Text = "add";
+            this.colAdd.UseColumnTextForButtonValue = true;
+            this.colAdd.Width = 5;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.dgvOtherProds);
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(778, 246);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Other Products";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // dgvOtherProds
+            // 
+            this.dgvOtherProds.AllowUserToAddRows = false;
+            this.dgvOtherProds.AllowUserToDeleteRows = false;
+            this.dgvOtherProds.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvOtherProds.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOtherProds.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.dgvOtherProds.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOtherProds.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colProdCodeO,
+            this.colProdNameO,
+            this.colClassO,
+            this.colDosageO,
+            this.colTypeO,
+            this.colUnitCostO,
+            this.colUnitPriceO,
+            this.colInStockO,
+            this.colSupplierO,
+            this.colAddO});
+            this.dgvOtherProds.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvOtherProds.DefaultCellStyle = dataGridViewCellStyle15;
+            this.dgvOtherProds.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvOtherProds.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dgvOtherProds.Location = new System.Drawing.Point(0, 0);
+            this.dgvOtherProds.Name = "dgvOtherProds";
+            this.dgvOtherProds.ReadOnly = true;
+            this.dgvOtherProds.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvOtherProds.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvOtherProds.Size = new System.Drawing.Size(778, 246);
+            this.dgvOtherProds.TabIndex = 25;
+            this.dgvOtherProds.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOtherProds_CellContentClick);
+            // 
+            // colProdCodeO
+            // 
+            this.colProdCodeO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colProdCodeO.DataPropertyName = "product_code";
+            this.colProdCodeO.HeaderText = "Product Code";
+            this.colProdCodeO.Name = "colProdCodeO";
+            this.colProdCodeO.ReadOnly = true;
+            this.colProdCodeO.Width = 115;
+            // 
+            // colProdNameO
+            // 
+            this.colProdNameO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colProdNameO.DataPropertyName = "product_name";
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.colProdNameO.DefaultCellStyle = dataGridViewCellStyle12;
+            this.colProdNameO.HeaderText = "Product Name";
+            this.colProdNameO.Name = "colProdNameO";
+            this.colProdNameO.ReadOnly = true;
+            this.colProdNameO.Width = 119;
+            // 
+            // colClassO
+            // 
+            this.colClassO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colClassO.DataPropertyName = "classification";
+            this.colClassO.HeaderText = "Classification";
+            this.colClassO.Name = "colClassO";
+            this.colClassO.ReadOnly = true;
+            this.colClassO.Width = 125;
+            // 
+            // colDosageO
+            // 
+            this.colDosageO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colDosageO.DataPropertyName = "dosage";
+            this.colDosageO.HeaderText = "Dosage";
+            this.colDosageO.Name = "colDosageO";
+            this.colDosageO.ReadOnly = true;
+            this.colDosageO.Width = 87;
+            // 
+            // colTypeO
+            // 
+            this.colTypeO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colTypeO.DataPropertyName = "med_type";
+            this.colTypeO.HeaderText = "Type";
+            this.colTypeO.Name = "colTypeO";
+            this.colTypeO.ReadOnly = true;
+            this.colTypeO.Width = 68;
+            // 
+            // colUnitCostO
+            // 
+            this.colUnitCostO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colUnitCostO.DataPropertyName = "unit_cost";
+            this.colUnitCostO.HeaderText = "Unit Cost";
+            this.colUnitCostO.Name = "colUnitCostO";
+            this.colUnitCostO.ReadOnly = true;
+            this.colUnitCostO.Width = 87;
+            // 
+            // colUnitPriceO
+            // 
+            this.colUnitPriceO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colUnitPriceO.DataPropertyName = "unit_price";
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.colUnitPriceO.DefaultCellStyle = dataGridViewCellStyle13;
+            this.colUnitPriceO.HeaderText = "Unit Price";
+            this.colUnitPriceO.Name = "colUnitPriceO";
+            this.colUnitPriceO.ReadOnly = true;
+            this.colUnitPriceO.Visible = false;
+            // 
+            // colInStockO
+            // 
+            this.colInStockO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colInStockO.DataPropertyName = "in_stock_qty";
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.colInStockO.DefaultCellStyle = dataGridViewCellStyle14;
+            this.colInStockO.HeaderText = "In Stock";
+            this.colInStockO.Name = "colInStockO";
+            this.colInStockO.ReadOnly = true;
+            this.colInStockO.Width = 80;
+            // 
+            // colSupplierO
+            // 
+            this.colSupplierO.DataPropertyName = "supplier_name";
+            this.colSupplierO.HeaderText = "Supplier";
+            this.colSupplierO.Name = "colSupplierO";
+            this.colSupplierO.ReadOnly = true;
+            // 
+            // colAddO
+            // 
+            this.colAddO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colAddO.HeaderText = "";
+            this.colAddO.Name = "colAddO";
+            this.colAddO.ReadOnly = true;
+            this.colAddO.Text = "add";
+            this.colAddO.UseColumnTextForButtonValue = true;
+            this.colAddO.Width = 5;
             // 
             // label1
             // 
@@ -580,51 +902,63 @@
             // 
             // tbPOnum
             // 
+            this.tbPOnum.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel1.SetColumnSpan(this.tbPOnum, 2);
+            this.tbPOnum.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbPOnum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPOnum.Location = new System.Drawing.Point(795, 45);
             this.tbPOnum.Name = "tbPOnum";
-            this.tbPOnum.Size = new System.Drawing.Size(100, 22);
+            this.tbPOnum.ReadOnly = true;
+            this.tbPOnum.Size = new System.Drawing.Size(264, 22);
             this.tbPOnum.TabIndex = 33;
             // 
             // tbReName
             // 
             this.tbReName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.tbReName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.tableLayoutPanel1.SetColumnSpan(this.tbReName, 2);
+            this.tbReName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbReName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbReName.Location = new System.Drawing.Point(795, 108);
             this.tbReName.Name = "tbReName";
-            this.tbReName.Size = new System.Drawing.Size(126, 22);
+            this.tbReName.Size = new System.Drawing.Size(264, 22);
             this.tbReName.TabIndex = 35;
             // 
-            // tbReAddress
+            // tbReAd
             // 
-            this.tbReAddress.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.tbReAddress.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.tbReAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbReAddress.Location = new System.Drawing.Point(795, 129);
-            this.tbReAddress.Name = "tbReAddress";
-            this.tbReAddress.Size = new System.Drawing.Size(126, 22);
-            this.tbReAddress.TabIndex = 36;
+            this.tbReAd.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.tbReAd.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.tableLayoutPanel1.SetColumnSpan(this.tbReAd, 2);
+            this.tbReAd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbReAd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbReAd.Location = new System.Drawing.Point(795, 129);
+            this.tbReAd.Name = "tbReAd";
+            this.tbReAd.Size = new System.Drawing.Size(264, 22);
+            this.tbReAd.TabIndex = 36;
             // 
             // tbReEmail
             // 
             this.tbReEmail.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.tbReEmail.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.tableLayoutPanel1.SetColumnSpan(this.tbReEmail, 2);
+            this.tbReEmail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbReEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbReEmail.Location = new System.Drawing.Point(795, 171);
             this.tbReEmail.Name = "tbReEmail";
-            this.tbReEmail.Size = new System.Drawing.Size(126, 22);
+            this.tbReEmail.Size = new System.Drawing.Size(264, 22);
             this.tbReEmail.TabIndex = 37;
             // 
-            // tbReContactNum
+            // tbReNum
             // 
-            this.tbReContactNum.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.tbReContactNum.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.tbReContactNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbReContactNum.Location = new System.Drawing.Point(795, 150);
-            this.tbReContactNum.Name = "tbReContactNum";
-            this.tbReContactNum.Size = new System.Drawing.Size(126, 22);
-            this.tbReContactNum.TabIndex = 38;
+            this.tbReNum.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.tbReNum.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.tableLayoutPanel1.SetColumnSpan(this.tbReNum, 2);
+            this.tbReNum.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbReNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbReNum.Location = new System.Drawing.Point(795, 150);
+            this.tbReNum.Name = "tbReNum";
+            this.tbReNum.Size = new System.Drawing.Size(264, 22);
+            this.tbReNum.TabIndex = 38;
             // 
             // label9
             // 
@@ -700,11 +1034,13 @@
             // 
             this.cbSup.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbSup.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.tableLayoutPanel1.SetColumnSpan(this.cbSup, 2);
+            this.cbSup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbSup.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSup.FormattingEnabled = true;
             this.cbSup.Location = new System.Drawing.Point(135, 108);
             this.cbSup.Name = "cbSup";
-            this.cbSup.Size = new System.Drawing.Size(118, 24);
+            this.cbSup.Size = new System.Drawing.Size(258, 24);
             this.cbSup.TabIndex = 6;
             this.cbSup.SelectedIndexChanged += new System.EventHandler(this.cbSup_SelectedIndexChanged);
             // 
@@ -748,175 +1084,33 @@
             this.tbSubtotal.Size = new System.Drawing.Size(118, 22);
             this.tbSubtotal.TabIndex = 40;
             // 
-            // tabPage3
+            // tbDateNow
             // 
-            this.tabPage3.Controls.Add(this.dgvOtherProds);
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(778, 246);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Other Products";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // dgvOtherProds
-            // 
-            this.dgvOtherProds.AllowUserToAddRows = false;
-            this.dgvOtherProds.AllowUserToDeleteRows = false;
-            this.dgvOtherProds.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvOtherProds.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOtherProds.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvOtherProds.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOtherProds.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colProdCodeO,
-            this.colProdNameO,
-            this.colClassO,
-            this.colDosageO,
-            this.colTypeO,
-            this.colUnitCostO,
-            this.colUnitPriceO,
-            this.colInStockO,
-            this.colSupplierO,
-            this.colAddO});
-            this.dgvOtherProds.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvOtherProds.DefaultCellStyle = dataGridViewCellStyle11;
-            this.dgvOtherProds.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvOtherProds.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dgvOtherProds.Location = new System.Drawing.Point(0, 0);
-            this.dgvOtherProds.Name = "dgvOtherProds";
-            this.dgvOtherProds.ReadOnly = true;
-            this.dgvOtherProds.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgvOtherProds.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOtherProds.Size = new System.Drawing.Size(778, 246);
-            this.dgvOtherProds.TabIndex = 25;
-            this.dgvOtherProds.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOtherProds_CellContentClick);
-            // 
-            // colProdCodeO
-            // 
-            this.colProdCodeO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colProdCodeO.DataPropertyName = "product_code";
-            this.colProdCodeO.HeaderText = "Product Code";
-            this.colProdCodeO.Name = "colProdCodeO";
-            this.colProdCodeO.ReadOnly = true;
-            this.colProdCodeO.Width = 115;
-            // 
-            // colProdNameO
-            // 
-            this.colProdNameO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colProdNameO.DataPropertyName = "product_name";
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.colProdNameO.DefaultCellStyle = dataGridViewCellStyle8;
-            this.colProdNameO.HeaderText = "Product Name";
-            this.colProdNameO.Name = "colProdNameO";
-            this.colProdNameO.ReadOnly = true;
-            this.colProdNameO.Width = 119;
-            // 
-            // colClassO
-            // 
-            this.colClassO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colClassO.DataPropertyName = "classification";
-            this.colClassO.HeaderText = "Classification";
-            this.colClassO.Name = "colClassO";
-            this.colClassO.ReadOnly = true;
-            this.colClassO.Width = 125;
-            // 
-            // colDosageO
-            // 
-            this.colDosageO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colDosageO.DataPropertyName = "dosage";
-            this.colDosageO.HeaderText = "Dosage";
-            this.colDosageO.Name = "colDosageO";
-            this.colDosageO.ReadOnly = true;
-            this.colDosageO.Width = 87;
-            // 
-            // colTypeO
-            // 
-            this.colTypeO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colTypeO.DataPropertyName = "med_type";
-            this.colTypeO.HeaderText = "Type";
-            this.colTypeO.Name = "colTypeO";
-            this.colTypeO.ReadOnly = true;
-            this.colTypeO.Width = 68;
-            // 
-            // colUnitCostO
-            // 
-            this.colUnitCostO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colUnitCostO.DataPropertyName = "unit_cost";
-            this.colUnitCostO.HeaderText = "Unit Cost";
-            this.colUnitCostO.Name = "colUnitCostO";
-            this.colUnitCostO.ReadOnly = true;
-            this.colUnitCostO.Width = 87;
-            // 
-            // colUnitPriceO
-            // 
-            this.colUnitPriceO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colUnitPriceO.DataPropertyName = "unit_price";
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.colUnitPriceO.DefaultCellStyle = dataGridViewCellStyle9;
-            this.colUnitPriceO.HeaderText = "Unit Price";
-            this.colUnitPriceO.Name = "colUnitPriceO";
-            this.colUnitPriceO.ReadOnly = true;
-            this.colUnitPriceO.Visible = false;
-            this.colUnitPriceO.Width = 91;
-            // 
-            // colInStockO
-            // 
-            this.colInStockO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colInStockO.DataPropertyName = "in_stock_qty";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.colInStockO.DefaultCellStyle = dataGridViewCellStyle10;
-            this.colInStockO.HeaderText = "In Stock";
-            this.colInStockO.Name = "colInStockO";
-            this.colInStockO.ReadOnly = true;
-            this.colInStockO.Width = 80;
-            // 
-            // colSupplierO
-            // 
-            this.colSupplierO.DataPropertyName = "supplier_name";
-            this.colSupplierO.HeaderText = "Supplier";
-            this.colSupplierO.Name = "colSupplierO";
-            this.colSupplierO.ReadOnly = true;
-            // 
-            // colAddO
-            // 
-            this.colAddO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colAddO.HeaderText = "";
-            this.colAddO.Name = "colAddO";
-            this.colAddO.ReadOnly = true;
-            this.colAddO.Text = "add";
-            this.colAddO.UseColumnTextForButtonValue = true;
-            this.colAddO.Width = 5;
+            this.tbDateNow.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel1.SetColumnSpan(this.tbDateNow, 2);
+            this.tbDateNow.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbDateNow.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDateNow.Location = new System.Drawing.Point(795, 24);
+            this.tbDateNow.Name = "tbDateNow";
+            this.tbDateNow.ReadOnly = true;
+            this.tbDateNow.Size = new System.Drawing.Size(264, 22);
+            this.tbDateNow.TabIndex = 46;
             // 
             // colID
             // 
+            this.colID.DataPropertyName = "po_id";
             this.colID.HeaderText = "ID";
             this.colID.Name = "colID";
             this.colID.ReadOnly = true;
+            this.colID.Visible = false;
             // 
             // colPOnum
             // 
+            this.colPOnum.DataPropertyName = "po_num";
             this.colPOnum.HeaderText = "PO #";
             this.colPOnum.Name = "colPOnum";
             this.colPOnum.ReadOnly = true;
+            this.colPOnum.Visible = false;
             // 
             // colProductCode
             // 
@@ -952,180 +1146,91 @@
             this.colOrderedQty.HeaderText = "Ordered Qty";
             this.colOrderedQty.Name = "colOrderedQty";
             this.colOrderedQty.ReadOnly = true;
+            this.colOrderedQty.Visible = false;
             // 
             // colReceivedQty
             // 
             this.colReceivedQty.HeaderText = "Received Qty";
             this.colReceivedQty.Name = "colReceivedQty";
             this.colReceivedQty.ReadOnly = true;
+            this.colReceivedQty.Visible = false;
             // 
             // colPODate
             // 
             this.colPODate.HeaderText = "Date";
             this.colPODate.Name = "colPODate";
             this.colPODate.ReadOnly = true;
+            this.colPODate.Visible = false;
             // 
             // colPOGeneBy
             // 
             this.colPOGeneBy.HeaderText = "Generated By";
             this.colPOGeneBy.Name = "colPOGeneBy";
             this.colPOGeneBy.ReadOnly = true;
+            this.colPOGeneBy.Visible = false;
             // 
             // colReName
             // 
             this.colReName.HeaderText = "Receiver Name";
             this.colReName.Name = "colReName";
             this.colReName.ReadOnly = true;
+            this.colReName.Visible = false;
             // 
             // colReAdd
             // 
             this.colReAdd.HeaderText = "Receiver Address";
             this.colReAdd.Name = "colReAdd";
             this.colReAdd.ReadOnly = true;
+            this.colReAdd.Visible = false;
             // 
             // colReContactNum
             // 
             this.colReContactNum.HeaderText = "Receiver Contact #";
             this.colReContactNum.Name = "colReContactNum";
             this.colReContactNum.ReadOnly = true;
+            this.colReContactNum.Visible = false;
             // 
             // colReEmail
             // 
             this.colReEmail.HeaderText = "Receiver Email";
             this.colReEmail.Name = "colReEmail";
             this.colReEmail.ReadOnly = true;
+            this.colReEmail.Visible = false;
             // 
             // colSupplier
             // 
             this.colSupplier.HeaderText = "Supplier";
             this.colSupplier.Name = "colSupplier";
             this.colSupplier.ReadOnly = true;
+            this.colSupplier.Visible = false;
             // 
             // colSupAdd
             // 
             this.colSupAdd.HeaderText = "Supplier Address";
             this.colSupAdd.Name = "colSupAdd";
             this.colSupAdd.ReadOnly = true;
+            this.colSupAdd.Visible = false;
             // 
             // colSupContactNum
             // 
             this.colSupContactNum.HeaderText = "Supplier Contact #";
             this.colSupContactNum.Name = "colSupContactNum";
             this.colSupContactNum.ReadOnly = true;
+            this.colSupContactNum.Visible = false;
             // 
             // colSupEmail
             // 
             this.colSupEmail.HeaderText = "Supplier Email";
             this.colSupEmail.Name = "colSupEmail";
             this.colSupEmail.ReadOnly = true;
+            this.colSupEmail.Visible = false;
             // 
             // colRemarks
             // 
             this.colRemarks.HeaderText = "Remarks";
             this.colRemarks.Name = "colRemarks";
             this.colRemarks.ReadOnly = true;
-            // 
-            // colProdCode
-            // 
-            this.colProdCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colProdCode.DataPropertyName = "product_code";
-            this.colProdCode.HeaderText = "Product Code";
-            this.colProdCode.Name = "colProdCode";
-            this.colProdCode.ReadOnly = true;
-            this.colProdCode.Width = 115;
-            // 
-            // colProdName
-            // 
-            this.colProdName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colProdName.DataPropertyName = "product_name";
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.colProdName.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colProdName.HeaderText = "Product Name";
-            this.colProdName.Name = "colProdName";
-            this.colProdName.ReadOnly = true;
-            this.colProdName.Width = 119;
-            // 
-            // colClass
-            // 
-            this.colClass.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colClass.DataPropertyName = "classification";
-            this.colClass.HeaderText = "Classification";
-            this.colClass.Name = "colClass";
-            this.colClass.ReadOnly = true;
-            this.colClass.Width = 125;
-            // 
-            // colDosage
-            // 
-            this.colDosage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colDosage.DataPropertyName = "dosage";
-            this.colDosage.HeaderText = "Dosage";
-            this.colDosage.Name = "colDosage";
-            this.colDosage.ReadOnly = true;
-            this.colDosage.Width = 87;
-            // 
-            // colType
-            // 
-            this.colType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colType.DataPropertyName = "med_type";
-            this.colType.HeaderText = "Type";
-            this.colType.Name = "colType";
-            this.colType.ReadOnly = true;
-            this.colType.Width = 68;
-            // 
-            // colUnitCostRL
-            // 
-            this.colUnitCostRL.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colUnitCostRL.DataPropertyName = "unit_cost";
-            this.colUnitCostRL.HeaderText = "Unit Cost";
-            this.colUnitCostRL.Name = "colUnitCostRL";
-            this.colUnitCostRL.ReadOnly = true;
-            this.colUnitCostRL.Width = 87;
-            // 
-            // colUnitPrice
-            // 
-            this.colUnitPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colUnitPrice.DataPropertyName = "unit_price";
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.colUnitPrice.DefaultCellStyle = dataGridViewCellStyle4;
-            this.colUnitPrice.HeaderText = "Unit Price";
-            this.colUnitPrice.Name = "colUnitPrice";
-            this.colUnitPrice.ReadOnly = true;
-            this.colUnitPrice.Visible = false;
-            this.colUnitPrice.Width = 91;
-            // 
-            // colInStock
-            // 
-            this.colInStock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colInStock.DataPropertyName = "in_stock_qty";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.colInStock.DefaultCellStyle = dataGridViewCellStyle5;
-            this.colInStock.HeaderText = "In Stock";
-            this.colInStock.Name = "colInStock";
-            this.colInStock.ReadOnly = true;
-            this.colInStock.Width = 80;
-            // 
-            // colSupplierProd
-            // 
-            this.colSupplierProd.DataPropertyName = "supplier_name";
-            this.colSupplierProd.HeaderText = "Supplier";
-            this.colSupplierProd.Name = "colSupplierProd";
-            this.colSupplierProd.ReadOnly = true;
-            // 
-            // colAdd
-            // 
-            this.colAdd.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colAdd.HeaderText = "";
-            this.colAdd.Name = "colAdd";
-            this.colAdd.ReadOnly = true;
-            this.colAdd.Text = "add";
-            this.colAdd.UseColumnTextForButtonValue = true;
-            this.colAdd.Width = 5;
+            this.colRemarks.Visible = false;
             // 
             // PurchaseOrder
             // 
@@ -1133,6 +1238,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1062, 541);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1015, 565);
             this.Name = "PurchaseOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1188,9 +1294,9 @@
         private System.Windows.Forms.TextBox tbSupEmail;
         private System.Windows.Forms.TextBox tbPOnum;
         private System.Windows.Forms.TextBox tbReName;
-        private System.Windows.Forms.TextBox tbReAddress;
+        private System.Windows.Forms.TextBox tbReAd;
         private System.Windows.Forms.TextBox tbReEmail;
-        private System.Windows.Forms.TextBox tbReContactNum;
+        private System.Windows.Forms.TextBox tbReNum;
         private System.Windows.Forms.TextBox tbSubtotal;
         private System.Windows.Forms.TextBox tbDiscount;
         private System.Windows.Forms.TextBox tbTotal;
@@ -1199,7 +1305,6 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dgvReOrderList;
         private System.Windows.Forms.DataGridView dgvOrders;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridView dgvOtherProds;
@@ -1213,6 +1318,20 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colInStockO;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSupplierO;
         private System.Windows.Forms.DataGridViewButtonColumn colAddO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProdCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProdName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colClass;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDosage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colUnitCostRL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colUnitPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colInStock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSupplierProd;
+        private System.Windows.Forms.DataGridViewButtonColumn colAdd;
+        private System.Windows.Forms.TextBox tbDateNow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPoID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPoNumList;
+        private System.Windows.Forms.DataGridViewButtonColumn colDel;
         private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPOnum;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductCode;
@@ -1233,15 +1352,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colSupContactNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSupEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRemarks;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProdCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProdName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colClass;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDosage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colUnitCostRL;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colUnitPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colInStock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSupplierProd;
-        private System.Windows.Forms.DataGridViewButtonColumn colAdd;
     }
 }

@@ -1,8 +1,5 @@
 ﻿using NEW_Healthmed_Capstone.file_maintenance;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NEW_Healthmed_Capstone

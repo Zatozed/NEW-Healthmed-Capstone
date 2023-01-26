@@ -1,6 +1,6 @@
 ﻿namespace NEW_Healthmed_Capstone.Reports
 {
-    partial class SalesReportViewer
+    partial class PoReportViewer
     {
         /// <summary>
         /// Required designer variable.
@@ -28,37 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.crtSalesReport = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.SalesReport1 = new NEW_Healthmed_Capstone.CrystalReportsFolder.SalesReport();
+            this.crtPo = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.SuspendLayout();
             // 
-            // crtSalesReport
+            // crtPo
             // 
-            this.crtSalesReport.ActiveViewIndex = -1;
-            this.crtSalesReport.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crtSalesReport.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crtSalesReport.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crtSalesReport.Location = new System.Drawing.Point(0, 0);
-            this.crtSalesReport.Name = "crtSalesReport";
-            this.crtSalesReport.Size = new System.Drawing.Size(800, 450);
-            this.crtSalesReport.TabIndex = 0;
-            this.crtSalesReport.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            this.crtPo.ActiveViewIndex = -1;
+            this.crtPo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crtPo.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crtPo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.crtPo.Location = new System.Drawing.Point(0, 0);
+            this.crtPo.Name = "crtPo";
+            this.crtPo.Size = new System.Drawing.Size(800, 450);
+            this.crtPo.TabIndex = 0;
+            this.crtPo.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
-            // SalesReportViewer
+            // PoReportViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.crtSalesReport);
-            this.Name = "SalesReportViewer";
-            this.Text = "SalesReportViewer";
+            this.Controls.Add(this.crtPo);
+            this.Name = "PoReportViewer";
+            this.Text = "PoReportViewer";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        public CrystalDecisions.Windows.Forms.CrystalReportViewer crtSalesReport;
-        private CrystalReportsFolder.SalesReport SalesReport1;
+        public CrystalDecisions.Windows.Forms.CrystalReportViewer crtPo;
     }
 }

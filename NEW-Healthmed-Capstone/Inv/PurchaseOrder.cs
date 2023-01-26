@@ -1,7 +1,11 @@
-﻿using NEW_Healthmed_Capstone.DBhelperFolder;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using NEW_Healthmed_Capstone.CrystalReportsFolder;
+using NEW_Healthmed_Capstone.DBhelperFolder;
+using NEW_Healthmed_Capstone.Reports;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing.Printing;
 using System.Windows.Forms;
 
@@ -57,8 +61,8 @@ namespace NEW_Healthmed_Capstone.Inv
 
             cbSup.AutoCompleteCustomSource = src;
 
-            tbReAddress.AutoCompleteCustomSource = src;
-            tbReContactNum.AutoCompleteCustomSource = src;
+            tbReAd.AutoCompleteCustomSource = src;
+            tbReNum.AutoCompleteCustomSource = src;
             tbReEmail.AutoCompleteCustomSource = src;
             tbReName.AutoCompleteCustomSource = src;
             tbRemarks.AutoCompleteCustomSource = src;
@@ -87,11 +91,26 @@ namespace NEW_Healthmed_Capstone.Inv
 
             FillCbSup();
 
+            tbPOnum.Text = dbh.GeneratePoNum();
+
+            tbDateNow.Text = DateTime.Now.ToString("yyyy-MM-dd");
+
             dgvOtherProds.DataSource = dbh.ShowProductSupplier();
 
             if(cbSup.Text.ToString().Equals("") || cbSup.Text == null)
 
             dgvReOrderList.DataSource = dbh.ShowProductToOrder();
+
+            dgvPOlist.DataSource = dbh.ShowPoList();
+
+            tbHmdAdress.Text = Properties.Settings.Default.HMDaddress;
+            tbHmdContactNum.Text = Properties.Settings.Default.HMDcontactNum;
+            tbHmdEmail.Text = Properties.Settings.Default.HMDemail;
+
+            tbReName.Text = Properties.Settings.Default.ReName;
+            tbReAd.Text = Properties.Settings.Default.ReAddress;
+            tbReNum.Text = Properties.Settings.Default.ReContactNum;
+            tbReEmail.Text = Properties.Settings.Default.ReEmail;
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
@@ -152,9 +171,175 @@ namespace NEW_Healthmed_Capstone.Inv
             tbTotal.Text = total.ToString("0.00");
         }
 
+        private void PropertiesSave() 
+        {
+            Properties.Settings.Default.HMDaddress = tbHmdAdress.Text.ToString();
+            Properties.Settings.Default.HMDcontactNum = tbHmdContactNum.Text.ToString();
+            Properties.Settings.Default.HMDemail = tbHmdEmail.Text.ToString();
+
+            Properties.Settings.Default.ReName = tbReName.Text.ToString();
+            Properties.Settings.Default.ReAddress = tbReAd.Text.ToString();
+            Properties.Settings.Default.ReContactNum = tbReNum.Text.ToString();
+            Properties.Settings.Default.ReEmail = tbReEmail.Text.ToString();
+
+            Properties.Settings.Default.Save();
+        }
+        private void DgvToDt()
+        {
+            DataTable dt = new DataTable();
+            DataSet ds = new DataSet();
+
+            dt.Columns.Add("Product Code", typeof(string));
+            dt.Columns.Add("Product Description", typeof(string));
+            dt.Columns.Add("Quantity", typeof(string));
+            dt.Columns.Add("Discount Decimal", typeof(string));
+            dt.Columns.Add("Unit Cost", typeof(string));
+
+            foreach (DataGridViewRow r in dgvOrders.Rows)
+            {
+                dt.Rows.Add(r.Cells["colProductCode"].Value.ToString(),
+                    r.Cells["colProductDes"].Value.ToString(),
+                    r.Cells["colQty"].Value.ToString(),
+                    r.Cells["colDiscount"].Value.ToString(),
+                    r.Cells["colUnitCost"].Value.ToString()
+                    );
+            }
+            ds.Tables.Add(dt);
+            ds.WriteXmlSchema("PO.xml");
+
+            PoReport ctrpr = new PoReport();
+            PoReportViewer prv = new PoReportViewer();
+            ctrpr.SetDataSource(ds);
+            prv.crtPo.ReportSource = ctrpr;
+
+
+            TextObject tHAd = (TextObject)ctrpr.ReportDefinition.Sections["Section1"].ReportObjects["toHAddress"];
+            tHAd.Text = tbHmdAdress.Text;
+
+            TextObject tHNum = (TextObject)ctrpr.ReportDefinition.Sections["Section1"].ReportObjects["toHNum"];
+            tHNum.Text = tbHmdContactNum.Text;
+
+            TextObject tHemail = (TextObject)ctrpr.ReportDefinition.Sections["Section1"].ReportObjects["toHemail"];
+            tHemail.Text = tbHmdEmail.Text;
+            //
+
+            TextObject tSup = (TextObject)ctrpr.ReportDefinition.Sections["Section1"].ReportObjects["toSup"];
+            tSup.Text = cbSup.Text;
+
+            TextObject tSupAd = (TextObject)ctrpr.ReportDefinition.Sections["Section1"].ReportObjects["toSupAd"];
+            tSupAd.Text = tbSupAddress.Text;
+
+            TextObject tSupNum = (TextObject)ctrpr.ReportDefinition.Sections["Section1"].ReportObjects["toSupNum"];
+            tSupNum.Text = tbSupContactNum.Text;
+
+            TextObject tSupEmail = (TextObject)ctrpr.ReportDefinition.Sections["Section1"].ReportObjects["toSupEmail"];
+            tSupEmail.Text = tbSupEmail.Text;
+            //
+
+            TextObject tPoDate = (TextObject)ctrpr.ReportDefinition.Sections["Section1"].ReportObjects["toPoDate"];
+            tPoDate.Text = tbDateNow.Text;
+
+            TextObject tPoNum = (TextObject)ctrpr.ReportDefinition.Sections["Section1"].ReportObjects["toPoNum"];
+            tPoNum.Text = tbPOnum.Text;
+            //
+
+            TextObject tReName = (TextObject)ctrpr.ReportDefinition.Sections["Section1"].ReportObjects["toReName"];
+            tReName.Text = tbReName.Text;
+
+            TextObject tReAd = (TextObject)ctrpr.ReportDefinition.Sections["Section1"].ReportObjects["toReAd"];
+            tReAd.Text = tbReAd.Text;
+
+            TextObject tReNum = (TextObject)ctrpr.ReportDefinition.Sections["Section1"].ReportObjects["toReNum"];
+            tReNum.Text = tbReNum.Text;
+
+            TextObject tReEmail = (TextObject)ctrpr.ReportDefinition.Sections["Section1"].ReportObjects["toReEmail"];
+            tReEmail.Text = tbReEmail.Text;
+
+            //
+            TextObject tSubtotal = (TextObject)ctrpr.ReportDefinition.Sections["Section4"].ReportObjects["toSubtotal"];
+            tSubtotal.Text = tbSubtotal.Text;
+
+            TextObject tDiscount = (TextObject)ctrpr.ReportDefinition.Sections["Section4"].ReportObjects["toDiscount"];
+            tDiscount.Text = tbSubtotal.Text;
+
+            TextObject tTotal = (TextObject)ctrpr.ReportDefinition.Sections["Section4"].ReportObjects["toTotal"];
+            tTotal.Text = tbSubtotal.Text;
+
+            prv.crtPo.Refresh();
+            prv.Show();
+        }
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            PropertiesSave();
+
+            if (cbSup.Text.ToString().Equals("Select") || cbSup.Text.ToString().Equals(""))
+            {
+                MessageBox.Show("Select Supplier");
+            }
+            else
+            {
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show("Do you want to save this Purchase Order?", "Save", buttons);
+                if (result == DialogResult.Yes)
+                {
+                    foreach (DataGridViewRow r in dgvOrders.Rows)
+                    {
+                        dbh.InsertToPo(tbPOnum.Text.ToString(), r.Cells["colProductCode"].Value.ToString(), r.Cells["colProductDes"].Value.ToString(),
+                            r.Cells["colQty"].Value.ToString(), r.Cells["colDiscount"].Value.ToString(), r.Cells["colUnitCost"].Value.ToString(),
+                            r.Cells["colDiscount"].Value.ToString(), total.ToString("0.00"), Discount.ToString("0.00"),
+                            tbDateNow.Text.ToString(), Properties.Settings.Default.Fname_Lname, tbReName.Text.ToString(),
+                            tbReAd.Text.ToString(), tbReNum.Text.ToString(), tbReEmail.Text.ToString(),
+                            cbSup.Text.ToString(), tbSupAddress.Text.ToString(), tbSupContactNum.Text.ToString(),
+                            tbSupEmail.Text.ToString(), tbRemarks.Text.ToString()
+                        );
+                    }
+
+                    DgvToDt();
+                }
+                
+            }
+            dgvPOlist.DataSource = dbh.ShowPoList();
+            dgvOrders.Rows.Clear();
+            tbPOnum.Text = dbh.GeneratePoNum();
+        }
+
+        private void dgvPOlist_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvPOlist.Columns[e.ColumnIndex].Name.Equals("colView")) 
+            {
+                
+            }
+            else if (dgvPOlist.Columns[e.ColumnIndex].Name.Equals("colDel"))
+            {
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show("Do you want to delete this?", "Delete", buttons);
+                if (result == DialogResult.Yes)
+                {
+                    dgvPOlist.DataSource = dbh.ShowPoList();
+                    dbh.DelAtPoList(dgvPOlist.Rows[e.RowIndex].Cells["colPoID"].Value.ToString());
+                }
+                    
+            }
+        }
+
         private void cbSup_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dgvReOrderList.DataSource = dbh.ShowProductToOrder(cbSup.Text.ToString());
+            if (cbSup.Text.ToString().Equals("Select") || cbSup.Text.ToString().Equals(""))
+            {
+                tbSupAddress.Clear();
+                tbSupContactNum.Clear();
+                tbSupEmail.Clear();
+            }
+            else
+            {
+                dgvReOrderList.DataSource = dbh.ShowProductToOrder(cbSup.Text.ToString());
+                dgvOtherProds.DataSource = dbh.ShowProductSupplier(cbSup.Text.ToString());
+
+                tbSupAddress.Text = dbh.GetSupAd(cbSup.Text.ToString());
+                tbSupContactNum.Text = dbh.GetSupContactNum(cbSup.Text.ToString());
+                tbSupEmail.Text = dbh.GetSupEmailAd(cbSup.Text.ToString());
+            }
+            
         }
 
         private void dgvOtherProds_CellContentClick(object sender, DataGridViewCellEventArgs e)

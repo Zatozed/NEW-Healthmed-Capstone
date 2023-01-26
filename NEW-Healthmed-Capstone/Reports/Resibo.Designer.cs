@@ -41,6 +41,7 @@
             this.crvResibo.Name = "crvResibo";
             this.crvResibo.Size = new System.Drawing.Size(800, 450);
             this.crvResibo.TabIndex = 0;
+            this.crvResibo.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
             // Resibo
             // 

@@ -130,5 +130,113 @@ namespace NEW_Healthmed_Capstone.Properties {
                 this["Change"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string HMDaddress {
+            get {
+                return ((string)(this["HMDaddress"]));
+            }
+            set {
+                this["HMDaddress"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string HMDemail {
+            get {
+                return ((string)(this["HMDemail"]));
+            }
+            set {
+                this["HMDemail"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string HMDcontactNum {
+            get {
+                return ((string)(this["HMDcontactNum"]));
+            }
+            set {
+                this["HMDcontactNum"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool isPayed {
+            get {
+                return ((bool)(this["isPayed"]));
+            }
+            set {
+                this["isPayed"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ReName {
+            get {
+                return ((string)(this["ReName"]));
+            }
+            set {
+                this["ReName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ReAddress {
+            get {
+                return ((string)(this["ReAddress"]));
+            }
+            set {
+                this["ReAddress"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ReContactNum {
+            get {
+                return ((string)(this["ReContactNum"]));
+            }
+            set {
+                this["ReContactNum"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ReEmail {
+            get {
+                return ((string)(this["ReEmail"]));
+            }
+            set {
+                this["ReEmail"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Fname_Lname {
+            get {
+                return ((string)(this["Fname_Lname"]));
+            }
+            set {
+                this["Fname_Lname"] = value;
+            }
+        }
     }
 }

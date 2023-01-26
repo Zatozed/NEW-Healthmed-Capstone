@@ -19,7 +19,7 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
         private ArrayList l = new ArrayList();
         private AutoCompleteStringCollection src;
         private int rowIdx;
-        private double subtotal, vatable, vat, total;
+        private double subtotal, discount, vatable, vat, vatXmptSale, total;
         public POS()
         {
             InitializeComponent();
@@ -59,25 +59,31 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
             rs.crvResibo.ReportSource = ctrResibo;
 
             TextObject toVatable = (TextObject)ctrResibo.ReportDefinition.Sections["Section4"].ReportObjects["toVatable"];
-            toVatable.Text = lbVatable.Text;
+            toVatable.Text = lbVatable.Text.Substring(4);
 
             TextObject toVat = (TextObject)ctrResibo.ReportDefinition.Sections["Section4"].ReportObjects["toVat"];
-            toVat.Text = lbVat.Text;
+            toVat.Text = lbVat.Text.Substring(4);
 
             TextObject toVatEX = (TextObject)ctrResibo.ReportDefinition.Sections["Section4"].ReportObjects["toVatEx"];
-            toVatEX.Text = lbVatExmpt.Text;
+            toVatEX.Text = lbVatExmpt.Text.Substring(4);
 
             TextObject toAmountDue = (TextObject)ctrResibo.ReportDefinition.Sections["Section4"].ReportObjects["toAmountDue"];
-            toAmountDue.Text = lbTotal.Text;
+            toAmountDue.Text = lbTotal.Text.Substring(4);
 
             TextObject toCash = (TextObject)ctrResibo.ReportDefinition.Sections["Section4"].ReportObjects["toCash"];
-            toCash.Text = lbCash.Text;
+            toCash.Text = lbCash.Text.Substring(4);
 
             TextObject toChange = (TextObject)ctrResibo.ReportDefinition.Sections["Section4"].ReportObjects["toChange"];
-            toChange.Text = lbChange.Text;
+            toChange.Text = lbChange.Text.Substring(4);
 
             TextObject toDiscount = (TextObject)ctrResibo.ReportDefinition.Sections["Section4"].ReportObjects["toDiscount"];
-            toDiscount.Text = lbDiscount.Text;
+            toDiscount.Text = lbDiscount.Text.Substring(4);
+
+            TextObject toCashier = (TextObject)ctrResibo.ReportDefinition.Sections["Section5"].ReportObjects["toCashier"];
+            toCashier.Text = lbUser.Text;
+
+            TextObject toTransacNum = (TextObject)ctrResibo.ReportDefinition.Sections["Section5"].ReportObjects["toTransacNum"];
+            toTransacNum.Text = lbTransacNum.Text;
 
             rs.crvResibo.Refresh();
             rs.Show();
@@ -95,7 +101,7 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                     r.Cells["colVatableCart"].Value = (qty * price) / 1.12;
                     r.Cells["colVATCart"].Value = Convert.ToDouble(r.Cells["colVatableCart"].Value) * 0.12;
                     r.Cells["colLessDiscount"].Value = (qty * price) * discount;
-                    r.Cells["colTotalCart"].Value = Math.Round((qty * price) - Convert.ToDouble(r.Cells["colLessDiscount"].Value), 2);
+                    r.Cells["colTotalCart"].Value = Math.Round((qty * price) - Convert.ToDouble(r.Cells["colLessDiscount"].Value), 2).ToString("0.00");
                 }
                 else if (dbh.isVatExmpt(r.Cells["colCBDiscountCart"].Value.ToString()).Equals("yes")) // vat exemp = yes
                 {
@@ -103,7 +109,7 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                     r.Cells["colVatXCart"].Value = r.Cells["colVatableCart"].Value;
                     r.Cells["colVATCart"].Value = Convert.ToDouble(r.Cells["colVatableCart"].Value) * 0.12;
                     r.Cells["colLessDiscount"].Value = Convert.ToDouble(r.Cells["colVatXCart"].Value) * discount;
-                    r.Cells["colTotalCart"].Value = Math.Round(Convert.ToDouble(r.Cells["colVatXCart"].Value) - Convert.ToDouble(r.Cells["colLessDiscount"].Value), 2);
+                    r.Cells["colTotalCart"].Value = Math.Round(Convert.ToDouble(r.Cells["colVatXCart"].Value) - Convert.ToDouble(r.Cells["colLessDiscount"].Value), 2).ToString("0.00");
 
                 }
                 else // if not vat exempt
@@ -190,6 +196,7 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
         {
             lbDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
             lbTime.Text = DateTime.Now.ToString("hh:mm tt");
+            lbUser.Text = Properties.Settings.Default.Fname_Lname;
 
             dgvDrugs.DataSource = dbh.ShowProductList();
             
@@ -259,20 +266,22 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
             Compute();
 
             subtotal = ComputeSubTotal();
-            lbSubtotal.Text = "Php " + subtotal.ToString();
+            lbSubtotal.Text = "Php " + subtotal.ToString("0.00");
 
             vatable = ComputeVatable();
-            lbVatable.Text = "Php " + vatable.ToString();
+            lbVatable.Text = "Php " + vatable.ToString("0.00");
 
             vat = ComputeVat();
-            lbVat.Text = "Php " + vat.ToString();
+            lbVat.Text = "Php " + vat.ToString("0.00");
 
-            lbVatExmpt.Text = "Php " + ComputeVatXmpt();
+            vatXmptSale = ComputeVatXmpt();
+            lbVatExmpt.Text = "Php " + vatXmptSale.ToString("0.00");
 
-            lbDiscount.Text = "Php " + ComputeLessDiscount();
+            discount = ComputeLessDiscount();
+            lbDiscount.Text = "Php " + discount.ToString("0.00");
 
             total = ComputeTotalAmoutDue();
-            lbTotal.Text = "Php " + total.ToString();
+            lbTotal.Text = "Php " + total.ToString("0.00");
         }
 
         private void btnClearCart_Click(object sender, EventArgs e)
@@ -335,33 +344,44 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                 CashTender ct = new CashTender(total);
                 ct.ShowDialog();
 
-                foreach (DataGridViewRow r in dgvCart.Rows)
+                if (Properties.Settings.Default.isPayed == true)
                 {
-                    dbh.InsertToSales(
-                        lbTransacNum.Text.ToString(),
-                        r.Cells["colProdCodeCart"].Value.ToString(),
-                        r.Cells["colItemCart"].Value.ToString(),
-                        r.Cells["colQtyCart"].Value.ToString(),
-                        r.Cells["colUnitCostCart"].Value.ToString(),
-                        r.Cells["colUnitPriceCart"].Value.ToString(),
-                        r.Cells["colVatXCart"].Value.ToString(),
-                        r.Cells["colDiscountCart"].Value.ToString(),
-                        Math.Round(Convert.ToDouble(r.Cells["colQtyCart"].Value) * Convert.ToDouble(r.Cells["colUnitCostCart"].Value), 2).ToString(), //total cost
-                        r.Cells["colTotalCart"].Value.ToString(),
-                        DateTime.Now.ToString("yyyy-MM-dd HH:mm"),
-                        lbUser.Text.ToString()
-                        );
+                    foreach (DataGridViewRow r in dgvCart.Rows)
+                    {
+                        dbh.InsertToSales(
+                            lbTransacNum.Text.ToString(),
+                            r.Cells["colProdCodeCart"].Value.ToString(),
+                            r.Cells["colItemCart"].Value.ToString(),
+                            r.Cells["colQtyCart"].Value.ToString(),
+                            r.Cells["colUnitCostCart"].Value.ToString(),
+                            r.Cells["colUnitPriceCart"].Value.ToString(),
+                            r.Cells["colVatXCart"].Value.ToString(),
+                            r.Cells["colDiscountCart"].Value.ToString(),
+                            Math.Round(Convert.ToDouble(r.Cells["colQtyCart"].Value) * Convert.ToDouble(r.Cells["colUnitCostCart"].Value), 2).ToString(), //total cost
+                            r.Cells["colTotalCart"].Value.ToString(),
+                            DateTime.Now.ToString("yyyy-MM-dd HH:mm"),
+                            lbUser.Text.ToString()
+                            );
+
+                        dbh.UpdateInStockQty(r.Cells["colQtyCart"].Value.ToString(), r.Cells["colProdCodeCart"].Value.ToString());
+                    }
+                    MessageBox.Show("Transaction Saved");
+
+                    DgvToDt();
+                    lbTransacNum.Text = dbh.GenereateTransacNum();
+
+                    lbCash.Text = "Php: " + Properties.Settings.Default.Cash;
+                    lbChange.Text = "Php: " + Properties.Settings.Default.Change;
+
+                    btnPayment.Enabled = false;
                 }
-                MessageBox.Show("Transaction Saved");
+                
             }
             else { MessageBox.Show("No Items Added"); }
 
             lbTransacNum.Text = dbh.GenereateTransacNum();
 
-            lbCash.Text = "Php: " + Properties.Settings.Default.Cash;
-            lbChange.Text = "Php: " + Properties.Settings.Default.Change;
-
-            btnPayment.Enabled = false;
+            
         }
 
         private void btnNewTransacNum_Click(object sender, EventArgs e)

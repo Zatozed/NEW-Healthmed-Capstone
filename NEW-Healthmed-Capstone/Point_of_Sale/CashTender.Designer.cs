@@ -146,7 +146,9 @@
             this.ClientSize = new System.Drawing.Size(480, 296);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "CashTender";
-            this.Text = "CashTender";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Cash Tendered";
+            this.Load += new System.EventHandler(this.CashTender_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

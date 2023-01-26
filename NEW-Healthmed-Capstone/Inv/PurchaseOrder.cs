@@ -185,11 +185,21 @@ namespace NEW_Healthmed_Capstone.Inv
 
             if (cbSup.Text.ToString().Equals("Select") || cbSup.Text.ToString().Equals(""))
             {
-                
+                MessageBox.Show("Select Supplier");
             }
             else
             {
-                //dbh.InsertToPo();
+                foreach (DataGridViewRow r in dgvOrders.Rows)
+                {
+                    dbh.InsertToPo(tbPOnum.Text.ToString(), r.Cells[""].Value.ToString(), r.Cells[""].Value.ToString(),
+                        r.Cells[""].Value.ToString(), r.Cells[""].Value.ToString(), r.Cells[""].Value.ToString(),
+                        tbDateNow.Text.ToString(), "user", tbReName.Text.ToString(),
+                        tbReAddress.Text.ToString(), tbReContactNum.Text.ToString(), tbReEmail.Text.ToString(),
+                        cbSup.Text.ToString(), tbSupAddress.Text.ToString(), tbSupContactNum.Text.ToString(),
+                        tbSupEmail.Text.ToString(), tbRemarks.Text.ToString()
+                    );
+                }
+                
             }
 
         }

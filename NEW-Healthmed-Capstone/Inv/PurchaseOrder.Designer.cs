@@ -51,10 +51,6 @@
             this.tbSupAddress = new System.Windows.Forms.TextBox();
             this.tbSupContactNum = new System.Windows.Forms.TextBox();
             this.tbSupEmail = new System.Windows.Forms.TextBox();
-            this.tbSubtotal = new System.Windows.Forms.TextBox();
-            this.tbSubtotalLD = new System.Windows.Forms.TextBox();
-            this.tbTotal = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -109,6 +105,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.cbSup = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbSubtotalLD = new System.Windows.Forms.TextBox();
+            this.tbTotal = new System.Windows.Forms.TextBox();
+            this.tbSubtotal = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPOlist)).BeginInit();
             this.tab1.SuspendLayout();
@@ -378,43 +378,6 @@
             this.tbSupEmail.Size = new System.Drawing.Size(100, 22);
             this.tbSupEmail.TabIndex = 31;
             // 
-            // tbSubtotal
-            // 
-            this.tbSubtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSubtotal.Location = new System.Drawing.Point(531, 473);
-            this.tbSubtotal.Name = "tbSubtotal";
-            this.tbSubtotal.ReadOnly = true;
-            this.tbSubtotal.Size = new System.Drawing.Size(118, 22);
-            this.tbSubtotal.TabIndex = 40;
-            // 
-            // tbSubtotalLD
-            // 
-            this.tbSubtotalLD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSubtotalLD.Location = new System.Drawing.Point(531, 494);
-            this.tbSubtotalLD.Name = "tbSubtotalLD";
-            this.tbSubtotalLD.ReadOnly = true;
-            this.tbSubtotalLD.Size = new System.Drawing.Size(118, 22);
-            this.tbSubtotalLD.TabIndex = 41;
-            // 
-            // tbTotal
-            // 
-            this.tbTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTotal.Location = new System.Drawing.Point(531, 515);
-            this.tbTotal.Name = "tbTotal";
-            this.tbTotal.ReadOnly = true;
-            this.tbTotal.Size = new System.Drawing.Size(118, 22);
-            this.tbTotal.TabIndex = 42;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 105);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 16);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Supplier";
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -473,7 +436,6 @@
             // dgvOrders
             // 
             this.dgvOrders.AllowUserToAddRows = false;
-            this.dgvOrders.AllowUserToDeleteRows = false;
             this.dgvOrders.BackgroundColor = System.Drawing.Color.White;
             this.dgvOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -501,7 +463,7 @@
             this.dgvOrders.GridColor = System.Drawing.Color.Gray;
             this.dgvOrders.Location = new System.Drawing.Point(3, 3);
             this.dgvOrders.Name = "dgvOrders";
-            this.dgvOrders.ReadOnly = true;
+            this.dgvOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrders.Size = new System.Drawing.Size(772, 240);
             this.dgvOrders.TabIndex = 21;
             // 
@@ -509,123 +471,103 @@
             // 
             this.colID.HeaderText = "ID";
             this.colID.Name = "colID";
-            this.colID.ReadOnly = true;
             // 
             // colPOnum
             // 
             this.colPOnum.HeaderText = "PO #";
             this.colPOnum.Name = "colPOnum";
-            this.colPOnum.ReadOnly = true;
             // 
             // colProductCode
             // 
             this.colProductCode.HeaderText = "Product Code";
             this.colProductCode.Name = "colProductCode";
-            this.colProductCode.ReadOnly = true;
             // 
             // colProductDes
             // 
             this.colProductDes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.colProductDes.HeaderText = "Product Description";
             this.colProductDes.Name = "colProductDes";
-            this.colProductDes.ReadOnly = true;
             this.colProductDes.Width = 153;
             // 
             // colQty
             // 
             this.colQty.HeaderText = "Qty";
             this.colQty.Name = "colQty";
-            this.colQty.ReadOnly = true;
             // 
             // colDiscount
             // 
             this.colDiscount.HeaderText = "Discount";
             this.colDiscount.Name = "colDiscount";
-            this.colDiscount.ReadOnly = true;
             // 
             // colUnitCost
             // 
             this.colUnitCost.HeaderText = "Unit Cost";
             this.colUnitCost.Name = "colUnitCost";
-            this.colUnitCost.ReadOnly = true;
             // 
             // colOrderedQty
             // 
             this.colOrderedQty.HeaderText = "Ordered Qty";
             this.colOrderedQty.Name = "colOrderedQty";
-            this.colOrderedQty.ReadOnly = true;
             // 
             // colReceivedQty
             // 
             this.colReceivedQty.HeaderText = "Received Qty";
             this.colReceivedQty.Name = "colReceivedQty";
-            this.colReceivedQty.ReadOnly = true;
             // 
             // colPODate
             // 
             this.colPODate.HeaderText = "Date";
             this.colPODate.Name = "colPODate";
-            this.colPODate.ReadOnly = true;
             // 
             // colPOGeneBy
             // 
             this.colPOGeneBy.HeaderText = "Generated By";
             this.colPOGeneBy.Name = "colPOGeneBy";
-            this.colPOGeneBy.ReadOnly = true;
             // 
             // colReName
             // 
             this.colReName.HeaderText = "Receiver Name";
             this.colReName.Name = "colReName";
-            this.colReName.ReadOnly = true;
             // 
             // colReAdd
             // 
             this.colReAdd.HeaderText = "Receiver Address";
             this.colReAdd.Name = "colReAdd";
-            this.colReAdd.ReadOnly = true;
             // 
             // colReContactNum
             // 
             this.colReContactNum.HeaderText = "Receiver Contact #";
             this.colReContactNum.Name = "colReContactNum";
-            this.colReContactNum.ReadOnly = true;
             // 
             // colReEmail
             // 
             this.colReEmail.HeaderText = "Receiver Email";
             this.colReEmail.Name = "colReEmail";
-            this.colReEmail.ReadOnly = true;
             // 
             // colSupplier
             // 
             this.colSupplier.HeaderText = "Supplier";
             this.colSupplier.Name = "colSupplier";
-            this.colSupplier.ReadOnly = true;
             // 
             // colSupAdd
             // 
             this.colSupAdd.HeaderText = "Supplier Address";
             this.colSupAdd.Name = "colSupAdd";
-            this.colSupAdd.ReadOnly = true;
             // 
             // colSupContactNum
             // 
             this.colSupContactNum.HeaderText = "Supplier Contact #";
             this.colSupContactNum.Name = "colSupContactNum";
-            this.colSupContactNum.ReadOnly = true;
             // 
             // colSupEmail
             // 
             this.colSupEmail.HeaderText = "Supplier Email";
             this.colSupEmail.Name = "colSupEmail";
-            this.colSupEmail.ReadOnly = true;
             // 
             // colRemarks
             // 
             this.colRemarks.HeaderText = "Remarks";
             this.colRemarks.Name = "colRemarks";
-            this.colRemarks.ReadOnly = true;
             // 
             // tabPage2
             // 
@@ -679,6 +621,7 @@
             this.dgvDrugs.Name = "dgvDrugs";
             this.dgvDrugs.ReadOnly = true;
             this.dgvDrugs.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvDrugs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDrugs.Size = new System.Drawing.Size(772, 240);
             this.dgvDrugs.TabIndex = 24;
             this.dgvDrugs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDrugs_CellContentClick);
@@ -941,6 +884,46 @@
             this.cbSup.Name = "cbSup";
             this.cbSup.Size = new System.Drawing.Size(118, 24);
             this.cbSup.TabIndex = 6;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(3, 105);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 16);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Supplier";
+            // 
+            // tbSubtotalLD
+            // 
+            this.tbSubtotalLD.BackColor = System.Drawing.Color.White;
+            this.tbSubtotalLD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSubtotalLD.Location = new System.Drawing.Point(531, 494);
+            this.tbSubtotalLD.Name = "tbSubtotalLD";
+            this.tbSubtotalLD.ReadOnly = true;
+            this.tbSubtotalLD.Size = new System.Drawing.Size(118, 22);
+            this.tbSubtotalLD.TabIndex = 41;
+            // 
+            // tbTotal
+            // 
+            this.tbTotal.BackColor = System.Drawing.Color.White;
+            this.tbTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTotal.Location = new System.Drawing.Point(531, 515);
+            this.tbTotal.Name = "tbTotal";
+            this.tbTotal.ReadOnly = true;
+            this.tbTotal.Size = new System.Drawing.Size(118, 22);
+            this.tbTotal.TabIndex = 42;
+            // 
+            // tbSubtotal
+            // 
+            this.tbSubtotal.BackColor = System.Drawing.Color.White;
+            this.tbSubtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSubtotal.Location = new System.Drawing.Point(531, 473);
+            this.tbSubtotal.Name = "tbSubtotal";
+            this.tbSubtotal.ReadOnly = true;
+            this.tbSubtotal.Size = new System.Drawing.Size(118, 22);
+            this.tbSubtotal.TabIndex = 40;
             // 
             // PurchaseOrder
             // 

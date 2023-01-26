@@ -42,13 +42,23 @@ namespace NEW_Healthmed_Capstone.Inv
             tbHmdEmail.AutoCompleteCustomSource = src;
         }
 
+        private void FillCbSup()
+        {
+            cbSup.Items.Clear();
+            cbSup.Items.AddRange(dbh.SupplierList().ToArray());
+        }
+
         private void PurchaseOrder_Load(object sender, EventArgs e)
         {
             l = dbh.AutoComplete();
+
             GenereateAutoCompleteSrc();
-            
+
+            FillCbSup();
 
             dgvDrugs.DataSource = dbh.ShowProductSupplier();
+
+            dgvDrugs.DataSource = dbh.ShowProductToOrder();
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)

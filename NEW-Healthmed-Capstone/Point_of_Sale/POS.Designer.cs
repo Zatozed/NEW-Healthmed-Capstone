@@ -375,6 +375,7 @@
             this.dgvDrugs.Name = "dgvDrugs";
             this.dgvDrugs.ReadOnly = true;
             this.dgvDrugs.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvDrugs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDrugs.Size = new System.Drawing.Size(566, 588);
             this.dgvDrugs.TabIndex = 23;
             this.dgvDrugs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDrugs_CellContentClick);
@@ -530,6 +531,7 @@
             this.dgvCart.Name = "dgvCart";
             this.dgvCart.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.tableLayoutPanel1.SetRowSpan(this.dgvCart, 4);
+            this.dgvCart.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCart.Size = new System.Drawing.Size(592, 332);
             this.dgvCart.TabIndex = 24;
             this.dgvCart.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCart_CellClick);

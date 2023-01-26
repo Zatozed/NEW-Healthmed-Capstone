@@ -216,6 +216,7 @@ namespace NEW_Healthmed_Capstone.Inv
             else
             {
                 dgvReOrderList.DataSource = dbh.ShowProductToOrder(cbSup.Text.ToString());
+                dgvOtherProds.DataSource = dbh.ShowProductSupplier(cbSup.Text.ToString());
 
                 tbSupAddress.Text = dbh.GetSupAd(cbSup.Text.ToString());
                 tbSupContactNum.Text = dbh.GetSupContactNum(cbSup.Text.ToString());

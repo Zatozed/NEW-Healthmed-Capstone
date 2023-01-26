@@ -19,7 +19,7 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
         private ArrayList l = new ArrayList();
         private AutoCompleteStringCollection src;
         private int rowIdx;
-        private double subtotal, vatable, vat, total;
+        private double subtotal, discount, vatable, vat, vatXmptSale, total;
         public POS()
         {
             InitializeComponent();
@@ -79,6 +79,12 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
             TextObject toDiscount = (TextObject)ctrResibo.ReportDefinition.Sections["Section4"].ReportObjects["toDiscount"];
             toDiscount.Text = lbDiscount.Text;
 
+            TextObject toCashier = (TextObject)ctrResibo.ReportDefinition.Sections["Section5"].ReportObjects["toCashier"];
+            toCashier.Text = lbUser.Text;
+
+            TextObject toTransacNum = (TextObject)ctrResibo.ReportDefinition.Sections["Section5"].ReportObjects["toTransacNum"];
+            toTransacNum.Text = lbTransacNum.Text;
+
             rs.crvResibo.Refresh();
             rs.Show();
         }
@@ -95,7 +101,7 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                     r.Cells["colVatableCart"].Value = (qty * price) / 1.12;
                     r.Cells["colVATCart"].Value = Convert.ToDouble(r.Cells["colVatableCart"].Value) * 0.12;
                     r.Cells["colLessDiscount"].Value = (qty * price) * discount;
-                    r.Cells["colTotalCart"].Value = Math.Round((qty * price) - Convert.ToDouble(r.Cells["colLessDiscount"].Value), 2);
+                    r.Cells["colTotalCart"].Value = Math.Round((qty * price) - Convert.ToDouble(r.Cells["colLessDiscount"].Value), 2).ToString("0.00");
                 }
                 else if (dbh.isVatExmpt(r.Cells["colCBDiscountCart"].Value.ToString()).Equals("yes")) // vat exemp = yes
                 {
@@ -103,7 +109,7 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                     r.Cells["colVatXCart"].Value = r.Cells["colVatableCart"].Value;
                     r.Cells["colVATCart"].Value = Convert.ToDouble(r.Cells["colVatableCart"].Value) * 0.12;
                     r.Cells["colLessDiscount"].Value = Convert.ToDouble(r.Cells["colVatXCart"].Value) * discount;
-                    r.Cells["colTotalCart"].Value = Math.Round(Convert.ToDouble(r.Cells["colVatXCart"].Value) - Convert.ToDouble(r.Cells["colLessDiscount"].Value), 2);
+                    r.Cells["colTotalCart"].Value = Math.Round(Convert.ToDouble(r.Cells["colVatXCart"].Value) - Convert.ToDouble(r.Cells["colLessDiscount"].Value), 2).ToString("0.00");
 
                 }
                 else // if not vat exempt
@@ -260,20 +266,22 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
             Compute();
 
             subtotal = ComputeSubTotal();
-            lbSubtotal.Text = "Php " + subtotal.ToString();
+            lbSubtotal.Text = "Php " + subtotal.ToString("0.00");
 
             vatable = ComputeVatable();
-            lbVatable.Text = "Php " + vatable.ToString();
+            lbVatable.Text = "Php " + vatable.ToString("0.00");
 
             vat = ComputeVat();
-            lbVat.Text = "Php " + vat.ToString();
+            lbVat.Text = "Php " + vat.ToString("0.00");
 
-            lbVatExmpt.Text = "Php " + ComputeVatXmpt();
+            vatXmptSale = ComputeVatXmpt();
+            lbVatExmpt.Text = "Php " + vatXmptSale.ToString("0.00");
 
-            lbDiscount.Text = "Php " + ComputeLessDiscount();
+            discount = ComputeLessDiscount();
+            lbDiscount.Text = "Php " + discount.ToString("0.00");
 
             total = ComputeTotalAmoutDue();
-            lbTotal.Text = "Php " + total.ToString();
+            lbTotal.Text = "Php " + total.ToString("0.00");
         }
 
         private void btnClearCart_Click(object sender, EventArgs e)

@@ -336,36 +336,42 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                 CashTender ct = new CashTender(total);
                 ct.ShowDialog();
 
-                foreach (DataGridViewRow r in dgvCart.Rows)
+                if (Properties.Settings.Default.isPayed == true)
                 {
-                    dbh.InsertToSales(
-                        lbTransacNum.Text.ToString(),
-                        r.Cells["colProdCodeCart"].Value.ToString(),
-                        r.Cells["colItemCart"].Value.ToString(),
-                        r.Cells["colQtyCart"].Value.ToString(),
-                        r.Cells["colUnitCostCart"].Value.ToString(),
-                        r.Cells["colUnitPriceCart"].Value.ToString(),
-                        r.Cells["colVatXCart"].Value.ToString(),
-                        r.Cells["colDiscountCart"].Value.ToString(),
-                        Math.Round(Convert.ToDouble(r.Cells["colQtyCart"].Value) * Convert.ToDouble(r.Cells["colUnitCostCart"].Value), 2).ToString(), //total cost
-                        r.Cells["colTotalCart"].Value.ToString(),
-                        DateTime.Now.ToString("yyyy-MM-dd HH:mm"),
-                        lbUser.Text.ToString()
-                        );
-                }
-                MessageBox.Show("Transaction Saved");
+                    foreach (DataGridViewRow r in dgvCart.Rows)
+                    {
+                        dbh.InsertToSales(
+                            lbTransacNum.Text.ToString(),
+                            r.Cells["colProdCodeCart"].Value.ToString(),
+                            r.Cells["colItemCart"].Value.ToString(),
+                            r.Cells["colQtyCart"].Value.ToString(),
+                            r.Cells["colUnitCostCart"].Value.ToString(),
+                            r.Cells["colUnitPriceCart"].Value.ToString(),
+                            r.Cells["colVatXCart"].Value.ToString(),
+                            r.Cells["colDiscountCart"].Value.ToString(),
+                            Math.Round(Convert.ToDouble(r.Cells["colQtyCart"].Value) * Convert.ToDouble(r.Cells["colUnitCostCart"].Value), 2).ToString(), //total cost
+                            r.Cells["colTotalCart"].Value.ToString(),
+                            DateTime.Now.ToString("yyyy-MM-dd HH:mm"),
+                            lbUser.Text.ToString()
+                            );
+                    }
+                    MessageBox.Show("Transaction Saved");
 
-                DgvToDt();
-                lbTransacNum.Text = dbh.GenereateTransacNum();
+                    DgvToDt();
+                    lbTransacNum.Text = dbh.GenereateTransacNum();
+
+                    lbCash.Text = "Php: " + Properties.Settings.Default.Cash;
+                    lbChange.Text = "Php: " + Properties.Settings.Default.Change;
+
+                    btnPayment.Enabled = false;
+                }
+                
             }
             else { MessageBox.Show("No Items Added"); }
 
             lbTransacNum.Text = dbh.GenereateTransacNum();
 
-            lbCash.Text = "Php: " + Properties.Settings.Default.Cash;
-            lbChange.Text = "Php: " + Properties.Settings.Default.Change;
-
-            btnPayment.Enabled = false;
+            
         }
 
         private void btnNewTransacNum_Click(object sender, EventArgs e)

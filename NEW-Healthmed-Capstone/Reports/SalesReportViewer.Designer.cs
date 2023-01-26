@@ -40,9 +40,9 @@
             this.crtSalesReport.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crtSalesReport.Location = new System.Drawing.Point(0, 0);
             this.crtSalesReport.Name = "crtSalesReport";
-            this.crtSalesReport.ReportSource = this.SalesReport1;
             this.crtSalesReport.Size = new System.Drawing.Size(800, 450);
             this.crtSalesReport.TabIndex = 0;
+            this.crtSalesReport.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
             // SalesReportViewer
             // 

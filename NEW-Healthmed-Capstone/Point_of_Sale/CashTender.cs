@@ -14,11 +14,16 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
             this.Close();
         }
 
+        private void CashTender_Load(object sender, EventArgs e)
+        {
+
+        }
+
         public CashTender(double _total)
         {
             InitializeComponent();
             tbTotal.Text = _total.ToString();
-            total= _total;
+            total = _total;
         }
         private void tbCash_TextChanged(object sender, EventArgs e)
         {
@@ -27,9 +32,25 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                 cash = Convert.ToDouble(tbCash.Text);
                 change = cash - total;
                 tbChange.Text = change.ToString();
+
+                if (change < -1)
+                {
+                    btnDone.Enabled = false;
+                    Properties.Settings.Default.isPayed = false;
+                }
+                else
+                {
+                    btnDone.Enabled = true;
+                    Properties.Settings.Default.isPayed= true;
+                } 
+
             }
-            catch (Exception mat) { }
-            finally { }
+            catch (Exception mat) 
+            {
+                btnDone.Enabled = false;
+                Properties.Settings.Default.isPayed = false;
+            }
+            finally {  }
         }
     }
 }

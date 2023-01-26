@@ -89,6 +89,8 @@ namespace NEW_Healthmed_Capstone.Inv
 
             tbPOnum.Text = dbh.GeneratePoNum();
 
+            tbDateNow.Text = DateTime.Now.ToString("yyyy-MM-dd");
+
             dgvOtherProds.DataSource = dbh.ShowProductSupplier();
 
             if(cbSup.Text.ToString().Equals("") || cbSup.Text == null)
@@ -187,7 +189,7 @@ namespace NEW_Healthmed_Capstone.Inv
             }
             else
             {
-                dbh.InsertToPo();
+                //dbh.InsertToPo();
             }
 
         }

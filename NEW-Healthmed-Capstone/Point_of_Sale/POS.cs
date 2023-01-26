@@ -59,25 +59,25 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
             rs.crvResibo.ReportSource = ctrResibo;
 
             TextObject toVatable = (TextObject)ctrResibo.ReportDefinition.Sections["Section4"].ReportObjects["toVatable"];
-            toVatable.Text = lbVatable.Text;
+            toVatable.Text = lbVatable.Text.Substring(4);
 
             TextObject toVat = (TextObject)ctrResibo.ReportDefinition.Sections["Section4"].ReportObjects["toVat"];
-            toVat.Text = lbVat.Text;
+            toVat.Text = lbVat.Text.Substring(4);
 
             TextObject toVatEX = (TextObject)ctrResibo.ReportDefinition.Sections["Section4"].ReportObjects["toVatEx"];
-            toVatEX.Text = lbVatExmpt.Text;
+            toVatEX.Text = lbVatExmpt.Text.Substring(4);
 
             TextObject toAmountDue = (TextObject)ctrResibo.ReportDefinition.Sections["Section4"].ReportObjects["toAmountDue"];
-            toAmountDue.Text = lbTotal.Text;
+            toAmountDue.Text = lbTotal.Text.Substring(4);
 
             TextObject toCash = (TextObject)ctrResibo.ReportDefinition.Sections["Section4"].ReportObjects["toCash"];
-            toCash.Text = lbCash.Text;
+            toCash.Text = lbCash.Text.Substring(4);
 
             TextObject toChange = (TextObject)ctrResibo.ReportDefinition.Sections["Section4"].ReportObjects["toChange"];
-            toChange.Text = lbChange.Text;
+            toChange.Text = lbChange.Text.Substring(4);
 
             TextObject toDiscount = (TextObject)ctrResibo.ReportDefinition.Sections["Section4"].ReportObjects["toDiscount"];
-            toDiscount.Text = lbDiscount.Text;
+            toDiscount.Text = lbDiscount.Text.Substring(4);
 
             TextObject toCashier = (TextObject)ctrResibo.ReportDefinition.Sections["Section5"].ReportObjects["toCashier"];
             toCashier.Text = lbUser.Text;

@@ -1,5 +1,7 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
+using NEW_Healthmed_Capstone.CrystalReportsFolder;
 using NEW_Healthmed_Capstone.DBhelperFolder;
+using NEW_Healthmed_Capstone.Reports;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -187,31 +189,64 @@ namespace NEW_Healthmed_Capstone.Inv
             DataTable dt = new DataTable();
             DataSet ds = new DataSet();
 
-            dt.Columns.Add("Qty", typeof(string));
-            dt.Columns.Add("Item", typeof(string));
-            dt.Columns.Add("Price", typeof(string));
-            dt.Columns.Add("Total", typeof(string));
+            dt.Columns.Add("Product Code", typeof(string));
+            dt.Columns.Add("Product Description", typeof(string));
+            dt.Columns.Add("Quantity", typeof(string));
+            dt.Columns.Add("Discount Decimal", typeof(string));
+            dt.Columns.Add("Unit Cost", typeof(string));
 
-            foreach (DataGridViewRow r in dgvCart.Rows)
+            foreach (DataGridViewRow r in dgvOrders.Rows)
             {
-                dt.Rows.Add(r.Cells["colQtyCart"].Value.ToString(),
-                    r.Cells["colItemCart"].Value.ToString(),
-                    r.Cells["colUnitPriceCart"].Value.ToString(),
-                    r.Cells["colTotalCart"].Value.ToString());
+                dt.Rows.Add(r.Cells["colProductCode"].Value.ToString(),
+                    r.Cells["colProductDes"].Value.ToString(),
+                    r.Cells["colQty"].Value.ToString(),
+                    r.Cells["colDiscount"].Value.ToString(),
+                    r.Cells["colUnitCost"].Value.ToString()
+                    );
             }
             ds.Tables.Add(dt);
-            ds.WriteXmlSchema("Recbo.xml");
+            ds.WriteXmlSchema("PO.xml");
 
-            Resibo rs = new Resibo();
-            resibo ctrResibo = new resibo();
-            ctrResibo.SetDataSource(ds);
-            rs.crvResibo.ReportSource = ctrResibo;
+            PoReport ctrpr = new PoReport();
+            PoReportViewer prv = new PoReportViewer();
+            ctrpr.SetDataSource(ds);
+            prv.crtPo.ReportSource = ctrpr;
 
-            //TextObject toVatable = (TextObject)ctrResibo.ReportDefinition.Sections["Section4"].ReportObjects["toVatable"];
-            //toVatable.Text = lbVatable.Text;
 
-            rs.crvResibo.Refresh();
-            rs.Show();
+            TextObject tHAd = (TextObject)ctrpr.ReportDefinition.Sections["Section1"].ReportObjects["toHAddress"];
+            tHAd.Text = tbHmdAdress.Text;
+
+            TextObject tHNum = (TextObject)ctrpr.ReportDefinition.Sections["Section1"].ReportObjects["toHNum"];
+            tHNum.Text = tbHmdContactNum.Text;
+
+            TextObject tHemail = (TextObject)ctrpr.ReportDefinition.Sections["Section1"].ReportObjects["toHemail"];
+            tHemail.Text = tbHmdEmail.Text;
+            //
+
+            TextObject tSup = (TextObject)ctrpr.ReportDefinition.Sections["Section1"].ReportObjects["toSup"];
+            tSup.Text = cbSup.Text;
+
+            TextObject tSupAd = (TextObject)ctrpr.ReportDefinition.Sections["Section1"].ReportObjects["toSupAd"];
+            tSupAd.Text = tbSupAddress.Text;
+
+            TextObject tSupNum = (TextObject)ctrpr.ReportDefinition.Sections["Section1"].ReportObjects["toSupNum"];
+            tSupNum.Text = tbSupContactNum.Text;
+
+            TextObject tSupEmail = (TextObject)ctrpr.ReportDefinition.Sections["Section1"].ReportObjects["toSupEmail"];
+            tSupEmail.Text = tbSupEmail.Text;
+
+            //
+            TextObject tSubtotal = (TextObject)ctrpr.ReportDefinition.Sections["Section4"].ReportObjects["toSubtotal"];
+            tSubtotal.Text = tbSubtotal.Text;
+
+            TextObject tDiscount = (TextObject)ctrpr.ReportDefinition.Sections["Section4"].ReportObjects["toDiscount"];
+            tDiscount.Text = tbSubtotal.Text;
+
+            TextObject tTotal = (TextObject)ctrpr.ReportDefinition.Sections["Section4"].ReportObjects["toTotal"];
+            tTotal.Text = tbSubtotal.Text;
+
+            prv.crtPo.Refresh();
+            prv.Show();
         }
         private void btnOk_Click(object sender, EventArgs e)
         {
@@ -238,6 +273,8 @@ namespace NEW_Healthmed_Capstone.Inv
                             tbSupEmail.Text.ToString(), tbRemarks.Text.ToString()
                         );
                     }
+
+                    DgvToDt();
                 }
                 
             }
@@ -258,7 +295,6 @@ namespace NEW_Healthmed_Capstone.Inv
                 DialogResult result = MessageBox.Show("Do you want to delete this?", "Delete", buttons);
                 if (result == DialogResult.Yes)
                 {
-                    dgvPOlist.Rows.Clear ();
                     dgvPOlist.DataSource = dbh.ShowPoList();
                     dbh.DelAtPoList(dgvPOlist.Rows[e.RowIndex].Cells["colPoID"].Value.ToString());
                 }

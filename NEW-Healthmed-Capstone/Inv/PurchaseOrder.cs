@@ -87,6 +87,8 @@ namespace NEW_Healthmed_Capstone.Inv
 
             FillCbSup();
 
+            tbPOnum.Text = dbh.GeneratePoNum();
+
             dgvOtherProds.DataSource = dbh.ShowProductSupplier();
 
             if(cbSup.Text.ToString().Equals("") || cbSup.Text == null)
@@ -161,7 +163,7 @@ namespace NEW_Healthmed_Capstone.Inv
             tbTotal.Text = total.ToString("0.00");
         }
 
-        private void btnOk_Click(object sender, EventArgs e)
+        private void PropertiesSave() 
         {
             Properties.Settings.Default.HMDaddress = tbHmdAdress.Text.ToString();
             Properties.Settings.Default.HMDcontactNum = tbHmdContactNum.Text.ToString();
@@ -175,13 +177,38 @@ namespace NEW_Healthmed_Capstone.Inv
             Properties.Settings.Default.Save();
         }
 
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            PropertiesSave();
+
+            if (cbSup.Text.ToString().Equals("Select") || cbSup.Text.ToString().Equals(""))
+            {
+                
+            }
+            else
+            {
+                dbh.InsertToPo();
+            }
+
+        }
+
         private void cbSup_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dgvReOrderList.DataSource = dbh.ShowProductToOrder(cbSup.Text.ToString());
+            if (cbSup.Text.ToString().Equals("Select") || cbSup.Text.ToString().Equals(""))
+            {
+                tbSupAddress.Clear();
+                tbSupContactNum.Clear();
+                tbSupEmail.Clear();
+            }
+            else
+            {
+                dgvReOrderList.DataSource = dbh.ShowProductToOrder(cbSup.Text.ToString());
+
+                tbSupAddress.Text = dbh.GetSupAd(cbSup.Text.ToString());
+                tbSupContactNum.Text = dbh.GetSupContactNum(cbSup.Text.ToString());
+                tbSupEmail.Text = dbh.GetSupEmailAd(cbSup.Text.ToString());
+            }
             
-            tbSupAddress.Text = dbh.GetSupAd(cbSup.Text.ToString());
-            tbSupContactNum.Text = dbh.GetSupContactNum(cbSup.Text.ToString());
-            tbSupEmail.Text = dbh.GetSupEmailAd(cbSup.Text.ToString());
         }
 
         private void dgvOtherProds_CellContentClick(object sender, DataGridViewCellEventArgs e)

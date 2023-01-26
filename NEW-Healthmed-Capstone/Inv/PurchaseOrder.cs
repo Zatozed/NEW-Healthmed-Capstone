@@ -204,15 +204,23 @@ namespace NEW_Healthmed_Capstone.Inv
                 }
                 
             }
-
+            dgvPOlist.Rows.Clear();
+            dgvPOlist.DataSource = dbh.ShowPoList();
         }
 
         private void dgvPOlist_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvPOlist.Columns[e.ColumnIndex].Name.Equals("colView")) 
-            { }
+            {
+                
+            }
             else if (dgvPOlist.Columns[e.ColumnIndex].Name.Equals("colDel"))
-            { }
+            {
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show("Do you want to delete this?", "Delete", buttons);
+                if (result == DialogResult.Yes)
+                    dbh.DelAtPoList(e.RowIndex);
+            }
         }
 
         private void cbSup_SelectedIndexChanged(object sender, EventArgs e)

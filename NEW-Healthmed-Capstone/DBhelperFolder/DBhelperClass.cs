@@ -3,7 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
+using Google.Protobuf.WellKnownTypes;
+using System.Xml.Linq;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Ocsp;
 
 namespace NEW_Healthmed_Capstone.DBhelperFolder
 {
@@ -447,6 +450,18 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
                 cmd.Parameters.AddWithValue("@supConNum", supConNum);
                 cmd.Parameters.AddWithValue("@supEmail", supEmail);
                 cmd.Parameters.AddWithValue("@remarks", remarks);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+        }
+        public void DelAtPoList(int i)
+        {
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("delete from tbl_po where po_id = "+i, con);
 
                 cmd.ExecuteNonQuery();
             }

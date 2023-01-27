@@ -51,6 +51,7 @@
             this.Controls.Add(this.crvResibo);
             this.Name = "Resibo";
             this.Text = "Resibo";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 
         }

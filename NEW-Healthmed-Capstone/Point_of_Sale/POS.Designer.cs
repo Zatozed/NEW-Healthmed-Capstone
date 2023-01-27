@@ -251,6 +251,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1184, 749);
             this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // lbTransacNum
             // 
@@ -646,10 +647,10 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(589, 698);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(45, 17);
+            this.label8.Size = new System.Drawing.Size(56, 24);
             this.label8.TabIndex = 29;
             this.label8.Text = "Total";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -657,10 +658,10 @@
             // lbTotal
             // 
             this.lbTotal.AutoSize = true;
-            this.lbTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.lbTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotal.Location = new System.Drawing.Point(738, 698);
             this.lbTotal.Name = "lbTotal";
-            this.lbTotal.Size = new System.Drawing.Size(78, 17);
+            this.lbTotal.Size = new System.Drawing.Size(98, 24);
             this.lbTotal.TabIndex = 33;
             this.lbTotal.Text = "Php: 0.00";
             this.lbTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -839,9 +840,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(887, 554);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 17);
+            this.label1.Size = new System.Drawing.Size(119, 17);
             this.label1.TabIndex = 44;
-            this.label1.Text = "Cash";
+            this.label1.Text = "Cash Tendered";
             // 
             // btnPayment
             // 

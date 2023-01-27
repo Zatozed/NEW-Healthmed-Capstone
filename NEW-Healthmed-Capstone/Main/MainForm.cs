@@ -64,7 +64,8 @@ namespace NEW_Healthmed_Capstone.Main
             try
             {
                 openCon();
-                cmd = new MySqlCommand("SELECT * FROM tbl_users", mysqlCon);
+                cmd = new MySqlCommand("SELECT * FROM tbl_users WHERE userName = @user ", mysqlCon);
+                cmd.Parameters.AddWithValue("@user", Properties.Settings.Default.Login_Username);
                 dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
@@ -73,6 +74,7 @@ namespace NEW_Healthmed_Capstone.Main
                     string getUser = getfirstName + " " + getLastName;
                     string getRoleID = dr.GetString("userRoleID");
                     lbUser.Text = getUser;
+                    closeCon();
 
                     openCon();
                     cmd = new MySqlCommand("SELECT * FROM tbl_userrole Where userRoleID = @ID", mysqlCon);
@@ -86,7 +88,7 @@ namespace NEW_Healthmed_Capstone.Main
                 }
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex) { MessageBox.Show("Something went wrong"); }
             finally { closeCon(); }
 
         }
@@ -140,6 +142,11 @@ namespace NEW_Healthmed_Capstone.Main
         {
             ReportsMenu menu = new ReportsMenu();
             menu.ShowDialog();
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

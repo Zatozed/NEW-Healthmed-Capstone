@@ -2,8 +2,10 @@
 using MySqlX.XDevAPI;
 using MySqlX.XDevAPI.Relational;
 using NEW_Healthmed_Capstone.DBhelperFolder;
+using Org.BouncyCastle.Utilities.Collections;
 using System;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace NEW_Healthmed_Capstone.file_maintenance
 {
@@ -22,52 +24,71 @@ namespace NEW_Healthmed_Capstone.file_maintenance
 
             dgvDiscount.DataSource = dbh.ShowDiscountList();
             dgvSupplier.DataSource = dbh.showSupplierList();
-            dgvProducts.DataSource = dbh.ShowProductList();
+            dgvProducts.DataSource = dbh.ShowProductList1();
+            dgvProductList.DataSource = dbh.ShowProductList1();
+
+            dgvP_S.DataSource = dbh.showProductRelation();
+
+            fillComboBoxSupplier();
+        }
+        private void fillComboBoxSupplier()
+        {
+            cbSupplier.Items.Clear();
+            cbSupplier.Items.Clear();
+            dbh.OpenCon();
+            cmd = new MySqlCommand("select supplier_name from tbl_suppliers", dbh.conn());
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                cbSupplier.Items.Add(dr[0]);
+                cbSupplierList.Items.Add(dr[0]);
+            }
+            dbh.CloseCon();
         }
         private void InsertToDiscount()
-        { 
-                try
+        {
+            try
+            {
+                dbh.OpenCon();
+                cmd = new MySqlCommand("SELECT * FROM tbl_discount Where discount_name = @discountName", dbh.conn());
+                cmd.Parameters.AddWithValue("@discountName", tbDiscountName.Text.Trim());
+                dr = cmd.ExecuteReader();
+                if (string.IsNullOrEmpty(tbDiscountName.Text) == false && string.IsNullOrEmpty(tbDiscountPercent.Text) == false)
                 {
+                    dbh.CloseCon();
+
                     dbh.OpenCon();
-                    cmd = new MySqlCommand("SELECT * FROM tbl_discount Where discount_name = @discountName", dbh.conn());
-                    cmd.Parameters.AddWithValue("@discountName", tbDiscountName.Text.Trim());
-                    dr = cmd.ExecuteReader();
-                    if (string.IsNullOrEmpty(tbDiscountName.Text) == false && string.IsNullOrEmpty(tbDiscountPercent.Text) == false)
-                    {
-                        dbh.CloseCon();
+                    cmd = new MySqlCommand("insert into tbl_discount(discount_name, discount_percent) values(@dname, @dp)", dbh.conn());
+                    cmd.Parameters.AddWithValue("@dname", tbDiscountName.Text.Trim());
+                    cmd.Parameters.AddWithValue("@dp", tbDiscountPercent.Text);
+                    cmd.ExecuteNonQuery();
+                    dbh.CloseCon();
+                    MessageBox.Show("Discount Inserted!");
+                    dgvDiscount.DataSource = dbh.ShowDiscountList();
 
-                        dbh.OpenCon();
-                        cmd = new MySqlCommand("insert into tbl_discount(discount_name, discount_percent) values(@dname, @dp)", dbh.conn());
-                        cmd.Parameters.AddWithValue("@dname", tbDiscountName.Text.Trim());
-                        cmd.Parameters.AddWithValue("@dp", tbDiscountPercent.Text);
-                        cmd.ExecuteNonQuery();
-                        dbh.CloseCon();
-                        MessageBox.Show("Discount Inserted!");
-                        dgvDiscount.DataSource = dbh.ShowDiscountList();
+                    tbDiscountName.Clear();
+                    tbDiscountPercent.Value = 0;
 
-                        tbDiscountName.Clear();
-                        tbDiscountPercent.Value = 0;
-                    
-                    }
-                    if (string.IsNullOrEmpty(tbDiscountName.Text) == true)
-                    {
-                        errorProvider1.SetError(this.tbDiscountName, "Please Fill Discount Name");
-                    }
-                    else
-                    {
-                        errorProvider1.Clear();
-                    }
-                    if (string.IsNullOrEmpty(tbDiscountPercent.Text) == true)
-                    {
-                        errorProvider2.SetError(this.tbDiscountPercent, "Please Fill Discount Percent");
-                    }
-                    else
-                    {
-                        errorProvider2.Clear();
-                    }
+                }
+                if (string.IsNullOrEmpty(tbDiscountName.Text) == true)
+                {
+                    errorProvider1.SetError(this.tbDiscountName, "Please Fill Discount Name");
+                }
+                else
+                {
+                    errorProvider1.Clear();
+                }
+                if (string.IsNullOrEmpty(tbDiscountPercent.Text) == true)
+                {
+                    errorProvider2.SetError(this.tbDiscountPercent, "Please Fill Discount Percent");
+                }
+                else
+                {
+                    errorProvider2.Clear();
+                }
             }
-                    catch (MySqlException sqlE) { MessageBox.Show("Discount Already Exist"); }
-                    finally { dbh.CloseCon(); }
+            catch (MySqlException sqlE) { MessageBox.Show("Discount Already Existed"); }
+            finally { dbh.CloseCon(); }
         }
         private void btnDiscountConfirm_Click(object sender, EventArgs e)
         {
@@ -76,32 +97,32 @@ namespace NEW_Healthmed_Capstone.file_maintenance
 
         private void dgvDiscount_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
- 
+
             //UPDATE DISCOUNT
             if (dgvDiscount.Columns[e.ColumnIndex].Name == "colUpdateDiscount")
             {
 
                 try
                 {
-                   if (string.IsNullOrEmpty(Convert.ToString(dgvDiscount.Rows[e.RowIndex].Cells["colDiscountName"].Value)) == false && string.IsNullOrEmpty(Convert.ToString(dgvDiscount.Rows[e.RowIndex].Cells["colDiscount"].Value)) == false)
+                    if (string.IsNullOrEmpty(Convert.ToString(dgvDiscount.Rows[e.RowIndex].Cells["colDiscountName"].Value)) == false && string.IsNullOrEmpty(Convert.ToString(dgvDiscount.Rows[e.RowIndex].Cells["colDiscount"].Value)) == false)
                     {
-                    dbh.CloseCon();
-                    dbh.OpenCon();
-                    cmd = new MySqlCommand("UPDATE tbl_discount SET discount_name = @discountName, discount_percent = @discount WHERE ID = @ID", dbh.conn());
-                    cmd.Parameters.AddWithValue("@discountName", Convert.ToString(dgvDiscount.Rows[e.RowIndex].Cells["colDiscountName"].Value).Trim());
-                    cmd.Parameters.AddWithValue("@discount", Convert.ToString(dgvDiscount.Rows[e.RowIndex].Cells["colDiscount"].Value));
-                    cmd.Parameters.AddWithValue("@ID", Convert.ToString(dgvDiscount.Rows[e.RowIndex].Cells["ID"].Value));
-                    cmd.ExecuteNonQuery();
-                            if (cmd.ExecuteNonQuery() == 1)
-                            {
-                                MessageBox.Show("DISCOUNT UPDATED");
-                                dbh.CloseCon();
-                                dgvDiscount.DataSource = dbh.ShowDiscountList();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Not Updated");
-                            }   
+                        dbh.CloseCon();
+                        dbh.OpenCon();
+                        cmd = new MySqlCommand("UPDATE tbl_discount SET discount_name = @discountName, discount_percent = @discount WHERE ID = @ID", dbh.conn());
+                        cmd.Parameters.AddWithValue("@discountName", Convert.ToString(dgvDiscount.Rows[e.RowIndex].Cells["colDiscountName"].Value).Trim());
+                        cmd.Parameters.AddWithValue("@discount", Convert.ToString(dgvDiscount.Rows[e.RowIndex].Cells["colDiscount"].Value));
+                        cmd.Parameters.AddWithValue("@ID", Convert.ToString(dgvDiscount.Rows[e.RowIndex].Cells["ID"].Value));
+                        cmd.ExecuteNonQuery();
+                        if (cmd.ExecuteNonQuery() == 1)
+                        {
+                            MessageBox.Show("Discount Updated");
+                            dbh.CloseCon();
+                            dgvDiscount.DataSource = dbh.ShowDiscountList();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Not Updated");
+                        }
                     }
                     if (string.IsNullOrEmpty(Convert.ToString(dgvDiscount.Rows[e.RowIndex].Cells["colDiscountName"].Value)) == true)
                     {
@@ -114,7 +135,7 @@ namespace NEW_Healthmed_Capstone.file_maintenance
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message.ToString());
+                    MessageBox.Show("Discountis Already Existed");
                 }
                 finally { dbh.CloseCon(); }
             }
@@ -138,7 +159,7 @@ namespace NEW_Healthmed_Capstone.file_maintenance
                         }
                         else
                         {
-                            MessageBox.Show("DELETED");
+                            MessageBox.Show("Discount Deleted");
                             dbh.CloseCon();
                             dgvDiscount.DataSource = dbh.ShowDiscountList();
                         }
@@ -177,29 +198,29 @@ namespace NEW_Healthmed_Capstone.file_maintenance
         private void insertSupplier()
         {
 
-                try
-                {
-                    dbh.OpenCon();
-                    cmd = new MySqlCommand("SELECT * FROM tbl_suppliers Where supplier_name = @supplierName", dbh.conn());
-                    cmd.Parameters.AddWithValue("@supplierName", tbSupplierName.Text.Trim());
-                    dr = cmd.ExecuteReader();
+            try
+            {
+                dbh.OpenCon();
+                cmd = new MySqlCommand("SELECT * FROM tbl_suppliers Where supplier_name = @supplierName", dbh.conn());
+                cmd.Parameters.AddWithValue("@supplierName", tbSupplierName.Text.Trim());
+                dr = cmd.ExecuteReader();
 
                 if (string.IsNullOrEmpty(tbSupplierName.Text) == false && string.IsNullOrEmpty(tbDescription.Text) == false && string.IsNullOrEmpty(tbEmail.Text) == false && string.IsNullOrEmpty(tbContact.Text) == false && string.IsNullOrEmpty(tbAddress.Text) == false && string.IsNullOrEmpty(tbLeadTime.Text) == false)
                 {
-                        dbh.CloseCon();
+                    dbh.CloseCon();
 
-                        dbh.OpenCon();
-                        cmd = new MySqlCommand("insert into tbl_suppliers(supplier_name,sup_description,email_ad,contact_num,address,lead_time) values(@supplierName, @Description,@email,@contact,@address,@LeadTime)", dbh.conn());
-                        cmd.Parameters.AddWithValue("@supplierName", tbSupplierName.Text);
-                        cmd.Parameters.AddWithValue("@Description", tbDescription.Text);
-                        cmd.Parameters.AddWithValue("@email", tbEmail.Text);
-                        cmd.Parameters.AddWithValue("@contact", tbContact.Text);
-                        cmd.Parameters.AddWithValue("@address", tbAddress.Text);
-                        cmd.Parameters.AddWithValue("@LeadTime", tbLeadTime.Text);
-                         cmd.ExecuteNonQuery();
-                        dbh.CloseCon();
-                        MessageBox.Show("Supplier Inserted");
-                        dgvSupplier.DataSource = dbh.showSupplierList();
+                    dbh.OpenCon();
+                    cmd = new MySqlCommand("insert into tbl_suppliers(supplier_name,sup_description,email_ad,contact_num,address,lead_time) values(@supplierName, @Description,@email,@contact,@address,@LeadTime)", dbh.conn());
+                    cmd.Parameters.AddWithValue("@supplierName", tbSupplierName.Text);
+                    cmd.Parameters.AddWithValue("@Description", tbDescription.Text);
+                    cmd.Parameters.AddWithValue("@email", tbEmail.Text);
+                    cmd.Parameters.AddWithValue("@contact", tbContact.Text);
+                    cmd.Parameters.AddWithValue("@address", tbAddress.Text);
+                    cmd.Parameters.AddWithValue("@LeadTime", tbLeadTime.Text);
+                    cmd.ExecuteNonQuery();
+                    dbh.CloseCon();
+                    MessageBox.Show("Supplier Inserted");
+                    dgvSupplier.DataSource = dbh.showSupplierList();
 
                     tbSupplierName.Clear();
                     tbDescription.Clear();
@@ -207,7 +228,7 @@ namespace NEW_Healthmed_Capstone.file_maintenance
                     tbContact.Clear();
                     tbAddress.Clear();
                     tbLeadTime.Value = 0;
-                    }
+                }
                 if (string.IsNullOrEmpty(tbSupplierName.Text) == true)
                 {
                     errorProvider3.SetError(this.tbSupplierName, "Please Fill Supplier Name");
@@ -258,12 +279,13 @@ namespace NEW_Healthmed_Capstone.file_maintenance
                 }
 
             }
-                catch (MySqlException sqlE) { MessageBox.Show("Supplier Already Exist!"); }
-                finally { dbh.CloseCon(); }
-        }      
+            catch (MySqlException sqlE) { MessageBox.Show("Supplier Already Exist!"); }
+            finally { dbh.CloseCon(); }
+        }
         private void btnSupConfirm_Click_1(object sender, EventArgs e)
         {
             insertSupplier();
+            fillComboBoxSupplier();
         }
 
         private void dgvSupplier_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -288,9 +310,10 @@ namespace NEW_Healthmed_Capstone.file_maintenance
                         cmd.ExecuteNonQuery();
                         if (cmd.ExecuteNonQuery() == 1)
                         {
-                            MessageBox.Show("SUPPLIER UPDATED");
+                            MessageBox.Show("Supplier Updated");
                             dbh.CloseCon();
                             dgvSupplier.DataSource = dbh.showSupplierList();
+                            fillComboBoxSupplier();
                         }
                         else
                         {
@@ -349,9 +372,10 @@ namespace NEW_Healthmed_Capstone.file_maintenance
                         }
                         else
                         {
-                            MessageBox.Show("DELETED");
+                            MessageBox.Show("Supplier Deleted");
                             dbh.CloseCon();
                             dgvSupplier.DataSource = dbh.showSupplierList();
+                            fillComboBoxSupplier();
                         }
                     }
                     catch (Exception ex)
@@ -399,7 +423,7 @@ namespace NEW_Healthmed_Capstone.file_maintenance
 
             }
         }
-            private void tbAddress_Leave(object sender, EventArgs e)
+        private void tbAddress_Leave(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(tbAddress.Text) == true)
             {
@@ -459,7 +483,7 @@ namespace NEW_Healthmed_Capstone.file_maintenance
                     cmd.ExecuteNonQuery();
                     dbh.CloseCon();
                     MessageBox.Show("Product Inserted!");
-                    dgvProducts.DataSource = dbh.ShowProductList();
+                    dgvProducts.DataSource = dbh.ShowProductList1();
 
                     tbProductCode.Clear();
                     tbProductName.Clear();
@@ -533,6 +557,7 @@ namespace NEW_Healthmed_Capstone.file_maintenance
         private void btnProdConfirm_Click(object sender, EventArgs e)
         {
             InsertToProduct();
+            dgvProductList.DataSource = dbh.ShowProductList1();
         }
 
         private void dgvProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -558,9 +583,10 @@ namespace NEW_Healthmed_Capstone.file_maintenance
                         cmd.ExecuteNonQuery();
                         if (cmd.ExecuteNonQuery() == 1)
                         {
-                            MessageBox.Show("PRODUCT UPDATED");
+                            MessageBox.Show("Product Updated");
                             dbh.CloseCon();
-                            dgvProducts.DataSource = dbh.ShowProductList();
+                            dgvProducts.DataSource = dbh.ShowProductList1();
+                            dgvProductList.DataSource = dbh.ShowProductList1();
                         }
                         else
                         {
@@ -598,7 +624,7 @@ namespace NEW_Healthmed_Capstone.file_maintenance
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message.ToString());
+                    MessageBox.Show("Product Already Exist");
                 }
                 finally { dbh.CloseCon(); }
             }
@@ -623,9 +649,10 @@ namespace NEW_Healthmed_Capstone.file_maintenance
                         }
                         else
                         {
-                            MessageBox.Show("DELETED");
+                            MessageBox.Show("Product Deleted");
                             dbh.CloseCon();
-                            dgvProducts.DataSource = dbh.ShowProductList();
+                            dgvProducts.DataSource = dbh.ShowProductList1();
+                            dgvProductList.DataSource = dbh.ShowProductList1();
                         }
                     }
                     catch (Exception ex)
@@ -636,6 +663,183 @@ namespace NEW_Healthmed_Capstone.file_maintenance
                 }
             }
         }
-    }
+        //=================================================Product relation Supplier============================================
 
+        private void dgvProductList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvProductList.Columns[e.ColumnIndex].Name == "colProductAddtoSupplier")
+            {
+                string productID = Convert.ToString(dgvProductList.Rows[e.RowIndex].Cells["productID"].Value);
+                string productCode = Convert.ToString(dgvProductList.Rows[e.RowIndex].Cells["colProductCode"].Value);
+                string productName = Convert.ToString(dgvProductList.Rows[e.RowIndex].Cells["colProductName"].Value);
+                string classification = Convert.ToString(dgvProductList.Rows[e.RowIndex].Cells["colClassification"].Value);
+                string dosage = Convert.ToString(dgvProductList.Rows[e.RowIndex].Cells["colDosage"].Value);
+                string type = Convert.ToString(dgvProductList.Rows[e.RowIndex].Cells["colMedType"].Value);
+
+                for (int i = 0; i <= dgvRelation.Rows.Count - 1; i++)
+                {
+                    if (productCode == dgvRelation.Rows[i].Cells[1].Value.ToString())
+                    {
+                        MessageBox.Show("Item Already Existed");
+                        return;
+                    }
+                }
+                dgvRelation.Rows.Add(productID, productCode, productName, classification, dosage, type);
+            }
+        }
+
+        private void tbRelationConfirm_Click(object sender, EventArgs e)
+        {
+            if (cbSupplier.Text == "")
+            {
+                MessageBox.Show("Please Insert a Supplier");
+            }
+
+            try
+            {
+                dbh.OpenCon();
+                cmd = new MySqlCommand("SELECT * FROM tbl_suppliers WHERE supplier_name = @supplier", dbh.conn());
+                cmd.Parameters.AddWithValue("@supplier", cbSupplier.Text);
+                dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    string supplierID = dr.GetString("sup_id");
+
+                    //checks duplicate
+                    for (int i = 0; i <= dgvRelation.Rows.Count - 1; i++)
+                    {
+                        dbh.CloseCon();
+                        dbh.OpenCon();
+                        cmd = new MySqlCommand("SELECT * FROM tbl_product_supplier WHERE product_id = @productID AND supplier_id = @SupplierID", dbh.conn());
+                        cmd.Parameters.AddWithValue("@productID", Convert.ToString(dgvRelation.Rows[i].Cells["colID"].Value));
+                        cmd.Parameters.AddWithValue("@SupplierID", supplierID);
+                        dr = cmd.ExecuteReader();
+                        if (dr.Read())
+                        {
+                            MessageBox.Show("DUPLICATE DETECTED!!!");
+                            return;
+
+                        }
+                    }
+                    if (dgvRelation.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Insert a Product");
+                    }
+                    else
+                    {
+                        //No duplicate Insert
+                        for (int i = 0; i <= dgvRelation.Rows.Count - 1; i++)
+                        {
+                            dbh.CloseCon();
+                            dbh.OpenCon();
+                            cmd = new MySqlCommand("insert into tbl_product_supplier(product_id, supplier_id) values(@p_ID, @S_ID)", dbh.conn());
+                            cmd.Parameters.AddWithValue("@p_ID", Convert.ToString(dgvRelation.Rows[i].Cells["colID"].Value));
+                            cmd.Parameters.AddWithValue("@S_ID", supplierID);
+                            cmd.ExecuteNonQuery();
+
+                        }
+                        dbh.CloseCon();
+                        MessageBox.Show("Inserted");
+                        dgvP_S.DataSource = dbh.showProductRelation();
+                        dgvRelation.Rows.Clear();
+                    }
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message.ToString()); }
+            finally { dbh.CloseCon(); }
+        }
+
+        private void dgvRelation_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvRelation.Columns[e.ColumnIndex].Name == "colRemove")
+            {
+                dgvRelation.Rows.RemoveAt(dgvRelation.Rows[e.RowIndex].Index);
+            }
+        }
+
+        private void tbProductList_TextChanged(object sender, EventArgs e)
+        {
+            if (tbProductSearch.Text == null || tbProductSearch.Text.ToString().Equals(""))
+
+                dgvProductList.DataSource = dbh.ShowProductList1();
+            else
+                dgvProductList.DataSource = dbh.ShowProductList1(tbProductSearch.Text);          
+        }
+
+        private void dgvP_S_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show("Do you want to delete this Supplier?", "Delete", buttons);
+            if (result == DialogResult.Yes)
+            {
+                if (dgvP_S.Columns[e.ColumnIndex].Name == "colDelete")
+                {
+                    string productID = Convert.ToString(dgvP_S.Rows[e.RowIndex].Cells["pCode"].Value);
+                    string supplierID = Convert.ToString(dgvP_S.Rows[e.RowIndex].Cells["Supplier"].Value);
+
+                    try
+                    {
+                        dbh.OpenCon();
+                        cmd = new MySqlCommand("Select * FROM tbl_products where product_code = @pCode", dbh.conn());
+                        cmd.Parameters.AddWithValue("@pCode", productID);
+                        dr = cmd.ExecuteReader();
+                        if (dr.Read())
+                        {
+                            string pID = dr.GetString("p_id");
+                            //MessageBox.Show(pID);
+                            dbh.CloseCon();
+                            dbh.OpenCon();
+
+                            cmd = new MySqlCommand("Select * FROM tbl_suppliers where supplier_name = @sName", dbh.conn());
+                            cmd.Parameters.AddWithValue("@sName", supplierID);
+                            dr = cmd.ExecuteReader();
+                            if (dr.Read())
+                            {
+                                string sID = dr.GetString("sup_id");
+                                //MessageBox.Show(sID);
+                                dbh.CloseCon();
+                                dbh.OpenCon();
+
+                                cmd = new MySqlCommand("DELETE FROM tbl_product_supplier WHERE product_id = @pID AND supplier_id = @sID", dbh.conn());
+                                cmd.Parameters.AddWithValue("@pID", pID);
+                                cmd.Parameters.AddWithValue("@sID", sID);
+                                cmd.ExecuteNonQuery();
+                                if (cmd.ExecuteNonQuery() == 1)
+                                {
+                                    MessageBox.Show("FAILED DELETED");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Relation Deleted");
+                                    dbh.CloseCon();
+                                    dgvP_S.DataSource = dbh.showProductRelation();
+
+                                }
+
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally { dbh.CloseCon(); }
+
+                }
+            }
+        }
+
+        private void tbSearchProductList_TextChanged(object sender, EventArgs e)
+        {
+            if (tbSearchProductList.Text == null || tbSearchProductList.Text.ToString().Equals(""))
+                dgvP_S.DataSource = dbh.showProductRelation();
+            else
+                dgvP_S.DataSource = dbh.SearchRelation(tbSearchProductList.Text, cbSupplierList.Text);
+        }
+
+        private void cbSupplierList_TextChanged(object sender, EventArgs e)
+        {
+            dgvP_S.DataSource = dbh.SearchRelation(tbSearchProductList.Text, cbSupplierList.Text);
+        }
+    }
 }

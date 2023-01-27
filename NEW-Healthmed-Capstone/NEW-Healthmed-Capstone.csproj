@@ -96,6 +96,12 @@
       <DependentUpon>PoReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CrystalReportsFolder\ProductReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CrystalReportsFolder\resibo.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -106,6 +112,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SalesReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReportsFolder\SupplierReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SupplierReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CtrHelperFolder\CtrHelper.cs" />
@@ -184,6 +196,12 @@
     <Compile Include="Reports\PoReportViewer.Designer.cs">
       <DependentUpon>PoReportViewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\ProductReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ProductReportViewer.Designer.cs">
+      <DependentUpon>ProductReportViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\ReportsMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +225,12 @@
     </Compile>
     <Compile Include="Reports\SalesReportViewer.Designer.cs">
       <DependentUpon>SalesReportViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SupplierReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SupplierReportViewer.Designer.cs">
+      <DependentUpon>SupplierReportViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="User\editUser.cs">
       <SubType>Form</SubType>
@@ -236,6 +260,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>PoReport.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReportsFolder\ProductReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ProductReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReportsFolder\resibo.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>resibo.cs</LastGenOutput>
@@ -243,6 +271,10 @@
     <EmbeddedResource Include="CrystalReportsFolder\SalesReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>SalesReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReportsFolder\SupplierReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SupplierReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="file maintenance\FileMaintenance.resx">
       <DependentUpon>FileMaintenance.cs</DependentUpon>
@@ -283,6 +315,9 @@
     <EmbeddedResource Include="Reports\PoReportViewer.resx">
       <DependentUpon>PoReportViewer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ProductReportViewer.resx">
+      <DependentUpon>ProductReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportsMenu.resx">
       <DependentUpon>ReportsMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -294,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\SalesReportViewer.resx">
       <DependentUpon>SalesReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SupplierReportViewer.resx">
+      <DependentUpon>SupplierReportViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\editUser.resx">
       <DependentUpon>editUser.cs</DependentUpon>

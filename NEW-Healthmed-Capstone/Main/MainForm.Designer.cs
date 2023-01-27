@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnReports = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnFilemaintenance = new System.Windows.Forms.Button();
             this.btnInventory = new System.Windows.Forms.Button();
@@ -54,7 +55,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnReports = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -75,6 +75,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(252, 730);
             this.panel1.TabIndex = 0;
+            // 
+            // btnReports
+            // 
+            this.btnReports.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReports.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F);
+            this.btnReports.Location = new System.Drawing.Point(0, 320);
+            this.btnReports.Name = "btnReports";
+            this.btnReports.Size = new System.Drawing.Size(248, 59);
+            this.btnReports.TabIndex = 5;
+            this.btnReports.Text = "REPORTS";
+            this.btnReports.UseVisualStyleBackColor = true;
+            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
             // button1
             // 
@@ -371,18 +383,6 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // btnReports
-            // 
-            this.btnReports.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReports.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F);
-            this.btnReports.Location = new System.Drawing.Point(0, 320);
-            this.btnReports.Name = "btnReports";
-            this.btnReports.Size = new System.Drawing.Size(248, 59);
-            this.btnReports.TabIndex = 5;
-            this.btnReports.Text = "REPORTS";
-            this.btnReports.UseVisualStyleBackColor = true;
-            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -394,6 +394,7 @@
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -412,7 +413,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lbRole;
-        private System.Windows.Forms.Label lbUser;
         private System.Windows.Forms.Label lbTime;
         private System.Windows.Forms.Label lbDate;
         private System.Windows.Forms.Button btnFilemaintenance;
@@ -431,5 +431,6 @@
         private System.Windows.Forms.Button btnInventory;
         private System.Windows.Forms.Button btnPOS;
         private System.Windows.Forms.Button btnReports;
+        public System.Windows.Forms.Label lbUser;
     }
 }

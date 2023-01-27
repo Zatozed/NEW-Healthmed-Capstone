@@ -337,6 +337,11 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
             lbTransacNum.Text = dbh.GenereateTransacNum();
         }
 
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void btnPayment_Click(object sender, EventArgs e)
         {
             if (dgvCart.Rows.Count != 0)// row has laman
@@ -374,6 +379,8 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                     lbChange.Text = "Php: " + Properties.Settings.Default.Change;
 
                     btnPayment.Enabled = false;
+
+                    dgvDrugs.DataSource = dbh.ShowProductList();
                 }
                 
             }

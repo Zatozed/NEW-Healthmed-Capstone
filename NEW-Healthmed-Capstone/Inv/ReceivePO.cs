@@ -62,41 +62,62 @@ namespace NEW_Healthmed_Capstone.Inv
 
         private void btnRe_Click(object sender, EventArgs e)
         {
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show("Receive These Product/s?", "Save", buttons);
-            if (result == DialogResult.Yes)
+            if (dgvToReceive.Rows.Count == 0 ||
+                tbHmdAdress.Text.Equals("") ||
+                tbHmdContactNum.Text.Equals("") ||
+                tbHmdEmail.Text.Equals("") ||
+                tbReAd.Text.Equals("") ||
+                tbReEmail.Text.Equals("") ||
+                tbRemarks.Text.Equals("") ||
+                tbReName.Text.Equals("") ||
+                tbReNum.Text.Equals("") ||
+                tbSup.Text.Equals("") ||
+                tbSupAddress.Text.Equals("") ||
+                tbSupContactNum.Text.Equals("") ||
+                tbSupEmail.Text.Equals("")
+                )
             {
-                foreach (DataGridViewRow r in dgvToReceive.Rows)
+                MessageBox.Show("Make Sure All Field Are Filled");
+            }
+            else
+            {
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show("Receive These Product/s?", "Save", buttons);
+                if (result == DialogResult.Yes)
                 {
-                    dbh.InsertToRpo
-                        (
-                            r.Cells["colPOnum"].Value.ToString(),
-                            r.Cells["colProductCode"].Value.ToString(),
-                            r.Cells["colProductDes"].Value.ToString(),
-                            r.Cells["colReQty"].Value.ToString(),
+                    foreach (DataGridViewRow r in dgvToReceive.Rows)
+                    {
+                        dbh.InsertToRpo
+                            (
+                                r.Cells["colPOnum"].Value.ToString(),
+                                r.Cells["colProductCode"].Value.ToString(),
+                                r.Cells["colProductDes"].Value.ToString(),
+                                r.Cells["colReQty"].Value.ToString(),
 
-                            tbSup.Text.ToString(),
-                            tbDateNow.Text.ToString(),
-                            tbReName.Text.ToString(),
-                            tbRemarks.Text.ToString()
-                        );
-                    dbh.InsertToExpiry
-                        (
-                            r.Cells["colProductCode"].Value.ToString(),
-                            r.Cells["colProductDes"].Value.ToString(),
-                            r.Cells["colLot"].Value.ToString(),
-                            r.Cells["colExpiryDate"].Value.ToString()
-                        );
+                                tbSup.Text.ToString(),
+                                tbDateNow.Text.ToString(),
+                                tbReName.Text.ToString(),
+                                tbRemarks.Text.ToString()
+                            );
+                        dbh.InsertToExpiry
+                            (
+                                r.Cells["colProductCode"].Value.ToString(),
+                                r.Cells["colProductDes"].Value.ToString(),
+                                r.Cells["colLot"].Value.ToString(),
+                                r.Cells["colExpiryDate"].Value.ToString()
+                            );
+                    }
+
+                    dgvPoList.DataSource = dbh.ShowPoList();
+                    dgvBackOrder.DataSource = dbh.ShowBackOrder();
+                    //dgvToReceive.Rows.Clear();
+                    //DgvToDt();
                 }
 
-                dgvPoList.DataSource = dbh.ShowPoList();
                 dgvBackOrder.DataSource = dbh.ShowBackOrder();
-                //dgvToReceive.Rows.Clear();
-                //DgvToDt();
+                dgvPoList.DataSource = dbh.ShowPoList();
             }
-
-            dgvBackOrder.DataSource = dbh.ShowBackOrder();
-            dgvPoList.DataSource = dbh.ShowPoList();
+            
         }
 
         private void dgvToReceive_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)

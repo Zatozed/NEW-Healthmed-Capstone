@@ -160,13 +160,13 @@ namespace NEW_Healthmed_Capstone.Inv
         private void dgvOrders_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             ComputeSubtotal();
-            tbSubtotal.Text = subtotal.ToString("0.00");
+            lbSubtotal.Text = subtotal.ToString("0.00");
 
             ComputeSubtotalLessDiscount();
-            tbDiscount.Text = Discount.ToString("0.00");
+            lbDiscount.Text = Discount.ToString("0.00");
 
             ComputeTotal();
-            tbTotal.Text = total.ToString("0.00");
+            lbTotal.Text = total.ToString("0.00");
         }
 
         private void PropertiesSave() 
@@ -255,13 +255,13 @@ namespace NEW_Healthmed_Capstone.Inv
 
             //
             TextObject tSubtotal = (TextObject)ctrpr.ReportDefinition.Sections["Section4"].ReportObjects["toSubtotal"];
-            tSubtotal.Text = tbSubtotal.Text;
+            tSubtotal.Text = lbSubtotal.Text;
 
             TextObject tDiscount = (TextObject)ctrpr.ReportDefinition.Sections["Section4"].ReportObjects["toDiscount"];
-            tDiscount.Text = tbDiscount.Text;
+            tDiscount.Text = lbDiscount.Text;
 
             TextObject tTotal = (TextObject)ctrpr.ReportDefinition.Sections["Section4"].ReportObjects["toTotal"];
-            tTotal.Text = tbSubtotal.Text;
+            tTotal.Text = lbSubtotal.Text;
 
             prv.crtPo.Refresh();
             prv.Show();

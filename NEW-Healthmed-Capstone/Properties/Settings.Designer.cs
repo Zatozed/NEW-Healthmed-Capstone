@@ -238,5 +238,17 @@ namespace NEW_Healthmed_Capstone.Properties {
                 this["Fname_Lname"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ExpiryDate {
+            get {
+                return ((string)(this["ExpiryDate"]));
+            }
+            set {
+                this["ExpiryDate"] = value;
+            }
+        }
     }
 }

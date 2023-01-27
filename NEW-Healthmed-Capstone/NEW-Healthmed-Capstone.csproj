@@ -114,6 +114,12 @@
       <DependentUpon>resibo.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CrystalReportsFolder\RPOReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPOReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CrystalReportsFolder\SalesReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -127,6 +133,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CtrHelperFolder\CtrHelper.cs" />
+    <Compile Include="DatePicker\ExpirySetter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatePicker\ExpirySetter.Designer.cs">
+      <DependentUpon>ExpirySetter.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBhelperFolder\DBhelperClass.cs" />
     <Compile Include="file maintenance\FileMaintenance.cs">
       <SubType>Form</SubType>
@@ -226,6 +238,12 @@
     <Compile Include="Reports\Resibo.Designer.cs">
       <DependentUpon>Resibo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\RPOReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\RPOReportViewer.Designer.cs">
+      <DependentUpon>RPOReportViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\SalesReportGenerator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -284,6 +302,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>resibo.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReportsFolder\RPOReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPOReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReportsFolder\SalesReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>SalesReport.cs</LastGenOutput>
@@ -291,6 +313,9 @@
     <EmbeddedResource Include="CrystalReportsFolder\SupplierReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>SupplierReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DatePicker\ExpirySetter.resx">
+      <DependentUpon>ExpirySetter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="file maintenance\FileMaintenance.resx">
       <DependentUpon>FileMaintenance.cs</DependentUpon>
@@ -303,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inv\PurchaseOrder.resx">
       <DependentUpon>PurchaseOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inv\ReceivePO.resx">
+      <DependentUpon>ReceivePO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inv\StockAdjustment.resx">
       <DependentUpon>StockAdjustment.cs</DependentUpon>
@@ -345,6 +373,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Resibo.resx">
       <DependentUpon>Resibo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RPOReportViewer.resx">
+      <DependentUpon>RPOReportViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\SalesReportGenerator.resx">
       <DependentUpon>SalesReportGenerator.cs</DependentUpon>

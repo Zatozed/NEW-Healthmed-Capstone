@@ -419,8 +419,8 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             finally { con.Close(); }
             return dt;
         }
-            public DataTable ShowSales() 
-            {
+        public DataTable ShowSales() 
+        {
             DataTable dt = new DataTable();
             try
             {
@@ -433,6 +433,21 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             finally { con.Close(); }
             return dt;
         }
+        public DataTable ShowSales(string TransacNum)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("select transaction_num, product_code, item_description, qty, unit_cost, unit_price, vat_exempt, discount, total_cost, total_sales, transac_date, cashier from tbl_sales where transaction_num like '"+TransacNum+"'", con);
+                dataAdapter = new MySqlDataAdapter(cmd);
+                dataAdapter.Fill(dt);
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+            return dt;
+        }
+
 
         public List<string> GetDiscountNames()
         {
@@ -500,14 +515,15 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
         public void InsertToPo(
             string poNum, string prodCode, string prodName, string orQty, string reQty,
             string unitCost, string discount, string total, string totalDiscount, string poDate,
-            string poGeneBy, string reName, string reAdd, string reConNum, string reEmail, 
+            string poGeneBy, string hmAd, string hmConNum, string hmEmail,
+            string reName, string reAdd, string reConNum, string reEmail, 
             string sup, string supAdd, string supConNum, string supEmail, string remarks)
         {
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("insert into tbl_po(po_num, product_code, product_description, ordered_qty, received_qty, unit_cost, discount, total, total_discount, po_date, po_generated_by, receiver_name, re_address, re_contact_num, re_email, supplier, sup_address, sup_contact_num, sup_email, remarks)"+
-                    "values(@poNum, @prodCode, @prodName, @orQty, @reQty, @unitCost, @discount, @total, @totalDiscount, @poDate, @poGeneBy, @reName, @reAdd, @reConNum, @reEmail, @sup, @supAdd, @supConNum, @supEmail, @remarks)", con);
+                cmd = new MySqlCommand("insert into tbl_po(po_num, product_code, product_description, ordered_qty, received_qty, unit_cost, discount, total, total_discount, po_date, po_generated_by, hm_address, hm_contact_num, hm_email, receiver_name, re_address, re_contact_num, re_email, supplier, sup_address, sup_contact_num, sup_email, remarks)"+
+                    "values(@poNum, @prodCode, @prodName, @orQty, @reQty, @unitCost, @discount, @total, @totalDiscount, @poDate, @poGeneBy, @hmAd, @hmConNum, @hmEmail, @reName, @reAdd, @reConNum, @reEmail, @sup, @supAdd, @supConNum, @supEmail, @remarks)", con);
 
                 cmd.Parameters.AddWithValue("@poNum", poNum);
                 cmd.Parameters.AddWithValue("@prodCode", prodCode);
@@ -522,16 +538,30 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
                 cmd.Parameters.AddWithValue("@poDate", poDate);
 
                 cmd.Parameters.AddWithValue("@poGeneBy", poGeneBy);
+                cmd.Parameters.AddWithValue("@hmAd", hmAd);
+                cmd.Parameters.AddWithValue("@hmConNum", hmConNum);
+                cmd.Parameters.AddWithValue("@hmEmail", hmEmail);
                 cmd.Parameters.AddWithValue("@reName", reName);
+
                 cmd.Parameters.AddWithValue("@reAdd", reAdd);
                 cmd.Parameters.AddWithValue("@reConNum", reConNum);
                 cmd.Parameters.AddWithValue("@reEmail", reEmail);
-
                 cmd.Parameters.AddWithValue("@sup", sup);
                 cmd.Parameters.AddWithValue("@supAdd", supAdd);
+
                 cmd.Parameters.AddWithValue("@supConNum", supConNum);
                 cmd.Parameters.AddWithValue("@supEmail", supEmail);
                 cmd.Parameters.AddWithValue("@remarks", remarks);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+            // update pending from ordered
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("update tbl_po set pending_qty = ordered_qty where product_code = '"+ prodCode+"'", con);
 
                 cmd.ExecuteNonQuery();
             }
@@ -590,6 +620,94 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
             finally { con.Close(); }
         }
+
+        public void InsertToRpo(
+            string poNum,
+            string prodCode,
+            string prodDes,
+            string reQty, 
+            string sup, 
+            string date_re, 
+            string re_by, 
+            string remarks)
+        {
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("insert into tbl_rpo(po_num, product_code, product_des, received_qty, supplier, date_received, received_by, remarks)"+
+                    "values(@poNum, @prodCode, @prodDes, @reQty, @sup, @date_re, @re_by, @remarks)", con);
+
+                cmd.Parameters.AddWithValue("@poNum", poNum);
+                cmd.Parameters.AddWithValue("@prodCode", prodCode);
+                cmd.Parameters.AddWithValue("@prodDes", prodDes);
+                cmd.Parameters.AddWithValue("@reQty", reQty);
+
+                cmd.Parameters.AddWithValue("@sup", sup);
+                cmd.Parameters.AddWithValue("@date_re", date_re);
+                cmd.Parameters.AddWithValue("@re_by", re_by);
+                cmd.Parameters.AddWithValue("@remarks", remarks);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+            //                                  update received qty
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("update tbl_po set received_qty = received_qty + "+ reQty +" where product_code = '"+ prodCode +"'", con);
+
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+            //                                  update pending
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("update tbl_po set pending_qty = ordered_qty - received_qty where product_code = '"+prodCode+"'", con);
+
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+            //                                  update in stock
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("update tbl_products set in_stock_qty = in_stock_qty + "+reQty+" where product_code = '"+prodCode+"'", con);
+
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+        }
+        public void InsertToExpiry(
+            string prodCode,
+            string prodDes,
+            string lot,
+            string expiry_date
+            )
+        {
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("insert into tbl_expiry_monitoring(product_code, product_des, lot, expiry_date) "+
+                    "values(@prodCode, @prodDes, @lot, @expiry_date)", con);
+
+                cmd.Parameters.AddWithValue("@prodCode", prodCode);
+                cmd.Parameters.AddWithValue("@prodDes", prodDes);
+                cmd.Parameters.AddWithValue("@lot", lot);
+                cmd.Parameters.AddWithValue("@expiry_date", expiry_date);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+        }
         public string GeneratePoNum()
         {
             string date = DateTime.Now.ToString("yyyyMMdd");
@@ -628,7 +746,7 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("select po_id, po_num from tbl_po where ordered_qty != received_qty",
+                cmd = new MySqlCommand("select po_id, po_num from tbl_po where received_qty = 0",
                 con);
                 dataAdapter = new MySqlDataAdapter(cmd);
                 dataAdapter.Fill(dt);
@@ -638,6 +756,42 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
 
             return dt;
         }
+        public DataTable ShowPoList(string poNum)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("select * from tbl_po where po_num = '"+ poNum +"'",
+                con);
+                dataAdapter = new MySqlDataAdapter(cmd);
+                dataAdapter.Fill(dt);
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+
+            return dt;
+        }
+
+        public DataTable ShowBackOrder()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("select po_id, po_num from tbl_po where ((select(sum(pending_qty)) != 0)) and received_qty != 0",
+                con);
+                dataAdapter = new MySqlDataAdapter(cmd);
+                dataAdapter.Fill(dt);
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+
+            return dt;
+        }
+
         public string GenereateTransacNum()
         {
             string date = DateTime.Now.ToString("yyyyMMdd");

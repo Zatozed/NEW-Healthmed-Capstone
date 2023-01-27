@@ -101,8 +101,6 @@ namespace NEW_Healthmed_Capstone.Inv
 
             dgvReOrderList.DataSource = dbh.ShowProductToOrder();
 
-            dgvPOlist.DataSource = dbh.ShowPoList();
-
             tbHmdAdress.Text = Properties.Settings.Default.HMDaddress;
             tbHmdContactNum.Text = Properties.Settings.Default.HMDcontactNum;
             tbHmdEmail.Text = Properties.Settings.Default.HMDemail;
@@ -162,13 +160,13 @@ namespace NEW_Healthmed_Capstone.Inv
         private void dgvOrders_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             ComputeSubtotal();
-            tbSubtotal.Text = subtotal.ToString("0.00");
+            lbSubtotal.Text = subtotal.ToString("0.00");
 
             ComputeSubtotalLessDiscount();
-            tbDiscount.Text = Discount.ToString("0.00");
+            lbDiscount.Text = Discount.ToString("0.00");
 
             ComputeTotal();
-            tbTotal.Text = total.ToString("0.00");
+            lbTotal.Text = total.ToString("0.00");
         }
 
         private void PropertiesSave() 
@@ -257,13 +255,13 @@ namespace NEW_Healthmed_Capstone.Inv
 
             //
             TextObject tSubtotal = (TextObject)ctrpr.ReportDefinition.Sections["Section4"].ReportObjects["toSubtotal"];
-            tSubtotal.Text = tbSubtotal.Text;
+            tSubtotal.Text = lbSubtotal.Text;
 
             TextObject tDiscount = (TextObject)ctrpr.ReportDefinition.Sections["Section4"].ReportObjects["toDiscount"];
-            tDiscount.Text = tbSubtotal.Text;
+            tDiscount.Text = lbDiscount.Text;
 
             TextObject tTotal = (TextObject)ctrpr.ReportDefinition.Sections["Section4"].ReportObjects["toTotal"];
-            tTotal.Text = tbSubtotal.Text;
+            tTotal.Text = lbSubtotal.Text;
 
             prv.crtPo.Refresh();
             prv.Show();
@@ -284,13 +282,33 @@ namespace NEW_Healthmed_Capstone.Inv
                 {
                     foreach (DataGridViewRow r in dgvOrders.Rows)
                     {
-                        dbh.InsertToPo(tbPOnum.Text.ToString(), r.Cells["colProductCode"].Value.ToString(), r.Cells["colProductDes"].Value.ToString(),
-                            r.Cells["colQty"].Value.ToString(), r.Cells["colDiscount"].Value.ToString(), r.Cells["colUnitCost"].Value.ToString(),
-                            r.Cells["colDiscount"].Value.ToString(), total.ToString("0.00"), Discount.ToString("0.00"),
-                            tbDateNow.Text.ToString(), Properties.Settings.Default.Fname_Lname, tbReName.Text.ToString(),
-                            tbReAd.Text.ToString(), tbReNum.Text.ToString(), tbReEmail.Text.ToString(),
-                            cbSup.Text.ToString(), tbSupAddress.Text.ToString(), tbSupContactNum.Text.ToString(),
-                            tbSupEmail.Text.ToString(), tbRemarks.Text.ToString()
+                        dbh.InsertToPo(
+                            tbPOnum.Text.ToString(),
+                            r.Cells["colProductCode"].Value.ToString(),
+                            r.Cells["colProductDes"].Value.ToString(),
+                            r.Cells["colQty"].Value.ToString(),
+                            r.Cells["colDiscount"].Value.ToString(),
+
+                            r.Cells["colUnitCost"].Value.ToString(),
+                            r.Cells["colDiscount"].Value.ToString(),
+                            total.ToString("0.00"), Discount.ToString("0.00"),
+                            tbDateNow.Text.ToString(),
+                            Properties.Settings.Default.Fname_Lname,
+
+                            tbHmdAdress.Text.ToString(),
+                            tbHmdContactNum.Text.ToString(),
+                            tbHmdEmail.Text.ToString(),
+                            tbReName.Text.ToString(),
+                            tbReAd.Text.ToString(),
+
+                            tbReNum.Text.ToString(), 
+                            tbReEmail.Text.ToString(),
+                            cbSup.Text.ToString(),
+                            tbSupAddress.Text.ToString(),
+                            tbSupContactNum.Text.ToString(),
+
+                            tbSupEmail.Text.ToString(),
+                            tbRemarks.Text.ToString()
                         );
                     }
 
@@ -298,29 +316,10 @@ namespace NEW_Healthmed_Capstone.Inv
                 }
                 
             }
-            dgvPOlist.DataSource = dbh.ShowPoList();
             dgvOrders.Rows.Clear();
             tbPOnum.Text = dbh.GeneratePoNum();
         }
 
-        private void dgvPOlist_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvPOlist.Columns[e.ColumnIndex].Name.Equals("colView")) 
-            {
-                
-            }
-            else if (dgvPOlist.Columns[e.ColumnIndex].Name.Equals("colDel"))
-            {
-                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                DialogResult result = MessageBox.Show("Do you want to delete this?", "Delete", buttons);
-                if (result == DialogResult.Yes)
-                {
-                    dgvPOlist.DataSource = dbh.ShowPoList();
-                    dbh.DelAtPoList(dgvPOlist.Rows[e.RowIndex].Cells["colPoID"].Value.ToString());
-                }
-                    
-            }
-        }
 
         private void cbSup_SelectedIndexChanged(object sender, EventArgs e)
         {

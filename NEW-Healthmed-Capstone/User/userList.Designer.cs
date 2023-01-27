@@ -38,9 +38,9 @@
             this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colShowStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEdit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.colDeact = new System.Windows.Forms.DataGridViewImageColumn();
-            this.colDelete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colDeact = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,6 +74,7 @@
             this.colUserID.Name = "colUserID";
             this.colUserID.ReadOnly = true;
             this.colUserID.Visible = false;
+            this.colUserID.Width = 65;
             // 
             // colUsername
             // 
@@ -132,6 +133,9 @@
             this.colEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.colEdit.HeaderText = "";
             this.colEdit.Name = "colEdit";
+            this.colEdit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colEdit.Text = "Edit";
+            this.colEdit.UseColumnTextForButtonValue = true;
             this.colEdit.Width = 5;
             // 
             // colDeact
@@ -139,6 +143,9 @@
             this.colDeact.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.colDeact.HeaderText = "";
             this.colDeact.Name = "colDeact";
+            this.colDeact.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colDeact.Text = "Deactivate";
+            this.colDeact.UseColumnTextForButtonValue = true;
             this.colDeact.Width = 5;
             // 
             // colDelete
@@ -146,6 +153,9 @@
             this.colDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.colDelete.HeaderText = "";
             this.colDelete.Name = "colDelete";
+            this.colDelete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colDelete.Text = "Delete";
+            this.colDelete.UseColumnTextForButtonValue = true;
             this.colDelete.Width = 5;
             // 
             // userList
@@ -176,8 +186,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRole;
         private System.Windows.Forms.DataGridViewTextBoxColumn colShowStatus;
-        private System.Windows.Forms.DataGridViewImageColumn colEdit;
-        private System.Windows.Forms.DataGridViewImageColumn colDeact;
-        private System.Windows.Forms.DataGridViewImageColumn colDelete;
+        private System.Windows.Forms.DataGridViewButtonColumn colEdit;
+        private System.Windows.Forms.DataGridViewButtonColumn colDeact;
+        private System.Windows.Forms.DataGridViewButtonColumn colDelete;
     }
 }

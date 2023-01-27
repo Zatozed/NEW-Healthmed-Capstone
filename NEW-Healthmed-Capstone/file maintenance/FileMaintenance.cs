@@ -117,7 +117,6 @@ namespace NEW_Healthmed_Capstone.file_maintenance
                         {
                             MessageBox.Show("Discount Updated");
                             dbh.CloseCon();
-                            dgvDiscount.DataSource = dbh.ShowDiscountList();
                         }
                         else
                         {
@@ -312,7 +311,6 @@ namespace NEW_Healthmed_Capstone.file_maintenance
                         {
                             MessageBox.Show("Supplier Updated");
                             dbh.CloseCon();
-                            dgvSupplier.DataSource = dbh.showSupplierList();
                             fillComboBoxSupplier();
                         }
                         else
@@ -585,7 +583,6 @@ namespace NEW_Healthmed_Capstone.file_maintenance
                         {
                             MessageBox.Show("Product Updated");
                             dbh.CloseCon();
-                            dgvProducts.DataSource = dbh.ShowProductList1();
                             dgvProductList.DataSource = dbh.ShowProductList1();
                         }
                         else

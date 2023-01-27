@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.lbGTS = new System.Windows.Forms.Label();
+            this.lbGTC = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,11 +52,8 @@
             this.colTransacDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCashier = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.lbGTC = new System.Windows.Forms.Label();
-            this.lbGTS = new System.Windows.Forms.Label();
             this.lbProfit = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).BeginInit();
@@ -91,6 +91,39 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.857655F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(891, 383);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // lbGTS
+            // 
+            this.lbGTS.AutoSize = true;
+            this.lbGTS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbGTS.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbGTS.Location = new System.Drawing.Point(299, 322);
+            this.lbGTS.Name = "lbGTS";
+            this.lbGTS.Size = new System.Drawing.Size(291, 30);
+            this.lbGTS.TabIndex = 12;
+            this.lbGTS.Text = "To";
+            // 
+            // lbGTC
+            // 
+            this.lbGTC.AutoSize = true;
+            this.lbGTC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbGTC.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbGTC.Location = new System.Drawing.Point(299, 292);
+            this.lbGTC.Name = "lbGTC";
+            this.lbGTC.Size = new System.Drawing.Size(291, 30);
+            this.lbGTC.TabIndex = 11;
+            this.lbGTC.Text = "To";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(3, 292);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(290, 30);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Grand Total Cost";
             // 
             // dateTimePicker2
             // 
@@ -282,17 +315,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 292);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(290, 30);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Grand Total Cost";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -315,28 +337,6 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "Profit";
             // 
-            // lbGTC
-            // 
-            this.lbGTC.AutoSize = true;
-            this.lbGTC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbGTC.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbGTC.Location = new System.Drawing.Point(299, 292);
-            this.lbGTC.Name = "lbGTC";
-            this.lbGTC.Size = new System.Drawing.Size(291, 30);
-            this.lbGTC.TabIndex = 11;
-            this.lbGTC.Text = "To";
-            // 
-            // lbGTS
-            // 
-            this.lbGTS.AutoSize = true;
-            this.lbGTS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbGTS.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbGTS.Location = new System.Drawing.Point(299, 322);
-            this.lbGTS.Name = "lbGTS";
-            this.lbGTS.Size = new System.Drawing.Size(291, 30);
-            this.lbGTS.TabIndex = 12;
-            this.lbGTS.Text = "To";
-            // 
             // lbProfit
             // 
             this.lbProfit.AutoSize = true;
@@ -348,15 +348,16 @@
             this.lbProfit.TabIndex = 13;
             this.lbProfit.Text = "To";
             // 
-            // SalesReport
+            // SalesReportGenerator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(891, 383);
             this.Controls.Add(this.tableLayoutPanel1);
             this.MinimumSize = new System.Drawing.Size(907, 422);
-            this.Name = "SalesReport";
+            this.Name = "SalesReportGenerator";
             this.Text = "SalesReport";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.SalesReport_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

@@ -379,6 +379,7 @@
             this.colDeleteExpiry.ReadOnly = true;
             this.colDeleteExpiry.Text = "Delete";
             this.colDeleteExpiry.UseColumnTextForButtonValue = true;
+            this.colDeleteExpiry.Visible = false;
             this.colDeleteExpiry.Width = 5;
             // 
             // MainForm

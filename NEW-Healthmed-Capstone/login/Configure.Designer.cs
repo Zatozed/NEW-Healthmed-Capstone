@@ -158,6 +158,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configure";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Configure_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Configure_FormClosed);
             this.Load += new System.EventHandler(this.Configure_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

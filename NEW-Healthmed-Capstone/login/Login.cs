@@ -183,5 +183,10 @@ namespace NEW_Healthmed_Capstone
             Properties.Settings.Default.Login_Username = textBoxUserName.Text;
             Properties.Settings.Default.Save();
         }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

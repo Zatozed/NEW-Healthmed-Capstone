@@ -1,6 +1,10 @@
-﻿using NEW_Healthmed_Capstone.DatePicker;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using NEW_Healthmed_Capstone.CrystalReportsFolder;
+using NEW_Healthmed_Capstone.DatePicker;
 using NEW_Healthmed_Capstone.DBhelperFolder;
+using NEW_Healthmed_Capstone.Reports;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace NEW_Healthmed_Capstone.Inv
@@ -12,7 +16,41 @@ namespace NEW_Healthmed_Capstone.Inv
         {
             InitializeComponent();
         }
+        private void DgvToDt()
+        {
+            DataTable dt = new DataTable();
+            DataSet ds = new DataSet();
 
+            dt.Columns.Add("Product Code", typeof(string));
+            dt.Columns.Add("Product Description", typeof(string));
+            dt.Columns.Add("Pending Quantity", typeof(string));
+            dt.Columns.Add("Ordered Quantity", typeof(string));
+            dt.Columns.Add("Received Quantity", typeof(string));
+            dt.Columns.Add("Expiry Date", typeof(string));
+            dt.Columns.Add("Lot #", typeof(string));
+
+            foreach (DataGridViewRow r in dgvToReceive.Rows)
+            {
+                dt.Rows.Add(r.Cells["colProductCode"].Value.ToString(),
+                    r.Cells["colProductDes"].Value.ToString(),
+                    r.Cells["colReQty"].Value.ToString(),
+                    r.Cells["colPendingQty"].Value.ToString(),
+                    r.Cells["colOrderedQty"].Value.ToString(),
+                    r.Cells["colExpiryDate"].Value.ToString(),
+                    r.Cells["colLot"].Value.ToString()
+                    );
+            }
+            ds.Tables.Add(dt);
+            ds.WriteXmlSchema("ReceivePO.xml");
+
+
+
+            //TextObject tHAd = (TextObject)ctrpr.ReportDefinition.Sections["Section1"].ReportObjects["toHAddress"];
+            //tHAd.Text = tbHmdAdress.Text;
+
+            //prv.crtPo.Refresh();
+            //prv.Show();
+        }
         private void tbPOnum_TextChanged(object sender, EventArgs e)
         {
             try 
@@ -68,7 +106,6 @@ namespace NEW_Healthmed_Capstone.Inv
                 tbHmdEmail.Text.Equals("") ||
                 tbReAd.Text.Equals("") ||
                 tbReEmail.Text.Equals("") ||
-                tbRemarks.Text.Equals("") ||
                 tbReName.Text.Equals("") ||
                 tbReNum.Text.Equals("") ||
                 tbSup.Text.Equals("") ||
@@ -111,7 +148,7 @@ namespace NEW_Healthmed_Capstone.Inv
                     dgvPoList.DataSource = dbh.ShowPoList();
                     dgvBackOrder.DataSource = dbh.ShowBackOrder();
                     //dgvToReceive.Rows.Clear();
-                    //DgvToDt();
+                    DgvToDt();
                 }
 
                 dgvBackOrder.DataSource = dbh.ShowBackOrder();
@@ -146,6 +183,20 @@ namespace NEW_Healthmed_Capstone.Inv
 
                 dgvToReceive.Rows[e.RowIndex].Cells["colExpiryDate"].Value = Properties.Settings.Default.ExpiryDate;
             }
+        }
+
+        private void dgvToReceive_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+
+            
+            try
+            {
+                //if (Double.TryParse(dgvToReceive.Rows[e.RowIndex].Cells["colReQty"].Value.ToString(), out double r) == false && dgvToReceive.Rows[e.RowIndex].Cells["colReQty"] != null)
+                //{
+                //    MessageBox.Show("This Field Only Accepts Number");
+                //}
+            }
+            catch (Exception cn) { }
         }
     }
 }

@@ -48,6 +48,7 @@
             this.tbCash.Size = new System.Drawing.Size(235, 44);
             this.tbCash.TabIndex = 0;
             this.tbCash.TextChanged += new System.EventHandler(this.tbCash_TextChanged);
+            this.tbCash.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCash_KeyPress);
             // 
             // label1
             // 

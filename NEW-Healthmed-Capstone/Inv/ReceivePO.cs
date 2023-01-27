@@ -39,8 +39,11 @@ namespace NEW_Healthmed_Capstone.Inv
 
         private void ReceivePO_Load(object sender, EventArgs e)
         {
+            dgvToReceive.AutoGenerateColumns = false;
             dgvPoList.DataSource = dbh.ShowPoList();
             tbDateNow.Text = DateTime.Now.ToString("yyyy-MM-dd");
+
+            
         }
 
         private void dgvPoList_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -57,6 +60,14 @@ namespace NEW_Healthmed_Capstone.Inv
 
 
             dgvPoList.DataSource = dbh.ShowPoList();
+        }
+
+        private void dgvToReceive_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            foreach(DataGridViewRow r in dgvToReceive.Rows) 
+            {
+                r.Cells["colExpiryDate"].Value = "Set Expiry";
+            }
         }
     }
 }

@@ -260,7 +260,7 @@ namespace NEW_Healthmed_Capstone.Inv
             tSubtotal.Text = tbSubtotal.Text;
 
             TextObject tDiscount = (TextObject)ctrpr.ReportDefinition.Sections["Section4"].ReportObjects["toDiscount"];
-            tDiscount.Text = tbSubtotal.Text;
+            tDiscount.Text = tbDiscount.Text;
 
             TextObject tTotal = (TextObject)ctrpr.ReportDefinition.Sections["Section4"].ReportObjects["toTotal"];
             tTotal.Text = tbSubtotal.Text;

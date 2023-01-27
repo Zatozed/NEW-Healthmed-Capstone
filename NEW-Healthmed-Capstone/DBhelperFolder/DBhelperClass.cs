@@ -792,6 +792,24 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             return dt;
         }
 
+        public DataTable ShowExpiry()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("select * from tbl_expiry_monitoring order by expiry_date asc",
+                con);
+                dataAdapter = new MySqlDataAdapter(cmd);
+                dataAdapter.Fill(dt);
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+
+            return dt;
+        }
+
         public string GenereateTransacNum()
         {
             string date = DateTime.Now.ToString("yyyyMMdd");

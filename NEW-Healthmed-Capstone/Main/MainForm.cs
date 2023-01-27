@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using NEW_Healthmed_Capstone.DBhelperFolder;
 using NEW_Healthmed_Capstone.file_maintenance;
 using NEW_Healthmed_Capstone.Inv;
 using NEW_Healthmed_Capstone.Point_of_Sale;
@@ -18,6 +19,7 @@ namespace NEW_Healthmed_Capstone.Main
 {
     public partial class MainForm : Form
     {
+        DBhelperClass dbh = new DBhelperClass();
         public MainForm()
         {
             InitializeComponent();
@@ -30,6 +32,16 @@ namespace NEW_Healthmed_Capstone.Main
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            dgvExpiry.DataSource = dbh.ShowExpiry();
+
+            var dateNow = DateTime.Now;
+
+            foreach (DataGridViewRow r in dgvExpiry.Rows)
+            {
+                var dateDif = Convert.ToDateTime(r.Cells["colExpiry"].Value) - dateNow;
+                r.Cells["colDaysL"].Value = dateDif.Days;
+            }
+
             MaximizeBox = false;
 
             lbDate.Text = DateTime.Now.ToString("dd/MM/yyyy");

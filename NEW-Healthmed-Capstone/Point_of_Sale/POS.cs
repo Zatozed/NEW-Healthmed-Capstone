@@ -313,20 +313,22 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                     Compute();
 
                     subtotal = ComputeSubTotal();
-                    lbSubtotal.Text = "Php " + subtotal.ToString();
+                    lbSubtotal.Text = "Php " + subtotal.ToString("0.00");
 
                     vatable = ComputeVatable();
-                    lbVatable.Text = "Php " + vatable.ToString();
+                    lbVatable.Text = "Php " + vatable.ToString("0.00");
 
                     vat = ComputeVat();
                     lbVat.Text = "Php " + vat.ToString();
 
-                    lbVatExmpt.Text = "Php " + ComputeVatXmpt();
+                    vatXmptSale = ComputeVatXmpt();
+                    lbVatExmpt.Text = "Php " + vatXmptSale.ToString("0.00");
 
-                    lbDiscount.Text = "Php " + ComputeLessDiscount();
+                    discount = ComputeLessDiscount();
+                    lbDiscount.Text = "Php " + discount.ToString("0.00");
 
                     total = ComputeTotalAmoutDue();
-                    lbTotal.Text = "Php " + total.ToString();
+                    lbTotal.Text = "Php " + total.ToString("0.00");
                 }
             }
         }

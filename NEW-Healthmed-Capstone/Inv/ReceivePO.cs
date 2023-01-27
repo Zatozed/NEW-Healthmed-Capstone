@@ -1,4 +1,5 @@
-﻿using NEW_Healthmed_Capstone.DBhelperFolder;
+﻿using NEW_Healthmed_Capstone.DatePicker;
+using NEW_Healthmed_Capstone.DBhelperFolder;
 using System;
 using System.Windows.Forms;
 
@@ -61,6 +62,38 @@ namespace NEW_Healthmed_Capstone.Inv
 
         private void btnRe_Click(object sender, EventArgs e)
         {
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show("Do you want to save this Purchase Order?", "Save", buttons);
+            if (result == DialogResult.Yes)
+            {
+                foreach (DataGridViewRow r in dgvToReceive.Rows)
+                {
+                    dbh.InsertToRpo
+                        (
+                            r.Cells["colPOnum"].Value.ToString(),
+                            r.Cells["colProductCode"].Value.ToString(),
+                            r.Cells["colProductDes"].Value.ToString(),
+                            r.Cells["colReQty"].Value.ToString(),
+
+                            tbSup.Text.ToString(),
+                            tbDateNow.Text.ToString(),
+                            tbReName.Text.ToString(),
+                            tbRemarks.Text.ToString()
+                        );
+                    dbh.InsertToExpiry
+                        (
+                            r.Cells["colProductCode"].Value.ToString(),
+                            r.Cells["colProductDes"].Value.ToString(),
+                            r.Cells["colLot"].Value.ToString(),
+                            r.Cells["colExpiryDate"].Value.ToString()
+                        );
+                }
+
+                dgvPoList.DataSource = dbh.ShowPoList();
+                dgvBackOrder.DataSource = dbh.ShowBackOrder();
+                //dgvToReceive.Rows.Clear();
+                //DgvToDt();
+            }
 
             dgvBackOrder.DataSource = dbh.ShowBackOrder();
             dgvPoList.DataSource = dbh.ShowPoList();
@@ -87,7 +120,10 @@ namespace NEW_Healthmed_Capstone.Inv
         {
             if (dgvToReceive.Columns[e.ColumnIndex].Name.Equals("colExpiryDate"))
             {
-                MessageBox.Show("e");
+                ExpirySetter dp = new ExpirySetter();
+                dp.ShowDialog();
+
+                dgvToReceive.Rows[e.RowIndex].Cells["colExpiryDate"].Value = Properties.Settings.Default.ExpiryDate;
             }
         }
     }

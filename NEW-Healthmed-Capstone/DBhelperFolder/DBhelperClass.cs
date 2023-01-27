@@ -578,6 +578,61 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
             finally { con.Close(); }
         }
+
+        public void InsertToRpo(
+            string poNum,
+            string prodCode,
+            string prodDes,
+            string reQty, 
+            string sup, 
+            string date_re, 
+            string re_by, 
+            string remarks)
+        {
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("insert into tbl_rpo(po_num, product_code, product_des, received_qty, supplier, date_received, received_by, remarks)"+
+                    "values(@poNum, @prodCode, @prodDes, @reQty, @sup, @date_re, @re_by, @remarks)", con);
+
+                cmd.Parameters.AddWithValue("@poNum", poNum);
+                cmd.Parameters.AddWithValue("@prodCode", prodCode);
+                cmd.Parameters.AddWithValue("@prodDes", prodDes);
+                cmd.Parameters.AddWithValue("@reQty", reQty);
+
+                cmd.Parameters.AddWithValue("@sup", sup);
+                cmd.Parameters.AddWithValue("@date_re", date_re);
+                cmd.Parameters.AddWithValue("@re_by", re_by);
+                cmd.Parameters.AddWithValue("@remarks", remarks);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+        }
+        public void InsertToExpiry(
+            string prodCode,
+            string prodDes,
+            string lot,
+            string expiry_date
+            )
+        {
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("insert into tbl_expiry_monitoring(product_code, product_des, lot, expiry_date) "+
+                    "values(@prodCode, @prodDes, @lot, @expiry_date)", con);
+
+                cmd.Parameters.AddWithValue("@prodCode", prodCode);
+                cmd.Parameters.AddWithValue("@prodDes", prodDes);
+                cmd.Parameters.AddWithValue("@lot", lot);
+                cmd.Parameters.AddWithValue("@expiry_date", expiry_date);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+        }
         public string GeneratePoNum()
         {
             string date = DateTime.Now.ToString("yyyyMMdd");

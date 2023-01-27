@@ -1,6 +1,6 @@
 ﻿namespace NEW_Healthmed_Capstone.DatePicker
 {
-    partial class DatePicker
+    partial class ExpirySetter
     {
         /// <summary>
         /// Required designer variable.
@@ -54,8 +54,9 @@
             this.btnDone.TabIndex = 1;
             this.btnDone.Text = "Done";
             this.btnDone.UseVisualStyleBackColor = false;
+            this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
             // 
-            // DatePicker
+            // ExpirySetter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -64,7 +65,7 @@
             this.Controls.Add(this.dateTimePicker1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "DatePicker";
+            this.Name = "ExpirySetter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Set Date";
             this.ResumeLayout(false);

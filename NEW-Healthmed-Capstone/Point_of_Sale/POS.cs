@@ -344,6 +344,12 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
 
         }
 
+        private void dgvCart_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvCart.Columns[e.ColumnIndex].Name.Equals("colQtyCart"))
+            MessageBox.Show("");
+        }
+
         private void btnPayment_Click(object sender, EventArgs e)
         {
             if (dgvCart.Rows.Count != 0)// row has laman

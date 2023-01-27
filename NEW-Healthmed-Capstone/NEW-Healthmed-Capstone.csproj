@@ -285,6 +285,9 @@
     <EmbeddedResource Include="Inv\PurchaseOrder.resx">
       <DependentUpon>PurchaseOrder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Inv\ReceivePO.resx">
+      <DependentUpon>ReceivePO.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inv\StockAdjustment.resx">
       <DependentUpon>StockAdjustment.cs</DependentUpon>
     </EmbeddedResource>

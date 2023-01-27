@@ -36,17 +36,24 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.BtnUdjustUpdate = new System.Windows.Forms.Button();
-            this.BtnAdjustConfirm = new System.Windows.Forms.Button();
             this.DGVStockUdjustment = new System.Windows.Forms.DataGridView();
-            this.Product_Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Classification = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit_Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colClassification = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMedType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNewUnitCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNewUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colInStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNewInStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colReOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSafetyStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNewRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUpdate = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVStockUdjustment)).BeginInit();
@@ -58,9 +65,10 @@
             this.panel1.Controls.Add(this.RefStockUdjust);
             this.panel1.Controls.Add(this.dateTimePicker1);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Location = new System.Drawing.Point(2, 0);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(997, 93);
+            this.panel1.Size = new System.Drawing.Size(1370, 93);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -83,17 +91,19 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(676, 54);
+            this.dateTimePicker1.Location = new System.Drawing.Point(1047, 54);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(309, 29);
             this.dateTimePicker1.TabIndex = 9;
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14F);
-            this.label4.Location = new System.Drawing.Point(679, 27);
+            this.label4.Location = new System.Drawing.Point(1050, 27);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(130, 24);
             this.label4.TabIndex = 8;
@@ -101,38 +111,16 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.BtnUdjustUpdate);
-            this.panel2.Controls.Add(this.BtnAdjustConfirm);
             this.panel2.Controls.Add(this.DGVStockUdjustment);
-            this.panel2.Location = new System.Drawing.Point(2, 89);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 93);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(997, 361);
+            this.panel2.Size = new System.Drawing.Size(1370, 357);
             this.panel2.TabIndex = 1;
-            // 
-            // BtnUdjustUpdate
-            // 
-            this.BtnUdjustUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnUdjustUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnUdjustUpdate.Location = new System.Drawing.Point(774, 325);
-            this.BtnUdjustUpdate.Name = "BtnUdjustUpdate";
-            this.BtnUdjustUpdate.Size = new System.Drawing.Size(103, 32);
-            this.BtnUdjustUpdate.TabIndex = 18;
-            this.BtnUdjustUpdate.Text = "Update";
-            this.BtnUdjustUpdate.UseVisualStyleBackColor = true;
-            // 
-            // BtnAdjustConfirm
-            // 
-            this.BtnAdjustConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnAdjustConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAdjustConfirm.Location = new System.Drawing.Point(883, 325);
-            this.BtnAdjustConfirm.Name = "BtnAdjustConfirm";
-            this.BtnAdjustConfirm.Size = new System.Drawing.Size(103, 32);
-            this.BtnAdjustConfirm.TabIndex = 17;
-            this.BtnAdjustConfirm.Text = "Confirm";
-            this.BtnAdjustConfirm.UseVisualStyleBackColor = true;
             // 
             // DGVStockUdjustment
             // 
+            this.DGVStockUdjustment.AllowUserToAddRows = false;
             this.DGVStockUdjustment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -148,83 +136,195 @@
             this.DGVStockUdjustment.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DGVStockUdjustment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVStockUdjustment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Product_Code,
-            this.Product_Name,
-            this.Classification,
-            this.Dosage,
-            this.Type,
-            this.Unit_Cost,
-            this.Unit_Price,
-            this.Supplier});
+            this.productID,
+            this.colProductCode,
+            this.colProductName,
+            this.colClassification,
+            this.colDosage,
+            this.colMedType,
+            this.colCost,
+            this.colNewUnitCost,
+            this.colPrice,
+            this.colNewUnitPrice,
+            this.colInStock,
+            this.colNewInStock,
+            this.colReOrder,
+            this.colSafetyStock,
+            this.colRemark,
+            this.colNewRemarks,
+            this.colUpdate});
             this.DGVStockUdjustment.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DGVStockUdjustment.DefaultCellStyle = dataGridViewCellStyle2;
             this.DGVStockUdjustment.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.DGVStockUdjustment.Location = new System.Drawing.Point(3, 3);
+            this.DGVStockUdjustment.Location = new System.Drawing.Point(12, 15);
             this.DGVStockUdjustment.Name = "DGVStockUdjustment";
             this.DGVStockUdjustment.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.DGVStockUdjustment.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.DGVStockUdjustment.Size = new System.Drawing.Size(991, 319);
-            this.DGVStockUdjustment.TabIndex = 13;
+            this.DGVStockUdjustment.Size = new System.Drawing.Size(1355, 339);
+            this.DGVStockUdjustment.TabIndex = 19;
+            this.DGVStockUdjustment.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVStockUdjustment_CellContentClick);
             // 
-            // Product_Code
+            // productID
             // 
-            this.Product_Code.HeaderText = "Product Code";
-            this.Product_Code.Name = "Product_Code";
+            this.productID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.productID.DataPropertyName = "p_id";
+            this.productID.HeaderText = "ID";
+            this.productID.Name = "productID";
+            this.productID.ReadOnly = true;
+            this.productID.Visible = false;
+            this.productID.Width = 43;
             // 
-            // Product_Name
+            // colProductCode
             // 
-            this.Product_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Product_Name.HeaderText = "Product Name";
-            this.Product_Name.Name = "Product_Name";
+            this.colProductCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colProductCode.DataPropertyName = "product_code";
+            this.colProductCode.HeaderText = "Product Code";
+            this.colProductCode.Name = "colProductCode";
+            this.colProductCode.ReadOnly = true;
+            this.colProductCode.Width = 97;
             // 
-            // Classification
+            // colProductName
             // 
-            this.Classification.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Classification.HeaderText = "Classification";
-            this.Classification.Name = "Classification";
+            this.colProductName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colProductName.DataPropertyName = "product_name";
+            this.colProductName.HeaderText = "Product Name";
+            this.colProductName.Name = "colProductName";
+            this.colProductName.ReadOnly = true;
             // 
-            // Dosage
+            // colClassification
             // 
-            this.Dosage.HeaderText = "Dosage";
-            this.Dosage.Name = "Dosage";
+            this.colClassification.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colClassification.DataPropertyName = "classification";
+            this.colClassification.HeaderText = "Classification";
+            this.colClassification.Name = "colClassification";
+            this.colClassification.ReadOnly = true;
+            this.colClassification.Width = 93;
             // 
-            // Type
+            // colDosage
             // 
-            this.Type.HeaderText = "Type";
-            this.Type.Name = "Type";
+            this.colDosage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colDosage.DataPropertyName = "dosage";
+            this.colDosage.HeaderText = "Dosage";
+            this.colDosage.Name = "colDosage";
+            this.colDosage.ReadOnly = true;
+            this.colDosage.Width = 69;
             // 
-            // Unit_Cost
+            // colMedType
             // 
-            this.Unit_Cost.HeaderText = "Unit Cost";
-            this.Unit_Cost.Name = "Unit_Cost";
+            this.colMedType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colMedType.DataPropertyName = "med_type";
+            this.colMedType.HeaderText = "Type";
+            this.colMedType.Name = "colMedType";
+            this.colMedType.ReadOnly = true;
+            this.colMedType.Width = 56;
             // 
-            // Unit_Price
+            // colCost
             // 
-            this.Unit_Price.HeaderText = "Unit Price";
-            this.Unit_Price.Name = "Unit_Price";
+            this.colCost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colCost.DataPropertyName = "unit_cost";
+            this.colCost.HeaderText = "Unit Cost";
+            this.colCost.Name = "colCost";
+            this.colCost.ReadOnly = true;
+            this.colCost.Width = 75;
             // 
-            // Supplier
+            // colNewUnitCost
             // 
-            this.Supplier.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Supplier.HeaderText = "Supplier";
-            this.Supplier.Name = "Supplier";
+            this.colNewUnitCost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colNewUnitCost.HeaderText = "New Unit Cost";
+            this.colNewUnitCost.Name = "colNewUnitCost";
+            // 
+            // colPrice
+            // 
+            this.colPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colPrice.DataPropertyName = "unit_price";
+            this.colPrice.HeaderText = "Unit Price";
+            this.colPrice.Name = "colPrice";
+            this.colPrice.ReadOnly = true;
+            this.colPrice.Width = 78;
+            // 
+            // colNewUnitPrice
+            // 
+            this.colNewUnitPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colNewUnitPrice.HeaderText = "New Unit Price";
+            this.colNewUnitPrice.Name = "colNewUnitPrice";
+            this.colNewUnitPrice.Width = 95;
+            // 
+            // colInStock
+            // 
+            this.colInStock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colInStock.DataPropertyName = "in_stock_qty";
+            this.colInStock.HeaderText = "In Stock Qty.";
+            this.colInStock.Name = "colInStock";
+            this.colInStock.ReadOnly = true;
+            this.colInStock.Width = 87;
+            // 
+            // colNewInStock
+            // 
+            this.colNewInStock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colNewInStock.HeaderText = "New In Stock Qty.";
+            this.colNewInStock.Name = "colNewInStock";
+            this.colNewInStock.Width = 92;
+            // 
+            // colReOrder
+            // 
+            this.colReOrder.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colReOrder.DataPropertyName = "reorder_point";
+            this.colReOrder.HeaderText = "Reorder point";
+            this.colReOrder.Name = "colReOrder";
+            this.colReOrder.ReadOnly = true;
+            this.colReOrder.Width = 88;
+            // 
+            // colSafetyStock
+            // 
+            this.colSafetyStock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colSafetyStock.DataPropertyName = "safety_stock_per_week";
+            this.colSafetyStock.HeaderText = "Safety Stock per week";
+            this.colSafetyStock.Name = "colSafetyStock";
+            this.colSafetyStock.ReadOnly = true;
+            this.colSafetyStock.Width = 105;
+            // 
+            // colRemark
+            // 
+            this.colRemark.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colRemark.DataPropertyName = "remarks";
+            this.colRemark.HeaderText = "Remarks";
+            this.colRemark.Name = "colRemark";
+            this.colRemark.ReadOnly = true;
+            this.colRemark.Width = 74;
+            // 
+            // colNewRemarks
+            // 
+            this.colNewRemarks.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colNewRemarks.HeaderText = "New Remarks";
+            this.colNewRemarks.Name = "colNewRemarks";
+            this.colNewRemarks.Width = 91;
+            // 
+            // colUpdate
+            // 
+            this.colUpdate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colUpdate.HeaderText = "";
+            this.colUpdate.Name = "colUpdate";
+            this.colUpdate.Text = "Update";
+            this.colUpdate.UseColumnTextForButtonValue = true;
+            this.colUpdate.Width = 5;
             // 
             // StockAdjustment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(999, 450);
+            this.ClientSize = new System.Drawing.Size(1370, 450);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "StockAdjustment";
             this.Text = "StockAdjustment";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.StockAdjustment_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -237,20 +337,27 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView DGVStockUdjustment;
-        private System.Windows.Forms.Button BtnAdjustConfirm;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button BtnUdjustUpdate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Product_Code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Product_Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Classification;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dosage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Unit_Cost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Unit_Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Supplier;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox RefStockUdjust;
+        private System.Windows.Forms.DataGridView DGVStockUdjustment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProductCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colClassification;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDosage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMedType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNewUnitCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNewUnitPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colInStock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNewInStock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colReOrder;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSafetyStock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRemark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNewRemarks;
+        private System.Windows.Forms.DataGridViewButtonColumn colUpdate;
     }
 }

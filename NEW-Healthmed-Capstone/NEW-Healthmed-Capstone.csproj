@@ -96,6 +96,12 @@
       <DependentUpon>PoReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CrystalReportsFolder\ProductMasterListReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductMasterListReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CrystalReportsFolder\ProductReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -208,6 +214,12 @@
     <Compile Include="Reports\PoReportViewer.Designer.cs">
       <DependentUpon>PoReportViewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\ProductMasterListReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ProductMasterListReportViewer.Designer.cs">
+      <DependentUpon>ProductMasterListReportViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\ProductReportViewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,6 +290,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>PoReport.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReportsFolder\ProductMasterListReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ProductMasterListReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReportsFolder\ProductReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ProductReport.cs</LastGenOutput>
@@ -306,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inv\InventoryMenu.resx">
       <DependentUpon>InventoryMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inv\ProductMasterList.resx">
+      <DependentUpon>ProductMasterList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inv\PurchaseOrder.resx">
       <DependentUpon>PurchaseOrder.cs</DependentUpon>
@@ -342,6 +361,9 @@
     </Compile>
     <EmbeddedResource Include="Reports\PoReportViewer.resx">
       <DependentUpon>PoReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ProductMasterListReportViewer.resx">
+      <DependentUpon>ProductMasterListReportViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ProductReportViewer.resx">
       <DependentUpon>ProductReportViewer.cs</DependentUpon>

@@ -198,6 +198,23 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
 
             return lt;
         }
+        public DataTable ShowProductMasterList()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("Select p_id, product_code, product_name, classification, dosage, med_type, unit_cost, unit_price, in_stock_qty,reorder_point, safety_stock_per_week, remarks from tbl_products;",
+                con);
+                dataAdapter = new MySqlDataAdapter(cmd);
+                dataAdapter.Fill(dt);
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+
+            return dt;
+        }
 
         public DataTable ShowProductToOrder()
         {

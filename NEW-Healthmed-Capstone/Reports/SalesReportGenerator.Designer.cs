@@ -354,6 +354,7 @@
             this.MinimumSize = new System.Drawing.Size(907, 422);
             this.Name = "SalesReportGenerator";
             this.Text = "SalesReport";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.SalesReport_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

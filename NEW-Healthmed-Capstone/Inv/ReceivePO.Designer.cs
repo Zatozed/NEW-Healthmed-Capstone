@@ -28,19 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.tbRemarks = new System.Windows.Forms.TextBox();
             this.btnOk = new System.Windows.Forms.Button();
@@ -60,6 +57,9 @@
             this.dgvPoList = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgvBackOrder = new System.Windows.Forms.DataGridView();
+            this.colPoIdBo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPoNumBo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAddBo = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tbPOnum = new System.Windows.Forms.TextBox();
@@ -79,9 +79,6 @@
             this.colPoIdS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPoNumS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAddS = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.colPoIdBo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPoNumBo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAddBo = new System.Windows.Forms.DataGridViewButtonColumn();
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPOnum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProductCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,13 +90,16 @@
             this.colOrderedQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colReceivedQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPOGeneBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHmAd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHmConNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHmEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colReName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colReAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colReContactNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colReAd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colReConNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colReEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSupplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSupAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSupContactNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSupAd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSupConNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSupEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
@@ -155,9 +155,6 @@
             this.tableLayoutPanel1.Controls.Add(this.label8, 5, 2);
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.tbDateNow, 6, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label18, 3, 17);
-            this.tableLayoutPanel1.Controls.Add(this.label19, 3, 18);
-            this.tableLayoutPanel1.Controls.Add(this.label20, 3, 19);
             this.tableLayoutPanel1.Controls.Add(this.tbSup, 1, 5);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -183,17 +180,18 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.960396F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.960396F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.960396F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(849, 503);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(983, 614);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.label4, 2);
+            this.tableLayoutPanel1.SetColumnSpan(this.label4, 3);
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(3, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(117, 19);
+            this.label4.Size = new System.Drawing.Size(360, 24);
             this.label4.TabIndex = 3;
             this.label4.Text = "HealthMed Drugstore";
             // 
@@ -201,7 +199,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 19);
+            this.label3.Location = new System.Drawing.Point(3, 24);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 16);
             this.label3.TabIndex = 2;
@@ -211,7 +209,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 38);
+            this.label5.Location = new System.Drawing.Point(3, 48);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 16);
             this.label5.TabIndex = 4;
@@ -221,48 +219,17 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 57);
+            this.label6.Location = new System.Drawing.Point(3, 72);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 16);
             this.label6.TabIndex = 5;
             this.label6.Text = "Email";
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(321, 428);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(64, 16);
-            this.label18.TabIndex = 22;
-            this.label18.Text = "Subtotal";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.label19, 2);
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(321, 447);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(67, 16);
-            this.label19.TabIndex = 23;
-            this.label19.Text = "Discount";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(321, 466);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(43, 16);
-            this.label20.TabIndex = 24;
-            this.label20.Text = "Total";
-            // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(3, 428);
+            this.label17.Location = new System.Drawing.Point(3, 534);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(69, 16);
             this.label17.TabIndex = 20;
@@ -273,11 +240,11 @@
             this.tableLayoutPanel1.SetColumnSpan(this.tbRemarks, 2);
             this.tbRemarks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbRemarks.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbRemarks.Location = new System.Drawing.Point(3, 450);
+            this.tbRemarks.Location = new System.Drawing.Point(3, 561);
             this.tbRemarks.Multiline = true;
             this.tbRemarks.Name = "tbRemarks";
             this.tableLayoutPanel1.SetRowSpan(this.tbRemarks, 2);
-            this.tbRemarks.Size = new System.Drawing.Size(206, 50);
+            this.tbRemarks.Size = new System.Drawing.Size(238, 50);
             this.tbRemarks.TabIndex = 19;
             // 
             // btnOk
@@ -285,9 +252,9 @@
             this.btnOk.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnOk.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOk.Location = new System.Drawing.Point(745, 469);
+            this.btnOk.Location = new System.Drawing.Point(857, 585);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(101, 31);
+            this.btnOk.Size = new System.Drawing.Size(123, 26);
             this.btnOk.TabIndex = 25;
             this.btnOk.Text = "Receive";
             this.btnOk.UseVisualStyleBackColor = false;
@@ -299,9 +266,9 @@
             this.tableLayoutPanel1.SetColumnSpan(this.tbHmdAdress, 2);
             this.tbHmdAdress.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbHmdAdress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbHmdAdress.Location = new System.Drawing.Point(109, 22);
+            this.tbHmdAdress.Location = new System.Drawing.Point(125, 27);
             this.tbHmdAdress.Name = "tbHmdAdress";
-            this.tbHmdAdress.Size = new System.Drawing.Size(206, 22);
+            this.tbHmdAdress.Size = new System.Drawing.Size(238, 22);
             this.tbHmdAdress.TabIndex = 26;
             // 
             // tbHmdContactNum
@@ -311,9 +278,9 @@
             this.tableLayoutPanel1.SetColumnSpan(this.tbHmdContactNum, 2);
             this.tbHmdContactNum.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbHmdContactNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbHmdContactNum.Location = new System.Drawing.Point(109, 41);
+            this.tbHmdContactNum.Location = new System.Drawing.Point(125, 51);
             this.tbHmdContactNum.Name = "tbHmdContactNum";
-            this.tbHmdContactNum.Size = new System.Drawing.Size(206, 22);
+            this.tbHmdContactNum.Size = new System.Drawing.Size(238, 22);
             this.tbHmdContactNum.TabIndex = 27;
             // 
             // tbHmdEmail
@@ -323,9 +290,9 @@
             this.tableLayoutPanel1.SetColumnSpan(this.tbHmdEmail, 2);
             this.tbHmdEmail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbHmdEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbHmdEmail.Location = new System.Drawing.Point(109, 60);
+            this.tbHmdEmail.Location = new System.Drawing.Point(125, 75);
             this.tbHmdEmail.Name = "tbHmdEmail";
-            this.tbHmdEmail.Size = new System.Drawing.Size(206, 22);
+            this.tbHmdEmail.Size = new System.Drawing.Size(238, 22);
             this.tbHmdEmail.TabIndex = 28;
             // 
             // tbSupAddress
@@ -335,9 +302,9 @@
             this.tableLayoutPanel1.SetColumnSpan(this.tbSupAddress, 2);
             this.tbSupAddress.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbSupAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSupAddress.Location = new System.Drawing.Point(109, 117);
+            this.tbSupAddress.Location = new System.Drawing.Point(125, 147);
             this.tbSupAddress.Name = "tbSupAddress";
-            this.tbSupAddress.Size = new System.Drawing.Size(206, 22);
+            this.tbSupAddress.Size = new System.Drawing.Size(238, 22);
             this.tbSupAddress.TabIndex = 29;
             // 
             // tbSupContactNum
@@ -347,9 +314,9 @@
             this.tableLayoutPanel1.SetColumnSpan(this.tbSupContactNum, 2);
             this.tbSupContactNum.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbSupContactNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSupContactNum.Location = new System.Drawing.Point(109, 136);
+            this.tbSupContactNum.Location = new System.Drawing.Point(125, 171);
             this.tbSupContactNum.Name = "tbSupContactNum";
-            this.tbSupContactNum.Size = new System.Drawing.Size(206, 22);
+            this.tbSupContactNum.Size = new System.Drawing.Size(238, 22);
             this.tbSupContactNum.TabIndex = 30;
             // 
             // tbSupEmail
@@ -359,16 +326,16 @@
             this.tableLayoutPanel1.SetColumnSpan(this.tbSupEmail, 2);
             this.tbSupEmail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbSupEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSupEmail.Location = new System.Drawing.Point(109, 155);
+            this.tbSupEmail.Location = new System.Drawing.Point(125, 195);
             this.tbSupEmail.Name = "tbSupEmail";
-            this.tbSupEmail.Size = new System.Drawing.Size(206, 22);
+            this.tbSupEmail.Size = new System.Drawing.Size(238, 22);
             this.tbSupEmail.TabIndex = 31;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(3, 114);
+            this.label14.Location = new System.Drawing.Point(3, 144);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(65, 16);
             this.label14.TabIndex = 16;
@@ -378,7 +345,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(3, 133);
+            this.label15.Location = new System.Drawing.Point(3, 168);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(71, 16);
             this.label15.TabIndex = 17;
@@ -388,7 +355,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(3, 152);
+            this.label16.Location = new System.Drawing.Point(3, 192);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(46, 16);
             this.label16.TabIndex = 18;
@@ -402,11 +369,11 @@
             this.tab1.Controls.Add(this.tabPage3);
             this.tab1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tab1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tab1.Location = new System.Drawing.Point(3, 174);
+            this.tab1.Location = new System.Drawing.Point(3, 219);
             this.tab1.Name = "tab1";
             this.tableLayoutPanel1.SetRowSpan(this.tab1, 8);
             this.tab1.SelectedIndex = 0;
-            this.tab1.Size = new System.Drawing.Size(843, 251);
+            this.tab1.Size = new System.Drawing.Size(977, 312);
             this.tab1.TabIndex = 43;
             // 
             // tabPage1
@@ -415,7 +382,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(835, 222);
+            this.tabPage1.Size = new System.Drawing.Size(969, 283);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Orders";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -437,13 +404,16 @@
             this.colOrderedQty,
             this.colReceivedQty,
             this.colPOGeneBy,
+            this.colHmAd,
+            this.colHmConNum,
+            this.colHmEmail,
             this.colReName,
-            this.colReAdd,
-            this.colReContactNum,
+            this.colReAd,
+            this.colReConNum,
             this.colReEmail,
             this.colSupplier,
-            this.colSupAdd,
-            this.colSupContactNum,
+            this.colSupAd,
+            this.colSupConNum,
             this.colSupEmail,
             this.colRemarks});
             this.dgvToReceive.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -451,7 +421,7 @@
             this.dgvToReceive.Location = new System.Drawing.Point(3, 3);
             this.dgvToReceive.Name = "dgvToReceive";
             this.dgvToReceive.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvToReceive.Size = new System.Drawing.Size(829, 216);
+            this.dgvToReceive.Size = new System.Drawing.Size(963, 277);
             this.dgvToReceive.TabIndex = 21;
             // 
             // tabPage2
@@ -460,7 +430,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(835, 222);
+            this.tabPage2.Size = new System.Drawing.Size(969, 283);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Select PO";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -469,33 +439,33 @@
             // 
             this.dgvPoList.AllowUserToAddRows = false;
             this.dgvPoList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvPoList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvPoList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle26;
             this.dgvPoList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvPoList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPoList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPoList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
             this.dgvPoList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPoList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colPoIdS,
             this.colPoNumS,
             this.colAddS});
             this.dgvPoList.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPoList.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPoList.DefaultCellStyle = dataGridViewCellStyle28;
             this.dgvPoList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPoList.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvPoList.Location = new System.Drawing.Point(3, 3);
@@ -503,15 +473,16 @@
             this.dgvPoList.ReadOnly = true;
             this.dgvPoList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvPoList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPoList.Size = new System.Drawing.Size(829, 216);
+            this.dgvPoList.Size = new System.Drawing.Size(963, 277);
             this.dgvPoList.TabIndex = 24;
+            this.dgvPoList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPoList_CellContentClick);
             // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.dgvBackOrder);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(835, 222);
+            this.tabPage3.Size = new System.Drawing.Size(969, 283);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Back Order";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -522,28 +493,28 @@
             this.dgvBackOrder.AllowUserToDeleteRows = false;
             this.dgvBackOrder.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvBackOrder.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBackOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBackOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
             this.dgvBackOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBackOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colPoIdBo,
             this.colPoNumBo,
             this.colAddBo});
             this.dgvBackOrder.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBackOrder.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBackOrder.DefaultCellStyle = dataGridViewCellStyle30;
             this.dgvBackOrder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvBackOrder.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvBackOrder.Location = new System.Drawing.Point(0, 0);
@@ -551,17 +522,43 @@
             this.dgvBackOrder.ReadOnly = true;
             this.dgvBackOrder.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvBackOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBackOrder.Size = new System.Drawing.Size(835, 222);
+            this.dgvBackOrder.Size = new System.Drawing.Size(969, 283);
             this.dgvBackOrder.TabIndex = 25;
+            // 
+            // colPoIdBo
+            // 
+            this.colPoIdBo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colPoIdBo.DataPropertyName = "po_id";
+            this.colPoIdBo.HeaderText = "PO ID";
+            this.colPoIdBo.Name = "colPoIdBo";
+            this.colPoIdBo.ReadOnly = true;
+            // 
+            // colPoNumBo
+            // 
+            this.colPoNumBo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colPoNumBo.DataPropertyName = "po_num";
+            this.colPoNumBo.HeaderText = "PO #";
+            this.colPoNumBo.Name = "colPoNumBo";
+            this.colPoNumBo.ReadOnly = true;
+            // 
+            // colAddBo
+            // 
+            this.colAddBo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colAddBo.HeaderText = "";
+            this.colAddBo.Name = "colAddBo";
+            this.colAddBo.ReadOnly = true;
+            this.colAddBo.Text = "add";
+            this.colAddBo.UseColumnTextForButtonValue = true;
+            this.colAddBo.Width = 5;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label1, 2);
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(533, 0);
+            this.label1.Location = new System.Drawing.Point(613, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 19);
+            this.label1.Size = new System.Drawing.Size(146, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Receive Order";
             // 
@@ -569,7 +566,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(533, 19);
+            this.label2.Location = new System.Drawing.Point(613, 24);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 16);
             this.label2.TabIndex = 9;
@@ -581,11 +578,12 @@
             this.tableLayoutPanel1.SetColumnSpan(this.tbPOnum, 2);
             this.tbPOnum.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbPOnum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPOnum.Location = new System.Drawing.Point(639, 41);
+            this.tbPOnum.Location = new System.Drawing.Point(735, 51);
             this.tbPOnum.Name = "tbPOnum";
             this.tbPOnum.ReadOnly = true;
-            this.tbPOnum.Size = new System.Drawing.Size(207, 22);
+            this.tbPOnum.Size = new System.Drawing.Size(245, 22);
             this.tbPOnum.TabIndex = 33;
+            this.tbPOnum.TextChanged += new System.EventHandler(this.tbPOnum_TextChanged);
             // 
             // tbReName
             // 
@@ -594,9 +592,9 @@
             this.tableLayoutPanel1.SetColumnSpan(this.tbReName, 2);
             this.tbReName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbReName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbReName.Location = new System.Drawing.Point(639, 98);
+            this.tbReName.Location = new System.Drawing.Point(735, 123);
             this.tbReName.Name = "tbReName";
-            this.tbReName.Size = new System.Drawing.Size(207, 22);
+            this.tbReName.Size = new System.Drawing.Size(245, 22);
             this.tbReName.TabIndex = 35;
             // 
             // tbReAd
@@ -606,9 +604,9 @@
             this.tableLayoutPanel1.SetColumnSpan(this.tbReAd, 2);
             this.tbReAd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbReAd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbReAd.Location = new System.Drawing.Point(639, 117);
+            this.tbReAd.Location = new System.Drawing.Point(735, 147);
             this.tbReAd.Name = "tbReAd";
-            this.tbReAd.Size = new System.Drawing.Size(207, 22);
+            this.tbReAd.Size = new System.Drawing.Size(245, 22);
             this.tbReAd.TabIndex = 36;
             // 
             // tbReEmail
@@ -618,9 +616,9 @@
             this.tableLayoutPanel1.SetColumnSpan(this.tbReEmail, 2);
             this.tbReEmail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbReEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbReEmail.Location = new System.Drawing.Point(639, 155);
+            this.tbReEmail.Location = new System.Drawing.Point(735, 195);
             this.tbReEmail.Name = "tbReEmail";
-            this.tbReEmail.Size = new System.Drawing.Size(207, 22);
+            this.tbReEmail.Size = new System.Drawing.Size(245, 22);
             this.tbReEmail.TabIndex = 37;
             // 
             // tbReNum
@@ -630,16 +628,16 @@
             this.tableLayoutPanel1.SetColumnSpan(this.tbReNum, 2);
             this.tbReNum.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbReNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbReNum.Location = new System.Drawing.Point(639, 136);
+            this.tbReNum.Location = new System.Drawing.Point(735, 171);
             this.tbReNum.Name = "tbReNum";
-            this.tbReNum.Size = new System.Drawing.Size(207, 22);
+            this.tbReNum.Size = new System.Drawing.Size(245, 22);
             this.tbReNum.TabIndex = 38;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(533, 76);
+            this.label9.Location = new System.Drawing.Point(613, 96);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(61, 16);
             this.label9.TabIndex = 11;
@@ -649,9 +647,9 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(533, 95);
+            this.label12.Location = new System.Drawing.Point(613, 120);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(74, 19);
+            this.label12.Size = new System.Drawing.Size(115, 16);
             this.label12.TabIndex = 14;
             this.label12.Text = "Receiver Name";
             // 
@@ -659,7 +657,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(533, 114);
+            this.label11.Location = new System.Drawing.Point(613, 144);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(65, 16);
             this.label11.TabIndex = 13;
@@ -669,7 +667,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(533, 133);
+            this.label10.Location = new System.Drawing.Point(613, 168);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(71, 16);
             this.label10.TabIndex = 12;
@@ -679,7 +677,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(533, 152);
+            this.label13.Location = new System.Drawing.Point(613, 192);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(46, 16);
             this.label13.TabIndex = 15;
@@ -689,7 +687,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(533, 38);
+            this.label8.Location = new System.Drawing.Point(613, 48);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(40, 16);
             this.label8.TabIndex = 10;
@@ -699,7 +697,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 95);
+            this.label7.Location = new System.Drawing.Point(3, 120);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 16);
             this.label7.TabIndex = 8;
@@ -711,10 +709,10 @@
             this.tableLayoutPanel1.SetColumnSpan(this.tbDateNow, 2);
             this.tbDateNow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbDateNow.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDateNow.Location = new System.Drawing.Point(639, 22);
+            this.tbDateNow.Location = new System.Drawing.Point(735, 27);
             this.tbDateNow.Name = "tbDateNow";
             this.tbDateNow.ReadOnly = true;
-            this.tbDateNow.Size = new System.Drawing.Size(207, 22);
+            this.tbDateNow.Size = new System.Drawing.Size(245, 22);
             this.tbDateNow.TabIndex = 46;
             // 
             // tbSup
@@ -722,9 +720,9 @@
             this.tableLayoutPanel1.SetColumnSpan(this.tbSup, 2);
             this.tbSup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbSup.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSup.Location = new System.Drawing.Point(109, 98);
+            this.tbSup.Location = new System.Drawing.Point(125, 123);
             this.tbSup.Name = "tbSup";
-            this.tbSup.Size = new System.Drawing.Size(206, 22);
+            this.tbSup.Size = new System.Drawing.Size(238, 22);
             this.tbSup.TabIndex = 47;
             // 
             // colPoIdS
@@ -753,32 +751,6 @@
             this.colAddS.UseColumnTextForButtonValue = true;
             this.colAddS.Width = 5;
             // 
-            // colPoIdBo
-            // 
-            this.colPoIdBo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colPoIdBo.DataPropertyName = "po_id";
-            this.colPoIdBo.HeaderText = "PO ID";
-            this.colPoIdBo.Name = "colPoIdBo";
-            this.colPoIdBo.ReadOnly = true;
-            // 
-            // colPoNumBo
-            // 
-            this.colPoNumBo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colPoNumBo.DataPropertyName = "po_num";
-            this.colPoNumBo.HeaderText = "PO #";
-            this.colPoNumBo.Name = "colPoNumBo";
-            this.colPoNumBo.ReadOnly = true;
-            // 
-            // colAddBo
-            // 
-            this.colAddBo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colAddBo.HeaderText = "";
-            this.colAddBo.Name = "colAddBo";
-            this.colAddBo.ReadOnly = true;
-            this.colAddBo.Text = "add";
-            this.colAddBo.UseColumnTextForButtonValue = true;
-            this.colAddBo.Width = 5;
-            // 
             // colID
             // 
             this.colID.DataPropertyName = "po_id";
@@ -797,6 +769,7 @@
             // 
             // colProductCode
             // 
+            this.colProductCode.DataPropertyName = "product_code";
             this.colProductCode.HeaderText = "Product Code";
             this.colProductCode.Name = "colProductCode";
             this.colProductCode.ReadOnly = true;
@@ -804,6 +777,7 @@
             // colProductDes
             // 
             this.colProductDes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colProductDes.DataPropertyName = "product_description";
             this.colProductDes.HeaderText = "Product Description";
             this.colProductDes.Name = "colProductDes";
             this.colProductDes.ReadOnly = true;
@@ -811,14 +785,17 @@
             // 
             // colUnitCost
             // 
+            this.colUnitCost.DataPropertyName = "unit_cost";
             this.colUnitCost.HeaderText = "Unit Cost";
             this.colUnitCost.Name = "colUnitCost";
             this.colUnitCost.ReadOnly = true;
             // 
             // colDiscount
             // 
+            this.colDiscount.DataPropertyName = "discount";
             this.colDiscount.HeaderText = "Discount Decimal";
             this.colDiscount.Name = "colDiscount";
+            this.colDiscount.ReadOnly = true;
             // 
             // colQty
             // 
@@ -827,51 +804,78 @@
             // 
             // colPendingQty
             // 
+            this.colPendingQty.DataPropertyName = "pending_qty";
             this.colPendingQty.HeaderText = "Pending Qty";
             this.colPendingQty.Name = "colPendingQty";
+            this.colPendingQty.ReadOnly = true;
             // 
             // colOrderedQty
             // 
+            this.colOrderedQty.DataPropertyName = "ordered_qty";
             this.colOrderedQty.HeaderText = "Ordered Qty";
             this.colOrderedQty.Name = "colOrderedQty";
             this.colOrderedQty.ReadOnly = true;
             // 
             // colReceivedQty
             // 
+            this.colReceivedQty.DataPropertyName = "received_qty";
             this.colReceivedQty.HeaderText = "Received Qty";
             this.colReceivedQty.Name = "colReceivedQty";
             this.colReceivedQty.ReadOnly = true;
             // 
             // colPOGeneBy
             // 
+            this.colPOGeneBy.DataPropertyName = "po_generated_by";
             this.colPOGeneBy.HeaderText = "Generated By";
             this.colPOGeneBy.Name = "colPOGeneBy";
             this.colPOGeneBy.ReadOnly = true;
             this.colPOGeneBy.Visible = false;
             // 
+            // colHmAd
+            // 
+            this.colHmAd.DataPropertyName = "hm_address";
+            this.colHmAd.HeaderText = "HM Address";
+            this.colHmAd.Name = "colHmAd";
+            // 
+            // colHmConNum
+            // 
+            this.colHmConNum.DataPropertyName = "hm_contact_num";
+            this.colHmConNum.HeaderText = "HM Contact #";
+            this.colHmConNum.Name = "colHmConNum";
+            // 
+            // colHmEmail
+            // 
+            this.colHmEmail.DataPropertyName = "hm_email";
+            this.colHmEmail.HeaderText = "HM Email";
+            this.colHmEmail.Name = "colHmEmail";
+            // 
             // colReName
             // 
+            this.colReName.DataPropertyName = "receiver_name";
             this.colReName.HeaderText = "Receiver Name";
             this.colReName.Name = "colReName";
             this.colReName.ReadOnly = true;
             this.colReName.Visible = false;
             // 
-            // colReAdd
+            // colReAd
             // 
-            this.colReAdd.HeaderText = "Receiver Address";
-            this.colReAdd.Name = "colReAdd";
-            this.colReAdd.ReadOnly = true;
-            this.colReAdd.Visible = false;
+            this.colReAd.DataPropertyName = "re_address";
+            this.colReAd.HeaderText = "Receiver Address";
+            this.colReAd.Name = "colReAd";
+            this.colReAd.ReadOnly = true;
+            this.colReAd.Visible = false;
             // 
-            // colReContactNum
+            // colReConNum
             // 
-            this.colReContactNum.HeaderText = "Receiver Contact #";
-            this.colReContactNum.Name = "colReContactNum";
-            this.colReContactNum.ReadOnly = true;
-            this.colReContactNum.Visible = false;
+            this.colReConNum.DataPropertyName = "re_contact_num";
+            this.colReConNum.HeaderText = "Receiver Contact #";
+            this.colReConNum.Name = "colReConNum";
+            this.colReConNum.ReadOnly = true;
+            this.colReConNum.Visible = false;
             // 
             // colReEmail
             // 
+            this.colReEmail.DataPropertyName = "re_email";
             this.colReEmail.HeaderText = "Receiver Email";
             this.colReEmail.Name = "colReEmail";
             this.colReEmail.ReadOnly = true;
@@ -879,27 +883,31 @@
             // 
             // colSupplier
             // 
+            this.colSupplier.DataPropertyName = "supplier";
             this.colSupplier.HeaderText = "Supplier";
             this.colSupplier.Name = "colSupplier";
             this.colSupplier.ReadOnly = true;
             this.colSupplier.Visible = false;
             // 
-            // colSupAdd
+            // colSupAd
             // 
-            this.colSupAdd.HeaderText = "Supplier Address";
-            this.colSupAdd.Name = "colSupAdd";
-            this.colSupAdd.ReadOnly = true;
-            this.colSupAdd.Visible = false;
+            this.colSupAd.DataPropertyName = "sup_address";
+            this.colSupAd.HeaderText = "Supplier Address";
+            this.colSupAd.Name = "colSupAd";
+            this.colSupAd.ReadOnly = true;
+            this.colSupAd.Visible = false;
             // 
-            // colSupContactNum
+            // colSupConNum
             // 
-            this.colSupContactNum.HeaderText = "Supplier Contact #";
-            this.colSupContactNum.Name = "colSupContactNum";
-            this.colSupContactNum.ReadOnly = true;
-            this.colSupContactNum.Visible = false;
+            this.colSupConNum.DataPropertyName = "sup_contact_num";
+            this.colSupConNum.HeaderText = "Supplier Contact #";
+            this.colSupConNum.Name = "colSupConNum";
+            this.colSupConNum.ReadOnly = true;
+            this.colSupConNum.Visible = false;
             // 
             // colSupEmail
             // 
+            this.colSupEmail.DataPropertyName = "sup_email";
             this.colSupEmail.HeaderText = "Supplier Email";
             this.colSupEmail.Name = "colSupEmail";
             this.colSupEmail.ReadOnly = true;
@@ -907,6 +915,7 @@
             // 
             // colRemarks
             // 
+            this.colRemarks.DataPropertyName = "remarks";
             this.colRemarks.HeaderText = "Remarks";
             this.colRemarks.Name = "colRemarks";
             this.colRemarks.ReadOnly = true;
@@ -916,11 +925,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(849, 503);
+            this.ClientSize = new System.Drawing.Size(983, 614);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.MinimumSize = new System.Drawing.Size(865, 542);
+            this.MinimumSize = new System.Drawing.Size(999, 653);
             this.Name = "ReceivePO";
             this.Text = "ReceivePO";
+            this.Load += new System.EventHandler(this.ReceivePO_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tab1.ResumeLayout(false);
@@ -941,9 +951,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox tbRemarks;
         private System.Windows.Forms.Button btnOk;
@@ -979,12 +986,12 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbDateNow;
         private System.Windows.Forms.TextBox tbSup;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPoIdS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPoNumS;
-        private System.Windows.Forms.DataGridViewButtonColumn colAddS;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPoIdBo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPoNumBo;
         private System.Windows.Forms.DataGridViewButtonColumn colAddBo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPoIdS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPoNumS;
+        private System.Windows.Forms.DataGridViewButtonColumn colAddS;
         private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPOnum;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductCode;
@@ -996,13 +1003,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colOrderedQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn colReceivedQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPOGeneBy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colHmAd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colHmConNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colHmEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn colReName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colReAdd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colReContactNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colReAd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colReConNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn colReEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSupplier;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSupAdd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSupContactNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSupAd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSupConNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSupEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRemarks;
     }

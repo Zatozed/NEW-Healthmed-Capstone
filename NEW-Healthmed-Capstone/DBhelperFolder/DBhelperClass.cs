@@ -483,14 +483,15 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
         public void InsertToPo(
             string poNum, string prodCode, string prodName, string orQty, string reQty,
             string unitCost, string discount, string total, string totalDiscount, string poDate,
-            string poGeneBy, string reName, string reAdd, string reConNum, string reEmail, 
+            string poGeneBy, string hmAd, string hmConNum, string hmEmail,
+            string reName, string reAdd, string reConNum, string reEmail, 
             string sup, string supAdd, string supConNum, string supEmail, string remarks)
         {
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("insert into tbl_po(po_num, product_code, product_description, ordered_qty, received_qty, unit_cost, discount, total, total_discount, po_date, po_generated_by, receiver_name, re_address, re_contact_num, re_email, supplier, sup_address, sup_contact_num, sup_email, remarks)"+
-                    "values(@poNum, @prodCode, @prodName, @orQty, @reQty, @unitCost, @discount, @total, @totalDiscount, @poDate, @poGeneBy, @reName, @reAdd, @reConNum, @reEmail, @sup, @supAdd, @supConNum, @supEmail, @remarks)", con);
+                cmd = new MySqlCommand("insert into tbl_po(po_num, product_code, product_description, ordered_qty, received_qty, unit_cost, discount, total, total_discount, po_date, po_generated_by, hm_address, hm_contact_num, hm_email, receiver_name, re_address, re_contact_num, re_email, supplier, sup_address, sup_contact_num, sup_email, remarks)"+
+                    "values(@poNum, @prodCode, @prodName, @orQty, @reQty, @unitCost, @discount, @total, @totalDiscount, @poDate, @poGeneBy, @hmAd, @hmConNum, @hmEmail, @reName, @reAdd, @reConNum, @reEmail, @sup, @supAdd, @supConNum, @supEmail, @remarks)", con);
 
                 cmd.Parameters.AddWithValue("@poNum", poNum);
                 cmd.Parameters.AddWithValue("@prodCode", prodCode);
@@ -505,13 +506,17 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
                 cmd.Parameters.AddWithValue("@poDate", poDate);
 
                 cmd.Parameters.AddWithValue("@poGeneBy", poGeneBy);
+                cmd.Parameters.AddWithValue("@hmAd", hmAd);
+                cmd.Parameters.AddWithValue("@hmConNum", hmConNum);
+                cmd.Parameters.AddWithValue("@hmEmail", hmEmail);
                 cmd.Parameters.AddWithValue("@reName", reName);
+
                 cmd.Parameters.AddWithValue("@reAdd", reAdd);
                 cmd.Parameters.AddWithValue("@reConNum", reConNum);
                 cmd.Parameters.AddWithValue("@reEmail", reEmail);
-
                 cmd.Parameters.AddWithValue("@sup", sup);
                 cmd.Parameters.AddWithValue("@supAdd", supAdd);
+
                 cmd.Parameters.AddWithValue("@supConNum", supConNum);
                 cmd.Parameters.AddWithValue("@supEmail", supEmail);
                 cmd.Parameters.AddWithValue("@remarks", remarks);
@@ -612,6 +617,23 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             {
                 con.Open();
                 cmd = new MySqlCommand("select po_id, po_num from tbl_po where ordered_qty != received_qty",
+                con);
+                dataAdapter = new MySqlDataAdapter(cmd);
+                dataAdapter.Fill(dt);
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+
+            return dt;
+        }
+        public DataTable ShowPoList(string poNum)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("select * from tbl_po where po_num = '"+ poNum +"'",
                 con);
                 dataAdapter = new MySqlDataAdapter(cmd);
                 dataAdapter.Fill(dt);

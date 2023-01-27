@@ -1336,6 +1336,7 @@
             this.cbSupplierList.Name = "cbSupplierList";
             this.cbSupplierList.Size = new System.Drawing.Size(142, 21);
             this.cbSupplierList.TabIndex = 10;
+            this.cbSupplierList.TextChanged += new System.EventHandler(this.cbSupplierList_TextChanged);
             // 
             // dgvP_S
             // 

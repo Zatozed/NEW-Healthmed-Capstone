@@ -834,7 +834,12 @@ namespace NEW_Healthmed_Capstone.file_maintenance
             if (tbSearchProductList.Text == null || tbSearchProductList.Text.ToString().Equals(""))
                 dgvP_S.DataSource = dbh.showProductRelation();
             else
-                dgvP_S.DataSource = dbh.SearchRelation(tbSearchProductList.Text);
+                dgvP_S.DataSource = dbh.SearchRelation(tbSearchProductList.Text, cbSupplierList.Text);
+        }
+
+        private void cbSupplierList_TextChanged(object sender, EventArgs e)
+        {
+            dgvP_S.DataSource = dbh.SearchRelation(tbSearchProductList.Text, cbSupplierList.Text);
         }
     }
 }

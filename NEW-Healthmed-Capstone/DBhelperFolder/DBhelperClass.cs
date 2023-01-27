@@ -286,13 +286,13 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
 
             return dt;
         }
-        public DataTable SearchRelation(string s)
+        public DataTable SearchRelation(string s, string a)
         {
             DataTable dt = new DataTable();
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("select p.product_code, p.product_name,p.classification,p.dosage,p.med_type,p.unit_cost,p.unit_price,p.in_stock_qty,s.supplier_name from tbl_products as p inner join tbl_product_supplier on p.p_id = tbl_product_supplier.product_id inner join tbl_suppliers as s on s.sup_id = tbl_product_supplier.supplier_id WHERE (product_code like '%" + s + "%' or product_name like '%" + s + "%' or classification like '%" + s + "%' AND )",
+                cmd = new MySqlCommand("select p.product_code, p.product_name,p.classification,p.dosage,p.med_type,p.unit_cost,p.unit_price,p.in_stock_qty,s.supplier_name from tbl_products as p inner join tbl_product_supplier on p.p_id = tbl_product_supplier.product_id inner join tbl_suppliers as s on s.sup_id = tbl_product_supplier.supplier_id WHERE (product_code like '%" + s + "%' AND supplier_name ='" + a + "')",
                 con);
                 dataAdapter = new MySqlDataAdapter(cmd);
                 dataAdapter.Fill(dt);

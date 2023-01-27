@@ -25,7 +25,23 @@ namespace NEW_Healthmed_Capstone.User
         private void UserSettings_Load(object sender, EventArgs e)
         {
             MaximizeBox = false;
-        }
+            openCon();
+            cmd = new MySqlCommand("SELECT * FROM tbl_users WHERE userName = @user ", mysqlCon);
+            cmd.Parameters.AddWithValue("@user", Properties.Settings.Default.Login_Username);
+            dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                string getRoleID = dr.GetString("userRoleID");
+                closeCon();
+                if (getRoleID == "2")
+                {
+                    btnUserList.Visible = false;
+                    btnInfo.Location = new Point(147, 164);
+                    btnRegister.Visible = false;
+                    btnLogout.Location = new Point(147, 223);
+                }
+            }
+            }
         private void openCon()
         {
             mysqlConStrBldr = new MySqlConnectionStringBuilder(Properties.Settings.Default.S_ConBuild);

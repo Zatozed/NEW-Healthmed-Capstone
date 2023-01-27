@@ -119,23 +119,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tbRelationConfirm = new System.Windows.Forms.Button();
             this.dgvProductList = new System.Windows.Forms.DataGridView();
-            this.productID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colClassification = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMedType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductAddtoSupplier = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dgvRelation = new System.Windows.Forms.DataGridView();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCLass = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRemove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cbSupplier = new System.Windows.Forms.ComboBox();
             this.tbProductSearch = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -172,6 +156,22 @@
             this.errorProvider13 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider14 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider15 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.productID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colClassification = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMedType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductAddtoSupplier = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCLass = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRemove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
@@ -1106,85 +1106,9 @@
             this.dgvProductList.Margin = new System.Windows.Forms.Padding(4);
             this.dgvProductList.Name = "dgvProductList";
             this.dgvProductList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgvProductList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvProductList.Size = new System.Drawing.Size(642, 385);
             this.dgvProductList.TabIndex = 8;
             this.dgvProductList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductList_CellContentClick);
-            // 
-            // productID
-            // 
-            this.productID.DataPropertyName = "p_id";
-            this.productID.HeaderText = "ID";
-            this.productID.Name = "productID";
-            this.productID.ReadOnly = true;
-            this.productID.Visible = false;
-            // 
-            // colProductCode
-            // 
-            this.colProductCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colProductCode.DataPropertyName = "product_code";
-            this.colProductCode.HeaderText = "Product Code";
-            this.colProductCode.Name = "colProductCode";
-            this.colProductCode.ReadOnly = true;
-            this.colProductCode.Width = 115;
-            // 
-            // colProductName
-            // 
-            this.colProductName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colProductName.DataPropertyName = "product_name";
-            this.colProductName.HeaderText = "Product Name";
-            this.colProductName.Name = "colProductName";
-            this.colProductName.ReadOnly = true;
-            // 
-            // colClassification
-            // 
-            this.colClassification.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colClassification.DataPropertyName = "classification";
-            this.colClassification.HeaderText = "Classification";
-            this.colClassification.Name = "colClassification";
-            this.colClassification.ReadOnly = true;
-            this.colClassification.Width = 125;
-            // 
-            // colDosage
-            // 
-            this.colDosage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colDosage.DataPropertyName = "dosage";
-            this.colDosage.HeaderText = "Dosage";
-            this.colDosage.Name = "colDosage";
-            this.colDosage.ReadOnly = true;
-            this.colDosage.Width = 87;
-            // 
-            // colMedType
-            // 
-            this.colMedType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colMedType.DataPropertyName = "med_type";
-            this.colMedType.HeaderText = "Type";
-            this.colMedType.Name = "colMedType";
-            this.colMedType.ReadOnly = true;
-            this.colMedType.Width = 68;
-            // 
-            // Cost
-            // 
-            this.Cost.DataPropertyName = "unit_cost";
-            this.Cost.HeaderText = "Cost";
-            this.Cost.Name = "Cost";
-            this.Cost.Visible = false;
-            // 
-            // Price
-            // 
-            this.Price.DataPropertyName = "unit_price";
-            this.Price.HeaderText = "Price";
-            this.Price.Name = "Price";
-            this.Price.Visible = false;
-            // 
-            // colProductAddtoSupplier
-            // 
-            this.colProductAddtoSupplier.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colProductAddtoSupplier.HeaderText = "";
-            this.colProductAddtoSupplier.Name = "colProductAddtoSupplier";
-            this.colProductAddtoSupplier.Text = "Add";
-            this.colProductAddtoSupplier.UseColumnTextForButtonValue = true;
-            this.colProductAddtoSupplier.Width = 5;
             // 
             // dgvRelation
             // 
@@ -1223,69 +1147,9 @@
             this.dgvRelation.Margin = new System.Windows.Forms.Padding(4);
             this.dgvRelation.Name = "dgvRelation";
             this.dgvRelation.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgvRelation.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvRelation.Size = new System.Drawing.Size(643, 385);
             this.dgvRelation.TabIndex = 9;
             this.dgvRelation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRelation_CellContentClick);
-            // 
-            // colID
-            // 
-            this.colID.HeaderText = "ID";
-            this.colID.Name = "colID";
-            this.colID.Visible = false;
-            // 
-            // colProductC
-            // 
-            this.colProductC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colProductC.DataPropertyName = "product_code";
-            this.colProductC.HeaderText = "Product Code";
-            this.colProductC.Name = "colProductC";
-            this.colProductC.ReadOnly = true;
-            this.colProductC.Width = 115;
-            // 
-            // colPName
-            // 
-            this.colPName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colPName.DataPropertyName = "product_name";
-            this.colPName.HeaderText = "Product Name";
-            this.colPName.Name = "colPName";
-            this.colPName.ReadOnly = true;
-            // 
-            // colCLass
-            // 
-            this.colCLass.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colCLass.DataPropertyName = "classification";
-            this.colCLass.HeaderText = "Classification";
-            this.colCLass.Name = "colCLass";
-            this.colCLass.ReadOnly = true;
-            this.colCLass.Width = 125;
-            // 
-            // colDos
-            // 
-            this.colDos.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colDos.DataPropertyName = "dosage";
-            this.colDos.HeaderText = "Dosage";
-            this.colDos.Name = "colDos";
-            this.colDos.ReadOnly = true;
-            this.colDos.Width = 87;
-            // 
-            // colType
-            // 
-            this.colType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colType.DataPropertyName = "med_type";
-            this.colType.HeaderText = "Type";
-            this.colType.Name = "colType";
-            this.colType.ReadOnly = true;
-            this.colType.Width = 68;
-            // 
-            // colRemove
-            // 
-            this.colRemove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colRemove.HeaderText = "";
-            this.colRemove.Name = "colRemove";
-            this.colRemove.Text = "Remove";
-            this.colRemove.UseColumnTextForButtonValue = true;
-            this.colRemove.Width = 5;
             // 
             // cbSupplier
             // 
@@ -1584,6 +1448,141 @@
             // 
             this.errorProvider15.ContainerControl = this;
             // 
+            // productID
+            // 
+            this.productID.DataPropertyName = "p_id";
+            this.productID.HeaderText = "ID";
+            this.productID.Name = "productID";
+            this.productID.ReadOnly = true;
+            this.productID.Visible = false;
+            // 
+            // colProductCode
+            // 
+            this.colProductCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colProductCode.DataPropertyName = "product_code";
+            this.colProductCode.HeaderText = "Product Code";
+            this.colProductCode.Name = "colProductCode";
+            this.colProductCode.ReadOnly = true;
+            this.colProductCode.Width = 115;
+            // 
+            // colProductName
+            // 
+            this.colProductName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colProductName.DataPropertyName = "product_name";
+            this.colProductName.HeaderText = "Product Name";
+            this.colProductName.Name = "colProductName";
+            this.colProductName.ReadOnly = true;
+            this.colProductName.Width = 119;
+            // 
+            // colClassification
+            // 
+            this.colClassification.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colClassification.DataPropertyName = "classification";
+            this.colClassification.HeaderText = "Classification";
+            this.colClassification.Name = "colClassification";
+            this.colClassification.ReadOnly = true;
+            this.colClassification.Width = 125;
+            // 
+            // colDosage
+            // 
+            this.colDosage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colDosage.DataPropertyName = "dosage";
+            this.colDosage.HeaderText = "Dosage";
+            this.colDosage.Name = "colDosage";
+            this.colDosage.ReadOnly = true;
+            this.colDosage.Width = 87;
+            // 
+            // colMedType
+            // 
+            this.colMedType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colMedType.DataPropertyName = "med_type";
+            this.colMedType.HeaderText = "Type";
+            this.colMedType.Name = "colMedType";
+            this.colMedType.ReadOnly = true;
+            this.colMedType.Width = 68;
+            // 
+            // Cost
+            // 
+            this.Cost.DataPropertyName = "unit_cost";
+            this.Cost.HeaderText = "Cost";
+            this.Cost.Name = "Cost";
+            this.Cost.Visible = false;
+            // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "unit_price";
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            this.Price.Visible = false;
+            // 
+            // colProductAddtoSupplier
+            // 
+            this.colProductAddtoSupplier.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colProductAddtoSupplier.HeaderText = "";
+            this.colProductAddtoSupplier.Name = "colProductAddtoSupplier";
+            this.colProductAddtoSupplier.Text = "Add";
+            this.colProductAddtoSupplier.UseColumnTextForButtonValue = true;
+            this.colProductAddtoSupplier.Width = 5;
+            // 
+            // colID
+            // 
+            this.colID.HeaderText = "ID";
+            this.colID.Name = "colID";
+            this.colID.Visible = false;
+            // 
+            // colProductC
+            // 
+            this.colProductC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colProductC.DataPropertyName = "product_code";
+            this.colProductC.HeaderText = "Product Code";
+            this.colProductC.Name = "colProductC";
+            this.colProductC.ReadOnly = true;
+            this.colProductC.Width = 115;
+            // 
+            // colPName
+            // 
+            this.colPName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colPName.DataPropertyName = "product_name";
+            this.colPName.HeaderText = "Product Name";
+            this.colPName.Name = "colPName";
+            this.colPName.ReadOnly = true;
+            this.colPName.Width = 119;
+            // 
+            // colCLass
+            // 
+            this.colCLass.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colCLass.DataPropertyName = "classification";
+            this.colCLass.HeaderText = "Classification";
+            this.colCLass.Name = "colCLass";
+            this.colCLass.ReadOnly = true;
+            // 
+            // colDos
+            // 
+            this.colDos.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colDos.DataPropertyName = "dosage";
+            this.colDos.HeaderText = "Dosage";
+            this.colDos.Name = "colDos";
+            this.colDos.ReadOnly = true;
+            this.colDos.Width = 87;
+            // 
+            // colType
+            // 
+            this.colType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colType.DataPropertyName = "med_type";
+            this.colType.HeaderText = "Type";
+            this.colType.Name = "colType";
+            this.colType.ReadOnly = true;
+            this.colType.Width = 68;
+            // 
+            // colRemove
+            // 
+            this.colRemove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colRemove.HeaderText = "";
+            this.colRemove.Name = "colRemove";
+            this.colRemove.Text = "Remove";
+            this.colRemove.UseColumnTextForButtonValue = true;
+            this.colRemove.Width = 5;
+            // 
             // FileMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
@@ -1739,13 +1738,6 @@
         private System.Windows.Forms.Button tbRelationConfirm;
         private System.Windows.Forms.DataGridView dgvProductList;
         private System.Windows.Forms.DataGridView dgvRelation;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProductC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCLass;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colType;
-        private System.Windows.Forms.DataGridViewButtonColumn colRemove;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox tbSearchProductList;
@@ -1771,5 +1763,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cost;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewButtonColumn colProductAddtoSupplier;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProductC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCLass;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colType;
+        private System.Windows.Forms.DataGridViewButtonColumn colRemove;
     }
 }

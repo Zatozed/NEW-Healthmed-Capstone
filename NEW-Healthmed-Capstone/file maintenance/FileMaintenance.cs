@@ -4,6 +4,9 @@ using MySqlX.XDevAPI.Relational;
 using NEW_Healthmed_Capstone.DBhelperFolder;
 using Org.BouncyCastle.Utilities.Collections;
 using System;
+using System.Data.Common;
+using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
@@ -11,6 +14,7 @@ namespace NEW_Healthmed_Capstone.file_maintenance
 {
     public partial class FileMaintenance : Form
     {
+        private MySqlDataAdapter dataAdapter;
         private DBhelperClass dbh = new DBhelperClass();
         private MySqlCommand cmd;
         private MySqlDataReader dr;
@@ -631,7 +635,7 @@ namespace NEW_Healthmed_Capstone.file_maintenance
                 string productID = Convert.ToString(dgvProducts.Rows[e.RowIndex].Cells["p_ID"].Value);
 
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                DialogResult result = MessageBox.Show("Do you want to delete this Supplier?", "Delete", buttons);
+                DialogResult result = MessageBox.Show("Do you want to delete this Product?", "Delete", buttons);
                 if (result == DialogResult.Yes)
                 {
                     try
@@ -766,7 +770,7 @@ namespace NEW_Healthmed_Capstone.file_maintenance
         private void dgvP_S_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show("Do you want to delete this Supplier?", "Delete", buttons);
+            DialogResult result = MessageBox.Show("Do you want to delete this Relation?", "Delete", buttons);
             if (result == DialogResult.Yes)
             {
                 if (dgvP_S.Columns[e.ColumnIndex].Name == "colDelete")
@@ -825,18 +829,14 @@ namespace NEW_Healthmed_Capstone.file_maintenance
                 }
             }
         }
+        private void cbSupplierList_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
 
         private void tbSearchProductList_TextChanged(object sender, EventArgs e)
         {
-            if (tbSearchProductList.Text == null || tbSearchProductList.Text.ToString().Equals(""))
-                dgvP_S.DataSource = dbh.showProductRelation();
-            else
-                dgvP_S.DataSource = dbh.SearchRelation(tbSearchProductList.Text, cbSupplierList.Text);
-        }
 
-        private void cbSupplierList_TextChanged(object sender, EventArgs e)
-        {
-            dgvP_S.DataSource = dbh.SearchRelation(tbSearchProductList.Text, cbSupplierList.Text);
         }
     }
 }

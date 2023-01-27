@@ -32,33 +32,6 @@ namespace NEW_Healthmed_Capstone.Main
         {
             MaximizeBox = false;
 
-            label1.Parent = pictureBox1;
-            label1.BackColor = Color.Transparent;
-
-            label2.Parent = pictureBox1;
-            label2.BackColor = Color.Transparent;
-
-            label5.Parent = pictureBox1;
-            label5.BackColor = Color.Transparent;
-
-            label6.Parent = pictureBox1;
-            label6.BackColor = Color.Transparent;
-
-            label7.Parent = pictureBox1;
-            label7.BackColor = Color.Transparent;
-
-            label8.Parent = pictureBox1;
-            label8.BackColor = Color.Transparent;
-
-            label9.Parent = pictureBox1;
-            label9.BackColor = Color.Transparent;
-
-            label10.Parent = pictureBox1;
-            label10.BackColor = Color.Transparent;
-
-            label11.Parent = pictureBox1;
-            label11.BackColor = Color.Transparent;
-
             lbDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
 
             try

@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnReports = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -44,21 +46,25 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dgvExpiry = new System.Windows.Forms.DataGridView();
+            this.colExpiryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLotNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colExpiry = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDeleteExpiry = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvExpiry)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -229,144 +235,34 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.label11);
-            this.panel3.Controls.Add(this.label10);
-            this.panel3.Controls.Add(this.label9);
-            this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Controls.Add(this.panel5);
+            this.panel3.Controls.Add(this.panel4);
             this.panel3.Location = new System.Drawing.Point(252, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1118, 730);
             this.panel3.TabIndex = 1;
             // 
-            // label11
+            // timer1
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 17F);
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(725, 695);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(226, 24);
-            this.label11.TabIndex = 16;
-            this.label11.Text = "CONTACT NO.:";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // label10
+            // panel4
             // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 17F);
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(725, 671);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(226, 24);
-            this.label10.TabIndex = 15;
-            this.label10.Text = "DEVELOPERS:";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.panel4.Controls.Add(this.pictureBox1);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1114, 296);
+            this.panel4.TabIndex = 0;
             // 
-            // label9
+            // panel5
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 17F);
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(725, 647);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(226, 24);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "SYSTEM PUBLISHED:";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // label8
-            // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 17F);
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(725, 623);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(186, 24);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "LOCATION:";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // label7
-            // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 17F);
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(725, 599);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(186, 24);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "FB PAGE:";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 17F);
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(725, 575);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(186, 24);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "EMAIL:";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 17F);
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(725, 551);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(148, 24);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "CONTACT INFO:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 50F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(102, 109);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(930, 68);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "SALES AND INVENTORY";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 50F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(102, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(930, 68);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "HEALTHMED DRUGSTORE";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.panel5.Controls.Add(this.dgvExpiry);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(0, 296);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1114, 430);
+            this.panel5.TabIndex = 1;
             // 
             // pictureBox1
             // 
@@ -374,14 +270,105 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1114, 726);
+            this.pictureBox1.Size = new System.Drawing.Size(1114, 296);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // timer1
+            // dgvExpiry
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.dgvExpiry.AllowUserToAddRows = false;
+            this.dgvExpiry.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvExpiry.BackgroundColor = System.Drawing.Color.White;
+            this.dgvExpiry.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvExpiry.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvExpiry.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvExpiry.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colExpiryID,
+            this.colProductCode,
+            this.colDescription,
+            this.colLotNo,
+            this.colExpiry,
+            this.colDays,
+            this.colDeleteExpiry});
+            this.dgvExpiry.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvExpiry.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvExpiry.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dgvExpiry.Location = new System.Drawing.Point(4, 24);
+            this.dgvExpiry.Name = "dgvExpiry";
+            this.dgvExpiry.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvExpiry.Size = new System.Drawing.Size(1100, 396);
+            this.dgvExpiry.TabIndex = 18;
+            // 
+            // colExpiryID
+            // 
+            this.colExpiryID.HeaderText = "ID";
+            this.colExpiryID.Name = "colExpiryID";
+            this.colExpiryID.Visible = false;
+            // 
+            // colProductCode
+            // 
+            this.colProductCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colProductCode.HeaderText = "Product Code";
+            this.colProductCode.Name = "colProductCode";
+            this.colProductCode.ReadOnly = true;
+            this.colProductCode.Width = 97;
+            // 
+            // colDescription
+            // 
+            this.colDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDescription.HeaderText = "Description";
+            this.colDescription.Name = "colDescription";
+            this.colDescription.ReadOnly = true;
+            // 
+            // colLotNo
+            // 
+            this.colLotNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colLotNo.HeaderText = "Lot #";
+            this.colLotNo.Name = "colLotNo";
+            this.colLotNo.ReadOnly = true;
+            this.colLotNo.Width = 57;
+            // 
+            // colExpiry
+            // 
+            this.colExpiry.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colExpiry.HeaderText = "Expiry";
+            this.colExpiry.Name = "colExpiry";
+            this.colExpiry.ReadOnly = true;
+            this.colExpiry.Width = 60;
+            // 
+            // colDays
+            // 
+            this.colDays.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colDays.HeaderText = "Days";
+            this.colDays.Name = "colDays";
+            this.colDays.ReadOnly = true;
+            this.colDays.Width = 56;
+            // 
+            // colDeleteExpiry
+            // 
+            this.colDeleteExpiry.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colDeleteExpiry.HeaderText = "";
+            this.colDeleteExpiry.Name = "colDeleteExpiry";
+            this.colDeleteExpiry.Text = "Delete";
+            this.colDeleteExpiry.UseColumnTextForButtonValue = true;
+            this.colDeleteExpiry.Width = 5;
             // 
             // MainForm
             // 
@@ -400,7 +387,10 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvExpiry)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -416,21 +406,22 @@
         private System.Windows.Forms.Label lbTime;
         private System.Windows.Forms.Label lbDate;
         private System.Windows.Forms.Button btnFilemaintenance;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnInventory;
         private System.Windows.Forms.Button btnPOS;
         private System.Windows.Forms.Button btnReports;
         public System.Windows.Forms.Label lbUser;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridView dgvExpiry;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colExpiryID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProductCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLotNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colExpiry;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDays;
+        private System.Windows.Forms.DataGridViewButtonColumn colDeleteExpiry;
     }
 }

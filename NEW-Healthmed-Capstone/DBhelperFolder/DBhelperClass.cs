@@ -525,6 +525,16 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             }
             catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
             finally { con.Close(); }
+            // update pending from ordered
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("update tbl_po set pending_qty = ordered_qty where product_code = '"+ prodCode+"'", con);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
         }
         public void DelAtPoList(string i)
         {
@@ -604,6 +614,39 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
                 cmd.Parameters.AddWithValue("@date_re", date_re);
                 cmd.Parameters.AddWithValue("@re_by", re_by);
                 cmd.Parameters.AddWithValue("@remarks", remarks);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+            //                                  update received qty
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("update tbl_po set received_qty = received_qty + "+ reQty +" where product_code = '"+ prodCode +"'", con);
+
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+            //                                  update pending
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("update tbl_po set pending_qty = ordered_qty - received_qty where product_code = '"+prodCode+"'", con);
+
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+            //                                  update in stock
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("update tbl_products set in_stock_qty = in_stock_qty + "+reQty+" where product_code = '"+prodCode+"'", con);
+
 
                 cmd.ExecuteNonQuery();
             }

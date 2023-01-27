@@ -6,6 +6,7 @@ using NEW_Healthmed_Capstone.Reports;
 using System;
 using System.Data;
 using System.Windows.Forms;
+using static Google.Protobuf.Reflection.FieldOptions.Types;
 
 namespace NEW_Healthmed_Capstone.Inv
 {
@@ -43,13 +44,17 @@ namespace NEW_Healthmed_Capstone.Inv
             ds.Tables.Add(dt);
             ds.WriteXmlSchema("ReceivePO.xml");
 
+            RPOReport rPO = new RPOReport();
+            RPOReportViewer rPOV = new RPOReportViewer();
 
+            rPO.SetDataSource(ds);
+            rPOV.crtViewer.ReportSource= rPO;
 
-            //TextObject tHAd = (TextObject)ctrpr.ReportDefinition.Sections["Section1"].ReportObjects["toHAddress"];
-            //tHAd.Text = tbHmdAdress.Text;
+            TextObject toGe = (TextObject)rPO.ReportDefinition.Sections["Section5"].ReportObjects["toGeneratedBy"];
+            toGe.Text = Properties.Settings.Default.Fname_Lname;
 
-            //prv.crtPo.Refresh();
-            //prv.Show();
+            rPOV.crtViewer.Refresh();
+            rPOV.Show();
         }
         private void tbPOnum_TextChanged(object sender, EventArgs e)
         {
@@ -197,6 +202,19 @@ namespace NEW_Healthmed_Capstone.Inv
                 //}
             }
             catch (Exception cn) { }
+        }
+
+
+        private void dgvToReceive_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            if (dgvToReceive.Columns[e.ColumnIndex].Name.Equals("colReQty")) 
+            {
+                //if (Double.TryParse(dgvToReceive.Rows[e.RowIndex].Cells["colReQty"].Value.ToString(), out double r))
+                //{
+                //    MessageBox.Show("This Field Only Accepts Number");
+                //}
+            }
+            
         }
     }
 }

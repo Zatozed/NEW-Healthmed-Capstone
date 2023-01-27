@@ -108,6 +108,12 @@
       <DependentUpon>resibo.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CrystalReportsFolder\RPOReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RPOReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CrystalReportsFolder\SalesReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -220,6 +226,12 @@
     <Compile Include="Reports\Resibo.Designer.cs">
       <DependentUpon>Resibo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\RPOReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\RPOReportViewer.Designer.cs">
+      <DependentUpon>RPOReportViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\SalesReportGenerator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -273,6 +285,10 @@
     <EmbeddedResource Include="CrystalReportsFolder\resibo.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>resibo.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReportsFolder\RPOReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RPOReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReportsFolder\SalesReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -335,6 +351,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Resibo.resx">
       <DependentUpon>Resibo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RPOReportViewer.resx">
+      <DependentUpon>RPOReportViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\SalesReportGenerator.resx">
       <DependentUpon>SalesReportGenerator.cs</DependentUpon>

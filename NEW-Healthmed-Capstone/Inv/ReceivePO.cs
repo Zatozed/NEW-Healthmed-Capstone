@@ -40,7 +40,11 @@ namespace NEW_Healthmed_Capstone.Inv
         private void ReceivePO_Load(object sender, EventArgs e)
         {
             dgvToReceive.AutoGenerateColumns = false;
+
             dgvPoList.DataSource = dbh.ShowPoList();
+
+            dgvBackOrder.DataSource = dbh.ShowBackOrder();
+
             tbDateNow.Text = DateTime.Now.ToString("yyyy-MM-dd");
 
             
@@ -58,7 +62,7 @@ namespace NEW_Healthmed_Capstone.Inv
         private void btnRe_Click(object sender, EventArgs e)
         {
 
-
+            dgvBackOrder.DataSource = dbh.ShowBackOrder();
             dgvPoList.DataSource = dbh.ShowPoList();
         }
 

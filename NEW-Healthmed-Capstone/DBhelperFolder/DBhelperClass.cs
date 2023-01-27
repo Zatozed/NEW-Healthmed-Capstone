@@ -643,6 +643,25 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
 
             return dt;
         }
+
+        public DataTable ShowBackOrder()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("select po_id, po_num from tbl_po where ((select(sum(pending_qty)) != 0));",
+                con);
+                dataAdapter = new MySqlDataAdapter(cmd);
+                dataAdapter.Fill(dt);
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+
+            return dt;
+        }
+
         public string GenereateTransacNum()
         {
             string date = DateTime.Now.ToString("yyyyMMdd");

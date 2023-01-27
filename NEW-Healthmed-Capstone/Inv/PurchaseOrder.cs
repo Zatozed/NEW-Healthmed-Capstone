@@ -101,8 +101,6 @@ namespace NEW_Healthmed_Capstone.Inv
 
             dgvReOrderList.DataSource = dbh.ShowProductToOrder();
 
-            dgvPOlist.DataSource = dbh.ShowPoList();
-
             tbHmdAdress.Text = Properties.Settings.Default.HMDaddress;
             tbHmdContactNum.Text = Properties.Settings.Default.HMDcontactNum;
             tbHmdEmail.Text = Properties.Settings.Default.HMDemail;
@@ -318,29 +316,10 @@ namespace NEW_Healthmed_Capstone.Inv
                 }
                 
             }
-            dgvPOlist.DataSource = dbh.ShowPoList();
             dgvOrders.Rows.Clear();
             tbPOnum.Text = dbh.GeneratePoNum();
         }
 
-        private void dgvPOlist_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvPOlist.Columns[e.ColumnIndex].Name.Equals("colView")) 
-            {
-                
-            }
-            else if (dgvPOlist.Columns[e.ColumnIndex].Name.Equals("colDel"))
-            {
-                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                DialogResult result = MessageBox.Show("Do you want to delete this?", "Delete", buttons);
-                if (result == DialogResult.Yes)
-                {
-                    dgvPOlist.DataSource = dbh.ShowPoList();
-                    dbh.DelAtPoList(dgvPOlist.Rows[e.RowIndex].Cells["colPoID"].Value.ToString());
-                }
-                    
-            }
-        }
 
         private void cbSup_SelectedIndexChanged(object sender, EventArgs e)
         {

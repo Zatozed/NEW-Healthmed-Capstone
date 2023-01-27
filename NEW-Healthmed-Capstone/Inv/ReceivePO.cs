@@ -82,5 +82,13 @@ namespace NEW_Healthmed_Capstone.Inv
 
             }
         }
+
+        private void dgvToReceive_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvToReceive.Columns[e.ColumnIndex].Name.Equals("colExpiryDate"))
+            {
+                MessageBox.Show("e");
+            }
+        }
     }
 }

@@ -121,6 +121,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CtrHelperFolder\CtrHelper.cs" />
+    <Compile Include="DatePicker\DatePicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatePicker\DatePicker.Designer.cs">
+      <DependentUpon>DatePicker.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBhelperFolder\DBhelperClass.cs" />
     <Compile Include="file maintenance\FileMaintenance.cs">
       <SubType>Form</SubType>
@@ -275,6 +281,9 @@
     <EmbeddedResource Include="CrystalReportsFolder\SupplierReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>SupplierReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DatePicker\DatePicker.resx">
+      <DependentUpon>DatePicker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="file maintenance\FileMaintenance.resx">
       <DependentUpon>FileMaintenance.cs</DependentUpon>

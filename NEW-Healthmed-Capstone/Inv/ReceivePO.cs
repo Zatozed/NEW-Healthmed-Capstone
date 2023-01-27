@@ -51,5 +51,12 @@ namespace NEW_Healthmed_Capstone.Inv
                 
             }
         }
+
+        private void btnRe_Click(object sender, EventArgs e)
+        {
+
+
+            dgvPoList.DataSource = dbh.ShowPoList();
+        }
     }
 }

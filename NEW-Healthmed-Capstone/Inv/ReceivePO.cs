@@ -73,5 +73,14 @@ namespace NEW_Healthmed_Capstone.Inv
                 r.Cells["colExpiryDate"].Value = "Set Expiry";
             }
         }
+
+        private void dgvBackOrder_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvBackOrder.Columns[e.ColumnIndex].Name.Equals("colAddBo"))
+            {
+                tbPOnum.Text = dgvBackOrder.Rows[e.RowIndex].Cells["colPoNumBo"].Value.ToString();
+
+            }
+        }
     }
 }

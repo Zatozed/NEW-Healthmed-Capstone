@@ -63,7 +63,7 @@ namespace NEW_Healthmed_Capstone.Inv
         private void btnRe_Click(object sender, EventArgs e)
         {
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show("Do you want to save this Purchase Order?", "Save", buttons);
+            DialogResult result = MessageBox.Show("Receive These Product/s?", "Save", buttons);
             if (result == DialogResult.Yes)
             {
                 foreach (DataGridViewRow r in dgvToReceive.Rows)

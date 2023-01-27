@@ -475,6 +475,7 @@
             this.colSupEmail,
             this.colRemarks});
             this.dgvOrders.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvOrders.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgvOrders.GridColor = System.Drawing.Color.Gray;
             this.dgvOrders.Location = new System.Drawing.Point(3, 3);
             this.dgvOrders.Name = "dgvOrders";
@@ -670,6 +671,7 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvReOrderList.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvReOrderList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvReOrderList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgvReOrderList.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvReOrderList.Location = new System.Drawing.Point(3, 3);
             this.dgvReOrderList.Name = "dgvReOrderList";
@@ -828,6 +830,7 @@
             dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvOtherProds.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvOtherProds.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvOtherProds.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgvOtherProds.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvOtherProds.Location = new System.Drawing.Point(0, 0);
             this.dgvOtherProds.Name = "dgvOtherProds";

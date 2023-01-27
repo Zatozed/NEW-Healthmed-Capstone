@@ -422,6 +422,7 @@
             this.colSupEmail,
             this.colRemarks});
             this.dgvToReceive.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvToReceive.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgvToReceive.GridColor = System.Drawing.Color.Gray;
             this.dgvToReceive.Location = new System.Drawing.Point(3, 3);
             this.dgvToReceive.Name = "dgvToReceive";
@@ -474,6 +475,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvPoList.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvPoList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvPoList.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgvPoList.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvPoList.Location = new System.Drawing.Point(3, 3);
             this.dgvPoList.Name = "dgvPoList";
@@ -523,6 +525,7 @@
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvBackOrder.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvBackOrder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvBackOrder.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgvBackOrder.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvBackOrder.Location = new System.Drawing.Point(0, 0);
             this.dgvBackOrder.Name = "dgvBackOrder";

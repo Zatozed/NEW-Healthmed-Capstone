@@ -15,5 +15,10 @@ namespace NEW_Healthmed_Capstone.DatePicker
             Properties.Settings.Default.ExpiryDate = dateTimePicker1.Value.ToString("yyyy-MM-dd");
             this.Close();
         }
+
+        private void ExpirySetter_Load(object sender, EventArgs e)
+        {
+            dateTimePicker1.MinDate = DateTime.Now;
+        }
     }
 }

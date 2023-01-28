@@ -68,6 +68,7 @@
             this.Name = "ExpirySetter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Set Date";
+            this.Load += new System.EventHandler(this.ExpirySetter_Load);
             this.ResumeLayout(false);
 
         }

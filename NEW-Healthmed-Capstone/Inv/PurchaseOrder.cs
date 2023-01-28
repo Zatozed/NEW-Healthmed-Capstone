@@ -270,9 +270,21 @@ namespace NEW_Healthmed_Capstone.Inv
         {
             PropertiesSave();
 
-            if (cbSup.Text.ToString().Equals("Select") || cbSup.Text.ToString().Equals(""))
+            bool black = false;
+            foreach (DataGridViewRow r in dgvOrders.Rows)
+            {
+                if (r.Cells["colQty"].Value == null || r.Cells["colQty"].Value.ToString().Equals("0")) 
+                    { black = true; }
+            }
+
+            if (cbSup.Text.ToString().Equals("Select") || cbSup.Text.ToString().Equals("") )
             {
                 MessageBox.Show("Select Supplier");
+                dgvOrders.Rows.Clear();
+            }
+            else if (black == true)
+            {
+                MessageBox.Show("Check Quantity");
             }
             else
             {
@@ -301,7 +313,7 @@ namespace NEW_Healthmed_Capstone.Inv
                             tbReName.Text.ToString(),
                             tbReAd.Text.ToString(),
 
-                            tbReNum.Text.ToString(), 
+                            tbReNum.Text.ToString(),
                             tbReEmail.Text.ToString(),
                             cbSup.Text.ToString(),
                             tbSupAddress.Text.ToString(),
@@ -313,10 +325,10 @@ namespace NEW_Healthmed_Capstone.Inv
                     }
 
                     DgvToDt();
+                    dgvOrders.Rows.Clear();
                 }
-                
             }
-            dgvOrders.Rows.Clear();
+            
             tbPOnum.Text = dbh.GeneratePoNum();
         }
 

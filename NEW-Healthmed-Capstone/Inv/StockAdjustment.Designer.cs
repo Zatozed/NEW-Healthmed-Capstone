@@ -30,6 +30,8 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.RefStockUdjust = new System.Windows.Forms.TextBox();
@@ -128,7 +130,7 @@
             this.DGVStockUdjustment.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -156,7 +158,7 @@
             this.DGVStockUdjustment.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
@@ -166,6 +168,16 @@
             this.DGVStockUdjustment.Location = new System.Drawing.Point(12, 15);
             this.DGVStockUdjustment.Name = "DGVStockUdjustment";
             this.DGVStockUdjustment.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DGVStockUdjustment.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DGVStockUdjustment.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DGVStockUdjustment.Size = new System.Drawing.Size(1355, 339);
             this.DGVStockUdjustment.TabIndex = 19;
             this.DGVStockUdjustment.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVStockUdjustment_CellContentClick);
@@ -178,7 +190,6 @@
             this.productID.Name = "productID";
             this.productID.ReadOnly = true;
             this.productID.Visible = false;
-            this.productID.Width = 43;
             // 
             // colProductCode
             // 
@@ -187,7 +198,7 @@
             this.colProductCode.HeaderText = "Product Code";
             this.colProductCode.Name = "colProductCode";
             this.colProductCode.ReadOnly = true;
-            this.colProductCode.Width = 97;
+            this.colProductCode.Width = 115;
             // 
             // colProductName
             // 
@@ -196,6 +207,7 @@
             this.colProductName.HeaderText = "Product Name";
             this.colProductName.Name = "colProductName";
             this.colProductName.ReadOnly = true;
+            this.colProductName.Width = 119;
             // 
             // colClassification
             // 
@@ -204,7 +216,7 @@
             this.colClassification.HeaderText = "Classification";
             this.colClassification.Name = "colClassification";
             this.colClassification.ReadOnly = true;
-            this.colClassification.Width = 93;
+            this.colClassification.Width = 125;
             // 
             // colDosage
             // 
@@ -213,7 +225,7 @@
             this.colDosage.HeaderText = "Dosage";
             this.colDosage.Name = "colDosage";
             this.colDosage.ReadOnly = true;
-            this.colDosage.Width = 69;
+            this.colDosage.Width = 87;
             // 
             // colMedType
             // 
@@ -222,7 +234,7 @@
             this.colMedType.HeaderText = "Type";
             this.colMedType.Name = "colMedType";
             this.colMedType.ReadOnly = true;
-            this.colMedType.Width = 56;
+            this.colMedType.Width = 68;
             // 
             // colCost
             // 
@@ -231,13 +243,14 @@
             this.colCost.HeaderText = "Unit Cost";
             this.colCost.Name = "colCost";
             this.colCost.ReadOnly = true;
-            this.colCost.Width = 75;
+            this.colCost.Width = 87;
             // 
             // colNewUnitCost
             // 
             this.colNewUnitCost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colNewUnitCost.HeaderText = "New Unit Cost";
             this.colNewUnitCost.Name = "colNewUnitCost";
+            this.colNewUnitCost.Width = 117;
             // 
             // colPrice
             // 
@@ -246,14 +259,14 @@
             this.colPrice.HeaderText = "Unit Price";
             this.colPrice.Name = "colPrice";
             this.colPrice.ReadOnly = true;
-            this.colPrice.Width = 78;
+            this.colPrice.Width = 91;
             // 
             // colNewUnitPrice
             // 
             this.colNewUnitPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colNewUnitPrice.HeaderText = "New Unit Price";
             this.colNewUnitPrice.Name = "colNewUnitPrice";
-            this.colNewUnitPrice.Width = 95;
+            this.colNewUnitPrice.Width = 122;
             // 
             // colInStock
             // 
@@ -262,14 +275,14 @@
             this.colInStock.HeaderText = "In Stock Qty.";
             this.colInStock.Name = "colInStock";
             this.colInStock.ReadOnly = true;
-            this.colInStock.Width = 87;
+            this.colInStock.Width = 108;
             // 
             // colNewInStock
             // 
             this.colNewInStock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colNewInStock.HeaderText = "New In Stock Qty.";
             this.colNewInStock.Name = "colNewInStock";
-            this.colNewInStock.Width = 92;
+            this.colNewInStock.Width = 115;
             // 
             // colReOrder
             // 
@@ -278,7 +291,7 @@
             this.colReOrder.HeaderText = "Reorder point";
             this.colReOrder.Name = "colReOrder";
             this.colReOrder.ReadOnly = true;
-            this.colReOrder.Width = 88;
+            this.colReOrder.Width = 116;
             // 
             // colSafetyStock
             // 
@@ -287,7 +300,7 @@
             this.colSafetyStock.HeaderText = "Safety Stock per week";
             this.colSafetyStock.Name = "colSafetyStock";
             this.colSafetyStock.ReadOnly = true;
-            this.colSafetyStock.Width = 105;
+            this.colSafetyStock.Width = 137;
             // 
             // colRemark
             // 
@@ -296,14 +309,14 @@
             this.colRemark.HeaderText = "Remarks";
             this.colRemark.Name = "colRemark";
             this.colRemark.ReadOnly = true;
-            this.colRemark.Width = 74;
+            this.colRemark.Width = 94;
             // 
             // colNewRemarks
             // 
             this.colNewRemarks.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colNewRemarks.HeaderText = "New Remarks";
             this.colNewRemarks.Name = "colNewRemarks";
-            this.colNewRemarks.Width = 91;
+            this.colNewRemarks.Width = 117;
             // 
             // colUpdate
             // 

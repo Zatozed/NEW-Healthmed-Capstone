@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -39,9 +42,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,7 +52,6 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.tbRemarks = new System.Windows.Forms.TextBox();
-            this.btnOk = new System.Windows.Forms.Button();
             this.tbHmdAdress = new System.Windows.Forms.TextBox();
             this.tbHmdContactNum = new System.Windows.Forms.TextBox();
             this.tbHmdEmail = new System.Windows.Forms.TextBox();
@@ -65,6 +64,26 @@
             this.tab1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dgvOrders = new System.Windows.Forms.DataGridView();
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPOnum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProductDes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnitCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colOrderedQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colReceivedQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPODate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPOGeneBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colReName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colReAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colReContactNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colReEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSupplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSupAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSupContactNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSupEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgvReOrderList = new System.Windows.Forms.DataGridView();
             this.colProdCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -105,29 +124,10 @@
             this.cbSup = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tbDateNow = new System.Windows.Forms.TextBox();
+            this.btnOk = new System.Windows.Forms.Button();
             this.lbSubtotal = new System.Windows.Forms.Label();
             this.lbDiscount = new System.Windows.Forms.Label();
             this.lbTotal = new System.Windows.Forms.Label();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPOnum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProductDes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnitCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colOrderedQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colReceivedQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPODate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPOGeneBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colReName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colReAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colReContactNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colReEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSupplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSupAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSupContactNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSupEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tab1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -309,19 +309,6 @@
             this.tbRemarks.Size = new System.Drawing.Size(258, 44);
             this.tbRemarks.TabIndex = 19;
             // 
-            // btnOk
-            // 
-            this.btnOk.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnOk.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOk.Location = new System.Drawing.Point(927, 515);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(132, 23);
-            this.btnOk.TabIndex = 25;
-            this.btnOk.Text = "OK";
-            this.btnOk.UseVisualStyleBackColor = false;
-            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
-            // 
             // tbHmdAdress
             // 
             this.tbHmdAdress.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -486,6 +473,148 @@
             this.dgvOrders.Size = new System.Drawing.Size(1042, 240);
             this.dgvOrders.TabIndex = 21;
             this.dgvOrders.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrders_CellValueChanged);
+            // 
+            // colID
+            // 
+            this.colID.DataPropertyName = "po_id";
+            this.colID.HeaderText = "ID";
+            this.colID.Name = "colID";
+            this.colID.ReadOnly = true;
+            this.colID.Visible = false;
+            // 
+            // colPOnum
+            // 
+            this.colPOnum.DataPropertyName = "po_num";
+            this.colPOnum.HeaderText = "PO #";
+            this.colPOnum.Name = "colPOnum";
+            this.colPOnum.ReadOnly = true;
+            this.colPOnum.Visible = false;
+            // 
+            // colProductCode
+            // 
+            this.colProductCode.HeaderText = "Product Code";
+            this.colProductCode.Name = "colProductCode";
+            this.colProductCode.ReadOnly = true;
+            // 
+            // colProductDes
+            // 
+            this.colProductDes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colProductDes.HeaderText = "Product Description";
+            this.colProductDes.Name = "colProductDes";
+            this.colProductDes.ReadOnly = true;
+            this.colProductDes.Width = 153;
+            // 
+            // colQty
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.colQty.DefaultCellStyle = dataGridViewCellStyle1;
+            this.colQty.HeaderText = "Qty";
+            this.colQty.Name = "colQty";
+            // 
+            // colDiscount
+            // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.colDiscount.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colDiscount.HeaderText = "Discount Decimal";
+            this.colDiscount.Name = "colDiscount";
+            // 
+            // colUnitCost
+            // 
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.colUnitCost.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colUnitCost.HeaderText = "Unit Cost";
+            this.colUnitCost.Name = "colUnitCost";
+            // 
+            // colOrderedQty
+            // 
+            this.colOrderedQty.HeaderText = "Ordered Qty";
+            this.colOrderedQty.Name = "colOrderedQty";
+            this.colOrderedQty.ReadOnly = true;
+            this.colOrderedQty.Visible = false;
+            // 
+            // colReceivedQty
+            // 
+            this.colReceivedQty.HeaderText = "Received Qty";
+            this.colReceivedQty.Name = "colReceivedQty";
+            this.colReceivedQty.ReadOnly = true;
+            this.colReceivedQty.Visible = false;
+            // 
+            // colPODate
+            // 
+            this.colPODate.HeaderText = "Date";
+            this.colPODate.Name = "colPODate";
+            this.colPODate.ReadOnly = true;
+            this.colPODate.Visible = false;
+            // 
+            // colPOGeneBy
+            // 
+            this.colPOGeneBy.HeaderText = "Generated By";
+            this.colPOGeneBy.Name = "colPOGeneBy";
+            this.colPOGeneBy.ReadOnly = true;
+            this.colPOGeneBy.Visible = false;
+            // 
+            // colReName
+            // 
+            this.colReName.HeaderText = "Receiver Name";
+            this.colReName.Name = "colReName";
+            this.colReName.ReadOnly = true;
+            this.colReName.Visible = false;
+            // 
+            // colReAdd
+            // 
+            this.colReAdd.HeaderText = "Receiver Address";
+            this.colReAdd.Name = "colReAdd";
+            this.colReAdd.ReadOnly = true;
+            this.colReAdd.Visible = false;
+            // 
+            // colReContactNum
+            // 
+            this.colReContactNum.HeaderText = "Receiver Contact #";
+            this.colReContactNum.Name = "colReContactNum";
+            this.colReContactNum.ReadOnly = true;
+            this.colReContactNum.Visible = false;
+            // 
+            // colReEmail
+            // 
+            this.colReEmail.HeaderText = "Receiver Email";
+            this.colReEmail.Name = "colReEmail";
+            this.colReEmail.ReadOnly = true;
+            this.colReEmail.Visible = false;
+            // 
+            // colSupplier
+            // 
+            this.colSupplier.HeaderText = "Supplier";
+            this.colSupplier.Name = "colSupplier";
+            this.colSupplier.ReadOnly = true;
+            this.colSupplier.Visible = false;
+            // 
+            // colSupAdd
+            // 
+            this.colSupAdd.HeaderText = "Supplier Address";
+            this.colSupAdd.Name = "colSupAdd";
+            this.colSupAdd.ReadOnly = true;
+            this.colSupAdd.Visible = false;
+            // 
+            // colSupContactNum
+            // 
+            this.colSupContactNum.HeaderText = "Supplier Contact #";
+            this.colSupContactNum.Name = "colSupContactNum";
+            this.colSupContactNum.ReadOnly = true;
+            this.colSupContactNum.Visible = false;
+            // 
+            // colSupEmail
+            // 
+            this.colSupEmail.HeaderText = "Supplier Email";
+            this.colSupEmail.Name = "colSupEmail";
+            this.colSupEmail.ReadOnly = true;
+            this.colSupEmail.Visible = false;
+            // 
+            // colRemarks
+            // 
+            this.colRemarks.HeaderText = "Remarks";
+            this.colRemarks.Name = "colRemarks";
+            this.colRemarks.ReadOnly = true;
+            this.colRemarks.Visible = false;
             // 
             // tabPage2
             // 
@@ -986,6 +1115,19 @@
             this.tbDateNow.Size = new System.Drawing.Size(264, 22);
             this.tbDateNow.TabIndex = 46;
             // 
+            // btnOk
+            // 
+            this.btnOk.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnOk.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOk.Location = new System.Drawing.Point(927, 515);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(132, 23);
+            this.btnOk.TabIndex = 25;
+            this.btnOk.Text = "OK";
+            this.btnOk.UseVisualStyleBackColor = false;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            // 
             // lbSubtotal
             // 
             this.lbSubtotal.AutoSize = true;
@@ -1018,148 +1160,6 @@
             this.lbTotal.TabIndex = 49;
             this.lbTotal.Text = "0.00";
             this.lbTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // colID
-            // 
-            this.colID.DataPropertyName = "po_id";
-            this.colID.HeaderText = "ID";
-            this.colID.Name = "colID";
-            this.colID.ReadOnly = true;
-            this.colID.Visible = false;
-            // 
-            // colPOnum
-            // 
-            this.colPOnum.DataPropertyName = "po_num";
-            this.colPOnum.HeaderText = "PO #";
-            this.colPOnum.Name = "colPOnum";
-            this.colPOnum.ReadOnly = true;
-            this.colPOnum.Visible = false;
-            // 
-            // colProductCode
-            // 
-            this.colProductCode.HeaderText = "Product Code";
-            this.colProductCode.Name = "colProductCode";
-            this.colProductCode.ReadOnly = true;
-            // 
-            // colProductDes
-            // 
-            this.colProductDes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colProductDes.HeaderText = "Product Description";
-            this.colProductDes.Name = "colProductDes";
-            this.colProductDes.ReadOnly = true;
-            this.colProductDes.Width = 153;
-            // 
-            // colQty
-            // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.colQty.DefaultCellStyle = dataGridViewCellStyle1;
-            this.colQty.HeaderText = "Qty";
-            this.colQty.Name = "colQty";
-            // 
-            // colDiscount
-            // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.colDiscount.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colDiscount.HeaderText = "Discount Decimal";
-            this.colDiscount.Name = "colDiscount";
-            // 
-            // colUnitCost
-            // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.colUnitCost.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colUnitCost.HeaderText = "Unit Cost";
-            this.colUnitCost.Name = "colUnitCost";
-            // 
-            // colOrderedQty
-            // 
-            this.colOrderedQty.HeaderText = "Ordered Qty";
-            this.colOrderedQty.Name = "colOrderedQty";
-            this.colOrderedQty.ReadOnly = true;
-            this.colOrderedQty.Visible = false;
-            // 
-            // colReceivedQty
-            // 
-            this.colReceivedQty.HeaderText = "Received Qty";
-            this.colReceivedQty.Name = "colReceivedQty";
-            this.colReceivedQty.ReadOnly = true;
-            this.colReceivedQty.Visible = false;
-            // 
-            // colPODate
-            // 
-            this.colPODate.HeaderText = "Date";
-            this.colPODate.Name = "colPODate";
-            this.colPODate.ReadOnly = true;
-            this.colPODate.Visible = false;
-            // 
-            // colPOGeneBy
-            // 
-            this.colPOGeneBy.HeaderText = "Generated By";
-            this.colPOGeneBy.Name = "colPOGeneBy";
-            this.colPOGeneBy.ReadOnly = true;
-            this.colPOGeneBy.Visible = false;
-            // 
-            // colReName
-            // 
-            this.colReName.HeaderText = "Receiver Name";
-            this.colReName.Name = "colReName";
-            this.colReName.ReadOnly = true;
-            this.colReName.Visible = false;
-            // 
-            // colReAdd
-            // 
-            this.colReAdd.HeaderText = "Receiver Address";
-            this.colReAdd.Name = "colReAdd";
-            this.colReAdd.ReadOnly = true;
-            this.colReAdd.Visible = false;
-            // 
-            // colReContactNum
-            // 
-            this.colReContactNum.HeaderText = "Receiver Contact #";
-            this.colReContactNum.Name = "colReContactNum";
-            this.colReContactNum.ReadOnly = true;
-            this.colReContactNum.Visible = false;
-            // 
-            // colReEmail
-            // 
-            this.colReEmail.HeaderText = "Receiver Email";
-            this.colReEmail.Name = "colReEmail";
-            this.colReEmail.ReadOnly = true;
-            this.colReEmail.Visible = false;
-            // 
-            // colSupplier
-            // 
-            this.colSupplier.HeaderText = "Supplier";
-            this.colSupplier.Name = "colSupplier";
-            this.colSupplier.ReadOnly = true;
-            this.colSupplier.Visible = false;
-            // 
-            // colSupAdd
-            // 
-            this.colSupAdd.HeaderText = "Supplier Address";
-            this.colSupAdd.Name = "colSupAdd";
-            this.colSupAdd.ReadOnly = true;
-            this.colSupAdd.Visible = false;
-            // 
-            // colSupContactNum
-            // 
-            this.colSupContactNum.HeaderText = "Supplier Contact #";
-            this.colSupContactNum.Name = "colSupContactNum";
-            this.colSupContactNum.ReadOnly = true;
-            this.colSupContactNum.Visible = false;
-            // 
-            // colSupEmail
-            // 
-            this.colSupEmail.HeaderText = "Supplier Email";
-            this.colSupEmail.Name = "colSupEmail";
-            this.colSupEmail.ReadOnly = true;
-            this.colSupEmail.Visible = false;
-            // 
-            // colRemarks
-            // 
-            this.colRemarks.HeaderText = "Remarks";
-            this.colRemarks.Name = "colRemarks";
-            this.colRemarks.ReadOnly = true;
-            this.colRemarks.Visible = false;
             // 
             // PurchaseOrder
             // 

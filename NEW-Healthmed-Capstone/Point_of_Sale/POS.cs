@@ -8,6 +8,7 @@ using System;
 using System.Collections;
 using System.Data;
 using System.Drawing;
+using System.Linq.Expressions;
 using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
@@ -90,36 +91,45 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
         }
         private void Compute()
         {
-            foreach (DataGridViewRow r in dgvCart.Rows)
+            try
             {
-                double qty = Convert.ToDouble(r.Cells["colQtyCart"].Value);
-                double price = Convert.ToDouble(r.Cells["colUnitPriceCart"].Value);
-                double discount = Convert.ToDouble(r.Cells["colDiscountCart"].Value);
+                foreach (DataGridViewRow r in dgvCart.Rows)
+                {
+                    double qty = Convert.ToDouble(r.Cells["colQtyCart"].Value);
+                    double price = Convert.ToDouble(r.Cells["colUnitPriceCart"].Value);
+                    double discount = Convert.ToDouble(r.Cells["colDiscountCart"].Value);
 
-                if (r.Cells["colCBDiscountCart"].Value == null || r.Cells["colCBDiscountCart"].Value.ToString().Equals("")) // if no laman
-                {
-                    r.Cells["colVatableCart"].Value = (qty * price) / 1.12;
-                    r.Cells["colVATCart"].Value = Convert.ToDouble(r.Cells["colVatableCart"].Value) * 0.12;
-                    r.Cells["colLessDiscount"].Value = (qty * price) * discount;
-                    r.Cells["colTotalCart"].Value = Math.Round((qty * price) - Convert.ToDouble(r.Cells["colLessDiscount"].Value), 2).ToString("0.00");
-                }
-                else if (dbh.isVatExmpt(r.Cells["colCBDiscountCart"].Value.ToString()).Equals("yes")) // vat exemp = yes
-                {
-                    r.Cells["colVatableCart"].Value = (qty * price) / 1.12;
-                    r.Cells["colVatXCart"].Value = r.Cells["colVatableCart"].Value;
-                    r.Cells["colVATCart"].Value = Convert.ToDouble(r.Cells["colVatableCart"].Value) * 0.12;
-                    r.Cells["colLessDiscount"].Value = Convert.ToDouble(r.Cells["colVatXCart"].Value) * discount;
-                    r.Cells["colTotalCart"].Value = Math.Round(Convert.ToDouble(r.Cells["colVatXCart"].Value) - Convert.ToDouble(r.Cells["colLessDiscount"].Value), 2).ToString("0.00");
+                    if (r.Cells["colCBDiscountCart"].Value == null || r.Cells["colCBDiscountCart"].Value.ToString().Equals("")) // if no laman
+                    {
+                        r.Cells["colVatableCart"].Value = (qty * price) / 1.12;
+                        r.Cells["colVATCart"].Value = Convert.ToDouble(r.Cells["colVatableCart"].Value) * 0.12;
+                        r.Cells["colLessDiscount"].Value = (qty * price) * discount;
+                        r.Cells["colTotalCart"].Value = Math.Round((qty * price) - Convert.ToDouble(r.Cells["colLessDiscount"].Value), 2).ToString("0.00");
+                    }
+                    else if (dbh.isVatExmpt(r.Cells["colCBDiscountCart"].Value.ToString()).Equals("yes")) // vat exemp = yes
+                    {
+                        r.Cells["colVatableCart"].Value = (qty * price) / 1.12;
+                        r.Cells["colVatXCart"].Value = r.Cells["colVatableCart"].Value;
+                        r.Cells["colVATCart"].Value = Convert.ToDouble(r.Cells["colVatableCart"].Value) * 0.12;
+                        r.Cells["colLessDiscount"].Value = Convert.ToDouble(r.Cells["colVatXCart"].Value) * discount;
+                        r.Cells["colTotalCart"].Value = Math.Round(Convert.ToDouble(r.Cells["colVatXCart"].Value) - Convert.ToDouble(r.Cells["colLessDiscount"].Value), 2).ToString("0.00");
 
+                    }
+                    else // if not vat exempt
+                    {
+                        r.Cells["colVatableCart"].Value = (qty * price) / 1.12;
+                        r.Cells["colVATCart"].Value = Convert.ToDouble(r.Cells["colVatableCart"].Value) * 0.12;
+                        r.Cells["colLessDiscount"].Value = (qty * price) * discount;
+                        r.Cells["colTotalCart"].Value = Math.Round((qty * price) - Convert.ToDouble(r.Cells["colLessDiscount"].Value), 2);
+                    }
                 }
-                else // if not vat exempt
-                {
-                    r.Cells["colVatableCart"].Value = (qty * price) / 1.12;
-                    r.Cells["colVATCart"].Value = Convert.ToDouble(r.Cells["colVatableCart"].Value) * 0.12;
-                    r.Cells["colLessDiscount"].Value = (qty * price) * discount;
-                    r.Cells["colTotalCart"].Value = Math.Round((qty * price) - Convert.ToDouble(r.Cells["colLessDiscount"].Value), 2) ;
-                }
+
             }
+            catch (Exception e) 
+            { 
+                MessageBox.Show("Discount does not accept letters");
+            }
+            
         }
         private double ComputeSubTotal()
         {
@@ -300,36 +310,41 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
         {
             if (dgvCart.RowCount != 0)
             {
-                string prodCode = dgvCart.Rows[e.RowIndex].Cells["colProdCodeCart"].Value.ToString();
-                int _qty = Convert.ToInt32(dgvCart.Rows[e.RowIndex].Cells["colQtyCart"].Value);
-
-                if (dbh.isEnough(prodCode, _qty) == false)
+                try 
                 {
-                    MessageBox.Show("Insufficient Stock");
-                    dgvCart.Rows[e.RowIndex].Cells["colQtyCart"].Value = 1;
+                    string prodCode = dgvCart.Rows[e.RowIndex].Cells["colProdCodeCart"].Value.ToString();
+                    int _qty = Convert.ToInt32(dgvCart.Rows[e.RowIndex].Cells["colQtyCart"].Value);
+
+                    if (dbh.isEnough(prodCode, _qty) == false)
+                    {
+                        MessageBox.Show("Insufficient Stock");
+                        dgvCart.Rows[e.RowIndex].Cells["colQtyCart"].Value = 1;
+                    }
+                    else
+                    {
+                        Compute();
+
+                        subtotal = ComputeSubTotal();
+                        lbSubtotal.Text = "Php " + subtotal.ToString("0.00");
+
+                        vatable = ComputeVatable();
+                        lbVatable.Text = "Php " + vatable.ToString("0.00");
+
+                        vat = ComputeVat();
+                        lbVat.Text = "Php " + vat.ToString();
+
+                        vatXmptSale = ComputeVatXmpt();
+                        lbVatExmpt.Text = "Php " + vatXmptSale.ToString("0.00");
+
+                        discount = ComputeLessDiscount();
+                        lbDiscount.Text = "Php " + discount.ToString("0.00");
+
+                        total = ComputeTotalAmoutDue();
+                        lbTotal.Text = "Php " + total.ToString("0.00");
+                    }
                 }
-                else
-                {
-                    Compute();
+                catch (Exception xn) { MessageBox.Show("Quantity does not accept letters"); }
 
-                    subtotal = ComputeSubTotal();
-                    lbSubtotal.Text = "Php " + subtotal.ToString("0.00");
-
-                    vatable = ComputeVatable();
-                    lbVatable.Text = "Php " + vatable.ToString("0.00");
-
-                    vat = ComputeVat();
-                    lbVat.Text = "Php " + vat.ToString();
-
-                    vatXmptSale = ComputeVatXmpt();
-                    lbVatExmpt.Text = "Php " + vatXmptSale.ToString("0.00");
-
-                    discount = ComputeLessDiscount();
-                    lbDiscount.Text = "Php " + discount.ToString("0.00");
-
-                    total = ComputeTotalAmoutDue();
-                    lbTotal.Text = "Php " + total.ToString("0.00");
-                }
             }
         }
 
@@ -357,41 +372,55 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
         {
             if (dgvCart.Rows.Count != 0)// row has laman
             {
-                CashTender ct = new CashTender(total);
-                ct.ShowDialog();
-
-                if (Properties.Settings.Default.isPayed == true)
+                bool qtyZero = false;
+                foreach (DataGridViewRow r in dgvCart.Rows)
                 {
-                    foreach (DataGridViewRow r in dgvCart.Rows)
+                    if(r.Cells["colQtyCart"].Value.ToString().Equals("0"))
+                        qtyZero = true;
+                }
+
+                if (qtyZero == true)
+                {
+                    MessageBox.Show("Quantity is 0");
+                }
+                else 
+                {
+                    CashTender ct = new CashTender(total);
+                    ct.ShowDialog();
+
+                    if (Properties.Settings.Default.isPayed == true)
                     {
-                        dbh.InsertToSales(
-                            lbTransacNum.Text.ToString(),
-                            r.Cells["colProdCodeCart"].Value.ToString(),
-                            r.Cells["colItemCart"].Value.ToString(),
-                            r.Cells["colQtyCart"].Value.ToString(),
-                            r.Cells["colUnitCostCart"].Value.ToString(),
-                            r.Cells["colUnitPriceCart"].Value.ToString(),
-                            r.Cells["colVatXCart"].Value.ToString(),
-                            r.Cells["colDiscountCart"].Value.ToString(),
-                            Math.Round(Convert.ToDouble(r.Cells["colQtyCart"].Value) * Convert.ToDouble(r.Cells["colUnitCostCart"].Value), 2).ToString(), //total cost
-                            r.Cells["colTotalCart"].Value.ToString(),
-                            DateTime.Now.ToString("yyyy-MM-dd HH:mm"),
-                            lbUser.Text.ToString()
-                            );
+                        foreach (DataGridViewRow r in dgvCart.Rows)
+                        {
+                            dbh.InsertToSales(
+                                lbTransacNum.Text.ToString(),
+                                r.Cells["colProdCodeCart"].Value.ToString(),
+                                r.Cells["colItemCart"].Value.ToString(),
+                                r.Cells["colQtyCart"].Value.ToString(),
+                                r.Cells["colUnitCostCart"].Value.ToString(),
+                                r.Cells["colUnitPriceCart"].Value.ToString(),
+                                r.Cells["colVatXCart"].Value.ToString(),
+                                r.Cells["colDiscountCart"].Value.ToString(),
+                                Math.Round(Convert.ToDouble(r.Cells["colQtyCart"].Value) * Convert.ToDouble(r.Cells["colUnitCostCart"].Value), 2).ToString(), //total cost
+                                r.Cells["colTotalCart"].Value.ToString(),
+                                DateTime.Now.ToString("yyyy-MM-dd HH:mm"),
+                                lbUser.Text.ToString()
+                                );
 
-                        dbh.UpdateInStockQty(r.Cells["colQtyCart"].Value.ToString(), r.Cells["colProdCodeCart"].Value.ToString());
+                            dbh.UpdateInStockQty(r.Cells["colQtyCart"].Value.ToString(), r.Cells["colProdCodeCart"].Value.ToString());
+                        }
+                        MessageBox.Show("Transaction Saved");
+
+                        DgvToDt();
+                        lbTransacNum.Text = dbh.GenereateTransacNum();
+
+                        lbCash.Text = "Php: " + Properties.Settings.Default.Cash;
+                        lbChange.Text = "Php: " + Properties.Settings.Default.Change;
+
+                        btnPayment.Enabled = false;
+
+                        dgvDrugs.DataSource = dbh.ShowProductList();
                     }
-                    MessageBox.Show("Transaction Saved");
-
-                    DgvToDt();
-                    lbTransacNum.Text = dbh.GenereateTransacNum();
-
-                    lbCash.Text = "Php: " + Properties.Settings.Default.Cash;
-                    lbChange.Text = "Php: " + Properties.Settings.Default.Change;
-
-                    btnPayment.Enabled = false;
-
-                    dgvDrugs.DataSource = dbh.ShowProductList();
                 }
                 
             }

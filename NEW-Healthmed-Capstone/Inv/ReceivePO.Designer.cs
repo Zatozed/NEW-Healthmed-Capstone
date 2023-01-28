@@ -426,7 +426,6 @@
             this.colSupEmail,
             this.colRemarks});
             this.dgvToReceive.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvToReceive.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgvToReceive.GridColor = System.Drawing.Color.Gray;
             this.dgvToReceive.Location = new System.Drawing.Point(3, 3);
             this.dgvToReceive.Name = "dgvToReceive";

@@ -62,9 +62,10 @@ namespace NEW_Healthmed_Capstone.file_maintenance
                     dbh.CloseCon();
 
                     dbh.OpenCon();
-                    cmd = new MySqlCommand("insert into tbl_discount(discount_name, discount_percent) values(@dname, @dp)", dbh.conn());
+                    cmd = new MySqlCommand("insert into tbl_discount(discount_name, discount_percent,vat_exempt) values(@dname, @dp,@vx)", dbh.conn());
                     cmd.Parameters.AddWithValue("@dname", tbDiscountName.Text.Trim());
                     cmd.Parameters.AddWithValue("@dp", tbDiscountPercent.Text);
+                    cmd.Parameters.AddWithValue("@vx", cbVX.Text);
                     cmd.ExecuteNonQuery();
                     dbh.CloseCon();
                     MessageBox.Show("Discount Inserted!");
@@ -112,9 +113,10 @@ namespace NEW_Healthmed_Capstone.file_maintenance
                     {
                         dbh.CloseCon();
                         dbh.OpenCon();
-                        cmd = new MySqlCommand("UPDATE tbl_discount SET discount_name = @discountName, discount_percent = @discount WHERE ID = @ID", dbh.conn());
+                        cmd = new MySqlCommand("UPDATE tbl_discount SET discount_name = @discountName, discount_percent= @discount, vat_exempt = @vtEX WHERE ID = @ID", dbh.conn());
                         cmd.Parameters.AddWithValue("@discountName", Convert.ToString(dgvDiscount.Rows[e.RowIndex].Cells["colDiscountName"].Value).Trim());
                         cmd.Parameters.AddWithValue("@discount", Convert.ToString(dgvDiscount.Rows[e.RowIndex].Cells["colDiscount"].Value));
+                        cmd.Parameters.AddWithValue("@vtEX", Convert.ToString(dgvDiscount.Rows[e.RowIndex].Cells["colVatEx"].Value));
                         cmd.Parameters.AddWithValue("@ID", Convert.ToString(dgvDiscount.Rows[e.RowIndex].Cells["ID"].Value));
                         cmd.ExecuteNonQuery();
                         if (cmd.ExecuteNonQuery() == 1)
@@ -138,7 +140,7 @@ namespace NEW_Healthmed_Capstone.file_maintenance
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Discountis Already Existed");
+                    MessageBox.Show("Discount Already Exist");
                 }
                 finally { dbh.CloseCon(); }
             }
@@ -553,7 +555,7 @@ namespace NEW_Healthmed_Capstone.file_maintenance
                 }
 
             }
-            catch (MySqlException sqlE) { MessageBox.Show("Product Already Exist"); }
+            catch (MySqlException sqlE) { MessageBox.Show("Product Code Already Exist"); }
             finally { dbh.CloseCon(); }
         }
         private void btnProdConfirm_Click(object sender, EventArgs e)

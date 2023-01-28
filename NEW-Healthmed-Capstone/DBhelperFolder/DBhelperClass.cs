@@ -429,7 +429,7 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("select id, discount_name, discount_percent from tbl_discount",
+                cmd = new MySqlCommand("select id, discount_name, discount_percent, vat_exempt from tbl_discount",
                 con);
                 dataAdapter = new MySqlDataAdapter(cmd);
                 dataAdapter.Fill(dt);

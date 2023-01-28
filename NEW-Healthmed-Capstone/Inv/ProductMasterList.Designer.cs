@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dgvProductMasterList = new System.Windows.Forms.DataGridView();
-            this.btnReport = new System.Windows.Forms.Button();
-            this.RefStockUdjust = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.ProductSearch = new System.Windows.Forms.TextBox();
+            this.btnReport = new System.Windows.Forms.Button();
+            this.dgvProductMasterList = new System.Windows.Forms.DataGridView();
             this.productID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProductCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,7 +54,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.RefStockUdjust);
+            this.panel1.Controls.Add(this.ProductSearch);
             this.panel1.Controls.Add(this.btnReport);
             this.panel1.Controls.Add(this.dgvProductMasterList);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -62,6 +62,37 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1205, 498);
             this.panel1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14F);
+            this.label1.Location = new System.Drawing.Point(38, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 24);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Search:";
+            // 
+            // ProductSearch
+            // 
+            this.ProductSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProductSearch.Location = new System.Drawing.Point(38, 50);
+            this.ProductSearch.Name = "ProductSearch";
+            this.ProductSearch.Size = new System.Drawing.Size(226, 29);
+            this.ProductSearch.TabIndex = 13;
+            this.ProductSearch.TextChanged += new System.EventHandler(this.RefStockUdjust_TextChanged);
+            // 
+            // btnReport
+            // 
+            this.btnReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReport.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14F);
+            this.btnReport.Location = new System.Drawing.Point(978, 450);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(215, 36);
+            this.btnReport.TabIndex = 10;
+            this.btnReport.Text = "Preview";
+            this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // dgvProductMasterList
             // 
@@ -71,14 +102,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProductMasterList.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvProductMasterList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProductMasterList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProductMasterList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProductMasterList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductMasterList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.productID,
@@ -94,14 +125,14 @@
             this.colSafetyStock,
             this.colRemark});
             this.dgvProductMasterList.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProductMasterList.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProductMasterList.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProductMasterList.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgvProductMasterList.Location = new System.Drawing.Point(3, 85);
             this.dgvProductMasterList.Name = "dgvProductMasterList";
@@ -109,36 +140,6 @@
             this.dgvProductMasterList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvProductMasterList.Size = new System.Drawing.Size(1199, 359);
             this.dgvProductMasterList.TabIndex = 9;
-            // 
-            // btnReport
-            // 
-            this.btnReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnReport.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14F);
-            this.btnReport.Location = new System.Drawing.Point(978, 450);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(215, 36);
-            this.btnReport.TabIndex = 10;
-            this.btnReport.Text = "Preview";
-            this.btnReport.UseVisualStyleBackColor = true;
-            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
-            // 
-            // RefStockUdjust
-            // 
-            this.RefStockUdjust.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RefStockUdjust.Location = new System.Drawing.Point(38, 50);
-            this.RefStockUdjust.Name = "RefStockUdjust";
-            this.RefStockUdjust.Size = new System.Drawing.Size(226, 29);
-            this.RefStockUdjust.TabIndex = 13;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14F);
-            this.label1.Location = new System.Drawing.Point(38, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 24);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Search:";
             // 
             // productID
             // 
@@ -154,7 +155,7 @@
             this.colProductCode.HeaderText = "Product Code";
             this.colProductCode.Name = "colProductCode";
             this.colProductCode.ReadOnly = true;
-            this.colProductCode.Width = 97;
+            this.colProductCode.Width = 89;
             // 
             // colProductName
             // 
@@ -163,6 +164,7 @@
             this.colProductName.HeaderText = "Product Name";
             this.colProductName.Name = "colProductName";
             this.colProductName.ReadOnly = true;
+            this.colProductName.Width = 92;
             // 
             // colClassification
             // 
@@ -255,7 +257,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnReport;
         private System.Windows.Forms.DataGridView dgvProductMasterList;
-        private System.Windows.Forms.TextBox RefStockUdjust;
+        private System.Windows.Forms.TextBox ProductSearch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn productID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductCode;

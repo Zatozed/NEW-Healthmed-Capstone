@@ -191,6 +191,14 @@ namespace NEW_Healthmed_Capstone.Inv
                 e.Handled = true;
             }
         }
+
+        private void RefStockUdjust_TextChanged(object sender, EventArgs e)
+        {
+            if (ProductSearch.Text == null || ProductSearch.Text.ToString().Equals(""))
+                DGVStockUdjustment.DataSource = dbh.ShowProductMasterList();
+            else
+                DGVStockUdjustment.DataSource = dbh.ShowProductMasterList1(ProductSearch.Text);
+        }
         //private void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         //{
         //    e.Control.KeyPress -= new KeyPressEventHandler(Column1_KeyPress);

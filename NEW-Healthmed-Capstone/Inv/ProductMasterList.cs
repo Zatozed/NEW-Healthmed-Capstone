@@ -95,5 +95,13 @@ namespace NEW_Healthmed_Capstone.Inv
             pmlrv.Refresh();
             pmlrv.Show();
         }
+
+        private void RefStockUdjust_TextChanged(object sender, EventArgs e)
+        {
+            if (ProductSearch.Text == null || ProductSearch.Text.ToString().Equals(""))
+                dgvProductMasterList.DataSource = dbh.ShowProductMasterList();
+            else
+                dgvProductMasterList.DataSource = dbh.ShowProductMasterList1(ProductSearch.Text);
+        }
     }
 }

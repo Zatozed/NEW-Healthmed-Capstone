@@ -34,9 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.RefStockUdjust = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
+            this.ProductSearch = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.DGVStockUdjustment = new System.Windows.Forms.DataGridView();
             this.productID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,9 +62,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.RefStockUdjust);
-            this.panel1.Controls.Add(this.dateTimePicker1);
-            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.ProductSearch);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -79,37 +75,18 @@
             this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14F);
             this.label1.Location = new System.Drawing.Point(46, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 24);
+            this.label1.Size = new System.Drawing.Size(64, 24);
             this.label1.TabIndex = 11;
-            this.label1.Text = "Reference #:";
+            this.label1.Text = "Search:";
             // 
-            // RefStockUdjust
+            // ProductSearch
             // 
-            this.RefStockUdjust.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RefStockUdjust.Location = new System.Drawing.Point(43, 54);
-            this.RefStockUdjust.Name = "RefStockUdjust";
-            this.RefStockUdjust.Size = new System.Drawing.Size(226, 29);
-            this.RefStockUdjust.TabIndex = 10;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(1047, 54);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(309, 29);
-            this.dateTimePicker1.TabIndex = 9;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14F);
-            this.label4.Location = new System.Drawing.Point(1050, 27);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(130, 24);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Adjustment Date:";
+            this.ProductSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProductSearch.Location = new System.Drawing.Point(43, 54);
+            this.ProductSearch.Name = "ProductSearch";
+            this.ProductSearch.Size = new System.Drawing.Size(226, 29);
+            this.ProductSearch.TabIndex = 10;
+            this.ProductSearch.TextChanged += new System.EventHandler(this.RefStockUdjust_TextChanged);
             // 
             // panel2
             // 
@@ -350,10 +327,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox RefStockUdjust;
         private System.Windows.Forms.DataGridView DGVStockUdjustment;
         private System.Windows.Forms.DataGridViewTextBoxColumn productID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductCode;
@@ -372,5 +345,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colRemark;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNewRemarks;
         private System.Windows.Forms.DataGridViewButtonColumn colUpdate;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox ProductSearch;
     }
 }

@@ -59,15 +59,17 @@
             this.panel1.Controls.Add(this.dgvProductMasterList);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1205, 498);
+            this.panel1.Size = new System.Drawing.Size(1370, 613);
             this.panel1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14F);
-            this.label1.Location = new System.Drawing.Point(38, 23);
+            this.label1.Location = new System.Drawing.Point(57, 28);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 24);
             this.label1.TabIndex = 14;
@@ -76,9 +78,10 @@
             // ProductSearch
             // 
             this.ProductSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProductSearch.Location = new System.Drawing.Point(38, 50);
+            this.ProductSearch.Location = new System.Drawing.Point(57, 62);
+            this.ProductSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ProductSearch.Name = "ProductSearch";
-            this.ProductSearch.Size = new System.Drawing.Size(226, 29);
+            this.ProductSearch.Size = new System.Drawing.Size(337, 29);
             this.ProductSearch.TabIndex = 13;
             this.ProductSearch.TextChanged += new System.EventHandler(this.RefStockUdjust_TextChanged);
             // 
@@ -86,9 +89,10 @@
             // 
             this.btnReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnReport.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14F);
-            this.btnReport.Location = new System.Drawing.Point(978, 450);
+            this.btnReport.Location = new System.Drawing.Point(1029, 554);
+            this.btnReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(215, 36);
+            this.btnReport.Size = new System.Drawing.Size(322, 44);
             this.btnReport.TabIndex = 10;
             this.btnReport.Text = "Preview";
             this.btnReport.UseVisualStyleBackColor = true;
@@ -104,7 +108,7 @@
             this.dgvProductMasterList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -127,18 +131,19 @@
             this.dgvProductMasterList.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvProductMasterList.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProductMasterList.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dgvProductMasterList.Location = new System.Drawing.Point(3, 85);
+            this.dgvProductMasterList.Location = new System.Drawing.Point(4, 105);
+            this.dgvProductMasterList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvProductMasterList.Name = "dgvProductMasterList";
             this.dgvProductMasterList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvProductMasterList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvProductMasterList.Size = new System.Drawing.Size(1199, 359);
+            this.dgvProductMasterList.Size = new System.Drawing.Size(1360, 442);
             this.dgvProductMasterList.TabIndex = 9;
             // 
             // productID
@@ -155,7 +160,7 @@
             this.colProductCode.HeaderText = "Product Code";
             this.colProductCode.Name = "colProductCode";
             this.colProductCode.ReadOnly = true;
-            this.colProductCode.Width = 89;
+            this.colProductCode.Width = 115;
             // 
             // colProductName
             // 
@@ -164,7 +169,7 @@
             this.colProductName.HeaderText = "Product Name";
             this.colProductName.Name = "colProductName";
             this.colProductName.ReadOnly = true;
-            this.colProductName.Width = 92;
+            this.colProductName.Width = 119;
             // 
             // colClassification
             // 
@@ -181,7 +186,7 @@
             this.colDosage.HeaderText = "Dosage";
             this.colDosage.Name = "colDosage";
             this.colDosage.ReadOnly = true;
-            this.colDosage.Width = 69;
+            this.colDosage.Width = 87;
             // 
             // colMedType
             // 
@@ -190,7 +195,7 @@
             this.colMedType.HeaderText = "Type";
             this.colMedType.Name = "colMedType";
             this.colMedType.ReadOnly = true;
-            this.colMedType.Width = 56;
+            this.colMedType.Width = 68;
             // 
             // colCost
             // 
@@ -237,10 +242,12 @@
             // 
             // ProductMasterList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1205, 498);
+            this.ClientSize = new System.Drawing.Size(1370, 613);
             this.Controls.Add(this.panel1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ProductMasterList";
             this.Text = "ProductMasterList";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

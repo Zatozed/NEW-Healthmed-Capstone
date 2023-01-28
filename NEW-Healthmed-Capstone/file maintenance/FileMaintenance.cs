@@ -38,7 +38,7 @@ namespace NEW_Healthmed_Capstone.file_maintenance
         private void fillComboBoxSupplier()
         {
             cbSupplier.Items.Clear();
-            cbSupplier.Items.Clear();
+            cbSupplierList.Items.Clear();
             dbh.OpenCon();
             cmd = new MySqlCommand("select supplier_name from tbl_suppliers", dbh.conn());
             dr = cmd.ExecuteReader();

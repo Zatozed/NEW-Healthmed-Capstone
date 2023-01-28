@@ -41,7 +41,8 @@ namespace NEW_Healthmed_Capstone.User
                     btnLogout.Location = new Point(147, 223);
                 }
             }
-            }
+            MessageBox.Show(Properties.Settings.Default.Login_Username);
+        }
         private void openCon()
         {
             mysqlConStrBldr = new MySqlConnectionStringBuilder(Properties.Settings.Default.S_ConBuild);

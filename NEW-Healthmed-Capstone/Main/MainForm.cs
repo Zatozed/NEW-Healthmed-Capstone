@@ -68,7 +68,13 @@ namespace NEW_Healthmed_Capstone.Main
                     if (dr.Read())
                     {
                         string getRole = dr.GetString("roleName");
+
                         lbRole.Text = getRole;
+                        if (getRoleID == "2")
+                        {
+                            btnInventory.Visible = false;
+                            btnFilemaintenance.Visible = false;
+                        }
                     }
                 }
 

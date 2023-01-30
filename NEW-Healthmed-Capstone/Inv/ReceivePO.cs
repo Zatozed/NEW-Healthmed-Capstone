@@ -105,6 +105,20 @@ namespace NEW_Healthmed_Capstone.Inv
 
         private void btnRe_Click(object sender, EventArgs e)
         {
+            bool res = false;
+            foreach (DataGridViewRow r in dgvToReceive.Rows)
+            {
+                if (r.Cells["colExpiryDate"].Value.ToString().Equals("Set Expiry")||
+                    r.Cells["colReQty"].Value == null||
+                    r.Cells["colReQty"].Value.ToString().Equals("") ||
+                    r.Cells["colLot"].Value == null ||
+                    r.Cells["colLot"].Value.ToString().Equals("")
+                    )
+                {
+                    res = true;
+                }
+            }
+
             if (dgvToReceive.Rows.Count == 0 ||
                 tbHmdAdress.Text.Equals("") ||
                 tbHmdContactNum.Text.Equals("") ||
@@ -116,7 +130,8 @@ namespace NEW_Healthmed_Capstone.Inv
                 tbSup.Text.Equals("") ||
                 tbSupAddress.Text.Equals("") ||
                 tbSupContactNum.Text.Equals("") ||
-                tbSupEmail.Text.Equals("")
+                tbSupEmail.Text.Equals("") ||
+                res == true
                 )
             {
                 MessageBox.Show("Make Sure All Field Are Filled");

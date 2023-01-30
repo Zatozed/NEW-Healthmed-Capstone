@@ -187,7 +187,7 @@
             // 
             // btnInfo
             // 
-            this.btnInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnInfo.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnInfo.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F);
             this.btnInfo.Location = new System.Drawing.Point(147, 107);
             this.btnInfo.Name = "btnInfo";

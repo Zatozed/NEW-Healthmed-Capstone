@@ -215,6 +215,23 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
 
             return dt;
         }
+        public DataTable ShowProductMasterList1(string s)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("Select p_id, product_code, product_name, classification, dosage, med_type, unit_cost, unit_price, in_stock_qty,reorder_point, safety_stock_per_week, remarks from tbl_products where (product_code like '%" + s + "%' or product_name like '%" + s + "%' or classification like '%" + s + "%');",
+                con);
+                dataAdapter = new MySqlDataAdapter(cmd);
+                dataAdapter.Fill(dt);
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+
+            return dt;
+        }
 
         public DataTable ShowProductToOrder()
         {
@@ -293,7 +310,7 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("select p_id, product_code , product_name, classification, dosage, med_type from tbl_products where (product_code like '%" + s + "%' or product_name like '%" + s + "%' or classification like '%" + s + "%') and in_stock_qty != 0",
+                cmd = new MySqlCommand("select p_id, product_code , product_name, classification, dosage, med_type from tbl_products where (product_code like '%" + s + "%' or product_name like '%" + s + "%' or classification like '%" + s + "%')",
                 con);
                 dataAdapter = new MySqlDataAdapter(cmd);
                 dataAdapter.Fill(dt);
@@ -303,13 +320,13 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
 
             return dt;
         }
-        public DataTable SearchRelation(string s, string a)
+        public DataTable SearchRelation(string s)
         {
             DataTable dt = new DataTable();
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("select p.product_code, p.product_name,p.classification,p.dosage,p.med_type,p.unit_cost,p.unit_price,p.in_stock_qty,s.supplier_name from tbl_products as p inner join tbl_product_supplier on p.p_id = tbl_product_supplier.product_id inner join tbl_suppliers as s on s.sup_id = tbl_product_supplier.supplier_id WHERE (product_code like '%" + s + "%' AND supplier_name ='" + a + "')",
+                cmd = new MySqlCommand("select p.product_code ,p.product_name,p.classification,p.dosage,p.med_type,p.unit_cost,p.unit_price,p.in_stock_qty,s.supplier_name from tbl_products as p inner join tbl_product_supplier on p.p_id = tbl_product_supplier.product_id inner join tbl_suppliers as s on s.sup_id = tbl_product_supplier.supplier_id WHERE (product_code like '%" + s + "%' or product_name like '%" + s + "%' or classification like '%" + s + "%')",
                 con);
                 dataAdapter = new MySqlDataAdapter(cmd);
                 dataAdapter.Fill(dt);
@@ -319,6 +336,39 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
 
             return dt;
         }
+        public DataTable SearchRelation1(string s, string a)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("select p.product_code ,p.product_name,p.classification,p.dosage,p.med_type,p.unit_cost,p.unit_price,p.in_stock_qty,s.supplier_name from tbl_products as p inner join tbl_product_supplier on p.p_id = tbl_product_supplier.product_id inner join tbl_suppliers as s on s.sup_id = tbl_product_supplier.supplier_id WHERE (product_code like '%" + s + "%' or product_name like '%" + s + "%' or classification like '%" + s + "%') and supplier_name = '"+a+"';",
+                con);
+                dataAdapter = new MySqlDataAdapter(cmd);
+                dataAdapter.Fill(dt);
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+
+            return dt;
+        }
+        public DataTable SearchRelation2(string s)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("select p.product_code ,p.product_name,p.classification,p.dosage,p.med_type,p.unit_cost,p.unit_price,p.in_stock_qty,s.supplier_name from tbl_products as p inner join tbl_product_supplier on p.p_id = tbl_product_supplier.product_id inner join tbl_suppliers as s on s.sup_id = tbl_product_supplier.supplier_id WHERE supplier_name = '" + s + "';",
+                con);
+                dataAdapter = new MySqlDataAdapter(cmd);
+                dataAdapter.Fill(dt);
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+
+            return dt;
+        }
+
         public DataTable ShowProductList(string s)
         {
             DataTable dt = new DataTable();
@@ -379,7 +429,7 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("select id, discount_name, discount_percent from tbl_discount",
+                cmd = new MySqlCommand("select id, discount_name, discount_percent, vat_exempt from tbl_discount",
                 con);
                 dataAdapter = new MySqlDataAdapter(cmd);
                 dataAdapter.Fill(dt);
@@ -410,7 +460,7 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("select p.product_code ,p.product_name,p.classification,p.dosage,p.med_type,p.unit_cost,p.unit_price,p.in_stock_qty,s.supplier_name from tbl_products as p inner join tbl_product_supplier on p.p_id = tbl_product_supplier.product_id inner join tbl_suppliers as s on s.sup_id = tbl_product_supplier.supplier_id;;",
+                cmd = new MySqlCommand("select p.product_code ,p.product_name,p.classification,p.dosage,p.med_type,p.unit_cost,p.unit_price,p.in_stock_qty,s.supplier_name from tbl_products as p inner join tbl_product_supplier on p.p_id = tbl_product_supplier.product_id inner join tbl_suppliers as s on s.sup_id = tbl_product_supplier.supplier_id;",
                 con);
                 dataAdapter = new MySqlDataAdapter(cmd);
                 dataAdapter.Fill(dt);
@@ -746,7 +796,7 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("select po_id, po_num from tbl_po where received_qty = 0",
+                cmd = new MySqlCommand("select distinct po_num from tbl_po where received_qty = 0",
                 con);
                 dataAdapter = new MySqlDataAdapter(cmd);
                 dataAdapter.Fill(dt);
@@ -781,7 +831,7 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("select po_id, po_num from tbl_po where ((select(sum(pending_qty)) != 0)) and received_qty != 0",
+                cmd = new MySqlCommand("select distinct po_num from tbl_po where ((select(sum(pending_qty)) != 0)) and received_qty != 0",
                 con);
                 dataAdapter = new MySqlDataAdapter(cmd);
                 dataAdapter.Fill(dt);

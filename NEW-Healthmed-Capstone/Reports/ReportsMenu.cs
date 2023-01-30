@@ -72,7 +72,7 @@ namespace NEW_Healthmed_Capstone.Reports
             dr = cmd.ExecuteReader();
             if (dr.Read())
             {
-                TextObject User = (TextObject)rptPR.ReportDefinition.Sections["Section5"].ReportObjects["userBy"];
+                TextObject User = (TextObject)rptPR.ReportDefinition.Sections["Section4"].ReportObjects["User"];
                 User.Text = dr.GetString("firstName") + " " + dr.GetString("lastName");
             }
 

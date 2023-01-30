@@ -4,6 +4,9 @@ using MySqlX.XDevAPI.Relational;
 using NEW_Healthmed_Capstone.DBhelperFolder;
 using Org.BouncyCastle.Utilities.Collections;
 using System;
+using System.Data.Common;
+using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
@@ -11,6 +14,7 @@ namespace NEW_Healthmed_Capstone.file_maintenance
 {
     public partial class FileMaintenance : Form
     {
+        private MySqlDataAdapter dataAdapter;
         private DBhelperClass dbh = new DBhelperClass();
         private MySqlCommand cmd;
         private MySqlDataReader dr;
@@ -34,7 +38,7 @@ namespace NEW_Healthmed_Capstone.file_maintenance
         private void fillComboBoxSupplier()
         {
             cbSupplier.Items.Clear();
-            cbSupplier.Items.Clear();
+            cbSupplierList.Items.Clear();
             dbh.OpenCon();
             cmd = new MySqlCommand("select supplier_name from tbl_suppliers", dbh.conn());
             dr = cmd.ExecuteReader();
@@ -58,9 +62,10 @@ namespace NEW_Healthmed_Capstone.file_maintenance
                     dbh.CloseCon();
 
                     dbh.OpenCon();
-                    cmd = new MySqlCommand("insert into tbl_discount(discount_name, discount_percent) values(@dname, @dp)", dbh.conn());
+                    cmd = new MySqlCommand("insert into tbl_discount(discount_name, discount_percent,vat_exempt) values(@dname, @dp,@vx)", dbh.conn());
                     cmd.Parameters.AddWithValue("@dname", tbDiscountName.Text.Trim());
                     cmd.Parameters.AddWithValue("@dp", tbDiscountPercent.Text);
+                    cmd.Parameters.AddWithValue("@vx", cbVX.Text);
                     cmd.ExecuteNonQuery();
                     dbh.CloseCon();
                     MessageBox.Show("Discount Inserted!");
@@ -108,9 +113,10 @@ namespace NEW_Healthmed_Capstone.file_maintenance
                     {
                         dbh.CloseCon();
                         dbh.OpenCon();
-                        cmd = new MySqlCommand("UPDATE tbl_discount SET discount_name = @discountName, discount_percent = @discount WHERE ID = @ID", dbh.conn());
+                        cmd = new MySqlCommand("UPDATE tbl_discount SET discount_name = @discountName, discount_percent= @discount, vat_exempt = @vtEX WHERE ID = @ID", dbh.conn());
                         cmd.Parameters.AddWithValue("@discountName", Convert.ToString(dgvDiscount.Rows[e.RowIndex].Cells["colDiscountName"].Value).Trim());
                         cmd.Parameters.AddWithValue("@discount", Convert.ToString(dgvDiscount.Rows[e.RowIndex].Cells["colDiscount"].Value));
+                        cmd.Parameters.AddWithValue("@vtEX", Convert.ToString(dgvDiscount.Rows[e.RowIndex].Cells["colVatEx"].Value));
                         cmd.Parameters.AddWithValue("@ID", Convert.ToString(dgvDiscount.Rows[e.RowIndex].Cells["ID"].Value));
                         cmd.ExecuteNonQuery();
                         if (cmd.ExecuteNonQuery() == 1)
@@ -134,7 +140,7 @@ namespace NEW_Healthmed_Capstone.file_maintenance
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Discountis Already Existed");
+                    MessageBox.Show("Discount Already Exist");
                 }
                 finally { dbh.CloseCon(); }
             }
@@ -549,7 +555,7 @@ namespace NEW_Healthmed_Capstone.file_maintenance
                 }
 
             }
-            catch (MySqlException sqlE) { MessageBox.Show("Product Already Exist"); }
+            catch (MySqlException sqlE) { MessageBox.Show("Product Code Already Exist"); }
             finally { dbh.CloseCon(); }
         }
         private void btnProdConfirm_Click(object sender, EventArgs e)
@@ -631,7 +637,7 @@ namespace NEW_Healthmed_Capstone.file_maintenance
                 string productID = Convert.ToString(dgvProducts.Rows[e.RowIndex].Cells["p_ID"].Value);
 
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                DialogResult result = MessageBox.Show("Do you want to delete this Supplier?", "Delete", buttons);
+                DialogResult result = MessageBox.Show("Do you want to delete this Product?", "Delete", buttons);
                 if (result == DialogResult.Yes)
                 {
                     try
@@ -766,7 +772,7 @@ namespace NEW_Healthmed_Capstone.file_maintenance
         private void dgvP_S_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show("Do you want to delete this Supplier?", "Delete", buttons);
+            DialogResult result = MessageBox.Show("Do you want to delete this Relation?", "Delete", buttons);
             if (result == DialogResult.Yes)
             {
                 if (dgvP_S.Columns[e.ColumnIndex].Name == "colDelete")
@@ -825,18 +831,26 @@ namespace NEW_Healthmed_Capstone.file_maintenance
                 }
             }
         }
+        private void cbSupplierList_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
 
         private void tbSearchProductList_TextChanged(object sender, EventArgs e)
         {
             if (tbSearchProductList.Text == null || tbSearchProductList.Text.ToString().Equals(""))
+
                 dgvP_S.DataSource = dbh.showProductRelation();
             else
-                dgvP_S.DataSource = dbh.SearchRelation(tbSearchProductList.Text, cbSupplierList.Text);
+                dgvP_S.DataSource = dbh.SearchRelation1(tbSearchProductList.Text, cbSupplierList.Text.ToString());
         }
 
-        private void cbSupplierList_TextChanged(object sender, EventArgs e)
+        private void cbSupplierList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dgvP_S.DataSource = dbh.SearchRelation(tbSearchProductList.Text, cbSupplierList.Text);
+            if (cbSupplierList.Text != null || cbSupplierList.Text.ToString().Equals(""))
+                dgvP_S.DataSource = dbh.SearchRelation2(cbSupplierList.Text.ToString());
+
+
         }
     }
 }

@@ -194,11 +194,11 @@
     <Compile Include="Main\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Point_of_Sale\CashRegistry.cs">
+    <Compile Include="Point_of_Sale\PettyCash.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Point_of_Sale\CashRegistry.Designer.cs">
-      <DependentUpon>CashRegistry.cs</DependentUpon>
+    <Compile Include="Point_of_Sale\PettyCash.Designer.cs">
+      <DependentUpon>PettyCash.cs</DependentUpon>
     </Compile>
     <Compile Include="Point_of_Sale\CashTender.cs">
       <SubType>Form</SubType>
@@ -349,6 +349,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Point_of_Sale\PettyCash.resx">
+      <DependentUpon>PettyCash.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Point_of_Sale\CashTender.resx">
       <DependentUpon>CashTender.cs</DependentUpon>

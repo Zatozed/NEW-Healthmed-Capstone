@@ -194,6 +194,12 @@
     <Compile Include="Main\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Point_of_Sale\CashRegistry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Point_of_Sale\CashRegistry.Designer.cs">
+      <DependentUpon>CashRegistry.cs</DependentUpon>
+    </Compile>
     <Compile Include="Point_of_Sale\CashTender.cs">
       <SubType>Form</SubType>
     </Compile>

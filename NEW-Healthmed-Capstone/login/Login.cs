@@ -79,11 +79,13 @@ namespace NEW_Healthmed_Capstone
 
                         if (status == "1")
                         {
+                            Properties.Settings.Default.Login_Username = textBoxUserName.Text;
+                            Properties.Settings.Default.Save();
                             Properties.Settings.Default.Fname_Lname = dr["firstName"].ToString() + " " + dr["lastName"].ToString();
 
                             MainForm main = new MainForm();
                             main.Show();
-                            this.Hide();
+                            //this.Hide();
                         }
                         else if (status == "2")
                         {
@@ -115,6 +117,7 @@ namespace NEW_Healthmed_Capstone
             {
                 MessageBox.Show("error");
                 MessageBox.Show("Something went wrong with the LogIn Module");
+                MessageBox.Show(exc.Message.ToString());
             }
         }
 
@@ -176,12 +179,6 @@ namespace NEW_Healthmed_Capstone
                 buttonLogin.Enabled = true;
                 timer1.Stop();
             }
-        }
-
-        private void Form1_FormClosing_1(object sender, FormClosingEventArgs e)
-        {
-            Properties.Settings.Default.Login_Username = textBoxUserName.Text;
-            Properties.Settings.Default.Save();
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)

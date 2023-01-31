@@ -8,11 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NEW_Healthmed_Capstone.login;
+using NEW_Healthmed_Capstone.Main;
 
 namespace NEW_Healthmed_Capstone.User
 {
     public partial class UserSettings : Form
     {
+
         public UserSettings()
         {
             InitializeComponent();
@@ -41,7 +44,6 @@ namespace NEW_Healthmed_Capstone.User
                     btnLogout.Location = new Point(147, 223);
                 }
             }
-            MessageBox.Show(Properties.Settings.Default.Login_Username);
         }
         private void openCon()
         {

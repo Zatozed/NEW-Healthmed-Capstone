@@ -66,7 +66,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1370, 93);
+            this.panel1.Size = new System.Drawing.Size(1771, 93);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -94,7 +94,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 93);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1370, 357);
+            this.panel2.Size = new System.Drawing.Size(1771, 357);
             this.panel2.TabIndex = 1;
             // 
             // DGVStockUdjustment
@@ -155,7 +155,7 @@
             this.DGVStockUdjustment.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DGVStockUdjustment.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.DGVStockUdjustment.Size = new System.Drawing.Size(1355, 339);
+            this.DGVStockUdjustment.Size = new System.Drawing.Size(1756, 339);
             this.DGVStockUdjustment.TabIndex = 19;
             this.DGVStockUdjustment.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVStockUdjustment_CellContentClick);
             // 
@@ -167,6 +167,7 @@
             this.productID.Name = "productID";
             this.productID.ReadOnly = true;
             this.productID.Visible = false;
+            this.productID.Width = 47;
             // 
             // colProductCode
             // 
@@ -188,12 +189,11 @@
             // 
             // colClassification
             // 
-            this.colClassification.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colClassification.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colClassification.DataPropertyName = "classification";
             this.colClassification.HeaderText = "Classification";
             this.colClassification.Name = "colClassification";
             this.colClassification.ReadOnly = true;
-            this.colClassification.Width = 125;
             // 
             // colDosage
             // 
@@ -308,7 +308,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 450);
+            this.ClientSize = new System.Drawing.Size(1771, 450);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "StockAdjustment";
@@ -328,6 +328,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView DGVStockUdjustment;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox ProductSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn productID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProductName;
@@ -345,7 +347,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colRemark;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNewRemarks;
         private System.Windows.Forms.DataGridViewButtonColumn colUpdate;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox ProductSearch;
     }
 }

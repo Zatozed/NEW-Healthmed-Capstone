@@ -85,7 +85,7 @@ namespace NEW_Healthmed_Capstone
 
                             MainForm main = new MainForm();
                             main.Show();
-                            //this.Hide();
+                            this.Hide();
                         }
                         else if (status == "2")
                         {

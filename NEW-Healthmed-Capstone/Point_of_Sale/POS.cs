@@ -368,6 +368,11 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
             //MessageBox.Show("");
         }
 
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void btnPayment_Click(object sender, EventArgs e)
         {
             if (dgvCart.Rows.Count != 0)// row has laman

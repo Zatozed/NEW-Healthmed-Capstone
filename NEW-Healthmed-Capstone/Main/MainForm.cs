@@ -125,9 +125,9 @@ namespace NEW_Healthmed_Capstone.Main
             POS pos = new POS();
             pos.ShowDialog();
 
-            PettyCash pc = new PettyCash();
-            pc.ShowDialog();
-            pc.BringToFront();
+            //PettyCash pc = new PettyCash();
+            //pc.ShowDialog();
+            //pc.BringToFront();
         }
 
         private void btnReports_Click(object sender, EventArgs e)

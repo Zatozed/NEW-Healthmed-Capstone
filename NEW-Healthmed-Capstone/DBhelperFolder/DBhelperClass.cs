@@ -8,6 +8,7 @@ using Google.Protobuf.WellKnownTypes;
 using System.Xml.Linq;
 using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Ocsp;
+using System.Web.Management;
 
 namespace NEW_Healthmed_Capstone.DBhelperFolder
 {
@@ -195,8 +196,104 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             }
             con.Close();
 
-
             return lt;
+        }
+        public void SetCashVal(string val)
+        {
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("update tbl_petty_cash set cash = " + val, con);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception xcp)
+            {
+                MessageBox.Show(xcp.Message.ToString());
+            }
+            finally { con.Close(); }
+        }
+        public bool VerifyPass(string pass)
+        {
+            bool verify = false;
+
+            try 
+            {
+                con.Open();
+                cmd = new MySqlCommand("select passcode from tbl_users where BINARY passcode = '" + pass + "'", con);
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                    verify = true;
+            }
+            catch (Exception xcp) 
+            { 
+                //MessageBox.Show("Unable to Verify Password");
+                MessageBox.Show(xcp.Message.ToString());
+            }
+            finally { con.Close(); }
+
+            return verify;
+        }
+        public void CashIn(string val) 
+        {
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("update tbl_petty_cash set cash = cash + " + val, con);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+        }
+        public void CashOut(string val) 
+        {
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("update tbl_petty_cash set cash = cash - " + val, con);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+        }
+        public void InsertToCash(string c, string cAction, string amount, string dTime)
+        {
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("insert into tbl_cash(cashier, cashier_action, cash_amount, action_date)"+
+                    "values(@c, @cAction, @amount, @dTime)"
+                    , con);
+
+                cmd.Parameters.AddWithValue("@c", c);
+                cmd.Parameters.AddWithValue("@cAction", cAction);
+                cmd.Parameters.AddWithValue("@amount", amount);
+                cmd.Parameters.AddWithValue("@dTime", dTime);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+        }
+        public Double GetBalance()
+        {
+            Double d = 0;
+
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("select cash from tbl_petty_cash limit 1", con);
+                dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    d = dr.GetDouble(0);
+                }
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+
+            return d;
         }
         public DataTable ShowProductMasterList()
         {

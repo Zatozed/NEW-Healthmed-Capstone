@@ -370,6 +370,8 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
 
         private void btnHome_Click(object sender, EventArgs e)
         {
+            CashRegister cr = new CashRegister();
+            cr.ShowDialog();
             this.Close();
         }
 

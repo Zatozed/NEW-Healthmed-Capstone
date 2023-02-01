@@ -122,9 +122,6 @@ namespace NEW_Healthmed_Capstone.Main
 
         private void btnPOS_Click(object sender, EventArgs e)
         {
-            POS pos = new POS();
-            pos.ShowDialog();
-
             CashRegister cr = new CashRegister();
             cr.ShowDialog();
         }

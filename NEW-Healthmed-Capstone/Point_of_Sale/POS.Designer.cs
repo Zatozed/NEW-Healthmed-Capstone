@@ -30,12 +30,12 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lbTransacNum = new System.Windows.Forms.Label();
             this.lbUser = new System.Windows.Forms.Label();
@@ -45,6 +45,15 @@
             this.tControlProducts = new System.Windows.Forms.TabControl();
             this.tabPharmaDrugs = new System.Windows.Forms.TabPage();
             this.dgvDrugs = new System.Windows.Forms.DataGridView();
+            this.colProdCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnitCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colInStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAdd = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.dgvCart = new System.Windows.Forms.DataGridView();
             this.colProdCodeCart = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,15 +93,6 @@
             this.btnHome = new System.Windows.Forms.Button();
             this.lbCash = new System.Windows.Forms.Label();
             this.lbChange = new System.Windows.Forms.Label();
-            this.colProdCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnitCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colInStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAdd = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tControlProducts.SuspendLayout();
             this.tabPharmaDrugs.SuspendLayout();
@@ -382,6 +382,99 @@
             this.dgvDrugs.Size = new System.Drawing.Size(566, 588);
             this.dgvDrugs.TabIndex = 23;
             this.dgvDrugs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDrugs_CellContentClick);
+            // 
+            // colProdCode
+            // 
+            this.colProdCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colProdCode.DataPropertyName = "product_code";
+            this.colProdCode.HeaderText = "Product Code";
+            this.colProdCode.Name = "colProdCode";
+            this.colProdCode.ReadOnly = true;
+            this.colProdCode.Width = 120;
+            // 
+            // colProdName
+            // 
+            this.colProdName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colProdName.DataPropertyName = "product_name";
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.colProdName.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colProdName.HeaderText = "Product Name";
+            this.colProdName.Name = "colProdName";
+            this.colProdName.ReadOnly = true;
+            this.colProdName.Width = 124;
+            // 
+            // colClass
+            // 
+            this.colClass.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colClass.DataPropertyName = "classification";
+            this.colClass.HeaderText = "Classification";
+            this.colClass.Name = "colClass";
+            this.colClass.ReadOnly = true;
+            // 
+            // colDosage
+            // 
+            this.colDosage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colDosage.DataPropertyName = "dosage";
+            this.colDosage.HeaderText = "Dosage";
+            this.colDosage.Name = "colDosage";
+            this.colDosage.ReadOnly = true;
+            this.colDosage.Width = 88;
+            // 
+            // colType
+            // 
+            this.colType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colType.DataPropertyName = "med_type";
+            this.colType.HeaderText = "Type";
+            this.colType.Name = "colType";
+            this.colType.ReadOnly = true;
+            this.colType.Width = 69;
+            // 
+            // colUnitCost
+            // 
+            this.colUnitCost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colUnitCost.DataPropertyName = "unit_cost";
+            this.colUnitCost.HeaderText = "Unit Cost";
+            this.colUnitCost.Name = "colUnitCost";
+            this.colUnitCost.ReadOnly = true;
+            this.colUnitCost.Visible = false;
+            // 
+            // colUnitPrice
+            // 
+            this.colUnitPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colUnitPrice.DataPropertyName = "unit_price";
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.colUnitPrice.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colUnitPrice.HeaderText = "Unit Price";
+            this.colUnitPrice.Name = "colUnitPrice";
+            this.colUnitPrice.ReadOnly = true;
+            this.colUnitPrice.Width = 96;
+            // 
+            // colInStock
+            // 
+            this.colInStock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colInStock.DataPropertyName = "in_stock_qty";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.colInStock.DefaultCellStyle = dataGridViewCellStyle4;
+            this.colInStock.HeaderText = "In Stock";
+            this.colInStock.Name = "colInStock";
+            this.colInStock.ReadOnly = true;
+            this.colInStock.Width = 84;
+            // 
+            // colAdd
+            // 
+            this.colAdd.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colAdd.HeaderText = "";
+            this.colAdd.Name = "colAdd";
+            this.colAdd.ReadOnly = true;
+            this.colAdd.Text = "add";
+            this.colAdd.UseColumnTextForButtonValue = true;
+            this.colAdd.Width = 5;
             // 
             // tbSearch
             // 
@@ -802,100 +895,6 @@
             this.lbChange.Size = new System.Drawing.Size(78, 17);
             this.lbChange.TabIndex = 47;
             this.lbChange.Text = "Php: 0.00";
-            // 
-            // colProdCode
-            // 
-            this.colProdCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colProdCode.DataPropertyName = "product_code";
-            this.colProdCode.HeaderText = "Product Code";
-            this.colProdCode.Name = "colProdCode";
-            this.colProdCode.ReadOnly = true;
-            this.colProdCode.Width = 120;
-            // 
-            // colProdName
-            // 
-            this.colProdName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colProdName.DataPropertyName = "product_name";
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.colProdName.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colProdName.HeaderText = "Product Name";
-            this.colProdName.Name = "colProdName";
-            this.colProdName.ReadOnly = true;
-            this.colProdName.Width = 124;
-            // 
-            // colClass
-            // 
-            this.colClass.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colClass.DataPropertyName = "classification";
-            this.colClass.HeaderText = "Classification";
-            this.colClass.Name = "colClass";
-            this.colClass.ReadOnly = true;
-            // 
-            // colDosage
-            // 
-            this.colDosage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colDosage.DataPropertyName = "dosage";
-            this.colDosage.HeaderText = "Dosage";
-            this.colDosage.Name = "colDosage";
-            this.colDosage.ReadOnly = true;
-            this.colDosage.Width = 88;
-            // 
-            // colType
-            // 
-            this.colType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colType.DataPropertyName = "med_type";
-            this.colType.HeaderText = "Type";
-            this.colType.Name = "colType";
-            this.colType.ReadOnly = true;
-            this.colType.Width = 69;
-            // 
-            // colUnitCost
-            // 
-            this.colUnitCost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colUnitCost.DataPropertyName = "unit_cost";
-            this.colUnitCost.HeaderText = "Unit Cost";
-            this.colUnitCost.Name = "colUnitCost";
-            this.colUnitCost.ReadOnly = true;
-            this.colUnitCost.Visible = false;
-            this.colUnitCost.Width = 91;
-            // 
-            // colUnitPrice
-            // 
-            this.colUnitPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colUnitPrice.DataPropertyName = "unit_price";
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.colUnitPrice.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colUnitPrice.HeaderText = "Unit Price";
-            this.colUnitPrice.Name = "colUnitPrice";
-            this.colUnitPrice.ReadOnly = true;
-            this.colUnitPrice.Width = 96;
-            // 
-            // colInStock
-            // 
-            this.colInStock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colInStock.DataPropertyName = "in_stock_qty";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.colInStock.DefaultCellStyle = dataGridViewCellStyle4;
-            this.colInStock.HeaderText = "In Stock";
-            this.colInStock.Name = "colInStock";
-            this.colInStock.ReadOnly = true;
-            this.colInStock.Width = 84;
-            // 
-            // colAdd
-            // 
-            this.colAdd.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colAdd.HeaderText = "";
-            this.colAdd.Name = "colAdd";
-            this.colAdd.ReadOnly = true;
-            this.colAdd.Text = "add";
-            this.colAdd.UseColumnTextForButtonValue = true;
-            this.colAdd.Width = 5;
             // 
             // POS
             // 

@@ -29,27 +29,35 @@ namespace NEW_Healthmed_Capstone.Inv
         }
         private void ComputeSubtotal() 
         {
-            if(dgvOrders.Rows.Count != 0) 
+            try 
             {
-                subtotal = 0;
-                foreach (DataGridViewRow r in dgvOrders.Rows) 
+                if (dgvOrders.Rows.Count != 0)
                 {
-                    subtotal += Math.Round(Convert.ToDouble(r.Cells["colQty"].Value) * Convert.ToDouble(r.Cells["colUnitCost"].Value), 2);
+                    subtotal = 0;
+                    foreach (DataGridViewRow r in dgvOrders.Rows)
+                    {
+                        subtotal += Math.Round(Convert.ToDouble(r.Cells["colQty"].Value) * Convert.ToDouble(r.Cells["colUnitCost"].Value), 2);
+                    }
                 }
             }
+            catch { MessageBox.Show("Qty, Discount and/or Unit Cost cannot be letters"); }
         }
         private void ComputeSubtotalLessDiscount() 
         {
-            if (dgvOrders.Rows.Count != 0)
+            try 
             {
-                Discount = 0;
-                foreach (DataGridViewRow r in dgvOrders.Rows)
+                if (dgvOrders.Rows.Count != 0)
                 {
-                    Discount += Math.Round(
-                        (Convert.ToDouble(r.Cells["colQty"].Value) * Convert.ToDouble(r.Cells["colUnitCost"].Value)) * Convert.ToDouble(r.Cells["colDiscount"].Value)
-                        , 2);
+                    Discount = 0;
+                    foreach (DataGridViewRow r in dgvOrders.Rows)
+                    {
+                        Discount += Math.Round(
+                            (Convert.ToDouble(r.Cells["colQty"].Value) * Convert.ToDouble(r.Cells["colUnitCost"].Value)) * Convert.ToDouble(r.Cells["colDiscount"].Value)
+                            , 2);
+                    }
                 }
             }
+            catch { MessageBox.Show("Qty, Discount and/or Unit Cost cannot be letters") ; }
         }
         private void GenereateAutoCompleteSrc()
         {
@@ -273,7 +281,10 @@ namespace NEW_Healthmed_Capstone.Inv
             bool black = false;
             foreach (DataGridViewRow r in dgvOrders.Rows)
             {
-                if (r.Cells["colQty"].Value == null || r.Cells["colQty"].Value.ToString().Equals("0")) 
+                if (r.Cells["colQty"].Value == null || r.Cells["colQty"].Value.ToString().Equals("0") ||
+                    !Double.TryParse(r.Cells["colQty"].Value.ToString(),out double res) ||
+                    !Double.TryParse(r.Cells["colDiscount"].Value.ToString(), out double rdis) ||
+                    !Double.TryParse(r.Cells["colUnitCost"].Value.ToString(), out double runit)) 
                     { black = true; }
             }
 
@@ -284,7 +295,7 @@ namespace NEW_Healthmed_Capstone.Inv
             }
             else if (black == true)
             {
-                MessageBox.Show("Check Quantity");
+                MessageBox.Show("Inputs are invalid");
             }
             else
             {

@@ -375,6 +375,12 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
             this.Close();
         }
 
+        private void POS_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            CashRegister cr = new CashRegister();
+            cr.ShowDialog();
+        }
+
         private void btnPayment_Click(object sender, EventArgs e)
         {
             if (dgvCart.Rows.Count != 0)// row has laman

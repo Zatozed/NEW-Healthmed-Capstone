@@ -53,10 +53,9 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                         comboBox1.Text,
                         tbCash.Text,
                         datenow);
-
                     MessageBox.Show("Cash In Done");
 
-                    pos.ShowDialog();
+                    this.Close();
                 }
             }
             else if (comboBox1.Text.Equals("Cash Out"))
@@ -70,6 +69,8 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                         tbCash.Text,
                         datenow);
                     MessageBox.Show("Cash Out Done");
+
+                    this.Close();
                 }
             }
             else if (comboBox1.Text.Equals("Time In"))
@@ -85,6 +86,7 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
 
                     MessageBox.Show("Time In Success");
                     pos.ShowDialog();
+                    this.Close();
                 }
 
             }
@@ -98,8 +100,8 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                     datenow);
 
                     dbh.SetCashVal("0");
-
                     MessageBox.Show("Time Out Done");
+                    this.Close();
                 }
             }
             else { }

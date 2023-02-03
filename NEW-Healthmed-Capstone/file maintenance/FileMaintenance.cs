@@ -852,8 +852,6 @@ namespace NEW_Healthmed_Capstone.file_maintenance
 
         private void cbSupplierList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (cbSupplierList.Text != null || cbSupplierList.Text.ToString().Equals(""))
-            //    dgvP_S.DataSource = dbh.SearchRelation2(cbSupplierList.Text.ToString());
 
             if (cbSupplierList.Text == null || cbSupplierList.Text.ToString().Equals(""))
 

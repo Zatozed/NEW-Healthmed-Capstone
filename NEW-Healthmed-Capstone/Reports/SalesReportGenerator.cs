@@ -99,6 +99,16 @@ namespace NEW_Healthmed_Capstone.Reports
             DgvToDt();
         }
 
+        private void dtFromDate_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtToDate_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void SalesReport_Load(object sender, EventArgs e)
         {
             dgvSales.DataSource = dbh.ShowSales();

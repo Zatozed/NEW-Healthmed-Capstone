@@ -54,54 +54,26 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                         tbCash.Text,
                         datenow);
                     MessageBox.Show("Cash In Done");
-
-                    this.Close();
+                    this.Hide();
+                    pos.ShowDialog();
                 }
             }
             else if (comboBox1.Text.Equals("Cash Out"))
             {
-                if (dbh.VerifyPass(tbPass.Text))
+                if (Convert.ToDouble(lbBalance.Text) > Convert.ToDouble(tbCash.Text))
                 {
-                    dbh.CashOut(tbCash.Text);
+                    if (dbh.VerifyPass(tbPass.Text))
+                    {
+                        dbh.CashOut(tbCash.Text);
 
-                    dbh.InsertToCash(Properties.Settings.Default.Fname_Lname,
-                        comboBox1.Text,
-                        tbCash.Text,
-                        datenow);
-                    MessageBox.Show("Cash Out Done");
+                        dbh.InsertToCash(Properties.Settings.Default.Fname_Lname,
+                            comboBox1.Text,
+                            tbCash.Text,
+                            datenow);
+                        MessageBox.Show("Cash Out Done");
 
-                    this.Close();
-                }
-            }
-            else if (comboBox1.Text.Equals("Time In"))
-            {
-                if (dbh.VerifyPass(tbPass.Text))
-                {
-                    dbh.InsertToCash(Properties.Settings.Default.Fname_Lname,
-                    comboBox1.Text,
-                    tbCash.Text,
-                    datenow);
-
-                    dbh.SetCashVal(tbCash.Text);
-
-                    MessageBox.Show("Time In Success");
-                    pos.ShowDialog();
-                    this.Close();
-                }
-
-            }
-            else if (comboBox1.Text.Equals("Time Out"))
-            {
-                if (dbh.VerifyPass(tbPass.Text))
-                {
-                    dbh.InsertToCash(Properties.Settings.Default.Fname_Lname,
-                    comboBox1.Text,
-                    tbCash.Text,
-                    datenow);
-
-                    dbh.SetCashVal("0");
-                    MessageBox.Show("Time Out Done");
-                    this.Close();
+                        this.Close();
+                    }
                 }
             }
             else { }

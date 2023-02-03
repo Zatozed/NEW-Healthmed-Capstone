@@ -250,5 +250,17 @@ namespace NEW_Healthmed_Capstone.Properties {
                 this["ExpiryDate"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool isCashierActive {
+            get {
+                return ((bool)(this["isCashierActive"]));
+            }
+            set {
+                this["isCashierActive"] = value;
+            }
+        }
     }
 }

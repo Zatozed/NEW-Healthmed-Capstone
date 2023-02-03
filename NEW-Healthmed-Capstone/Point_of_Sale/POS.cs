@@ -424,13 +424,13 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                         }
                         MessageBox.Show("Transaction Saved");
 
-                        DgvToDt();
                         lbTransacNum.Text = dbh.GenereateTransacNum();
 
                         lbCash.Text = "Php: " + Properties.Settings.Default.Cash;
                         lbChange.Text = "Php: " + Properties.Settings.Default.Change;
 
                         btnPayment.Enabled = false;
+                        DgvToDt();
 
                         dgvDrugs.DataSource = dbh.ShowProductList();
                     }

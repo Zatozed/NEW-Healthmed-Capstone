@@ -37,8 +37,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label4 = new System.Windows.Forms.Label();
             this.lbBalance = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,8 +68,6 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Select",
-            "Time In",
-            "Time Out",
             "Cash In",
             "Cash Out"});
             this.comboBox1.Location = new System.Drawing.Point(258, 96);
@@ -160,15 +158,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(507, 273);
             this.tableLayoutPanel1.TabIndex = 8;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 45);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 24);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Balance";
-            // 
             // lbBalance
             // 
             this.lbBalance.AutoSize = true;
@@ -177,6 +166,15 @@
             this.lbBalance.Size = new System.Drawing.Size(60, 24);
             this.lbBalance.TabIndex = 9;
             this.lbBalance.Text = "00.00";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 45);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(85, 24);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Balance";
             // 
             // CashRegister
             // 

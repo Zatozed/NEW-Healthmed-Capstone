@@ -838,17 +838,27 @@ namespace NEW_Healthmed_Capstone.file_maintenance
 
         private void tbSearchProductList_TextChanged(object sender, EventArgs e)
         {
-            if (tbSearchProductList.Text == null || tbSearchProductList.Text.ToString().Equals(""))
+            if (tbSearchProductList.Text == null || tbSearchProductList.Text.ToString().Equals("") && cbSupplierList.Text == null)
 
                 dgvP_S.DataSource = dbh.showProductRelation();
-            else
+
+            else if(tbSearchProductList.Text != null && cbSupplierList.Text.ToString().Equals(""))
+
+                dgvP_S.DataSource = dbh.SearchRelation(tbSearchProductList.Text);
+
+            else if(cbSupplierList.Text != null && tbSearchProductList.Text != null)
                 dgvP_S.DataSource = dbh.SearchRelation1(tbSearchProductList.Text, cbSupplierList.Text.ToString());
         }
 
         private void cbSupplierList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbSupplierList.Text != null || cbSupplierList.Text.ToString().Equals(""))
-                dgvP_S.DataSource = dbh.SearchRelation2(cbSupplierList.Text.ToString());
+
+            if (cbSupplierList.Text == null || cbSupplierList.Text.ToString().Equals(""))
+
+                dgvP_S.DataSource = dbh.showProductRelation();
+            else
+                dgvP_S.DataSource = dbh.SearchRelation1(tbSearchProductList.Text, cbSupplierList.Text.ToString());
+
 
 
         }

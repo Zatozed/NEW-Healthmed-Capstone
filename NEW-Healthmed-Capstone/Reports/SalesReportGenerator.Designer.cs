@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lbGTS = new System.Windows.Forms.Label();
             this.lbGTC = new System.Windows.Forms.Label();
@@ -47,10 +47,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbTransacNum = new System.Windows.Forms.TextBox();
             this.dgvSales = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lbProfit = new System.Windows.Forms.Label();
             this.colTransactionNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProductCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colItemDes = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,6 +59,14 @@
             this.colTotalSales = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTransacDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCashier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lbProfit = new System.Windows.Forms.Label();
+            this.dtToDate = new System.Windows.Forms.DateTimePicker();
+            this.dtFromDate = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).BeginInit();
             this.SuspendLayout();
@@ -73,6 +77,8 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel1.Controls.Add(this.label3, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lbGTS, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.lbGTC, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
@@ -83,6 +89,8 @@
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.lbProfit, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.dtToDate, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dtFromDate, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -184,6 +192,119 @@
             this.dgvSales.Size = new System.Drawing.Size(1360, 308);
             this.dgvSales.TabIndex = 6;
             // 
+            // colTransactionNum
+            // 
+            this.colTransactionNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colTransactionNum.DataPropertyName = "transaction_num";
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTransactionNum.DefaultCellStyle = dataGridViewCellStyle25;
+            this.colTransactionNum.HeaderText = "Transaction #";
+            this.colTransactionNum.Name = "colTransactionNum";
+            this.colTransactionNum.ReadOnly = true;
+            this.colTransactionNum.Width = 124;
+            // 
+            // colProductCode
+            // 
+            this.colProductCode.DataPropertyName = "product_code";
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colProductCode.DefaultCellStyle = dataGridViewCellStyle26;
+            this.colProductCode.HeaderText = "Product Code";
+            this.colProductCode.Name = "colProductCode";
+            this.colProductCode.ReadOnly = true;
+            // 
+            // colItemDes
+            // 
+            this.colItemDes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colItemDes.DataPropertyName = "item_description";
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colItemDes.DefaultCellStyle = dataGridViewCellStyle27;
+            this.colItemDes.HeaderText = "Item Description";
+            this.colItemDes.Name = "colItemDes";
+            this.colItemDes.ReadOnly = true;
+            // 
+            // colQty
+            // 
+            this.colQty.DataPropertyName = "qty";
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colQty.DefaultCellStyle = dataGridViewCellStyle28;
+            this.colQty.HeaderText = "Qty";
+            this.colQty.Name = "colQty";
+            this.colQty.ReadOnly = true;
+            // 
+            // colUnitCost
+            // 
+            this.colUnitCost.DataPropertyName = "unit_cost";
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colUnitCost.DefaultCellStyle = dataGridViewCellStyle29;
+            this.colUnitCost.HeaderText = "Unit Cost";
+            this.colUnitCost.Name = "colUnitCost";
+            this.colUnitCost.ReadOnly = true;
+            // 
+            // colUnitPrice
+            // 
+            this.colUnitPrice.DataPropertyName = "unit_price";
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colUnitPrice.DefaultCellStyle = dataGridViewCellStyle30;
+            this.colUnitPrice.HeaderText = "Unit Price";
+            this.colUnitPrice.Name = "colUnitPrice";
+            this.colUnitPrice.ReadOnly = true;
+            // 
+            // colVatEx
+            // 
+            this.colVatEx.DataPropertyName = "vat_exempt";
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colVatEx.DefaultCellStyle = dataGridViewCellStyle31;
+            this.colVatEx.HeaderText = "VAT Exempt Sales";
+            this.colVatEx.Name = "colVatEx";
+            this.colVatEx.ReadOnly = true;
+            // 
+            // colDiscount
+            // 
+            this.colDiscount.DataPropertyName = "discount";
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colDiscount.DefaultCellStyle = dataGridViewCellStyle32;
+            this.colDiscount.HeaderText = "Discount";
+            this.colDiscount.Name = "colDiscount";
+            this.colDiscount.ReadOnly = true;
+            // 
+            // colTotalCost
+            // 
+            this.colTotalCost.DataPropertyName = "total_cost";
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTotalCost.DefaultCellStyle = dataGridViewCellStyle33;
+            this.colTotalCost.HeaderText = "Total Cost";
+            this.colTotalCost.Name = "colTotalCost";
+            this.colTotalCost.ReadOnly = true;
+            // 
+            // colTotalSales
+            // 
+            this.colTotalSales.DataPropertyName = "total_sales";
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTotalSales.DefaultCellStyle = dataGridViewCellStyle34;
+            this.colTotalSales.HeaderText = "Total Sales";
+            this.colTotalSales.Name = "colTotalSales";
+            this.colTotalSales.ReadOnly = true;
+            // 
+            // colTransacDate
+            // 
+            this.colTransacDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colTransacDate.DataPropertyName = "transac_date";
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTransacDate.DefaultCellStyle = dataGridViewCellStyle35;
+            this.colTransacDate.HeaderText = "Transaction Date";
+            this.colTransacDate.Name = "colTransacDate";
+            this.colTransacDate.ReadOnly = true;
+            this.colTransacDate.Width = 148;
+            // 
+            // colCashier
+            // 
+            this.colCashier.DataPropertyName = "cashier";
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colCashier.DefaultCellStyle = dataGridViewCellStyle36;
+            this.colCashier.HeaderText = "Cashier";
+            this.colCashier.Name = "colCashier";
+            this.colCashier.ReadOnly = true;
+            // 
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -233,118 +354,47 @@
             this.lbProfit.TabIndex = 13;
             this.lbProfit.Text = "To";
             // 
-            // colTransactionNum
+            // dtToDate
             // 
-            this.colTransactionNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colTransactionNum.DataPropertyName = "transaction_num";
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colTransactionNum.DefaultCellStyle = dataGridViewCellStyle1;
-            this.colTransactionNum.HeaderText = "Transaction #";
-            this.colTransactionNum.Name = "colTransactionNum";
-            this.colTransactionNum.ReadOnly = true;
-            this.colTransactionNum.Width = 124;
+            this.dtToDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtToDate.Location = new System.Drawing.Point(915, 47);
+            this.dtToDate.Name = "dtToDate";
+            this.dtToDate.Size = new System.Drawing.Size(290, 24);
+            this.dtToDate.TabIndex = 14;
+            this.dtToDate.ValueChanged += new System.EventHandler(this.dtToDate_ValueChanged);
             // 
-            // colProductCode
+            // dtFromDate
             // 
-            this.colProductCode.DataPropertyName = "product_code";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colProductCode.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colProductCode.HeaderText = "Product Code";
-            this.colProductCode.Name = "colProductCode";
-            this.colProductCode.ReadOnly = true;
+            this.dtFromDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFromDate.Location = new System.Drawing.Point(459, 47);
+            this.dtFromDate.Name = "dtFromDate";
+            this.dtFromDate.Size = new System.Drawing.Size(290, 24);
+            this.dtFromDate.TabIndex = 15;
+            this.dtFromDate.ValueChanged += new System.EventHandler(this.dtFromDate_ValueChanged);
             // 
-            // colItemDes
+            // label2
             // 
-            this.colItemDes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colItemDes.DataPropertyName = "item_description";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colItemDes.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colItemDes.HeaderText = "Item Description";
-            this.colItemDes.Name = "colItemDes";
-            this.colItemDes.ReadOnly = true;
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(461, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(446, 44);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "From Date:";
             // 
-            // colQty
+            // label3
             // 
-            this.colQty.DataPropertyName = "qty";
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colQty.DefaultCellStyle = dataGridViewCellStyle4;
-            this.colQty.HeaderText = "Qty";
-            this.colQty.Name = "colQty";
-            this.colQty.ReadOnly = true;
-            // 
-            // colUnitCost
-            // 
-            this.colUnitCost.DataPropertyName = "unit_cost";
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colUnitCost.DefaultCellStyle = dataGridViewCellStyle5;
-            this.colUnitCost.HeaderText = "Unit Cost";
-            this.colUnitCost.Name = "colUnitCost";
-            this.colUnitCost.ReadOnly = true;
-            // 
-            // colUnitPrice
-            // 
-            this.colUnitPrice.DataPropertyName = "unit_price";
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colUnitPrice.DefaultCellStyle = dataGridViewCellStyle6;
-            this.colUnitPrice.HeaderText = "Unit Price";
-            this.colUnitPrice.Name = "colUnitPrice";
-            this.colUnitPrice.ReadOnly = true;
-            // 
-            // colVatEx
-            // 
-            this.colVatEx.DataPropertyName = "vat_exempt";
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colVatEx.DefaultCellStyle = dataGridViewCellStyle7;
-            this.colVatEx.HeaderText = "VAT Exempt Sales";
-            this.colVatEx.Name = "colVatEx";
-            this.colVatEx.ReadOnly = true;
-            // 
-            // colDiscount
-            // 
-            this.colDiscount.DataPropertyName = "discount";
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colDiscount.DefaultCellStyle = dataGridViewCellStyle8;
-            this.colDiscount.HeaderText = "Discount";
-            this.colDiscount.Name = "colDiscount";
-            this.colDiscount.ReadOnly = true;
-            // 
-            // colTotalCost
-            // 
-            this.colTotalCost.DataPropertyName = "total_cost";
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colTotalCost.DefaultCellStyle = dataGridViewCellStyle9;
-            this.colTotalCost.HeaderText = "Total Cost";
-            this.colTotalCost.Name = "colTotalCost";
-            this.colTotalCost.ReadOnly = true;
-            // 
-            // colTotalSales
-            // 
-            this.colTotalSales.DataPropertyName = "total_sales";
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colTotalSales.DefaultCellStyle = dataGridViewCellStyle10;
-            this.colTotalSales.HeaderText = "Total Sales";
-            this.colTotalSales.Name = "colTotalSales";
-            this.colTotalSales.ReadOnly = true;
-            // 
-            // colTransacDate
-            // 
-            this.colTransacDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colTransacDate.DataPropertyName = "transac_date";
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colTransacDate.DefaultCellStyle = dataGridViewCellStyle11;
-            this.colTransacDate.HeaderText = "Transaction Date";
-            this.colTransacDate.Name = "colTransacDate";
-            this.colTransacDate.ReadOnly = true;
-            this.colTransacDate.Width = 148;
-            // 
-            // colCashier
-            // 
-            this.colCashier.DataPropertyName = "cashier";
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colCashier.DefaultCellStyle = dataGridViewCellStyle12;
-            this.colCashier.HeaderText = "Cashier";
-            this.colCashier.Name = "colCashier";
-            this.colCashier.ReadOnly = true;
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(917, 0);
+            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(448, 44);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "To Date:";
             // 
             // SalesReportGenerator
             // 
@@ -391,5 +441,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colTotalSales;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTransacDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCashier;
+        private System.Windows.Forms.DateTimePicker dtToDate;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dtFromDate;
     }
 }

@@ -194,17 +194,6 @@ namespace NEW_Healthmed_Capstone.Inv
             }
         }
 
-        private void dgvToReceive_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvToReceive.Columns[e.ColumnIndex].Name.Equals("colExpiryDate"))
-            {
-                ExpirySetter dp = new ExpirySetter();
-                dp.ShowDialog();
-
-                dgvToReceive.Rows[e.RowIndex].Cells["colExpiryDate"].Value = Properties.Settings.Default.ExpiryDate;
-            }
-        }
-
         private void dgvToReceive_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
 

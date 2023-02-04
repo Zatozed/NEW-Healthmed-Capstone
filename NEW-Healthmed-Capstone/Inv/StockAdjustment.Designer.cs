@@ -66,7 +66,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1771, 93);
+            this.panel1.Size = new System.Drawing.Size(1370, 93);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -94,7 +94,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 93);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1771, 357);
+            this.panel2.Size = new System.Drawing.Size(1370, 357);
             this.panel2.TabIndex = 1;
             // 
             // DGVStockUdjustment
@@ -155,9 +155,10 @@
             this.DGVStockUdjustment.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DGVStockUdjustment.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.DGVStockUdjustment.Size = new System.Drawing.Size(1756, 339);
+            this.DGVStockUdjustment.Size = new System.Drawing.Size(1355, 339);
             this.DGVStockUdjustment.TabIndex = 19;
             this.DGVStockUdjustment.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVStockUdjustment_CellContentClick);
+            this.DGVStockUdjustment.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVStockUdjustment_CellValueChanged);
             // 
             // productID
             // 
@@ -167,7 +168,6 @@
             this.productID.Name = "productID";
             this.productID.ReadOnly = true;
             this.productID.Visible = false;
-            this.productID.Width = 47;
             // 
             // colProductCode
             // 
@@ -227,7 +227,7 @@
             this.colNewUnitCost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colNewUnitCost.HeaderText = "New Unit Cost";
             this.colNewUnitCost.Name = "colNewUnitCost";
-            this.colNewUnitCost.Width = 117;
+            this.colNewUnitCost.Width = 89;
             // 
             // colPrice
             // 
@@ -243,7 +243,7 @@
             this.colNewUnitPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colNewUnitPrice.HeaderText = "New Unit Price";
             this.colNewUnitPrice.Name = "colNewUnitPrice";
-            this.colNewUnitPrice.Width = 122;
+            this.colNewUnitPrice.Width = 89;
             // 
             // colInStock
             // 
@@ -252,14 +252,14 @@
             this.colInStock.HeaderText = "In Stock Qty.";
             this.colInStock.Name = "colInStock";
             this.colInStock.ReadOnly = true;
-            this.colInStock.Width = 108;
+            this.colInStock.Width = 84;
             // 
             // colNewInStock
             // 
             this.colNewInStock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colNewInStock.HeaderText = "New In Stock Qty.";
             this.colNewInStock.Name = "colNewInStock";
-            this.colNewInStock.Width = 115;
+            this.colNewInStock.Width = 94;
             // 
             // colReOrder
             // 
@@ -277,7 +277,7 @@
             this.colSafetyStock.HeaderText = "Safety Stock per week";
             this.colSafetyStock.Name = "colSafetyStock";
             this.colSafetyStock.ReadOnly = true;
-            this.colSafetyStock.Width = 137;
+            this.colSafetyStock.Width = 113;
             // 
             // colRemark
             // 
@@ -308,7 +308,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1771, 450);
+            this.ClientSize = new System.Drawing.Size(1370, 450);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "StockAdjustment";

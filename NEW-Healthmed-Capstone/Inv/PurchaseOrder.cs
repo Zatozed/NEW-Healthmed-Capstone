@@ -29,8 +29,6 @@ namespace NEW_Healthmed_Capstone.Inv
         }
         private void ComputeSubtotal() 
         {
-            try 
-            {
                 if (dgvOrders.Rows.Count != 0)
                 {
                     subtotal = 0;
@@ -39,13 +37,9 @@ namespace NEW_Healthmed_Capstone.Inv
                         subtotal += Math.Round(Convert.ToDouble(r.Cells["colQty"].Value) * Convert.ToDouble(r.Cells["colUnitCost"].Value), 2);
                     }
                 }
-            }
-            catch { MessageBox.Show("Qty, Discount and/or Unit Cost cannot be letters"); }
         }
         private void ComputeSubtotalLessDiscount() 
         {
-            try 
-            {
                 if (dgvOrders.Rows.Count != 0)
                 {
                     Discount = 0;
@@ -56,8 +50,6 @@ namespace NEW_Healthmed_Capstone.Inv
                             , 2);
                     }
                 }
-            }
-            catch { MessageBox.Show("Qty, Discount and/or Unit Cost cannot be letters") ; }
         }
         private void GenereateAutoCompleteSrc()
         {
@@ -167,14 +159,36 @@ namespace NEW_Healthmed_Capstone.Inv
 
         private void dgvOrders_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            ComputeSubtotal();
-            lbSubtotal.Text = subtotal.ToString("0.00");
+            try 
+            {
+                if (!Double.TryParse(dgvOrders.Rows[e.RowIndex].Cells["colQty"].Value.ToString(), out double rs))
+                {
+                    MessageBox.Show("Quantity must not be letters");
+                    dgvOrders.Rows[e.RowIndex].Cells["colQty"].Value = 0;
+                }
+                else if(!Double.TryParse(dgvOrders.Rows[e.RowIndex].Cells["colDiscount"].Value.ToString(), out double rs2))
+                {
+                    MessageBox.Show("Discount must not be letters");
+                    dgvOrders.Rows[e.RowIndex].Cells["colDiscount"].Value = 0;
+                }
+                else if(!Double.TryParse(dgvOrders.Rows[e.RowIndex].Cells["colUnitCost"].Value.ToString(), out double rs3))
+                {
+                    MessageBox.Show("Unit Cost must not be letters");
+                    dgvOrders.Rows[e.RowIndex].Cells["colUnitCost"].Value = 0;
+                }
+                else
+                {
+                    ComputeSubtotal();
+                    lbSubtotal.Text = subtotal.ToString("0.00");
 
-            ComputeSubtotalLessDiscount();
-            lbDiscount.Text = Discount.ToString("0.00");
+                    ComputeSubtotalLessDiscount();
+                    lbDiscount.Text = Discount.ToString("0.00");
 
-            ComputeTotal();
-            lbTotal.Text = total.ToString("0.00");
+                    ComputeTotal();
+                    lbTotal.Text = total.ToString("0.00");
+                }
+            }
+            catch { }
         }
 
         private void PropertiesSave() 

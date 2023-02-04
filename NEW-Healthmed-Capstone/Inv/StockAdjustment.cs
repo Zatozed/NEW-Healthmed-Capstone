@@ -199,17 +199,13 @@ namespace NEW_Healthmed_Capstone.Inv
             else
                 DGVStockUdjustment.DataSource = dbh.ShowProductMasterList1(ProductSearch.Text);
         }
-        //private void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-        //{
-        //    e.Control.KeyPress -= new KeyPressEventHandler(Column1_KeyPress);
-        //    if (DGVStockUdjustment.CurrentCell.ColumnIndex == 1) //Desired Column
-        //    {
-        //        TextBox tb = e.Control as TextBox;
-        //        if (tb != null)
-        //        {
-        //            tb.KeyPress += new KeyPressEventHandler(Column1_KeyPress);
-        //        }
-        //    }
-        //}
+
+        private void DGVStockUdjustment_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            //if (DGVStockUdjustment.Columns[e.ColumnIndex].Name.Equals("colNewUnitCost")) 
+            //{
+            //    if (DGVSt) { }
+            //}
+        }
     }
 }

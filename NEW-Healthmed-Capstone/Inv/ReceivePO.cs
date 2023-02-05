@@ -13,6 +13,7 @@ namespace NEW_Healthmed_Capstone.Inv
     public partial class ReceivePO : Form
     {
         DBhelperClass dbh = new DBhelperClass();
+        ExpirySetter es = new ExpirySetter();
         public ReceivePO()
         {
             InitializeComponent();
@@ -99,7 +100,6 @@ namespace NEW_Healthmed_Capstone.Inv
             if (dgvPoList.Columns[e.ColumnIndex].Name.Equals("colAddS"))
             {
                 tbPOnum.Text = dgvPoList.Rows[e.RowIndex].Cells["colPoNumS"].Value.ToString();
-                
             }
         }
 
@@ -182,6 +182,8 @@ namespace NEW_Healthmed_Capstone.Inv
             foreach(DataGridViewRow r in dgvToReceive.Rows) 
             {
                 r.Cells["colExpiryDate"].Value = "Set Expiry";
+                r.Cells["colReQty"].Value = 0;
+                r.Cells["colLot"].Value = ""; 
             }
         }
 
@@ -190,35 +192,34 @@ namespace NEW_Healthmed_Capstone.Inv
             if (dgvBackOrder.Columns[e.ColumnIndex].Name.Equals("colAddBo"))
             {
                 tbPOnum.Text = dgvBackOrder.Rows[e.RowIndex].Cells["colPoNumBo"].Value.ToString();
-
             }
         }
 
-        private void dgvToReceive_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void dgvToReceive_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-
-            
             try
             {
-                //if (Double.TryParse(dgvToReceive.Rows[e.RowIndex].Cells["colReQty"].Value.ToString(), out double r) == false && dgvToReceive.Rows[e.RowIndex].Cells["colReQty"] != null)
-                //{
-                //    MessageBox.Show("This Field Only Accepts Number");
-                //}
+                if (!Double.TryParse(dgvToReceive.Rows[e.RowIndex].Cells["colReQty"].Value.ToString(), out double r))
+                {
+                    MessageBox.Show("This Field Only Accepts Number");
+                    dgvToReceive.Rows[e.RowIndex].Cells["colReQty"].Value = 0;
+                }
+                else if (Convert.ToInt16(dgvToReceive.Rows[e.RowIndex].Cells["colReQty"].Value) > Convert.ToInt16(dgvToReceive.Rows[e.RowIndex].Cells["colPendingQty"].Value))
+                {
+                    MessageBox.Show("Receiving Quantity Must Not Be Greater Than Pending Quantity");
+                    dgvToReceive.Rows[e.RowIndex].Cells["colReQty"].Value = 0;
+                }
             }
-            catch (Exception cn) { }
+            catch (Exception) { }
         }
 
-
-        private void dgvToReceive_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        private void dgvToReceive_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvToReceive.Columns[e.ColumnIndex].Name.Equals("colReQty")) 
+            if (dgvToReceive.Columns[e.ColumnIndex].Name.Equals("colExpiryDate"))
             {
-                //if (Double.TryParse(dgvToReceive.Rows[e.RowIndex].Cells["colReQty"].Value.ToString(), out double r))
-                //{
-                //    MessageBox.Show("This Field Only Accepts Number");
-                //}
+                es.ShowDialog();
+                dgvToReceive.Rows[e.RowIndex].Cells["colExpiryDate"].Value = Properties.Settings.Default.ExpiryDate;
             }
-            
         }
     }
 }

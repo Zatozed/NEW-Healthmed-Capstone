@@ -1,6 +1,4 @@
-﻿using NEW_Healthmed_Capstone.file_maintenance;
-using NEW_Healthmed_Capstone.Inv;
-using NEW_Healthmed_Capstone.Point_of_Sale;
+﻿using NEW_Healthmed_Capstone.login;
 using System;
 using System.Windows.Forms;
 
@@ -16,7 +14,7 @@ namespace NEW_Healthmed_Capstone
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PurchaseOrder());
+            Application.Run(new Form1());
         }
     }
 }

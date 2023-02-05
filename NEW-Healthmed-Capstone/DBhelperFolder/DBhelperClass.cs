@@ -31,7 +31,7 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
         }
         public void OpenCon() { con.Open(); }
         public void CloseCon() { con.Close(); }
-
+        
         public ArrayList SupplierList()
         {
             ArrayList l = new ArrayList();

@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using NEW_Healthmed_Capstone.file_maintenance;
 using NEW_Healthmed_Capstone.login;
 using NEW_Healthmed_Capstone.Main;
 
@@ -44,7 +36,7 @@ namespace NEW_Healthmed_Capstone
                     labelConfigure.Enabled = false;
                 }
             }
-            catch (Exception ex) { MessageBox.Show("Not Connected"); }
+            catch (Exception) { MessageBox.Show("Not Connected"); }
         }
         private void openCon()
         {
@@ -113,11 +105,9 @@ namespace NEW_Healthmed_Capstone
                 closeCon();
             }
 
-            catch (Exception exc)
+            catch (MySqlException)
             {
-                MessageBox.Show("error");
-                MessageBox.Show("Something went wrong with the LogIn Module");
-                MessageBox.Show(exc.Message.ToString());
+                MessageBox.Show("Invalid Connection");
             }
         }
 

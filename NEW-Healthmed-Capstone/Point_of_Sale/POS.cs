@@ -72,7 +72,7 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
             toAmountDue.Text = lbTotal.Text.Substring(4);
 
             TextObject toCash = (TextObject)ctrResibo.ReportDefinition.Sections["Section4"].ReportObjects["toCash"];
-            toCash.Text = lbCash.Text.Substring(4);
+            toCash.Text = lbCash.Text.Substring(4).ToString();
 
             TextObject toChange = (TextObject)ctrResibo.ReportDefinition.Sections["Section4"].ReportObjects["toChange"];
             toChange.Text = lbChange.Text.Substring(4);
@@ -199,7 +199,6 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
             {
                 (dgvCart.Columns["colCBDiscountCart"] as DataGridViewComboBoxColumn).Items.Add(s);
             }
-            
         }
 
         private void POS_Load(object sender, EventArgs e)

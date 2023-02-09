@@ -91,39 +91,38 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
         }
         private void Compute()
         {
-                foreach (DataGridViewRow r in dgvCart.Rows)
+            foreach (DataGridViewRow r in dgvCart.Rows)
+            {
+                double qty = Convert.ToDouble(r.Cells["colQtyCart"].Value);
+                double price = Convert.ToDouble(r.Cells["colUnitPriceCart"].Value);
+                double discount = Convert.ToDouble(r.Cells["colDiscountCart"].Value);
+
+                if (r.Cells["colCBDiscountCart"].Value == null || r.Cells["colCBDiscountCart"].Value.ToString().Equals("")) // if no laman
                 {
-                    double qty = Convert.ToDouble(r.Cells["colQtyCart"].Value);
-                    double price = Convert.ToDouble(r.Cells["colUnitPriceCart"].Value);
-                    double discount = Convert.ToDouble(r.Cells["colDiscountCart"].Value);
-
-                    if (r.Cells["colCBDiscountCart"].Value == null || r.Cells["colCBDiscountCart"].Value.ToString().Equals("")) // if no laman
-                    {
-                        r.Cells["colVatableCart"].Value = (qty * price) / 1.12;
-                        r.Cells["colVATCart"].Value = Convert.ToDouble(r.Cells["colVatableCart"].Value) * 0.12;
-                        r.Cells["colLessDiscount"].Value = (qty * price) * discount;
-                        r.Cells["colTotalCart"].Value = Math.Round((qty * price) - Convert.ToDouble(r.Cells["colLessDiscount"].Value), 2).ToString("0.00");
-                    }
-                    else if (dbh.isVatExmpt(r.Cells["colCBDiscountCart"].Value.ToString()).Equals("yes")) // vat exemp = yes
-                    {
-                        r.Cells["colVatableCart"].Value = (qty * price) / 1.12;
-                        r.Cells["colVatXCart"].Value = r.Cells["colVatableCart"].Value;
-                        r.Cells["colVATCart"].Value = Convert.ToDouble(r.Cells["colVatableCart"].Value) * 0.12;
-                        r.Cells["colLessDiscount"].Value = Convert.ToDouble(r.Cells["colVatXCart"].Value) * discount;
-                        r.Cells["colTotalCart"].Value = Math.Round(Convert.ToDouble(r.Cells["colVatXCart"].Value) - Convert.ToDouble(r.Cells["colLessDiscount"].Value), 2).ToString("0.00");
-
-                    }
-                    else // if not vat exempt
-                    {
-                        r.Cells["colVatableCart"].Value = (qty * price) / 1.12;
-                        r.Cells["colVATCart"].Value = Convert.ToDouble(r.Cells["colVatableCart"].Value) * 0.12;
-                        r.Cells["colLessDiscount"].Value = (qty * price) * discount;
-                        r.Cells["colTotalCart"].Value = Math.Round((qty * price) - Convert.ToDouble(r.Cells["colLessDiscount"].Value), 2);
-                    }
+                    r.Cells["colVatableCart"].Value = (qty * price) / 1.12;
+                    r.Cells["colVATCart"].Value = Convert.ToDouble(r.Cells["colVatableCart"].Value) * 0.12;
+                    r.Cells["colLessDiscount"].Value = (qty * price) * discount;
+                    r.Cells["colTotalCart"].Value = Math.Round((qty * price) - Convert.ToDouble(r.Cells["colLessDiscount"].Value), 2).ToString("0.00");
                 }
+                else if (dbh.isVatExmpt(r.Cells["colCBDiscountCart"].Value.ToString()).Equals("yes")) // vat exemp = yes
+                {
+                    r.Cells["colVatableCart"].Value = (qty * price) / 1.12;
+                    r.Cells["colVatXCart"].Value = r.Cells["colVatableCart"].Value;
+                    r.Cells["colVATCart"].Value = Convert.ToDouble(r.Cells["colVatableCart"].Value) * 0.12;
+                    r.Cells["colLessDiscount"].Value = Convert.ToDouble(r.Cells["colVatXCart"].Value) * discount;
+                    r.Cells["colTotalCart"].Value = Math.Round(Convert.ToDouble(r.Cells["colVatXCart"].Value) - Convert.ToDouble(r.Cells["colLessDiscount"].Value), 2).ToString("0.00");
 
+                }
+                else // if not vat exempt
+                {
+                    r.Cells["colVatableCart"].Value = (qty * price) / 1.12;
+                    r.Cells["colVATCart"].Value = Convert.ToDouble(r.Cells["colVatableCart"].Value) * 0.12;
+                    r.Cells["colLessDiscount"].Value = (qty * price) * discount;
+                    r.Cells["colTotalCart"].Value = Math.Round((qty * price) - Convert.ToDouble(r.Cells["colLessDiscount"].Value), 2);
+                }
             }
-            
+
+
         }
         private double ComputeSubTotal()
         {

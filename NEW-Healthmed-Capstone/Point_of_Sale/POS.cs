@@ -91,8 +91,6 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
         }
         private void Compute()
         {
-            try
-            {
                 foreach (DataGridViewRow r in dgvCart.Rows)
                 {
                     double qty = Convert.ToDouble(r.Cells["colQtyCart"].Value);
@@ -124,10 +122,6 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                     }
                 }
 
-            }
-            catch (Exception e) 
-            { 
-                MessageBox.Show("Discount does not accept letters");
             }
             
         }
@@ -377,6 +371,16 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                     {
                         dgvCart.Rows.RemoveAt(e.RowIndex);
                     }
+                    
+
+                }
+            }
+            else if (dgvCart.Columns[e.ColumnIndex].Name.Equals("colDiscountCart"))
+            {
+                if (!Int32.TryParse(dgvCart.Rows[e.RowIndex].Cells["colDiscountCart"].Value.ToString(), out int i2))
+                {
+                    MessageBox.Show("Discount Must Not Be Letters");
+                    dgvCart.Rows[e.RowIndex].Cells["colDiscountCart"].Value = 0;
                 }
             }
         }

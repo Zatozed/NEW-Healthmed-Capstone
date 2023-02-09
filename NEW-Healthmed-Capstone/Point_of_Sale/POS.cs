@@ -311,7 +311,6 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
             {
                 if (dgvCart.RowCount != 0)
                 {
-
                     string prodCode = dgvCart.Rows[e.RowIndex].Cells["colProdCodeCart"].Value.ToString();
                     int _qty = Convert.ToInt32(dgvCart.Rows[e.RowIndex].Cells["colQtyCart"].Value);
 
@@ -319,10 +318,6 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                     {
                         MessageBox.Show("Insufficient Stock");
                         dgvCart.Rows[e.RowIndex].Cells["colQtyCart"].Value = 1;
-                    }
-                    else if (!Double.TryParse(dgvCart.Rows[e.RowIndex].Cells["colQtyCart"].Value.ToString(), out double r))
-                    {
-                        MessageBox.Show("Quantity Must Not Be Letters");
                     }
                     else
                     {
@@ -347,7 +342,10 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                         lbTotal.Text = "Php " + total.ToString("0.00");
                     }
                 }
-                
+                //else if (!Double.TryParse(dgvCart.Rows[e.RowIndex].Cells["colQtyCart"].Value.ToString(), out double r) && dgvCart.RowCount != 0)
+                //{
+                //    MessageBox.Show("Quantity Must Not Be Letters");
+                //}
             }
             catch { }
             
@@ -368,9 +366,19 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
         {
             if (dgvCart.Columns[e.ColumnIndex].Name.Equals("colQtyCart"))
             {
-                //if (dgvCart.Rows[e.RowIndex].Cells["colQtyCart"].Value) { }
+                if (dgvCart.RowCount != 0)
+                {
+                    if (!Int32.TryParse(dgvCart.Rows[e.RowIndex].Cells["colQtyCart"].Value.ToString(), out int i))
+                    {
+                        MessageBox.Show("Quantity Must Not Be Letters");
+                        dgvCart.Rows[e.RowIndex].Cells["colQtyCart"].Value = 1;
+                    }
+                    else if (Convert.ToInt32(dgvCart.Rows[e.RowIndex].Cells["colQtyCart"].Value) == 0)
+                    {
+                        dgvCart.Rows.RemoveAt(e.RowIndex);
+                    }
+                }
             }
-            //MessageBox.Show("");
         }
 
         private void btnHome_Click(object sender, EventArgs e)

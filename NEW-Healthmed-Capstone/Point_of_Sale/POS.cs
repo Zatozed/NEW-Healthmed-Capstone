@@ -308,10 +308,11 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
 
         private void dgvCart_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvCart.RowCount != 0)
+            try 
             {
-                try 
+                if (dgvCart.RowCount != 0)
                 {
+
                     string prodCode = dgvCart.Rows[e.RowIndex].Cells["colProdCodeCart"].Value.ToString();
                     int _qty = Convert.ToInt32(dgvCart.Rows[e.RowIndex].Cells["colQtyCart"].Value);
 
@@ -319,6 +320,10 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                     {
                         MessageBox.Show("Insufficient Stock");
                         dgvCart.Rows[e.RowIndex].Cells["colQtyCart"].Value = 1;
+                    }
+                    else if (!Double.TryParse(dgvCart.Rows[e.RowIndex].Cells["colQtyCart"].Value.ToString(), out double r))
+                    {
+                        MessageBox.Show("Quantity Must Not Be Letters");
                     }
                     else
                     {
@@ -343,9 +348,10 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                         lbTotal.Text = "Php " + total.ToString("0.00");
                     }
                 }
-                catch (Exception xn) { MessageBox.Show("Quantity does not accept letters"); }
-
+                
             }
+            catch { }
+            
         }
 
         private void btnPrintRe_Click(object sender, EventArgs e)
@@ -392,9 +398,9 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                         qtyZero = true;
                 }
 
-                if (qtyZero == true)
+                if (qtyZero == true )
                 {
-                    MessageBox.Show("Quantity is 0");
+                    MessageBox.Show("Quantity Must Not Be 0");
                 }
                 else 
                 {
@@ -431,6 +437,8 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
 
                         btnPayment.Enabled = false;
                         DgvToDt();
+
+                        dbh.CashIn(total.ToString());
 
                         dgvDrugs.DataSource = dbh.ShowProductList();
                     }

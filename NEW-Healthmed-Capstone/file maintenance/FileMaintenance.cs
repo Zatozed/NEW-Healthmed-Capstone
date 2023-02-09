@@ -9,6 +9,10 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using System.Collections;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading;
 
 namespace NEW_Healthmed_Capstone.file_maintenance
 {
@@ -18,13 +22,46 @@ namespace NEW_Healthmed_Capstone.file_maintenance
         private DBhelperClass dbh = new DBhelperClass();
         private MySqlCommand cmd;
         private MySqlDataReader dr;
+
+        private ArrayList arryScr = new ArrayList();
+        private AutoCompleteStringCollection src;
+
         public FileMaintenance()
         {
             InitializeComponent();
         }
+        private void GenerateAutoCompleteSrc()
+        {
+            src = new AutoCompleteStringCollection();
+            foreach (string s in arryScr)
+            {
+                src.Add(s);
 
+                tbProductCode.AutoCompleteCustomSource = src;
+                tbDosage.AutoCompleteCustomSource = src;
+                tbUnitPrice.AutoCompleteCustomSource = src;
+                tbUnitCost.AutoCompleteCustomSource = src;
+                tbProductName.AutoCompleteCustomSource = src;
+                tbType.AutoCompleteCustomSource = src;
+                tbClassification.AutoCompleteCustomSource = src;
+
+                tbSupplierName.AutoCompleteCustomSource = src;
+                tbContact.AutoCompleteCustomSource = src;
+                tbDescription.AutoCompleteCustomSource = src;
+                tbAddress.AutoCompleteCustomSource = src;
+                tbEmail.AutoCompleteCustomSource = src;
+
+                tbDiscountName.AutoCompleteCustomSource = src;
+
+
+            }
+
+        }
         private void FileMaintenance_Load(object sender, EventArgs e)
         {
+            arryScr = dbh.AutoComplete();
+            GenerateAutoCompleteSrc();
+
 
             dgvDiscount.DataSource = dbh.ShowDiscountList();
             dgvSupplier.DataSource = dbh.showSupplierList();

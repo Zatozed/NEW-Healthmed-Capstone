@@ -29,27 +29,27 @@ namespace NEW_Healthmed_Capstone.Inv
         }
         private void ComputeSubtotal() 
         {
-                if (dgvOrders.Rows.Count != 0)
+            if (dgvOrders.Rows.Count != 0)
+            {
+                subtotal = 0;
+                foreach (DataGridViewRow r in dgvOrders.Rows)
                 {
-                    subtotal = 0;
-                    foreach (DataGridViewRow r in dgvOrders.Rows)
-                    {
-                        subtotal += Math.Round(Convert.ToDouble(r.Cells["colQty"].Value) * Convert.ToDouble(r.Cells["colUnitCost"].Value), 2);
-                    }
+                    subtotal += Math.Round(Convert.ToDouble(r.Cells["colQty"].Value) * Convert.ToDouble(r.Cells["colUnitCost"].Value), 2);
                 }
+            }
         }
         private void ComputeSubtotalLessDiscount() 
         {
-                if (dgvOrders.Rows.Count != 0)
+            if (dgvOrders.Rows.Count != 0)
+            {
+                Discount = 0;
+                foreach (DataGridViewRow r in dgvOrders.Rows)
                 {
-                    Discount = 0;
-                    foreach (DataGridViewRow r in dgvOrders.Rows)
-                    {
-                        Discount += Math.Round(
-                            (Convert.ToDouble(r.Cells["colQty"].Value) * Convert.ToDouble(r.Cells["colUnitCost"].Value)) * Convert.ToDouble(r.Cells["colDiscount"].Value)
-                            , 2);
-                    }
+                    Discount += Math.Round(
+                        (Convert.ToDouble(r.Cells["colQty"].Value) * Convert.ToDouble(r.Cells["colUnitCost"].Value)) * Convert.ToDouble(r.Cells["colDiscount"].Value)
+                        , 2);
                 }
+            }
         }
         private void GenereateAutoCompleteSrc()
         {

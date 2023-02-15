@@ -893,7 +893,7 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("select distinct po_num from tbl_po where received_qty = 0",
+                cmd = new MySqlCommand("select distinct po_num from tbl_po where received_qty = 0 and pending_qty != 0",
                 con);
                 dataAdapter = new MySqlDataAdapter(cmd);
                 dataAdapter.Fill(dt);
@@ -910,7 +910,7 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("select * from tbl_po where po_num = '"+ poNum +"'",
+                cmd = new MySqlCommand("select * from tbl_po where po_num = '"+ poNum + "' and pending_qty != 0",
                 con);
                 dataAdapter = new MySqlDataAdapter(cmd);
                 dataAdapter.Fill(dt);
@@ -928,7 +928,7 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("select distinct po_num from tbl_po where ((select(sum(pending_qty)) != 0)) and received_qty != 0",
+                cmd = new MySqlCommand("select distinct po_num from tbl_po where ((select(sum(pending_qty)) != 0)) and received_qty != 0 and pending_qty != 0",
                 con);
                 dataAdapter = new MySqlDataAdapter(cmd);
                 dataAdapter.Fill(dt);

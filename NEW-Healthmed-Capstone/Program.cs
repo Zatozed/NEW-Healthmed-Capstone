@@ -17,7 +17,7 @@ namespace NEW_Healthmed_Capstone
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FileMaintenance());
+            Application.Run(new Form1());
         }
     }
 }

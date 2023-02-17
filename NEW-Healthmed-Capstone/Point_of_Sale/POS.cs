@@ -1,4 +1,5 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
+using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI.Common;
 using NEW_Healthmed_Capstone.CrystalReportsFolder;
 using NEW_Healthmed_Capstone.CtrHelperFolder;
@@ -386,15 +387,22 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            CashRegister cr = new CashRegister();
+            CashRegister cr = new CashRegister("Cash Out");
             cr.ShowDialog();
-            this.Close();
         }
 
         private void POS_FormClosing(object sender, FormClosingEventArgs e)
         {
-            CashRegister cr = new CashRegister();
-            cr.ShowDialog();
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show("Are You Sure You Want to End Your Shift", "End Shift", buttons);
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+            else 
+            {
+                e.Cancel = true;
+            }
         }
 
         private void btnPayment_Click(object sender, EventArgs e)

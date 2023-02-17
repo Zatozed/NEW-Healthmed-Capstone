@@ -13,6 +13,16 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
         public CashRegister()
         {
             InitializeComponent();
+
+            comboBox1.Items.Clear();
+            comboBox1.Items.Add("Cash In");
+        }
+        public CashRegister(string co)
+        {
+            InitializeComponent();
+
+            comboBox1.Items.Clear();
+            comboBox1.Items.Add(co);
         }
 
         private void CashRegister_Load(object sender, EventArgs e)

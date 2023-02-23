@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -220,8 +220,8 @@
             // 
             this.colTransactionNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.colTransactionNum.DataPropertyName = "transaction_num";
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colTransactionNum.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTransactionNum.DefaultCellStyle = dataGridViewCellStyle37;
             this.colTransactionNum.HeaderText = "Transaction #";
             this.colTransactionNum.Name = "colTransactionNum";
             this.colTransactionNum.ReadOnly = true;
@@ -230,8 +230,8 @@
             // colProductCode
             // 
             this.colProductCode.DataPropertyName = "product_code";
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colProductCode.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colProductCode.DefaultCellStyle = dataGridViewCellStyle38;
             this.colProductCode.HeaderText = "Product Code";
             this.colProductCode.Name = "colProductCode";
             this.colProductCode.ReadOnly = true;
@@ -240,8 +240,8 @@
             // 
             this.colItemDes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colItemDes.DataPropertyName = "item_description";
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colItemDes.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colItemDes.DefaultCellStyle = dataGridViewCellStyle39;
             this.colItemDes.HeaderText = "Item Description";
             this.colItemDes.Name = "colItemDes";
             this.colItemDes.ReadOnly = true;
@@ -249,8 +249,8 @@
             // colQty
             // 
             this.colQty.DataPropertyName = "qty";
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colQty.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle40.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colQty.DefaultCellStyle = dataGridViewCellStyle40;
             this.colQty.HeaderText = "Qty";
             this.colQty.Name = "colQty";
             this.colQty.ReadOnly = true;
@@ -258,8 +258,8 @@
             // colUnitCost
             // 
             this.colUnitCost.DataPropertyName = "unit_cost";
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colUnitCost.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colUnitCost.DefaultCellStyle = dataGridViewCellStyle41;
             this.colUnitCost.HeaderText = "Unit Cost";
             this.colUnitCost.Name = "colUnitCost";
             this.colUnitCost.ReadOnly = true;
@@ -267,8 +267,8 @@
             // colUnitPrice
             // 
             this.colUnitPrice.DataPropertyName = "unit_price";
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colUnitPrice.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colUnitPrice.DefaultCellStyle = dataGridViewCellStyle42;
             this.colUnitPrice.HeaderText = "Unit Price";
             this.colUnitPrice.Name = "colUnitPrice";
             this.colUnitPrice.ReadOnly = true;
@@ -276,8 +276,8 @@
             // colVatEx
             // 
             this.colVatEx.DataPropertyName = "vat_exempt";
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colVatEx.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle43.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colVatEx.DefaultCellStyle = dataGridViewCellStyle43;
             this.colVatEx.HeaderText = "VAT Exempt Sales";
             this.colVatEx.Name = "colVatEx";
             this.colVatEx.ReadOnly = true;
@@ -285,8 +285,8 @@
             // colDiscount
             // 
             this.colDiscount.DataPropertyName = "discount";
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colDiscount.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle44.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colDiscount.DefaultCellStyle = dataGridViewCellStyle44;
             this.colDiscount.HeaderText = "Discount";
             this.colDiscount.Name = "colDiscount";
             this.colDiscount.ReadOnly = true;
@@ -294,8 +294,8 @@
             // colTotalCost
             // 
             this.colTotalCost.DataPropertyName = "total_cost";
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colTotalCost.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle45.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTotalCost.DefaultCellStyle = dataGridViewCellStyle45;
             this.colTotalCost.HeaderText = "Total Cost";
             this.colTotalCost.Name = "colTotalCost";
             this.colTotalCost.ReadOnly = true;
@@ -303,8 +303,8 @@
             // colTotalSales
             // 
             this.colTotalSales.DataPropertyName = "total_sales";
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colTotalSales.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle46.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTotalSales.DefaultCellStyle = dataGridViewCellStyle46;
             this.colTotalSales.HeaderText = "Total Sales";
             this.colTotalSales.Name = "colTotalSales";
             this.colTotalSales.ReadOnly = true;
@@ -313,8 +313,8 @@
             // 
             this.colTransacDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.colTransacDate.DataPropertyName = "transac_date";
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colTransacDate.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle47.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTransacDate.DefaultCellStyle = dataGridViewCellStyle47;
             this.colTransacDate.HeaderText = "Transaction Date";
             this.colTransacDate.Name = "colTransacDate";
             this.colTransacDate.ReadOnly = true;
@@ -323,8 +323,8 @@
             // colCashier
             // 
             this.colCashier.DataPropertyName = "cashier";
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colCashier.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle48.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colCashier.DefaultCellStyle = dataGridViewCellStyle48;
             this.colCashier.HeaderText = "Cashier";
             this.colCashier.Name = "colCashier";
             this.colCashier.ReadOnly = true;
@@ -380,7 +380,7 @@
             // 
             // dtToDate
             // 
-            this.dtToDate.CustomFormat = "yyyy/MM/dd hh:mm";
+            this.dtToDate.CustomFormat = "yyyy/MM/dd";
             this.dtToDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtToDate.Location = new System.Drawing.Point(915, 47);
             this.dtToDate.Name = "dtToDate";
@@ -390,7 +390,7 @@
             // 
             // dtFromDate
             // 
-            this.dtFromDate.CustomFormat = "yyyy/MM/dd hh:mm";
+            this.dtFromDate.CustomFormat = "yyyy/MM/dd";
             this.dtFromDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtFromDate.Location = new System.Drawing.Point(459, 47);
             this.dtFromDate.Name = "dtFromDate";

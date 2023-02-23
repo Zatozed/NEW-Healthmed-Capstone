@@ -101,17 +101,18 @@ namespace NEW_Healthmed_Capstone.Reports
 
         private void dtFromDate_ValueChanged(object sender, EventArgs e)
         {
-
+            MessageBox.Show(dtFromDate.Value.ToString("yyyy-MM-dd"));
+            dgvSales.DataSource = dbh.ShowSales(dtFromDate.Value.ToString("yyyy-MM-dd"), dtToDate.Value.ToString("yyyy-MM-dd"));
         }
 
         private void dtToDate_ValueChanged(object sender, EventArgs e)
         {
-
+            dgvSales.DataSource = dbh.ShowSales(dtFromDate.Value.ToString("yyyy-MM-dd"), dtToDate.Value.ToString("yyyy-MM-dd"));
         }
 
         private void SalesReport_Load(object sender, EventArgs e)
         {
-            dgvSales.DataSource = dbh.ShowSales();
+            dgvSales.DataSource = dbh.ShowSales(dtFromDate.Value.ToString("yyyy-MM-dd"), dtToDate.Value.ToString("yyyy-MM-dd"));
 
             ComputeProfit();
 
@@ -122,9 +123,9 @@ namespace NEW_Healthmed_Capstone.Reports
 
         private void tbTransacNum_TextChanged(object sender, EventArgs e)
         {
-            if (tbTransacNum.Text.ToString().Equals(""))
+            if (tbTransacNum.Text.ToString().Equals("\"yyyy:MM:dd\""))
             {
-                dgvSales.DataSource = dbh.ShowSales();
+                dgvSales.DataSource = dbh.ShowSales(dtFromDate.Value.ToString("yyyy-MM-dd"), dtToDate.Value.ToString("yyyy-MM-dd"));
             }
             else 
             {

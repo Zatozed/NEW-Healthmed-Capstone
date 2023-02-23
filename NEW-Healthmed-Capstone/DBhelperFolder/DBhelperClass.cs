@@ -566,13 +566,14 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             finally { con.Close(); }
             return dt;
         }
-        public DataTable ShowSales() 
+        public DataTable ShowSales(string d_from, string d_to) 
         {
             DataTable dt = new DataTable();
             try
             {
                 con.Open();
-                cmd = new MySqlCommand("select transaction_num, product_code, item_description, qty, unit_cost, unit_price, vat_exempt, discount, total_cost, total_sales, transac_date, cashier from tbl_sales", con);
+                //cmd = new MySqlCommand("select transaction_num, product_code, item_description, qty, unit_cost, unit_price, vat_exempt, discount, total_cost, total_sales, transac_date, cashier from tbl_sales where (select date_format(transac_date, '%Y-%m-%d')) between '2023-02-17' and '2023-02-17';", con);
+                cmd = new MySqlCommand("select transaction_num, product_code, item_description, qty, unit_cost, unit_price, vat_exempt, discount, total_cost, total_sales, transac_date, cashier from tbl_sales where (select date_format(transac_date, '%Y-%m-%d')) between '" + d_from + "' and '" + d_to + "'", con);
                 dataAdapter = new MySqlDataAdapter(cmd);
                 dataAdapter.Fill(dt);
             }

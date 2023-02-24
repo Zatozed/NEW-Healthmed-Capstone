@@ -39,7 +39,6 @@ namespace NEW_Healthmed_Capstone.User
                 if (getRoleID == "2")
                 {
                     btnUserList.Visible = false;
-                    btnInfo.Location = new Point(147, 164);
                     btnRegister.Visible = false;
                     btnLogout.Location = new Point(147, 223);
                 }

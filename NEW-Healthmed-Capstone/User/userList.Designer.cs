@@ -61,9 +61,11 @@
             this.colEdit,
             this.colDeact,
             this.colDelete});
-            this.dgvUserList.Location = new System.Drawing.Point(12, 31);
+            this.dgvUserList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvUserList.Location = new System.Drawing.Point(0, 0);
+            this.dgvUserList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvUserList.Name = "dgvUserList";
-            this.dgvUserList.Size = new System.Drawing.Size(1003, 365);
+            this.dgvUserList.Size = new System.Drawing.Size(910, 403);
             this.dgvUserList.TabIndex = 22;
             this.dgvUserList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUserList_CellContentClick);
             // 
@@ -74,7 +76,6 @@
             this.colUserID.Name = "colUserID";
             this.colUserID.ReadOnly = true;
             this.colUserID.Visible = false;
-            this.colUserID.Width = 65;
             // 
             // colUsername
             // 
@@ -160,14 +161,16 @@
             // 
             // userList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1029, 410);
+            this.ClientSize = new System.Drawing.Size(910, 403);
             this.Controls.Add(this.dgvUserList);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "userList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "userList";
+            this.Text = "User List";
             this.Load += new System.EventHandler(this.userList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserList)).EndInit();
             this.ResumeLayout(false);

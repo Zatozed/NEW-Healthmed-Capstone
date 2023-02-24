@@ -123,7 +123,7 @@ namespace NEW_Healthmed_Capstone.Reports
 
         private void tbTransacNum_TextChanged(object sender, EventArgs e)
         {
-            if (tbTransacNum.Text.ToString().Equals("\"yyyy:MM:dd\""))
+            if (tbTransacNum.Text.ToString().Equals(""))
             {
                 dgvSales.DataSource = dbh.ShowSales(dtFromDate.Value.ToString("yyyy-MM-dd"), dtToDate.Value.ToString("yyyy-MM-dd"));
             }

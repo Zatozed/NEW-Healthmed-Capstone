@@ -44,6 +44,7 @@ namespace NEW_Healthmed_Capstone.User
                     btnLogout.Location = new Point(147, 223);
                 }
             }
+            userInformation();
         }
         private void openCon()
         {
@@ -83,11 +84,6 @@ namespace NEW_Healthmed_Capstone.User
 
             }
             closeCon();
-        }
-
-        private void btnInfo_Click(object sender, EventArgs e)
-        {
-            userInformation();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

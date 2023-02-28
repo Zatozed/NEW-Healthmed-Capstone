@@ -16,6 +16,7 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
 
             comboBox1.Items.Clear();
             comboBox1.Items.Add("Cash In");
+            tbCash.Text = lbBalance.Text;
         }
         public CashRegister(string co)
         {
@@ -60,11 +61,11 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                     dbh.CashIn(tbCash.Text);
 
                     dbh.InsertToCash(Properties.Settings.Default.Fname_Lname,
-                        comboBox1.Text,
+                        "Starting",
                         tbCash.Text,
                         datenow);
                     MessageBox.Show("Cash In Done");
-                    this.Hide();
+                    this.Close();
                     pos.ShowDialog();
                 }
             }
@@ -81,6 +82,24 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                             tbCash.Text,
                             datenow);
                         MessageBox.Show("Cash Out Done");
+
+                        this.Close();
+                    }
+                }
+            }
+            else if (comboBox1.Text.Equals("Ending"))
+            {
+                if (Convert.ToDouble(lbBalance.Text) >= Convert.ToDouble(tbCash.Text))
+                {
+                    if (dbh.VerifyPass(tbPass.Text))
+                    {
+                        dbh.CashOut(tbCash.Text);
+
+                        dbh.InsertToCash(Properties.Settings.Default.Fname_Lname,
+                            comboBox1.Text,
+                            tbCash.Text,
+                            datenow);
+                        MessageBox.Show("End Shift Done");
 
                         this.Close();
                     }

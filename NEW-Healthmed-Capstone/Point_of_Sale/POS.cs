@@ -397,7 +397,8 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
             DialogResult result = MessageBox.Show("Are You Sure You Want to End Your Shift", "End Shift", buttons);
             if (result == DialogResult.Yes)
             {
-                this.Close();
+                CashRegister cr = new CashRegister("Ending");
+                cr.ShowDialog();
             }
             else 
             {

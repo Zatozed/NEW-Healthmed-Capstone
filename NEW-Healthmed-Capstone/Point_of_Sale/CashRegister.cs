@@ -16,7 +16,6 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
 
             comboBox1.Items.Clear();
             comboBox1.Items.Add("Cash In");
-            tbCash.Text = lbBalance.Text;
         }
         public CashRegister(string co)
         {
@@ -24,6 +23,7 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
 
             comboBox1.Items.Clear();
             comboBox1.Items.Add(co);
+            tbCash.Text = dbh.GetBalance().ToString("00.00");
         }
 
         private void CashRegister_Load(object sender, EventArgs e)
@@ -86,6 +86,7 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                         this.Close();
                     }
                 }
+                else { MessageBox.Show("Cash out Value Cannot be Higher"); }
             }
             else if (comboBox1.Text.Equals("Ending"))
             {
@@ -104,6 +105,7 @@ namespace NEW_Healthmed_Capstone.Point_of_Sale
                         this.Close();
                     }
                 }
+                else { MessageBox.Show("Ending input Cannot be Higher"); }
             }
             else { }
 

@@ -184,8 +184,10 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.MaximumSize = new System.Drawing.Size(523, 312);
             this.MinimumSize = new System.Drawing.Size(523, 306);
             this.Name = "CashRegister";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cash Register";
             this.Load += new System.EventHandler(this.CashRegister_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

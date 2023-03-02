@@ -48,6 +48,22 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             return l;
         }
 
+        public ArrayList Users()
+        {
+            ArrayList l = new ArrayList();
+
+            con.Open();
+            cmd = new MySqlCommand("select firstname, lastname from tbl_users;", con);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                l.Add(dr.GetString(0) +" "+ dr.GetString(1));
+            }
+            con.Close();
+
+            return l;
+        }
+
         public string GetSupAd(string supAdd) 
         {
             string sa;
@@ -596,6 +612,20 @@ namespace NEW_Healthmed_Capstone.DBhelperFolder
             return dt;
         }
 
+        public DataTable ShowCashReg(string c, string date)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                con.Open();
+                cmd = new MySqlCommand("select * from tbl_cash where cashier = '"+ c +"' and (select date_format(action_date, '%Y-%m-%d')) = '"+date+"'", con);
+                dataAdapter = new MySqlDataAdapter(cmd);
+                dataAdapter.Fill(dt);
+            }
+            catch (MySqlException sql) { MessageBox.Show(sql.Message.ToString()); }
+            finally { con.Close(); }
+            return dt;
+        }
 
         public List<string> GetDiscountNames()
         {

@@ -18,7 +18,7 @@ namespace NEW_Healthmed_Capstone
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CashRegReportGenerator());
+            Application.Run(new Form1());
         }
     }
 }

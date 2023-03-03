@@ -37,7 +37,16 @@ namespace NEW_Healthmed_Capstone.Reports
         }
         private void CashRegReportGenerator_Load(object sender, EventArgs e)
         {
-            fillCbUsers();
+            if (Properties.Settings.Default.UserRole.Equals("Admin")) 
+            {
+                fillCbUsers();
+            }
+            else 
+            {
+                cbUsers.Items.Clear();
+                cbUsers.Items.Add(Properties.Settings.Default.UserRole);
+            }
+            
 
             dgvCashReg.AutoGenerateColumns = false;
         }

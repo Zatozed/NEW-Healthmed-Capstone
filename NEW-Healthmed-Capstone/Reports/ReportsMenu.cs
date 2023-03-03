@@ -140,5 +140,11 @@ namespace NEW_Healthmed_Capstone.Reports
             srv.Refresh();
             srv.Show();
         }
+
+        private void btnCashReg_Click(object sender, EventArgs e)
+        {
+            CashRegReportGenerator crg = new CashRegReportGenerator();
+            crg.ShowDialog();
+        }
     }
 }

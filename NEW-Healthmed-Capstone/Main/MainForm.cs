@@ -6,13 +6,6 @@ using NEW_Healthmed_Capstone.Point_of_Sale;
 using NEW_Healthmed_Capstone.Reports;
 using NEW_Healthmed_Capstone.User;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NEW_Healthmed_Capstone.Main
@@ -70,10 +63,16 @@ namespace NEW_Healthmed_Capstone.Main
                         string getRole = dr.GetString("roleName");
 
                         lbRole.Text = getRole;
+                        Properties.Settings.Default.UserRole = lbRole.Text;
                         if (getRoleID == "2")
                         {
                             btnInventory.Visible = false;
                             btnFilemaintenance.Visible = false;
+                            btnReports.Visible = false;
+                        }
+                        else 
+                        {
+                            btnCashRegReport.Visible = false;
                         }
                     }
                 }
@@ -135,6 +134,12 @@ namespace NEW_Healthmed_Capstone.Main
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnCashRegReport_Click(object sender, EventArgs e)
+        {
+            CashRegReportGenerator crg = new CashRegReportGenerator();
+            crg.ShowDialog();
         }
     }
 }

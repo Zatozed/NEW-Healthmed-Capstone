@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using NEW_Healthmed_Capstone.DBhelperFolder;
+using NEW_Healthmed_Capstone.Reports;
 using System;
 using System.Drawing;
 using System.Windows.Forms;

@@ -262,5 +262,17 @@ namespace NEW_Healthmed_Capstone.Properties {
                 this["isCashierActive"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string UserRole {
+            get {
+                return ((string)(this["UserRole"]));
+            }
+            set {
+                this["UserRole"] = value;
+            }
+        }
     }
 }

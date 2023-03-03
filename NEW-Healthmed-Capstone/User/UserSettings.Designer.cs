@@ -181,14 +181,14 @@
             this.panel1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(413, 450);
+            this.panel1.Size = new System.Drawing.Size(308, 450);
             this.panel1.TabIndex = 13;
             // 
             // btnRegister
             // 
             this.btnRegister.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnRegister.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F);
-            this.btnRegister.Location = new System.Drawing.Point(62, 223);
+            this.btnRegister.Location = new System.Drawing.Point(114, 223);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(135, 42);
             this.btnRegister.TabIndex = 13;
@@ -201,7 +201,7 @@
             // 
             this.btnLogout.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnLogout.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F);
-            this.btnLogout.Location = new System.Drawing.Point(62, 276);
+            this.btnLogout.Location = new System.Drawing.Point(114, 276);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(135, 39);
             this.btnLogout.TabIndex = 14;
@@ -217,16 +217,16 @@
             this.panel3.Controls.Add(this.btnLogout);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F);
-            this.panel3.Location = new System.Drawing.Point(413, 0);
+            this.panel3.Location = new System.Drawing.Point(308, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(254, 450);
+            this.panel3.Size = new System.Drawing.Size(359, 450);
             this.panel3.TabIndex = 16;
             // 
             // btnUserList
             // 
             this.btnUserList.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnUserList.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F);
-            this.btnUserList.Location = new System.Drawing.Point(62, 164);
+            this.btnUserList.Location = new System.Drawing.Point(114, 164);
             this.btnUserList.Name = "btnUserList";
             this.btnUserList.Size = new System.Drawing.Size(135, 42);
             this.btnUserList.TabIndex = 16;

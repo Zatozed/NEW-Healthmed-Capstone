@@ -53,6 +53,24 @@ namespace NEW_Healthmed_Capstone.Reports
             TextObject toCahier = (TextObject)cr.ReportDefinition.Sections["Section5"].ReportObjects["toCashier"];
             toCahier.Text = cbUsers.Text;
 
+            TextObject toSt = (TextObject)cr.ReportDefinition.Sections["Section4"].ReportObjects["toSt"];
+            toSt.Text = starting.ToString("00.00");
+
+            TextObject toEd = (TextObject)cr.ReportDefinition.Sections["Section4"].ReportObjects["toEd"];
+            toEd.Text = ending.ToString("00.00");
+
+            TextObject toDif = (TextObject)cr.ReportDefinition.Sections["Section4"].ReportObjects["toDif"];
+            toDif.Text = dif.ToString("00.00");
+
+            TextObject toTcO = (TextObject)cr.ReportDefinition.Sections["Section4"].ReportObjects["toTcO"];
+            toTcO.Text = cash_out_total.ToString("00.00");
+
+            TextObject toEdCo = (TextObject)cr.ReportDefinition.Sections["Section4"].ReportObjects["toEdCo"];
+            toEdCo.Text = ending_plus_cash_out.ToString("00.00");
+
+            TextObject toDifCo = (TextObject)cr.ReportDefinition.Sections["Section4"].ReportObjects["toDifCo"];
+            toDifCo.Text = dif_with_co.ToString("00.00");
+
             crrv.crtCashRegReport.Refresh();
             crrv.Show();
         }
@@ -84,7 +102,6 @@ namespace NEW_Healthmed_Capstone.Reports
                 cbUsers.Items.Add(Properties.Settings.Default.Fname_Lname);
             }
             
-
             dgvCashReg.AutoGenerateColumns = false;
         }
         private void GetEdCash()

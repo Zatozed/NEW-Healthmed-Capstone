@@ -176,9 +176,9 @@
             this.lbEdPlusCo.Location = new System.Drawing.Point(5, 591);
             this.lbEdPlusCo.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lbEdPlusCo.Name = "lbEdPlusCo";
-            this.lbEdPlusCo.Size = new System.Drawing.Size(150, 18);
+            this.lbEdPlusCo.Size = new System.Drawing.Size(179, 18);
             this.lbEdPlusCo.TabIndex = 4;
-            this.lbEdPlusCo.Text = "Ending + Cash Out";
+            this.lbEdPlusCo.Text = "Ending with Cash Outs";
             // 
             // lbDifPlusCo
             // 
@@ -186,9 +186,9 @@
             this.lbDifPlusCo.Location = new System.Drawing.Point(351, 591);
             this.lbDifPlusCo.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lbDifPlusCo.Name = "lbDifPlusCo";
-            this.lbDifPlusCo.Size = new System.Drawing.Size(201, 18);
+            this.lbDifPlusCo.Size = new System.Drawing.Size(210, 18);
             this.lbDifPlusCo.TabIndex = 6;
-            this.lbDifPlusCo.Text = "Difference with Cash Out:";
+            this.lbDifPlusCo.Text = "Difference with Cash Outs:";
             // 
             // lbDif
             // 

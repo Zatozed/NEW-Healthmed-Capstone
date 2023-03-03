@@ -47,8 +47,11 @@ namespace NEW_Healthmed_Capstone.Reports
             cr.SetDataSource(ds);
             crrv.crtCashRegReport.ReportSource = cr;
 
-            //TextObject toGe = (TextObject)cr.ReportDefinition.Sections["Section5"].ReportObjects["toGeneratedBy"];
-            //toGe.Text = Properties.Settings.Default.Fname_Lname;
+            TextObject toGe = (TextObject)cr.ReportDefinition.Sections["Section5"].ReportObjects["toGeBy"];
+            toGe.Text = Properties.Settings.Default.Fname_Lname;
+
+            TextObject toCahier = (TextObject)cr.ReportDefinition.Sections["Section5"].ReportObjects["toCashier"];
+            toCahier.Text = cbUsers.Text;
 
             crrv.crtCashRegReport.Refresh();
             crrv.Show();

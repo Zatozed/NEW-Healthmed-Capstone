@@ -62,7 +62,7 @@
             this.tableLayoutPanel1.Controls.Add(this.lbDifPlusCo, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.lbDif, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.lbTotalCashOut, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.btnGenerate, 2, 5);
+            this.tableLayoutPanel1.Controls.Add(this.btnGenerate, 2, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -211,10 +211,11 @@
             // 
             // btnGenerate
             // 
-            this.btnGenerate.Location = new System.Drawing.Point(697, 595);
+            this.btnGenerate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnGenerate.Location = new System.Drawing.Point(697, 533);
             this.btnGenerate.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(125, 24);
+            this.btnGenerate.Size = new System.Drawing.Size(338, 23);
             this.btnGenerate.TabIndex = 9;
             this.btnGenerate.Text = "Generate";
             this.btnGenerate.UseVisualStyleBackColor = true;

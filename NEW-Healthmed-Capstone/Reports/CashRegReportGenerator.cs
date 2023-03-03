@@ -81,7 +81,7 @@ namespace NEW_Healthmed_Capstone.Reports
             else 
             {
                 cbUsers.Items.Clear();
-                cbUsers.Items.Add(Properties.Settings.Default.UserRole);
+                cbUsers.Items.Add(Properties.Settings.Default.Fname_Lname);
             }
             
 

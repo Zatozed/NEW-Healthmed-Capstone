@@ -105,6 +105,7 @@
             this.dgvCashReg.AllowUserToDeleteRows = false;
             this.dgvCashReg.AllowUserToOrderColumns = true;
             this.dgvCashReg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCashReg.BackgroundColor = System.Drawing.Color.White;
             this.dgvCashReg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCashReg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colCashier,

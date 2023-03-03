@@ -90,6 +90,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrystalReportsFolder\CashReg.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CashReg.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CrystalReportsFolder\PoReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -220,6 +226,12 @@
     <Compile Include="Reports\CashRegReportGenerator.Designer.cs">
       <DependentUpon>CashRegReportGenerator.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\CashRegReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\CashRegReportViewer.Designer.cs">
+      <DependentUpon>CashRegReportViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\PoReportViewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -298,6 +310,10 @@
     <Compile Include="User\UserSettings.Designer.cs">
       <DependentUpon>UserSettings.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CrystalReportsFolder\CashReg.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CashReg.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReportsFolder\PoReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>PoReport.cs</LastGenOutput>
@@ -376,6 +392,9 @@
     </Compile>
     <EmbeddedResource Include="Reports\CashRegReportGenerator.resx">
       <DependentUpon>CashRegReportGenerator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CashRegReportViewer.resx">
+      <DependentUpon>CashRegReportViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\PoReportViewer.resx">
       <DependentUpon>PoReportViewer.cs</DependentUpon>

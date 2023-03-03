@@ -32,16 +32,16 @@
             this.dt1 = new System.Windows.Forms.DateTimePicker();
             this.cbUsers = new System.Windows.Forms.ComboBox();
             this.dgvCashReg = new System.Windows.Forms.DataGridView();
-            this.lbTotalCashOut = new System.Windows.Forms.Label();
             this.colCashier = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAction = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbEdPlusCo = new System.Windows.Forms.Label();
             this.lbStarting = new System.Windows.Forms.Label();
-            this.lbDifPlusCo = new System.Windows.Forms.Label();
             this.lbEnding = new System.Windows.Forms.Label();
+            this.lbEdPlusCo = new System.Windows.Forms.Label();
+            this.lbDifPlusCo = new System.Windows.Forms.Label();
             this.lbDif = new System.Windows.Forms.Label();
+            this.lbTotalCashOut = new System.Windows.Forms.Label();
             this.btnGenerate = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCashReg)).BeginInit();
@@ -121,16 +121,6 @@
             this.dgvCashReg.Size = new System.Drawing.Size(1030, 490);
             this.dgvCashReg.TabIndex = 2;
             // 
-            // lbTotalCashOut
-            // 
-            this.lbTotalCashOut.AutoSize = true;
-            this.lbTotalCashOut.Location = new System.Drawing.Point(351, 529);
-            this.lbTotalCashOut.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.lbTotalCashOut.Name = "lbTotalCashOut";
-            this.lbTotalCashOut.Size = new System.Drawing.Size(132, 18);
-            this.lbTotalCashOut.TabIndex = 3;
-            this.lbTotalCashOut.Text = "Total Cash Out: ";
-            // 
             // colCashier
             // 
             this.colCashier.DataPropertyName = "cashier";
@@ -159,16 +149,6 @@
             this.colDate.Name = "colDate";
             this.colDate.ReadOnly = true;
             // 
-            // lbEdPlusCo
-            // 
-            this.lbEdPlusCo.AutoSize = true;
-            this.lbEdPlusCo.Location = new System.Drawing.Point(5, 591);
-            this.lbEdPlusCo.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.lbEdPlusCo.Name = "lbEdPlusCo";
-            this.lbEdPlusCo.Size = new System.Drawing.Size(150, 18);
-            this.lbEdPlusCo.TabIndex = 4;
-            this.lbEdPlusCo.Text = "Ending + Cash Out";
-            // 
             // lbStarting
             // 
             this.lbStarting.AutoSize = true;
@@ -178,16 +158,6 @@
             this.lbStarting.Size = new System.Drawing.Size(76, 18);
             this.lbStarting.TabIndex = 5;
             this.lbStarting.Text = "Starting: ";
-            // 
-            // lbDifPlusCo
-            // 
-            this.lbDifPlusCo.AutoSize = true;
-            this.lbDifPlusCo.Location = new System.Drawing.Point(351, 591);
-            this.lbDifPlusCo.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.lbDifPlusCo.Name = "lbDifPlusCo";
-            this.lbDifPlusCo.Size = new System.Drawing.Size(201, 18);
-            this.lbDifPlusCo.TabIndex = 6;
-            this.lbDifPlusCo.Text = "Difference with Cash Out:";
             // 
             // lbEnding
             // 
@@ -199,6 +169,26 @@
             this.lbEnding.TabIndex = 7;
             this.lbEnding.Text = "Ending: ";
             // 
+            // lbEdPlusCo
+            // 
+            this.lbEdPlusCo.AutoSize = true;
+            this.lbEdPlusCo.Location = new System.Drawing.Point(5, 591);
+            this.lbEdPlusCo.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lbEdPlusCo.Name = "lbEdPlusCo";
+            this.lbEdPlusCo.Size = new System.Drawing.Size(150, 18);
+            this.lbEdPlusCo.TabIndex = 4;
+            this.lbEdPlusCo.Text = "Ending + Cash Out";
+            // 
+            // lbDifPlusCo
+            // 
+            this.lbDifPlusCo.AutoSize = true;
+            this.lbDifPlusCo.Location = new System.Drawing.Point(351, 591);
+            this.lbDifPlusCo.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lbDifPlusCo.Name = "lbDifPlusCo";
+            this.lbDifPlusCo.Size = new System.Drawing.Size(201, 18);
+            this.lbDifPlusCo.TabIndex = 6;
+            this.lbDifPlusCo.Text = "Difference with Cash Out:";
+            // 
             // lbDif
             // 
             this.lbDif.AutoSize = true;
@@ -209,6 +199,16 @@
             this.lbDif.TabIndex = 8;
             this.lbDif.Text = "Difference:";
             // 
+            // lbTotalCashOut
+            // 
+            this.lbTotalCashOut.AutoSize = true;
+            this.lbTotalCashOut.Location = new System.Drawing.Point(351, 529);
+            this.lbTotalCashOut.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lbTotalCashOut.Name = "lbTotalCashOut";
+            this.lbTotalCashOut.Size = new System.Drawing.Size(132, 18);
+            this.lbTotalCashOut.TabIndex = 3;
+            this.lbTotalCashOut.Text = "Total Cash Out: ";
+            // 
             // btnGenerate
             // 
             this.btnGenerate.Location = new System.Drawing.Point(697, 595);
@@ -218,6 +218,7 @@
             this.btnGenerate.TabIndex = 9;
             this.btnGenerate.Text = "Generate";
             this.btnGenerate.UseVisualStyleBackColor = true;
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
             // 
             // CashRegReportGenerator
             // 

@@ -1,6 +1,9 @@
-﻿using MySql.Data.MySqlClient;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using MySql.Data.MySqlClient;
+using NEW_Healthmed_Capstone.CrystalReportsFolder;
 using NEW_Healthmed_Capstone.DBhelperFolder;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace NEW_Healthmed_Capstone.Reports
@@ -18,6 +21,37 @@ namespace NEW_Healthmed_Capstone.Reports
         public CashRegReportGenerator()
         {
             InitializeComponent();
+        }
+        private void DgvToDt()
+        {
+            DataTable dt = new DataTable();
+            DataSet ds = new DataSet();
+
+            dt.Columns.Add("Action", typeof(string));
+            dt.Columns.Add("Amount", typeof(string));
+            dt.Columns.Add("Date", typeof(string));
+
+            foreach (DataGridViewRow r in dgvCashReg.Rows)
+            {
+                dt.Rows.Add(r.Cells["colAction"].Value.ToString(),
+                    r.Cells["colAmount"].Value.ToString(),
+                    r.Cells["colDate"].Value.ToString()
+                    );
+            }
+            ds.Tables.Add(dt);
+            ds.WriteXmlSchema("CashReg.xml");
+
+            CashReg cr = new CashReg(); // crystal reports
+            CashRegReportViewer crrv = new CashRegReportViewer(); // form viewer
+
+            cr.SetDataSource(ds);
+            crrv.crtCashRegReport.ReportSource = cr;
+
+            //TextObject toGe = (TextObject)cr.ReportDefinition.Sections["Section5"].ReportObjects["toGeneratedBy"];
+            //toGe.Text = Properties.Settings.Default.Fname_Lname;
+
+            crrv.crtCashRegReport.Refresh();
+            crrv.Show();
         }
         private void fillCbUsers()
         {
@@ -142,6 +176,18 @@ namespace NEW_Healthmed_Capstone.Reports
             lbTotalCashOut.Text = "Total Cash Out: " + cash_out_total.ToString("00.00");
             lbDif.Text = "Difference: " + dif.ToString("00.00");
             lbDifPlusCo.Text = "Difference with Cash Out: " + dif_with_co.ToString("00.00");
+        }
+
+        private void btnGenerate_Click(object sender, EventArgs e)
+        {
+            if (dgvCashReg.Rows.Count != 0)
+            {
+                DgvToDt();
+            }
+            else 
+            {
+                MessageBox.Show("No Data Present");
+            }
         }
     }
 }
